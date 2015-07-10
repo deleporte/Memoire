@@ -1,0 +1,193 @@
+\chapter{Structure de Toeplitz}
+
+Cette partie est consacré à un exposé des raisonnements et résultats de \cite{Shiffman2002}. Cependant, l'auteur a préféré, pour des raisons de clarté, exposer les raisonnements sur les Opérateurs Intégraux de Fourier en terme de leurs idéaux, et non de leurs lagrangiennes. Cette différence est motivée par la définition identique des idéaux dans le cas d'une phase complexe, et par la difficulté conceptuelle que pose d'emblée l'introduction des extensions presque analytiques comme présenté dans \cite{melin1975fourier}. On rompt donc avec la description originelle proposée par Boutet et Guillemin, de manière à proposer un exposé concis. Certains problèmes techniques ne seront donc pas exposés ici, pour le confort du lecteur.
+
+Dans cet exposé, on reprend les outils et objets de l'exposé précédent, mais on va en présenter une construction alternative, qui n'utilise pas a priori la structure exacte de $\overline{\partial}_b$, telle que la caractérisation microlocale de son noyau, ni même l'existence de solutions. Le but est de pouvoir ensuite étendre cette construction, donnée par Boutet et Guillemin dans l'annexe de \cite{BoutetdeMonvel1981}, à des cas où la structure complexe est remplacée par une structure symplectique non intégrable, dans laquelle $\overline{\partial}_b$ a les mêmes propriétés microlocales, mais ne possède pas de solution globale.
+
+Comme dans l'exposé précédent, on se donne $M$ une variété complexe de dimension $n-1$, $(L,h)$ un fibré en droites hermitien positif sur $M$ ; on se donne également une connection $\nabla$ sur $L$ "compatible" : sa courbure de Ricci est égale à $-2i\omega_g$ où $\omega_g$ est la métrique sur $M$ définie par $h$. On notera $\alpha$ la 1-forme sur $X$ reliée à $\nabla$, qui définit une structure de contact sur $X$.
+
+\section{Construction du projecteur approximatif}
+
+\subsection{Des bonnes coordonnées locales}
+
+On se donne un point $P_0 \in M$. Au voisinage de ce point, on va considérer des coordonnées locales holomorphes $(z_1,\ldots, z_{n-1})$ vérifiant que le pull-back de la métrique $\omega_g$ par la carte locale soit la métrique euclidienne en 0 (on ne demande pas que ce soit la métrique euclidienne dans un voisinage de 0, mais uniquement en 0, et c'est toujours possible).
+
+On se donne alors une section locale de L, notée $e_L$, qui vérifie $\|e_L\|_{P_0}=1$, $\nabla e_L(P_0)=0$, ainsi que $\nabla^2e_L(P_0)=-\omega_g(P_0)$.
+
+Dans les coordonnées locales, ceci revient à exiger :
+
+\begin{equation*}
+\|e_L\|(z)=1-\cfrac{|z|^2}{2} + O(|z|^3)
+\end{equation*}
+
+On notera $a(z)=\|e_L(z)\|^{-2}$, et cette notation sera à nouveau utilisée plus loin.
+
+On peut alors définir une carte locale de $X$ par :
+
+\begin{equation*}
+(z_1, \ldots, z_n, \theta) \mapsto e^{i\theta}a(z)^{-1/2}e_L^*(z)
+\end{equation*}
+
+Les coordonnées locales $(z_1, \ldots, z_n, \theta)$ sont appelées coordonnées de Heisenberg.
+
+\begin{rem}L'introduction de la connexion $\nabla$ peut paraître artificielle dans ce contexte. En réalité, le cadre naturel d'application de cette théorie est l'étude de la quantification au sens de Kostant dans \cite{kostant1970quantization} et Souriau dans \cite{souriau1967quantification}, où $\nabla$ est alors donné a priori. Il est donc rassurant de constater que dans notre version des faits, le choix arbitraire de $\nabla$ n'a pas de conséquence.\end{rem}
+\begin{rem}Dans le cas symplectique, les coordonnées $z_j$ peuvent être construites à la main à partir de coordonnées symplectiques sur $M$, de manière à vérifier les propriétés ci-dessus. \end{rem}
+
+\subsection{Description microlocale du symbole}
+
+Notre but est à présent de définir un projecteur de Szeg\H{o} comme un opérateur intégral de Fourier. Celui-ci sera décrit par une phase complexe, il est donc confortable de raisonner en termes d'idéaux lagrangiens. On va encore une fois utiliser les notations, constructions et résultats de \cite{hormander1985}.
+
+L'opérateur de Cauchy-Riemann est un opérateur pseudo-différentiel. Son symbole peut être décrit localement : si $(Z^k_j)$ est la base locale de $T''X$ définie précédemment, et $(\zeta_j)$ est la base duale correspondante, le symbole est :
+
+\begin{equation*}
+	d_0 := \sigma_{\overline{\partial}_b}(x,\xi) = \sum_{j \neq k} \langle \xi, Z^k_j \rangle \zeta_j
+\end{equation*}
+
+La variété caractéristique de $\overline{\partial}_b$ est donc exactement $(T'X + T''X)^{\perp}$; c'est un fibré en droites, que nous noterons $\Sigma$. 
+
+La forte pseudoconvexité de $D$ implique que $\Sigma$ est orientable. Soit en effet, au voisinage d'un point $x \in X$, une section non nulle $N$ de $\Sigma$, ainsi que la base $(Z^k_j)$ de $T''X$ définie précédemment. Alors $(\overline{Z^k_j})$ est une base locale de $T'X$. La condition de forte pseudoconvexité équivaut à ce que la matrice des dérivées secondes croisées de $\rho$ soit définie positive sur $X$ ; un rapide calcul montre alors que la matrice $iN([Z^k_i;Z^k_j])$ est soit hermitienne positive non dégénérée, soit hermitienne négative non dégénérée (cela dépend du choix de $N$). On peut alors décomposer $\Sigma$ en $\Sigma^+$, la nappe sur laquelle cette matrice est positive, $\Sigma^-$, la nappe sur laquelle cette matrice est négative, et bien sûr l'image de la section nulle.
+
+\subsection{Définition de l'idéal}
+
+Notons $p_j(x,\xi)= \langle \xi, Z^k_j \rangle$. Ces fonctions vérifient $\{p_i,p_j\}=0$, et $\Sigma$ est le lieu des zéros communs de $p_j$. Par ailleurs, la matrice des $\frac1i \{p_i,\overline{p_j}\}$ est définie positive sur $\Sigma^+$. Définissons un idéal de fonctions complexes sur le cotangent :
+
+\begin{equation*}
+	\mathcal{I} := \{f \in C^{\infty}(T^*X, \C), \forall (x,\xi) \in \Sigma, \exists (g_1, \ldots, g_k) \in C^{\infty}(T^*X, \C), f=\sum_{j \neq k}g_jp_j\}
+\end{equation*}
+
+Par définition, $\mathcal{I}$ est l'idéal engendré par les $p_i$. Alors $\mathcal{I}$ est stable par crochet, on peut vérifier en fait que $\mathcal{I}$ est un idéal lagrangien. Cet idéal est même \emph{positif}, au sens où la matrice des crochets des générateurs locaux est définie positive sur le lieu commun des zéros, $\Sigma^+$. C'est aussi un sous-idéal de $\mathcal{K}=\mathcal{I} + \overline{\mathcal{I}}$, l'idéal des fonctions complexes s'annulant sur $\Sigma$. 
+
+Il semble naturel que $\mathcal{I}$ soit associé au projecteur de Szeg\H{o}. Pour que la notion de projecteur orthogonal ait un sens, il faut que l'idéal associé $\mathcal{J} \subset C^{\infty}(T^*(X\times X), \C)$ vérifie que $\mathcal{J} \circ \mathcal{J} = \mathcal{J}^*=\mathcal{J}$, on va donc construire un tel idéal, qui devra être lagrangien.
+
+On considère donc $\mathcal{J} = \mathcal{I} \otimes 1 + 1 \otimes \overline{\mathcal{I}}$. $\mathcal{J}$ vérifie trivialement que $\mathcal{J}=\mathcal{J}^*$. Par ailleurs, puisque $\mathcal{I} + \overline{\mathcal{I}}=\mathcal{K}$, on a $\mathcal{J} \otimes 1 + 1 \otimes \mathcal{J} = \mathcal{I} \otimes 1 \otimes 1 + 1 \otimes 1 \otimes \overline{\mathcal{I}} + 1 \otimes \mathcal{K} \otimes 1$. Or, $\mathcal{J} \circ \mathcal{J}$ est le sous-idéal de $\mathcal{J} \otimes 1 + 1 \otimes \mathcal{J}$ des fonctions qui ne dépendent pas des variables du milieu. La contribution du troisième terme est nécessairement nulle (si une fonction s'annule sur $\Sigma$ et est constante alors elle s'annule partout), donc $\mathcal{J} \circ \mathcal{J} = \mathcal{J}$.
+
+\subsection{Paramétrisation de l'idéal}
+Pour montrer que $\mathcal{J}$ est un idéal lagrangien, on va montrer que c'est l'idéal relié à une phase complexe $\psi$, qu'on va construire maintenant.
+
+L'invariance par rapport à $S^1$ et l'antisymétrie de $\mathcal{J}$ nous invitent à considérer une phase sur $X \times X \times \R$ de la forme
+
+\begin{equation*}
+	(z, \lambda ,w, \mu ,t) \mapsto -it(1-\lambda \overline{\mu}a(z,w))
+\end{equation*}
+
+Où $a(z,w)$ est symétrique.
+
+La raison de la notation $a(z,w)$ vient du fait que $\mathcal{J}$ est contenu dans l'idéal des fonctions qui s'annulent sur $diag(\Sigma)$, ce qui signifie en particulier que $\psi$ s'annule uniquement sur la diagonale, et donc $a(z,z)=a(z)$. La même inclusion donne $d_za$ sur la diagonale, puisqu'à cet endroit on doit avoir $a^{-1}d_za + \lambda^{-1}d_z \lambda = \alpha$.
+
+Sous ces deux conditions, on a un unique germe de $a(z,w)$ le long de $diag(X)$. Dans les coordonnées de Heisenberg, la phase s'écrit :
+
+\begin{equation*}
+	\psi(x,y,t) = -it\left(1-e^{i(\theta-\phi)}\cfrac{a(z,w)}{\sqrt{a(z)}\sqrt{a(w)}}\right)
+\end{equation*}.
+
+Cette phase est bien de type positif puisqu'on peut vérifier à la main que :
+
+\begin{equation*}
+	a(z,w) = 1 + z\overline{w} + O(|z|^3 + |w|^3)
+\end{equation*}
+
+\subsection{Construction d'un projecteur de Szeg\H{o}}
+
+On va construire $S \in I^0(X,X,\mathcal{J})$ vérifiant $S =S^2 = S^*$. On commence naturellement par déterminer le premier terme du symbole : avec $S = \int_{\R^+}e^{it\psi}s_0(x,y)t^{n-1}dt \text{ mod. } I^{-1}(X,X,\mathcal{J})$, on a, grâce au lemme de phase stationnaire :
+
+\begin{equation*}
+	s_0(x,y)^2= h(x,y)s_0(x,y) \text{ mod. } \psi
+\end{equation*}
+
+Ici $h(x,y)$ est une fonction liée à la hessienne de $\psi$, et non nulle sur la diagonale.
+
+Si on veut que $s_0$ ne s'annule pas, on a un unique candidat naturel modulo $\psi$, à savoir $s_0(x,y)= h(x,y)$.
+
+On dispose d'un projecteur approximatif, lié à un symbole $s_0$, qui vérifie que $s_0 * s_0 = s_0 +r$, avec $r \in S^{-1}$. Si on veut $s=s_0 + e$ avec $s * s = s$, on obtient $e = 1/2 - \sqrt{r + 1/4}$. Cette série formelle possède une réalisation, et l'on peut construire S, qui est unique à un noyau $C^{\infty}$ près.
+
+Quitte à remplacer $S$ par $(S+S^*)/2 \sim S$, on peut supposer que $S$ est autoadjoint. Puisque $S^2=S+K$, et que $K$ est un opérateur compact, on a $spec_{ess}(S)=\{0,1\}$. $S$ possède éventuellement des valeurs propres, qui s'accumulent en $0$ ou en $1$. On peut donc, à un projecteur de dimension finie près, corriger $S$ en un projecteur.
+
+\subsection{Opérateur  pseudo-différentiel associé à S}
+On va remplacer $\overline{\partial}_b$ par un opérateur $\overline{D}_0$ tel que $S$ est la projection sur le noyau de $\overline{D}_0$. 
+
+Construisons de ce pas cet opérateur, en suivant la méthode proposée dans \cite{BoutetdeMonvel1981}. On commence par constater que comme le symbole de $\overline{\partial}_b$ est $d_0$, alors $\overline{\partial}_b S$ est de degré au plus $0$. On utilise alors le lemme suivant :
+
+\begin{lem}
+	Soit $A \in \mathcal{I}^m(X,X,\mathcal{J})$. Alors il existe un opérateur pseudo-différentiel $Q$ de degré $m$ tel que $A \sim QS$. Si $A$ est symétrique alors on peut choisir $Q$ symétrique.
+\end{lem}
+\begin{preuve}
+	Raisonnons d'abord localement. Au voisinage d'un point $(x,y) \in X\times X$, notons $a$ un symbole de $A$. Si $x \neq y$, alors $A(x,y)$ est $C^{\infty}$ au voisinage de $(x,y)$ donc $Q=0$ convient. Si $x=y$, on sait que $s_0(x,y)$ est non nul au voisinage de $(x,y)$, donc sur ce voisinage on peut écrire $a(x,y,t)=s_0(x,y)q_0(x,y,t)$, où $q_0$ est de degré $m$. Avec $Q_0$ l'opérateur pseudo-différentiel de symbole $q_0$, on a $A-SQ_0 \in \mathcal{I}^{m-1}(X,X,\mathcal{J})$ au voisinage de $(x,y)$. Récursivement, on construit une suite de symboles $q_i$, de degré $m-i$, tel que $A-S(Q_0+Q_1+\ldots + Q_i) \in \mathcal{I}^{m-i-1}(X,X,\mathcal{J})$ au voisinage de $(x,y)$. A la suite formelle $q_i$, on peut associer une réalisation $Q$ par le lemme de Borel. Alors $A-SQ$ est de classe $C^{\infty}$ au voisinage de $(x,y)$. Si $a$ est symétrique alors naturellement la suite $q_i$ est symétrique donc $Q$ est symétrique.
+	
+	Par une partition de l'unité sur $X \times X$, on peut construire $Q$ globalement.
+\end{preuve}
+
+Par application du lemme, on sait alors que $\overline{\partial}_b S \sim QS$, où $Q$ est un opérateur pseudo-différentiel symétrique de degré $0$. Par ailleurs, on peut remplacer $0$ par sa moyenne le long de l'action de $S^1$ (qui lui est équivalente) de manière à ce que $Q$ soit $S^1$-invariant.
+
+On construit alors $D_0 = (\overline{\partial}_b - Q)(Id-S)$. C'est un opérateur symétrique, et pseudodifférentiel puisque $\overline{\partial}_b$ et $Q$ sont pseudodifférentiels et $(\overline{\partial}_b-Q)S \sim 0$; par ailleurs $D_0$ est symétrique, $S^1$-invariant, de symbole $d_0$, et $S$ est la projection sur le noyau de $D_0$.
+
+On peut en fait construire un complexe d'opérateurs qui simulent le complexe $\overline{\partial}_b$ (agissant sur les $(0-q)$-formes), mais nous ne le ferons pas ici.
+
+\section{Asymptotiques dans l'espace de Hardy}
+
+Comme $D_0$ commute avec l'action de $S^1$, on peut décomposer son noyau selon les espaces propres de $\partial_{\theta}$ : pour $N \in \N$, on définit l'espace $H^2_N(X)$ des fonctions dans $L^2(X)$ annulant $D_0$ et $N$-équivariantes. On note par ailleurs  $S_N$ la projection orthogonale sur $H^2_N(X)$, et encore $S_N$ le noyau de ce projecteur, qui est la $N$-ième composante de Fourier de $S(x,y)$ par rapport à sa première variable.
+
+\subsection{Comportement du noyau près de la diagonale}
+
+\begin{theorem}[Shiffman-Zelditch]
+	Soit $P_0 \in X$, et $\rho$ une carte locale de coordonnées de Heisenberg autour de $P_0$. On définit $S_N^{P_0}(u,\theta,v,\fii) = S_N(\rho(u,\theta), \rho(v,\fii))$. Soit $K>0$, alors on a :
+	\begin{align*}
+	(N\pi)^{-n+1}S_N^{P_0}\left(\cfrac{u}{\sqrt{N}},\cfrac{\theta}{N}, \cfrac{v}{\sqrt{N}}, \cfrac{\fii}{N}\right) &= \\e^{i(\theta-\fii) + i \Im(u\overline{v}) - \frac12 |u-v|^2}&\left(1+\sum_{r=1}^K N^{-r/2}b_r(u,v) + N^{-(K+1)/2}R_K(u,v,N)\right)
+	\end{align*}
+	
+	Où $\|R_K(u,v,N)\|_{C^j(\{|u| < r, |v| < r\})} \leq C_{K,j,r}$, indépendamment de $P_0$.
+\end{theorem}
+
+\begin{preuve}
+	On expose schématiquement la preuve proposée dans \cite{Shiffman2002}. Pour des raisons de lourdeur, les estimations explicites sur les restes ne seront pas reprises.
+	
+	Par $S^1$-équivariance, il suffit de considérer les cas où $\theta = \fii = 0$. On a alors l'expression 
+	
+	\begin{equation*}
+	S_N^{P_0}\left(\cfrac{u}{\sqrt{N}},0,\cfrac{v}{\sqrt{N}},0\right) = N \int_{\R^+}\int_0^{2\pi}e^{iN(-\theta + t\psi(u/\sqrt{N},\theta,v/\sqrt{N},0))}s(u/\sqrt{N},\theta, v/\sqrt{N},0)d\theta dt
+	\end{equation*}
+	
+	Et on va appliquer le lemme de phase stationnaire à cette intégrale. On rappelle que 
+	
+	\begin{equation*}
+	\psi(u,\theta,v,0) = i\left(1-\cfrac{a(u,v)}{\sqrt{a(u)}\sqrt{a(v)}}\,e^{i\theta}\right),
+	\end{equation*}
+	
+	et qu'à ce titre, en vertu du développement asymptotique de $a$ au voisinage de la diagonale, la phase dans l'intégrale vaut :
+	
+	\begin{equation*}
+	\tilde{\Psi} := t\psi\left(\cfrac{u}{\sqrt{N}},\theta,\cfrac{v}{\sqrt{N}},0\right) -\theta= it(1-e^{i\theta}) - \theta - \cfrac{it}{N}e^{i\theta}\left(u\cdot\overline{v} - \cfrac {|u|^2+|v|^2}{2}\right) + t e^{i\theta}O(N^{-3/2})
+	\end{equation*}
+	
+	On note $\Psi(t,\theta) = it(1-e^{i\theta})-\theta$. La phase dans l'intégrale définissant $S_N^{P_0}$ se décompose donc en une phase oscillante $e^{iN\Psi}$, à laquelle on va appliquer le lemme de phase stationnaire, et une phase non oscillante qu'on va incorporer dans le symbole. Pour se débarasser des ennuis quand $t \to +\infty$, on va également décomposer l'intégrale en une intégrale sur $[0,3]$ et une intégrale sur $[2,+\infty[$, avec une partition de l'unité $\rho_1,\rho_2$ adaptée. Posons :
+	
+	\begin{equation*}
+		A(t,\theta, u,v,N) = \rho_1(t)e^{iN(\tilde{\Psi}-\Psi)}s(u/\sqrt{N}, \theta, v/\sqrt{N},0, Nt),
+	\end{equation*} 
+	
+	Et appliquons le lemme de phase stationnaire à l'intégrale :
+	
+	\begin{equation*}
+		N\int_0^3\int_0^{2\pi}e^{iN\Psi(t,\theta)}A(t,\theta, u,v,N)d\theta  dt
+	\end{equation*}
+	
+	Le seul point critique de $\Psi$ est en $t=1, \theta=0$, et la hessienne en ce point est $\begin{pmatrix}
+	0&1\\1&i
+	\end{pmatrix}$, de déterminant $-1$. Le lemme de phase stationnaire donne :
+	
+	\begin{equation*}
+	I_1(u,v,N) =\sqrt{-2i\pi}\sum_{r=0}^K N^{-r}L_r(A)(1,0,u,v,N) + R_K(u,v,N)
+	\end{equation*}
+	
+	Ici $L_r$ est un opérateur d'ordre $2r$ qui n'agit que sur les variables $t$ et $\theta$, et $L_0=Id$. 
+	
+	Ceci nous donne bien le développement asymptotique souhaité, il ne reste plus qu'à vérifier que l'autre morceau, $S_N^{P_0}$, est d'ordre $N^{-\infty}$. Mais sur $[2,+\infty[$, la différentielle de $\Psi$ est uniformément loin de $0$ quand $N$ est grand, d'où le résultat.
+	\end{preuve}
+	
+\subsection{Application à Kodaira et à Tian}
+	Le théorème précédent nous redonne directement l'asymptotique de $S_N$ sur la diagonale qui permet de démontrer que l'application de Kodaira existe, et qu'elle est quasi-isométrique (c'est donc a fortiori un plongement). Pour démontrer que cette application est injective, Shiffman et Zelditch citent une idée de Bouche, que nous réexposons ici. On sait qu'en particulier, pour tout point $P \in X$, la fonction $x \mapsto S_N(P,x)$ est dans $H^2_N(X)$ et de norme 1. Par ailleurs, si $P_N$ et $Q_N$ ont la même image par le plongement de Kodaira, alors en particulier $S_N(P_N,x)=S_N(Q_N,x)$ pour tout $x$. Supposons qu'un tel couple $(P_N,Q_N)$ existe pour une infinité de valeurs de $N$, quitte à extraire on peut raisonner par disjonction de cas :
+	
+	\begin{itemize}
+		\item Si $dist(P_N,Q_N)\sqrt{N} \to +\infty$, alors par le théorème de la section précédente, on sait que $N^{1-n}\int_{B(P_N,dist(P_N,Q_N)/2)}|S_N^{P_N}|^2 > 1-o(1)$, de même pour $Q_N$. Dans ce cas, la norme $L^2$ de $S_N(x,\cdot)$ est au moins $2N^{(1-n)/2}$, ce qui contredit l'asymptotique du théorème de Zelditch.
+		\item Si $dist(P_N,Q_N)\sqrt{N} \leq C$, alors l'expression asymptotique de $S_N$ autour de la diagonale, à l'échelle $1/\sqrt{N}$ donne $S_N(P_N,Q_N)\neq N^{1-n}=S_N(Q_N,Q_N)$, et a fortiori interdit que $S_N(P_N,\cdot)=S_N(Q_N,\cdot)$.
+	\end{itemize}
+

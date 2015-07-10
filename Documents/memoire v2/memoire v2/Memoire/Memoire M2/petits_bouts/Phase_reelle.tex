@@ -1,0 +1,315 @@
+\section{Opérateurs intégraux de Fourier à phase réelle}
+
+\subsection{Opérateurs pseudo-différentiels}
+Nous commençons par l'étude d'un cas particulier d'opérateur à phase réelle, dont l'étude sera très utile.
+
+Pour $n \in \N$, la fonction
+\begin{align*}
+	\R^{2n}\times \R^n &\mapsto \R\\
+	(x,y,\xi) &\mapsto \langle x-y,\xi \rangle
+\end{align*}
+est une phase réelle. En particulier, si $a \in S^m(\R^n\times \R^n)$, on peut définir la distribution
+\begin{equation*}
+	K_a(x,y)=\int_{\R^n}e^{i\langle \xi, x-y\rangle}a(x,\xi)d\xi
+\end{equation*}
+
+On aimerait cependant travailler avec des opérateurs qui préservent la classe de Schwartz, et pour cela il est nécessaire de connaître le comportement des symboles en l'infini, en espace. Le lecteur désirant se reporter à \cite{hormander2007} prendra garde au fait que nous introduisons maintenant une notation différente, dans le but d'éviter la confusion avec les espaces de symboles définis précédemment.
+
+\begin{defn}
+	On définit $S^m_{glob}(\R^n\times \R^n)$ comme l'espace des fonctions lisses sur $\R^n\times \R^n$ vérifiant que pour tous multiindices $\alpha$ et $\beta$, il existe une constante $C$ telle qu'on ait :
+	\begin{align*}
+		&\forall (x,\xi)\in \R^n\times\R^n &|\partial^{\beta}_x\partial^{\alpha}_{\xi}a(x,\xi)| \leq C(1+|\xi|)^{m-|\alpha|}.
+	\end{align*}
+\end{defn}
+
+Munis de cette définition globale, nous pouvons affirmer que :
+
+\begin{prop}
+	Si $a \in S^m_{glob}$, alors $K_a \in \mathcal{S}'(\R^n\times \R^n)$.
+\end{prop}
+\begin{preuve}
+	Il faut prouver que l'application $(u,v) \mapsto \int K_a(x,y)u(x)v(y)$ est continue pour la topologie de $\mathcal{S}$. En conjuguant par une transformée de Fourier en la seconde variable, on se ramène au même problème pour l'application
+	\begin{equation*}
+		(u,v) \mapsto \int e^{i\langle x,\xi \rangle}a(x,\xi)u(x)v(\xi)dxd\xi.
+	\end{equation*}
+	
+	Or on a immédiatement :
+	\begin{align*}
+		\left|\int e^{i\langle x,\xi \rangle}a(x,\xi)u(x)v(\xi)dxd\xi\right| &\leq C\int(1+|\xi|)^m|u(x)||v(\xi)|dxd\xi\\
+		&\leq C\|x^{-n-1}u\|_{\infty}\|\xi^{-n-1-m}v\|_{\infty},
+	\end{align*}
+	ce qui permet de conclure.
+\end{preuve}
+Par dualité, $K_a$ induit un opérateur à noyau, noté $a(x,D)$, qui va de $\mathcal{S}$ dans $\mathcal{S'}$. La notation $a(x,D)$ est justifiée par le fait que, si $a$ ne dépend pas de $\xi$, alors $a(x,D)$ est l'opérateur de multiplication par $a(x)$, et si $a$ ne dépend pas de $x$, alors $a(x,D)$ est l'opérateur de multiplication en Fourier.
+
+Un calcul direct permet de montrer :
+\begin{lem}
+	Pour $a \in S^m_{glob}$ on a :
+	\begin{align*}
+		[a(x,D),x_j] &= -i\partial_{\xi_j}a(x,D)\\
+		[a(x,D),-i\partial_{x_j}] &= i \partial_{x_j}a(x,D).
+	\end{align*}
+\end{lem}
+
+\begin{corr}
+	On a en fait $a(x,D) : \mathcal{S} \mapsto \mathcal{S}$. Par ailleurs l'application qui à $a$ associe cet opérateur est continue pour la topologie de $S^m_{glob}$.
+\end{corr}
+\begin{preuve}
+	Soit $u \in \mathcal{S}$. La fonction $x \mapsto a(x,D)u(x)$ est continue bornée, en tant qu'intégrale à paramètre convergeant absolument ; on ne fait intervenir par ailleurs qu'une des semi-normes de $a$ dans $S^m_{glob}$.
+	
+	Par le lemme précédent, pour contrôler les autres semi-normes dans $\mathcal{S}$ de $a(x,D)$, il suffit de contrôler les $\|\partial^{\alpha}a(x,D)u\|_{\infty}$, ce qui ne fait intervenir, encore une fois, que les semi-normes de $a$ dans $S^m_{glob}$.
+\end{preuve}
+
+Par dualité (en changeant $K(x,y)$ en $\overline{K}(y,x)$), on peut définir $a(x,D):\mathcal{S}' \to \mathcal{S}'$.
+
+On donne, pour terminer, quelques résultats concernant la régularité de l'opérateur $a(x,D)$ et de son noyau.
+
+\begin{prop}
+	\label{prop:regPDO}
+	Soit $a \in S^m_{glob}$. Le noyau $K_a$ est lisse hors de la diagonale.
+\end{prop}
+\begin{preuve}
+	Lorsque $a \in C^{\infty}_c$, hors de la diagonale $x=y$, on peut réaliser des intégrations par parties dans l'intégrale qui définit $K_a$. Donc dans ce cas $K_a$ est lisse, et quitte à faire suffisamment d'intégrations par parties, les semi-normes de $K_a$ ne dépendent que des semi-normes de $a$ dans $S^m_{glob}$, donc on peut raisonner par continuité, et le résultat reste valide pour a quelconque.
+\end{preuve}
+
+\subsection{Opérations sur les opérateurs pseudodifférentiels}
+Nous cherchons ici à obtenir des règles de calcul sur les opérateurs pseudo-différentiels. Qu'arrive-t-il lorsqu'on essaie de composer deux opérateurs ? Ou de prendre l'adjoint d'un opérateur ?
+
+On aurait très bien pu prendre une définition plus générale d'un opérateur pseudo-différentiel en laissant le symbole dépendre de la dernière variable. Le noyau
+\begin{equation*}
+	K_r(x,y)= \int_{\R^n}e^{i\langle \xi, x-y \rangle} r(x,\xi,y)d\xi
+\end{equation*}
+est défini en tant qu'intégrale à phases, au sens de la section précédente, dès lors que $r \in S^m(\R^{2n}\times \R^n)$. Mais on dipose du lemme suivant :
+
+\begin{lem}
+	Soit $r \in S^m(\R^{2n}\times \R^n)$, à support compact en $x$ et $y$. Alors il existe $p \in S^m(\R^n \times \R^n)$ tel que $K_r = K_a$. Le symbole $p$ admet par ailleurs le développement asymptotique suivant, au sens du lemme \ref{lem:Borel} :
+	\begin{equation*}
+	p(x,\xi) \sim \sum_{\alpha}\cfrac{i^{|\alpha|}}{\alpha!}\partial^{\alpha}_{\xi}\partial^{\alpha}_yr(x,\xi,y)\biggl|_{y=x}
+	\end{equation*}
+\end{lem}
+\begin{preuve}
+	Procédons par dualité ; soit $\fii$ une fonction test. On commence par voir que, à $x$ et $\xi$ fixés :
+	\begin{align*}
+		\int e^{-i\langle \xi, y}r(x,\xi,y)\fii(y)dy &= \mathcal{F}(r(x,\xi,\cdot) \fii(\cdot))(\xi)\\
+			&= (\mathcal{F}(r(x,\xi,\cdot)) * \hat{\fii}(\cdot))(\xi)
+	\end{align*}
+	
+	En intégrant par rapport à $\fii$ on trouve :
+	\begin{align*}
+		\int K_r(x,y)\fii(y)dy &= \iint e^{i\langle \xi,x-y\rangle}r(x,\xi,y)\fii(y)d\xi dy\\
+		&=\int e^{i\langle \xi,x \rangle} \left[\mathcal{F}(r(x,\xi,\cdot))*\hat{\fii}(\cdot)\right](\xi)d\xi\\
+		&= \iint \mathcal{F}_3(r)x,\xi,\xi-\eta)e^{i\langle \xi-\eta,x\rangle}d\xi \hat{\fii}(\eta)e^{i\langle \eta,x\rangle} d\eta\\
+		&=\iint e^{i\langle \eta,x-y \rangle}  p(x,\eta) \fii(y)dy
+	\end{align*}
+	Ici $\mathcal{F}_3$ désigne la transformée de Fourier en la troisième variable, et 
+	\begin{equation*}
+		p(x,\eta) = \int e^{i\langle \xi,x\rangle}\mathcal{F}_3{r}(x,\xi+\eta, \xi)d\xi
+	\end{equation*}
+	
+	On a alors clairement $p \in S^m$. Par ailleurs, en développant $\mathcal{F}_3(r)(x,\xi+\eta, \xi)$ en série entière en la troisième variable, on trouve que $p$ admet le développement asymptotique suivant, au sens de \ref{lem:Borel} :
+	\begin{equation*}
+		p(x,\xi) \sim \sum_{\alpha}\cfrac{i^{|\alpha|}}{\alpha!}\partial^{\alpha}_{\xi}\partial^{\alpha}_yr(x,\xi,y)\biggl|_{y=x}
+	\end{equation*}
+	Ce qui permet de conclure.
+\end{preuve}
+
+\begin{lem}
+	Soit $r\in S^m_{glob}(\R^{2n}\times \R^n)$ et supposons qu'il existe un voisinage de $diag(\R^n)$ sur lequel, pour tout $\xi$, on ait $ r(x,y,\xi)=0$. Alors $K_r(x,y)$ est lisse.
+\end{lem}
+\begin{preuve}
+	On sait déjà que le noyau $K_r$ est lisse hors de la diagonale, et il est nul au voisinage de la diagonale.
+\end{preuve}
+
+\begin{prop}
+	Pour tout symbole $r \in S^m(\R^{2n}\times \R^n)$, il existe un symbole $p \in S^m(\R^n \times \R^n)$ tel que $K_r-K_p$ soit une fonction lisse, et admettant le développement asymptotique :
+	\begin{equation*}
+	p(x,\xi) \sim \sum_{\alpha}\cfrac{i^{|\alpha|}}{\alpha!}\partial^{\alpha}_{\xi}\partial^{\alpha}_yr(x,\xi,y)\biggl|_{y=x}.
+	\end{equation*}
+\end{prop}
+\begin{preuve}
+	Soit $(\chi_j)$ une partition parafinie de l'unité sur $\R^n$, alors on a bien sûr :
+	\begin{equation*}
+		r(x,\xi,y)=\sum_{j,k}\chi_j(x)\chi_k(y)r(x,\xi,y).
+	\end{equation*}
+	On sait qu'on peut retrancher de cette somme les termes dont les supports sont loin de la diagonale, car leur contribution au noyau est lisse. On écrit $j \sim k$ lorsque $\supp \chi_j \cap\supp \chi_k \neq \emptyset$, on sait alors qu'à $j$ fixé un nombre fini de $k$ vérifient $j \sim k$, et on écrit :
+	\begin{equation*}
+		r(x,\xi,y) = \sum_j \sum_{j \sim k}\chi_j(x)\chi_k(y)r(x,y,\xi).
+	\end{equation*}
+	
+	A chacun des termes on applique le lemme, qui nous fournit des symboles $p_{j,k}$. On peut sans problème sommer sur le nombre fini d'indices $k$, en conservant le développement asymptotique, produisant des symboles $p_j$. Enfin, quitte à remplacer $p_j$ par $\tilde{\chi}_j(x)p_j$ où $\tilde{\chi}_j$ vaut $1$ sur $\supp \chi_j$, ce qui ne change pas le développement asymptotique, on peut supposer que chaque $p_j$ est à support compact, tel qu'en tout point seul un nombre fini de $p_j$ soit non nul.
+	On peut alors sommer les $p_j$.
+\end{preuve}
+
+De cette proposition on retiendra deux corollaires.
+
+\begin{corr}
+	Modulo un opérateur régularisant, l'adjoint de $a(x,D)$, où $a \in S^m$, est l'opérateur associé à un symbole dans $S^m$ dont le développement asymptotique est :
+	\begin{equation*}
+		a^{\dagger}(x,\xi)\sim \sum_{\alpha}\cfrac{i^{|\alpha|}}{\alpha!}\partial^{\alpha}_{\xi}\partial^{\alpha}_y\overline{a}(y,\xi)\biggl|_{x=y}
+	\end{equation*}
+\end{corr}
+
+\begin{corr}
+	Modulo un opérateur régularisant, la composée $a(x,D)\circ b(x,D)$, où $a\in S^m_{glob}$, et $b \in S^{m'}_{glob}$, est l'opérateur associé à un symbole dans $S^{m+m'}$ dont le développement asymptotique est :
+	\begin{equation*}
+		a\#b(x,\xi)\sim \sum_{\alpha}\cfrac{i^{|\alpha|}}{\alpha!}\partial^{\alpha}_{\xi}\partial^{\alpha}_y[a(x,\xi)b(y,\xi)]\biggl|_{x=y}
+	\end{equation*}
+\end{corr}
+\begin{preuve}
+	On écrit 
+	\begin{align*}
+		b(x,D)\fii(x) &\sim (b^{\dagger}(x,D))^*\fii(x)\\
+		&= \mathcal{F}^{-1}\left(\int e^{-i\langle \xi,y\rangle}\fii(y)\overline{b^{\dagger}(y,\xi)}dy\right)(x).
+	\end{align*}
+	
+	On en déduit donc
+	\begin{equation*}
+		a(x,D)\circ b(x,D) \fii(x) \sim \iint e^{i\langle \xi,x-y\rangle}a(x,\xi)\overline{b^{\dagger}(y,\xi)}\fii(y)dyd\xi,
+	\end{equation*}
+	Ce qui permet de conclure, une fois vérifié que $r(x,\xi,y)=a(x,\xi)\overline{b^{\dagger}(y,\xi)}$ est dans $S^m(\R^{2n}\times \R^n)$.
+\end{preuve}
+
+\subsection{Front d'onde}
+
+Une fonction de $\mathcal{E}'(\R^n)$ est dans $C^{\infty}_0$ ssi sa transformée de Fourier décroît en l'infini plus vite que $\xi \mapsto (1+|\xi|)^{-n}$. Cela nous amène à poser, lorsque $ u \in \mathcal{E}'$, le cône $\Sigma(u)$ des fréquences non nulles dont aucun voisinage conique ne voit $\hat{u}$ décroître en l'infini plus vite que $\xi \mapsto (1+|\xi|)^{-n}$. 
+
+Le cône $\Sigma(u)$ donne des informations complémentaires de $\text{sing supp }u$. L'un décrit uniquement les directions dans lesquelles on a des irrégularités, et l'autre uniquement les points où on a des irrégularités. Pour combiner ces informations on a besoin d'un lemme de localisation.
+
+\begin{lem}
+	Si $v \in \mathcal{E}'$ et $\phi \in C^{\infty}_0$, alors on a 
+	\begin{equation*}
+		\Sigma(v\phi) \subset \Sigma(v)
+	\end{equation*}
+\end{lem}
+\begin{preuve}
+	On veut regarder la décroissance en l'infini de la fonction
+	\begin{equation*}
+		\xi \mapsto \int \hat{\phi}(\eta)\hat{v}(\xi-\eta)d\eta
+	\end{equation*}
+	On sait déjà que pour un certain $m\in \R$ on a $|v(\xi)|\leq C(1+|\xi|)^m$. Par ailleurs, soit $c\in ]0,1[$, on va découper cette intégrale en une intégrale là où $|\eta| \leq c|\xi|$ et une intégrale sur le complémentaire. On peut donc majorer l'expression précédente par
+	\begin{equation*}
+		\underset{|\xi-\eta| \leq c|\xi|}{\sup}v(\eta) \|\hat{\phi}\|_{L^1} + C(c)\int_{|\eta|\leq c|\xi|}|\hat{\phi}(\eta)|(1+|\eta|)^md\eta
+	\end{equation*}
+	Le second morceau ne pose donc pas de problème puisque $\hat{\phi}\in \mathcal{S}$. Si on a un contrôle de la décroissance de $\hat{v}$ dans un ouvert $\Gamma$, on peut considérer un cône fermé $\Gamma_0$ inclus dans $\Gamma$, et alors on dispose d'une constante $c$ telle que $\xi \in \Gamma_0,|\xi-\eta|\leq c |\xi| \Rightarrow \eta \in \Gamma$, d'où le résultat.
+\end{preuve}
+
+Fort de ce lemme, on peut définir la notion de front d'onde en un point en localisant.
+\begin{defn}
+	Pour $u \in \mathcal{D'}(\R^n)$ et $x\in \R^n$, on définit :
+	\begin{equation*}
+		\Sigma_x(u)=\bigcap_{\substack{\phi \in C^{\infty}_c\\\phi(x)\neq 0}}\Sigma(u\phi)
+	\end{equation*}
+\end{defn}
+On a immédiatement que $\Sigma_x(u)=\emptyset$ ssi il existe une fonction $\phi$ non nulle au voisinage de $x$ telle que $u\phi$ soit une fonction lisse.
+
+On peut alors conclure :
+
+\begin{defn}
+	Pour $u \in \mathcal{D'}(\R^n)$, on définit :
+	\begin{equation*}
+	WF(u)=\{(x,\xi)\in \R^d\times(\R^d\setminus \{0\}), \xi \in \Sigma_x(u)\}
+	\end{equation*}
+\end{defn}
+Cette notion est invariante par action d'un $C^{\infty}$-difféomorphisme sur $T^*(\R^d)$, et qu'à ce titre, la notion de front d'onde se généralise aux variétés en prenant des cartes locales.
+
+On a par exemple :
+
+\begin{prop}[\cite{hormander2003analysis}, thm 8.1.9]
+	Soit $\Gamma$ un cône ouvert de $\R^n \times (\R^d \setminus \{0\})$, $\phi$ une phase sur $\Gamma$, $F\subset \Gamma$ un cône fermé et $a \in S^m_{\rho,\delta}(F)$. Alors on a :
+	\begin{equation*}
+		WF(I_{\fii}(a))\subset \{(x,d_x\fii(x,\theta)),\,(x,\theta)\in F \text{ et }d_{\theta}\fii(x,\theta)=0\}
+	\end{equation*}
+\end{prop}
+
+En particulier, on peut rendre plus précise la proposition \ref{prop:regPDO} :
+\begin{corr}
+	Soit $a \in S^m_{glob}$. Le noyau $K_a$ vérifie :
+	\begin{equation*}
+		WF(K_a)\subset \{(x,x,\xi,-\xi)\in (T^*\R^d)^2,\,(x,\xi)\in \supp (a)\}
+	\end{equation*}
+\end{corr}
+
+Le résultat précédent se reformule du point de vue de l'opérateur :
+
+\begin{prop}[Principe microlocal]
+	Soit $a \in S^m_{glob}$ et $u \in \mathcal{S}'$. Alors :
+	\begin{equation*}
+		WF(a(x,D)u) \subset WF(u) \cap \supp(a).
+	\end{equation*}
+\end{prop}
+\begin{corr}[Définition alternative du front d'onde]
+  Soit $u \in \mathcal{S}'$. Alors le complémentaire de $WF(u)$ est constitué exactement des $(x_0,\xi_0)$ tels qu'il existe un symbole $a$ vérifiant :
+  \begin{align*}
+    a(x_0,\xi_0)\neq 0\\
+    a(x,D)u \in C^{\infty}(\R^d)
+  \end{align*}
+\end{corr}
+\begin{preuve}
+Remarquons d'abord que les ensembles dont on veut prouver l'égalité sont tous les deux coniques.
+
+Par la proposition précédente, si un symbole $a$ vérifie $\supp(a)\cap WF(u)=\emptyset$ alors $a(x,D)u$ est lisse.
+
+Réciproquement, si $(x_0,\xi_0)\in WF(u)$, soit $\phi$ une fonction test non nulle en $x_0$. Supposons l'existence d'un voisinage conique $\Gamma$ de $\xi_0$ sur lequel $\hat{\phi}*\hat{u}$ décroisse en l'infini plus vite que $(1+|\xi|)^{-n}$. Soit $\chi$ une fonction 0-homogène qui approche l'indicatrice de $\Gamma$, alors la fonction suivante est lisse :
+\begin{equation*}
+  x \mapsto \int e^{i\langle \xi,x-y\rangle}\chi(\xi)\phi(y)u(y)dy.
+\end{equation*}
+
+Posons $a(x,\xi)=\phi(x)\chi(\xi)$. Alors on vient de montrer que $a^{\dagger}(x,D)u$ est lisse. Cependant, on sait que :
+\begin{equation*}
+  a^{\dagger}(x,\xi) \sim \phi(x)\chi(\xi) + \sum_{\alpha \neq 0}\cfrac{i^{\alpha}}{\alpha !} \partial_x^{\alpha}\phi(x)\partial_{\xi}^{\alpha}\chi(\xi)
+\end{equation*}
+Puisque les termes suivants sont d'ordre plus petits, pour $\lambda>0 $ assez grand on a $a^{\dagger}(x_0,\lambda \xi_0) \neq 0$, ce qui permet de conclure.
+\end{preuve}
+
+\subsection{Opérateurs intégraux de Fourier à phase réelle}
+On va généraliser les constructions précédentes au cas d'une phase générale $\fii(x,y,\theta) \in \R$. La formule :
+\begin{equation}
+  I_{\fii}(a)(x,y) = \int e^{i\fii(x,y,\theta)}a(x,y,\theta)d\theta
+\end{equation}
+associe à un symbole un opérateur à noyau, dont on voudrait comprendre les propriétés.
+
+\begin{defn}
+  Pour $X$ et $Y$ deux variétés, une fonction $\fii \in C^{\infty}(X \times Y \times (\R^d\setminus 0),\R)$ est appelée \emph{phase réelle convenable} lorsque :
+  \begin{itemize}
+    \item La fonction $\fii$ est 1-homogène en $\theta$.
+    \item Pour tout $x\in X$, la fonction $(y,\theta)\mapsto \fii(x,y,\theta)$ n'a pas de point critique.
+    \item Pour tout $y\in Y$, la fonction $(x,\theta)\mapsto \fii(x,y,\theta)$ n'a pas de point critique.
+  \end{itemize}
+\end{defn}
+
+La structure de front d'onde se généralise :
+
+\begin{defn}[Variété caractéristique]Soit $\fii$ une phase réelle convenable sur $X\times Y\times \R^d$. On appelle variété caractéristique l'ensemble :
+\begin{equation}
+    C_{\fii}=\{(x,\xi,y,\eta) \in T*X \times T*Y,\,\exists \theta\in \R^d\setminus 0,\,\dd_{\theta}\fii(x,y,\theta)=0,\,\dd_x\fii(x,y,\theta)=\xi, \dd_y\fii(x,y,\theta)=\eta\}
+\end{equation}  
+\end{defn}
+
+\begin{prop}[\cite{hormander2003analysis}, thm 8.1.9]
+  Soit $\fii$ une phase réelle convenable sur $X\times Y\times \R^d$, et $a \in S^m_{glob}(X\times Y\times \R^d)$. 
+
+  Alors l'intégrale à noyau $I_{\fii)(a)$ vérifie :
+  \begin{equation*}
+    WF(I_{\fii}(a)) \subset C_{\fii}.
+  \end{equation*}
+\end{prop}
+Appelons $a_{\fii}(x,D)$ l'opérateur dont le noyau est $I_{\fii}(a)$. Alors on a 
+  \begin{equation*}
+    WF(a_{\fii}(x,D)u) \subset C_{\fii}\WF(u).
+  \end{equation*}
+Ici, si $E \subset Y$, on note
+\begin{equation*}
+  C_{\fii}E=\{x \in X,\,\exists y \in E,\,(x,y)\in E\}
+\end{equation*}
+La régularité des opérateurs intégraux de Fourier est donc associée à leur variété caractéristique $C_{\fii}$. Observons que $C_{\fii}$ est une sous-variété de dimension $n_X+n_Y$, de la variété symplectique $T*X\times T*Y$, de dimension $2(n_X+n_Y)$. 
+\begin{lem}
+La forme symplectique, restreinte à $C_{\fii}$, est nulle.
+\end{lem}
+\begin{preuve}
+A faire.
+\end{preuve}
+On peut alors définir l'idéal associé à $\fii$ :
+\begin{defn}Soit $S$ une variété symplectique. Un idéal $J \subset C^{\infty}(S)$ est dit \emph{lagrangien} lorsque :
+\begin{itemize}
+  \item $\{J,J\}\subset J$.
+\end{itemize}

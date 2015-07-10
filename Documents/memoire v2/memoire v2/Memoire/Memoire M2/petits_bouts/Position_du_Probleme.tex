@@ -1,0 +1,138 @@
+\section{Fibrés positifs sur une variété kählerienne compacte}
+
+\subsection{Sections holomorphes de fibrés positifs}
+
+On va appliquer l'analyse microlocale du projecteur de Szeg\H{o} à la quantification de variétés kähleriennes compactes. On exposera ici les principaux résultats et raisonnements de \cite{Zelditch2000}.
+
+Soit $M$ une variété complexe compacte, et $(L,h)$ un fibré en droites sur $M$ associé à une structure hermitienne. Pour tout $n \in \Z$, $h$ induit une métrique $h_N$ sur $L^{\otimes N}$. Notre but ici est d'étudier les espaces $H^0(M,L^{\otimes N})$, dont on se donne une base orthonormée $(s^N_1, \ldots, s^N_{d_N})$ (on sait que $H^0(M,L^{\otimes N})$ est de dimension finie car $M$ est compacte).
+
+On suppose que $L$ est \emph{strictement positif}, c'est-à-dire que $D=\{(m,v) \in L^{-1}, h_{-1}(v,v) < 1\}$ est fortement pseudoconvexe. 
+
+On va démontrer l'existence d'un développement asymptotique :
+
+\begin{theorem}[Zelditch] Il existe une famille de fonctions lisses $a_j : M \to \R$ telle que, lorsque $N \to +\infty$, pour tout $R>0$,  
+
+\begin{equation*}
+	\sum_{i=1}^{d_N}\|s^N_i(z)\|^2_{h_N} = N^n + \sum_{0 < j < R} a_j(z)N^{n-j} + O_{C^{\infty}}(N^{n-R})
+\end{equation*}
+\end{theorem}
+
+Ce théorème est riche de ses corollaires. Il implique premièrement que pour $N$ assez grand, les sections $s^N_i$ ne s'annulent pas toutes en même temps, on peut alors définir une application projective définie par $\fii_N : M \mapsto \C\mathbb{P}^{d_N-1}$ par $m \mapsto [s^N_1(m) : \ldots : s^N_{d_N}(m)]$, qu'on appelle application de Kodaira. On peut alors démontrer :
+
+\begin{theorem}[Kodaira] (\cite{fritzsche}) Pour $N$ assez grand, $\fii_N$ est un plongement. \end{theorem}
+
+Secondement, le produit hermitien $h$ définit une métrique $\omega_g$ sur $M$, que l'on peut comparer avec le pull-back par $\fii_N$ de la métrique de Fubini-Study sur $\C\mathbb{P}^{d_N-1}$. On a alors, pour tout $k$, :
+
+\begin{corr}\begin{equation*}
+\left\|\cfrac1N \fii_N^*(\omega_{FS}) - \omega_g \right\|_{C^{k}} = O(N^{-1})
+\end{equation*}\end{corr}
+
+Le plongement de Kodaira est donc quasiment isométrique.
+
+\subsection{Espaces de Hardy équivarients}
+
+On notera $X$ la frontière de $D$ ; c'est un $S^1$-fibré sur $M$, et la fonction $\rho(z)=h_{-1}(z,z)-1$ définit $X$. La fonction $\rho$, et l'opérateur $\overline{\partial}_b$, sont alors invariants par l'action de $S^1$. On peut donc décomposer l'espace de Hardy $H^2(X)$ en la somme directe des :
+\begin{equation*}
+	H^2_N(X)=\{f \in H^2(X), f(r_{\theta}x) = e^{iN\theta}f(x)\}
+\end{equation*}
+
+L'espace $H^2_N(X)$ sera appelé \emph{espace de Hardy $N$-équivariant}. On va maintenant relier les fonctions dans cet espace aux sections holomorphes de $L^{\otimes N}$ :
+
+\begin{prop} Soit $N \in \Z$. Alors l'application :
+
+\begin{align*}
+	H^0(M,L^{\otimes N}) &\mapsto H^2_N(X) \\
+	s &\mapsto \left((m,v) \mapsto \left\langle v^{\otimes N}, s(m)\right\rangle \right)
+\end{align*}
+est un isomorphisme unitaire.
+\end{prop}
+
+Etudier $H^0(M,L^{\otimes N})$ revient donc à étudier les espaces de Hardy $N$-équivariants. On note $S_N$ le projecteur orthogonal de $L^2(X)$ sur $H^2_N(X)$, et encore $S_N(x,y)$ le noyau de ce projecteur, qui n'est rien d'autre que la $N$-ième composante de Fourier de $S(x,y)$ par rapport à sa première variable.
+
+En notant $(s^N_1, \ldots, s^N_{d_N})$ une base orthonormée de $H^0(M,L^{\otimes N})$, et $(\hat{s}^N_1, \ldots, \hat{s}^N_{d_N})$ la base correspondante de $H^2_N(X)$, on a naturellement :
+\begin{equation*}
+	S_N(x,y)=\sum_{i=1}^{d_N}\hat{s}^N_i(x) \overline{\hat{s}^N_i(y)\strut}
+\end{equation*}
+
+En particulier, sur la diagonale,
+\begin{equation*}
+	S_N(x,x)=\sum_{i=1}^{d_N}\|\hat{s}^N_i(x)\|^2
+\end{equation*}
+
+Au point $w$ défini par les coordonnées $[w_0:\ldots:w_m]$, la métrique de Fubini-Study s'écrit :
+\begin{equation*}
+	\omega_{FS}(w) = \cfrac{i}{2\pi}\,\partial\overline{\partial} \log\left(\sum_{i=0}^m|w_i|^2\right).
+\end{equation*}
+
+Ainsi,
+\begin{align*}
+	\fii_N^*\,\omega_{FS}(m) &= N \omega_g + \cfrac{i}{2\pi}\,\partial\overline{\partial} \log\left(\sum_{j=0}^m\|s^N_i(m)\|_{h_N}^2\right)\\
+	&= N\omega_g + \cfrac{i}{2\pi}\,\partial_b\overline{\partial}_b \log S_N(x,x)
+\end{align*}
+
+L'avant-dernière ligne mérite une explication. Si $e_L$ est une section locale de L, holomorphe et non nulle, alors avec $a=\|e_L\|_h$, on a $\omega_g = i \partial \overline{\partial}a$ par définition. Par ailleurs on écrit localement $s^N_i=f_i^Ne_L^{\otimes N}$, où les $f^N_i$ sont des fonctions holomorphes au voisinage du point considéré. Alors par définition, 
+\begin{equation*}
+	\fii_N^*\,\omega_{FS}(m) = \cfrac{i}{2\pi}\,\partial\overline{\partial} \log\left(\sum_{i=0}^m|f^N_i|^2\right).
+\end{equation*}
+d'où le résultat.
+
+Il ne reste plus qu'à estimer $S_N$ et $\partial_b \overline{\partial}_bS_N$ le long de la diagonale, ce qu'on va faire grâce à la caractérisation ci-dessus.
+
+\subsection{La preuve}
+On part de :
+\begin{equation*}
+	S_N(x,x)=N\int_{R^+_*}\int_{S^1}e^{iN(-\theta + t\psi(r_{\theta}x,x))}\sum_{k=0}^{+\infty}s_k(r_{\theta}x,x)(Nt)^{n-1-k}dtd\theta + O(N^{-\infty})
+\end{equation*}
+où on a fait le changement de variable $t \mapsto Nt$ dans le but d'appliquer le lemme de phase stationnaire.
+
+On définit alors la phase
+\begin{equation*}
+	\Phi(x,x,t,\theta)=t\psi(r_{\theta}x,x)-\theta,
+\end{equation*}
+qui vérifie $Im(\Phi) \geq 0$, Comme $Im(\psi) > 0$ hors de la diagonale, il n'y a pas de point critique sauf si $r_{\theta}x=x$, autrement dit, $\theta=0$.
+
+Le comportement de $\psi$ par rapport à l'action de $S^1$ va être spécifié maintenant. Rappelons que la phase doit vérifier, pour $h\in \C^n$ et $k \in \C^n$ petits, par une carte locale :
+\begin{equation}
+  \psi(x+h,x+k) =-i\sum_{\alpha,\beta}(\partial^{\alpha}\overline{\partial}^{\beta}\rho)(x)h^{\alpha}\overline{k}^{\beta} + O(h^{\infty},k^{\infty}).
+\end{equation}
+Pour clarifier l'esprit, donnons-nous une carte locale holomorphe au voisinage $U$ d'une fibre de $L^*$. On a alors une fonction non nulle $a$ telle que $U \cap X \approx \{(m,v)\in \C^{n-1}\times \C, a(m)|v|\leq 1\}$. On a alors $\rho(m,v)=1-a(m)^2|v|^2$. Ainsi, on a $\partial_v \rho(m,v) = a(m^2)\overline{v}$.
+Par ailleurs, le champ de vecteurs $\partial_{\theta}$ qui engendre l'action de $S^1$ vaut exactement $\partial_{\theta}(m,v)=(0,iv)$. On a alors que, pour $\theta$ petit, la dépendance en $\theta$ est :
+\begin{equation*}
+  \psi(r_{\theta} x,x) = \theta + O(\theta^{2}).
+\end{equation*}
+ Ainsi :
+\begin{equation*}
+	\Phi(x,x,t,\theta) =(t-1)\theta + O(\theta^2).
+\end{equation*}
+
+Les points critiques vérifient $d_t\Psi = d_\theta \Psi =0$, donc $t=1, \theta=0$. En ce point critique, le déterminant de la hessienne vaut -1.
+
+On invoque alors le lemme de phase stationnaire : il existe des opérateurs différentiels $L_{k,j}$, de degré $2k$, indépendants de $N$, tels que, à tout ordre K>0, 
+
+\begin{align*}
+	S_N(x,x) &= N^n s_0(x,x) + \sum_{k=1}^{K}\sum_{j=0}^{K-k}N^{n-k-j}L_{k,j}s_j(x,x) + R(N,K,x)\\
+	\intertext{On a donc la forme suivante}
+		S_N(x,x) &= N^n \cfrac{1}{4\pi^n}\sqrt{\det{L_X,x}}\|d\rho\|^{\frac{n+1}{2}(x) + \sum_{k=1}^K N^{n-1}a_i(x) + R(N,K,x)
+\end{align*}
+Ici, on a, pour tous $N$ et $j$,
+\begin{align*}
+  \|R(N,K,\cdot)\|_{C^j} \leq N^{n-K-1}C_{j,K}
+\end{align*}
+
+Ceci est l'estimation sur $S_N(x,x)$ désirée. En différentiant cette expression, on obtient $\partial_b\overline{\partial}_b \log(S_N(x,x)) = O(1)$, d'où le corollaire.
+
+\begin{rem}
+Comme $S_N$ est un projecteur, on a évidemment :
+\begin{equation}
+  \int_XS_N(x,x)dV=\dim H^2_N(X).
+\end{equation}
+En particulier, on vient de démontrer l'existence d'un développement asymptotique :
+\begin{equation}
+  \dim H^2_N(X) = CN^n+\sum_{k=1}^{K}C_jN^{n-j} + O(N^{n-K}).
+\end{equation}
+Ce résultat est très similaire au théorème de Riemann-Roch : \cite{source}. Dans le cas de $\C\mathbb{P}^1$,l'espace des sections de $\mathcal{O}(1)^{\otimes N}$ est en bijection naturelle avec l'espace des fonctions méromorphes avec un pôle d'ordre au plus $N$ en $[0:1]$. Le théorème de Riemann-Roch est en réalité plus puissant car il donne une expression polynômiale de la dimension.
+\end{rem}
+
+Remarquons que l'application de Kodaira est non seulement bien définie, mais immersive : si sa différentielle en un point n'était pas injective, le pull-back de la forme de Fubini-Study serait nul à cet endroit. Montrons maintenant que cette application est une immersion pour $N$ grand.
+
+Deux points $x_N$ et $y_N$ ont la même image par $S$ ssi leur 

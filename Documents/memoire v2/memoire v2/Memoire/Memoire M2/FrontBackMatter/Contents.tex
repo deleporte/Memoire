@@ -1,0 +1,37 @@
+% Table of Contents - List of Tables/Figures/Listings and Acronyms
+
+\refstepcounter{dummy}
+
+\pdfbookmark[1]{\contentsname}{tableofcontents} % Bookmark name visible in a PDF viewer
+
+\setcounter{tocdepth}{2} % Depth of sections to include in the table of contents - currently up to subsections
+
+\setcounter{secnumdepth}{3} % Depth of sections to number in the text itself - currently up to subsubsections
+
+\manualmark
+\markboth{\spacedlowsmallcaps{\contentsname}}{\spacedlowsmallcaps{\contentsname}}
+\tableofcontents 
+\automark[section]{chapter}
+\renewcommand{\chaptermark}[1]{\markboth{\spacedlowsmallcaps{#1}}{\spacedlowsmallcaps{#1}}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\enspace\spacedlowsmallcaps{#1}}}
+
+\clearpage
+
+      
+%----------------------------------------------------------------------------------------
+%	Notations
+%----------------------------------------------------------------------------------------
+
+\chapter*{Notations}
+\begin{tabular}{lr}
+  $C^k(U)$ & L'ensemble des fonctions continûment dérivables $k$ fois dans $U$.\\
+  $C^k_0(U)$ & L'ensemble des fonctions $C^k$ dont toutes les dérivées tendent vers $0$ sur le bord de $U$.\\
+  $\mathcal{D}(U) = C^{\infty}_c(U)$ & L'ensemble des fonctions lisses à support compact dans $U$.\\
+  $\mathcal{D}'(U) $ & L'ensemble des distributions sur $U$.\\
+  $\mathcal{S}(\R^n)$ & L'espace de Schwartz.\\
+  $\mathcal{S}'(\R^n)$ & L'espace des distributions tempérées.\\
+  $W^{s,p}(\R^n)$ & L'espace des fonctions dont toutes les dérivées jusqu'à l'ordre $s$ sont dans $L^p$.\\
+  $\partial^{\alpha}$ & L'opérateur qui dérive $\alpha_i$ fois selon $x_i$, pour tout $i$.\\
+  $\mathcal{F}(f)=\hat{f}$ & La transformée de Fourier de la fonction $f$.\\
+  
+\end{tabular}

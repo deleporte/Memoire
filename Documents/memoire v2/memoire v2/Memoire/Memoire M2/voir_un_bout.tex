@@ -1,0 +1,38 @@
+%%%%%%%%%%%%%%%%%%%
+% section preview template
+%%%%%%%%%%%%%%%%%%%
+
+\documentclass[
+		twoside,openright,titlepage,numbers=noenddot,headinclude,%1headlines,
+                footinclude=true,cleardoublepage=empty,
+                BCOR=5mm,paper=a4,fontsize=11pt, % Binding correction, paper type and font size
+                ]{scrreprt} 
+                
+% Includes the file which contains all the document configurations and packages - make sure to edit this file
+\input{classicthesis-config}
+
+\begin{document}
+
+\frenchspacing % Reduces space after periods to make text more compact
+
+\raggedbottom % Makes all pages the height of the text on that page
+
+%\renewcommand*{\bibname}{new name} % Uncomment to change the name of the bibliography
+%\setbibpreamble{} % Uncomment to include a preamble to the bibliography - some text before the reference list starts
+
+\pagestyle{plain} % Suppress headers for the pre-content pages
+
+%----------------------------------------------------------------------------------------
+%	PRE-CONTENT THESIS PAGES
+%----------------------------------------------------------------------------------------
+
+\tableofcontents
+\include{petits_bouts/modele_local} % Bout à inclure
+
+\cleardoublepage % Empty page before the start of the next part
+
+\bibliographystyle{alpha}
+\bibliography{bibli/math}
+%------------------------------------------------
+
+\end{document}

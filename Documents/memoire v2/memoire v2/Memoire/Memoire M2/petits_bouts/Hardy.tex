@@ -1,0 +1,181 @@
+\chapter{Projecteur de Szeg\H{o}}
+
+\section{Espace de Hardy}
+
+Soit $D$ un ouvert connexe relativement compact de $\C$, dont la frontière $\partial D$ est une sous-variété $C^{\infty}$. On dispose d'une notion de trace $W^{2,s}(D) \to L^2(\partial D)$ pour $s > 1/2$. On souhaite utiliser les propriétés de régularité des fonctions holomorphes, ou harmoniques, pour définir une notion de trace depuis un sous-espace $H^2(D)$ de fonctions holomorphes. C'est cet espace qu'on appellera \emph{espace de Hardy}, et dont on étudiera par la suite l'image par l'application trace.
+
+\subsection{Un exemple : $\Delta$, le disque unité de $\C$}
+
+Dans $\Delta$, de frontière $S^1$, les fonctions holomorphes sont très bien caractérisées par leur développement en série entière en 0. Cependant, notre but est de généraliser les notions qu'on va définir à d'autres ouverts ; on s'efforcera donc d'oublier cette écriture, et on utilisera plutôt le noyau de Poisson $P : S^1 \times \Delta \to \R^{+*}$, qui s'écrit :
+
+\begin{equation}
+	P(z,\eitheta) = \cfrac{1}{2\pi}\,\cfrac{1-|z|^2}{|z-\eitheta|^2}
+\end{equation}
+
+On sera amené à noter également $P$ l'opérateur associé, qui résout le problème de Dirichlet sur le disque.
+
+\subsubsection{Définition}
+
+\begin{prop}
+Soit $f : \Delta \to \C$, holomorphe. Pour $r <1$ on définit $f_r : S^1 \to \C$ par $f_r(\eitheta)=f(r\eitheta)$. Alors les trois conditions suivantes sont équivalentes :
+\begin{enumerate}
+\item $\sup_{r<1}|f_r|_{L^2} < + \infty$ ;
+\item il existe $ f^* \in L^2(S^1)$ vérifiant, pour tout $z$,
+\begin{equation*}
+	f(z) = \int_{S^1}P(z,\eitheta)f^*(\eitheta)d\theta ;
+\end{equation*}
+\item il existe $h : \Delta \to \R$, harmonique, vérifiant $|f|^2 \leq h$.
+\end{enumerate}
+\end{prop}
+
+Preuve : \begin{itemize}
+\item $1 \Rightarrow 2$ utilise des résultats de convergence faible. Il existe en effet une sous-suite $(r_k) \to 1$ et $f^* \in L^2(S^1)$ telles que $f_{r_k} \rightharpoonup f^*$. En évaluant cette convergence contre $P(z, \cdot)$, on a, pour tout $z \in \Delta$, 
+
+\begin{equation*}
+	\int P(z,\eitheta)f_{r_k}(\eitheta)d\theta \to \int P(z,\eitheta)f^*(\eitheta)d\theta.
+\end{equation*}
+
+Or le terme de gauche s'interprète comme l'expression d'une fonction holomorphe dans le disque selon sa valeur au bord, $f_{r_k}$. Par unicité, cette fonction n'est autre que $z \mapsto f(r_kz)$. Donc le membre de gauche vaut $f(r_k z)$, et cette quantité converge vers $f(z)$, d'où l'égalité.
+\item $2 \Rightarrow 3$ utilise simplement l'inégalité de Cauchy-Schwarz :
+
+\begin{align*}
+	|f|^2(z) &\leq \left|\int P(z,\eitheta)d\theta \right| \left|\int P(z,\eitheta)|f^*|^2(\eitheta)d\theta\right|\\
+	&= \int P(z,\eitheta)|f^*|^2(\eitheta)d\theta =: h(x)
+\end{align*}
+
+\item $3 \Rightarrow 1$ utilise à nouveau les propriétés du noyau de Poisson : avec $r_1 < 1$, et $r < 1$, on a, par la formule de Poisson pour $h(r_1 \cdot)$, sur $\overline{\Delta}$, 
+
+\begin{equation*}
+	h(r_1re^{i\alpha})=\int P(re^{i\alpha}, \eitheta)h(r_1\eitheta)d\theta
+\end{equation*}
+
+En notant $C_r = inf\{P(x,y), y\in S^1, |x| \leq r\} > 0$, on a donc 
+
+\begin{equation*}
+	|f_{r_1}|_{L^2}^2 \leq \int h(r_1 \eitheta)d\theta \leq \cfrac{1}{C_r}\sup\{h(x), |x| \leq r\}
+\end{equation*}
+
+$r$ et $r_1$ étant indépendants, on a bien un contrôle uniforme de $|f_{r_1}|_{L^2}$.
+\end{itemize}
+
+On pose $H^2(\Delta)$, l'espace de Hardy, comme étant l'espace des fonctions holomorphes sur $\Delta$ vérifiant les trois conditions équivalentes de la proposition. La condition 1 implique que $H^2(\Delta) \subset L^2(\Delta)$. 
+
+Par ailleurs, la formule de Poisson nous donne que la norme $L^2$ de $f^*$ est proportionnelle à la norme $L^2$ de $f \in H^2$. Ceci nous permet de compléter notre desideratum, à savoir une application trace correctement définie sur $H^2$.
+
+Cette trace permet de démontrer que  $H^2$ est fermé pour la norme $L^2$. Le schéma de démonstration de cette affirmation est le suivant : si une suite $(f_n)$ de fonctions de $H^2$ converge dans $L^2$ vers une fonction $f$, alors elle est en particulier $L^2$-bornée, donc la suite $f_n^*$ est $L^2$-bornée. Il existe donc une sous-suite, que nous appellerons toujours $f_n^*$ par commodité, qui converge faiblement vers une fonction dans $L^2(S^1)$ que nous appelons innocemment $f^*$. Par définition de la convergence faible, on a $P(f_n^*) \to P(f^*)$ ponctuellement, mais $P(f_n^*) = f_n$ qui converge presque partout vers $f$. Donc $f = P(f^*)$, ce qui est la condition 2 de la proposition.
+
+\subsubsection{Convergence sectorielle ou radiale}
+
+Les fonctions dans $H^2$ vérifient certaines propriétés de régularité au bord, notamment la convergence sectorielle. Commençons par définir, pour $\theta \in \R$ fixé, un secteur du disque $\Delta$, dans lequel l'angle d'approche de $\eitheta$ n'est pas trop grand :
+
+\begin{equation*}
+	\Gamma_{\alpha}(\eitheta) = \{z \in \Delta, |z-\eitheta| \leq \alpha (1-|z|)\}
+\end{equation*}
+
+On a alors :
+
+\begin{prop}
+	Soit $\alpha > 1$ et $f \in H^2(\Delta)$, alors on a, pour presque tout point $\eitheta$ du bord,
+	\begin{equation*}
+		\lim_{x \to \eitheta,\,x \in \Gamma_{\alpha}(\eitheta)}f(x) = f^*(\eitheta)
+	\end{equation*}
+\end{prop}
+
+Pour démontrer cette proposition, nous allons avoir besoin des fonctions maximales de Hardy-Littlewood. Pour $M$ une variété riemannienne (on n'utilisera que $\R^d$ et $S^1$), $g \in L^1_{loc}(M)$, on définit :
+
+\begin{equation}
+	Mg(x)= \limsup_{r \to 0} \cfrac{1}{vol(B(x,r))}\int_{B(x,r)}|g|.
+\end{equation}
+
+M est clairement continue de $L^{\infty}$ dans $L^{\infty}$, mais pas forcément de $L^1$ dans $L^1$ ; cependant, en vertu de l'inégalité de Markov, $M$ est continue de $L^1$ dans $L^1$ faible ; par les théorèmes classiques d'interpolation, $M$ est continue de $L^p$ dans $L^p$ pour tout $p>1$.
+
+On va avoir besoin d'un lemme pénible, qui se trouve exposé dans \cite{stein1972boundary} :
+
+\begin{lem}
+On fixe $\alpha > 1$. Alors il existe une constante $C_{\alpha}$ telle que pour tout $f \in L^1(S^1)$, on a :
+\begin{equation*}
+	\sup_{x \in \Gamma_{\alpha}(\eitheta)}\int_{S^1}P(x,e^{i\nu})g(e^{i\nu})d\nu \leq C_{\alpha}Mg(\eitheta)
+\end{equation*}
+\end{lem}
+
+A l'aide de ce lemme, on peut démontrer la proposition. 
+
+Soit $\alpha > 1$ et $f \in H^2(\Delta)$. On sait que $f^* \in L^2(X)$ vérifie $f=Pf^*$. Soit $\epsilon > 0$, et posons :
+
+\begin{equation*}
+	\Lambda_{\epsilon} := \{\eitheta \in S^1, \limsup_{x \to \eitheta, \,x \in \Gamma_{\alpha}(\eitheta)}|f(x)-f^*(\eitheta)| \geq \epsilon\}
+\end{equation*}
+
+Les ensembles $\Lambda_{\epsilon}$ sont alors décroissants avec $\epsilon$, et on cherche à démontrer que l'union de ces ensembles quand $\epsilon \to 0$ est de mesure nulle, il suffit donc d'avoir :
+\begin{equation*}
+	|\Lambda_{\epsilon}| = O(\epsilon).
+\end{equation*}
+
+Soit donc $g \in C^{\infty}(S^1)$ telle que $|f^*-g|_{L^2} < \epsilon^2$. On décompose alors :
+\begin{equation*}
+	|f(x)-f^*(\eitheta)| \leq |P(f^*-g)(x)| + |Pg(x)-g(\eitheta)| + |g(\eitheta)-f^*(\eitheta)|
+\end{equation*}
+
+Le troisième terme se traite directement à l'aide de l'inégalité de Markov. Le deuxième terme a une contribution nulle par continuité de $Pg$ jusqu'au bord. La contribution du premier terme à $\Lambda_{\epsilon}$ se traite grâce au lemme :
+\begin{align*}
+	|\Lambda_{\epsilon}| &\leq |\eitheta, \epsilon/3 \leq C_{\alpha} M(f^*-g)(\eitheta)| \\
+		& \leq 3C_{\alpha}\epsilon^{-1} |M(f^*-g)|_{L^1} \\
+		& \leq C \epsilon^{-1} |f^*-g|_{L^2} \\
+		& \leq C \epsilon
+\end{align*}
+
+Ce qui conclut la preuve.
+
+\subsection{Le cas plus général}
+
+On désire étendre la définition des espaces de Hardy à des cas plus généraux. On considère $D$ un ouvert relativement compact et fortement pseudoconvexe de $\C^n$, à bord lisse $X$ ; on va alors pouvoir appliquer le théorème de Kohn, exposé dans l'annexe. On appelle espace de Hardy l'espace $H^2(X)$, et $P$ l'opérateur inverse de la trace.
+
+Comme l'application 
+\begin{align*}
+	H^2(D)\times D &\mapsto \C\\
+	(f,x) &\mapsto Pf(x)
+\end{align*} est continue par holomorphie (la valeur en un point vaut la valeur moyenne sur une petite boule, laquelle est continue pour la topologie $L^2$), on dispose en particulier d'une application continue $f \to f(x)$ dans $H^2(D)$. Par le théorème de Riesz, cette forme linéaire est associée à une fonction $K_x \in H^2(D)$. Posons $K(x,y) = \overline{K_x(y)}$. C'est une fonction antisymétrique, holomorphe par rapport à sa première variable. Par les constructions précédentes, on peut conjuguer par l'opérateur trace et obtenir une fonction $S(x,y)$. On aura besoin, de manière cruciale, du lemme suivant :
+
+\begin{lem}
+	Si $\{e_i\}$ est une base hilbertienne de $H^2(X)$, alors on a $S(x,y) = \sum e_i(x) \overline{e_i(y)}$.
+\end{lem}
+
+Preuve : On a $S_x(y) = \sum \lambda_i(x)e_i(y)$, puis par définition de $S_x$, $\lambda_i(x)= \overline{e_i(x)}$.
+
+On appelle noyau de Szeg\H{o} la fonction $S$.
+
+\subsubsection{Un exemple : le cas de la boule unité}
+On sait que la boule unité de $\C^n$ est fortement pseudoconvexe. On peut donc appliquer ces résultats, et pour trouver le noyau de Szeg\H{o} il suffit de trouver une base orthonormée de fontions dans $H^2(S^{2n-1})$.
+
+\begin{lem}
+	Les fonctions $z \mapsto z^{\alpha}$, où $\alpha$ parcourt tous les polyindices, forment une base orthogonale de $H^2(B(0,1))$, et leurs restrictions forment une base orthogonale de $H^2(S^{2n-1})$.
+\end{lem}
+\begin{preuve}
+	Ces fonctions sont clairement orthogonales sur chaque sphère centrée en l'origine. De plus, toute fonction holomorphe dans $B(0,1)$ est développable en série entière sur cet ouvert, d'où la propriété de base orthogonale. Par l'application du théoréme \ref{thm:annexe}, leur restriction à la sphère unité forment une base orthogonale.
+\end{preuve}
+
+\begin{lem}
+	En notant $1=(1,0,\ldots, 0)$, on a 
+	\begin{equation*}
+		S(z,1)=\cfrac{(n-1)!}{2\pi^n}\,\cfrac{1}{(1-z_1)^n}
+	\end{equation*}
+\end{lem}
+\begin{preuve}
+	On a :
+	\begin{align*}
+		S(z,1)&=\sum_{\alpha}\cfrac{z^{\alpha}\cdot 1^{\alpha}}{\|z^{\alpha}\|^2_{L^2(S)}}\\
+		&=\sum_{k=0}^{+\infty}\cfrac{z_1^{\alpha}}{\|z_1^{k}\|^2_{L^2(S)}}\\
+		&=\sum_{k=0}^{+\infty}\cfrac{1}{2\pi^n}\,\cfrac{z_1^k(k+n-1)!}{k!}\\
+		&=\cfrac{(n-1)!}{2\pi^n}\,\sum_{k=0}^{+\infty}{z_1^k}\binom{k+n-1}{n-1}\\
+		&=\cfrac{(n-1)!}{2\pi^n}\,\cfrac{1}{(1-z_1)^n}.
+	\end{align*}
+\end{preuve}
+
+On en déduit, par invariance par rotation, la forme générale suivante :
+
+\begin{prop}
+	Sur la sphère unité de $\C^n$, on a :
+		\begin{equation*}
+			S(z,w) = \cfrac{(n-1)!}{2\pi^n}\,\cfrac{1}{(1-z\cdot \overline{w})}
+		\end{equation*}
+\end{prop}

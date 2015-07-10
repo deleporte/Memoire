@@ -1,0 +1,86 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Math style configuration page - v2
+% By pavel. Last edited June 11 2015
+% Tribute to Igor Kortchemski
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{xparse}
+%shortcuts
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\fii}{\varphi}
+\newcommand{\In}{\mathcal{I}}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\inj}{\hookrightarrow}
+\newcommand{\bij}{\leftrightarrow}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\db}{\overline{\partial}_b}
+\newcommand{\eitheta}{e^{i\theta}}
+
+%operators
+\DeclareMathOperator{\Hess}{Hess}
+\DeclareMathOperator{\Vois}{Vois}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\diag}{diag}
+
+
+
+% theorems configuration
+
+\newtheoremstyle{indented}{7pt}{7pt}{\addtolength{\leftskip}{2.5em}}{}{\bfseries}{.}{.5em}{}
+
+\makeatletter
+\newcounter{exo}[subsection]
+\newenvironment{exo}[1][]
+{\edef\@exer{#1}
+\ifx\@exer\empty{}\elst{\setcounter{exo}{#1}\addtocounter{exo}{-1}}\fi\refstepcounter{exo}
+\noindent{\bf Exercice \theexo.}
+\hspace{0,5em}}
+{\medskip}
+
+\newcounter{sol}[subsection]
+\newenvironment{sol}[1][]
+{\edef\@exer{#1}
+\ifx\@exer\empty{}\else{\setcounter{sol}{#1}\addtocounter{sol}{-1}}\fi
+\refstepcounter{sol}
+\noindent {\it \underline{Solution de l'exercice \thesol.}
+\hspace{0.5em}}}
+{\medskip}
+\makeatother
+
+\theoremstyle{indented}
+
+\newtheorem{defn}{Définition}[chapter]
+
+\newtheorem{theoremaux}{Théorème}   %theorems have their own numerotation and are accessible through the TOC
+\NewDocumentEnvironment{theorem}{o}  %TOC accessibility
+  {\IfNoValueTF{#1}
+    {\theoremaux\addcontentsline{toc}{subsection}{\protect Théorème \thetheoremaux}}
+    {\theoremaux[#1]\addcontentsline{toc}{subsection}{\protect\kern -1em Théorème \thetheoremaux\enspace(#1)}}
+    \ignorespaces}
+  {\endtheoremaux}
+\newenvironment{preuve}{
+\noindent \textbf{Démonstration. }}{\hfill $\square$}
+
+\newtheorem{exemple}[defn]{Exemple}
+\newtheorem{prop}[defn]{Proposition}
+\newtheorem{corr}[defn]{Corollaire}
+\newtheorem{por}[defn]{Porisme}
+\newtheorem{ex}[defn]{Exemple}
+\newtheorem{lem}[defn]{Lemme}
+\newtheorem{ax}{Axiome}  %Axioms have their own numerotation
+
+\theoremstyle{definition}
+\newtheorem{rem}[defn]{Remarque} %remarks are not indented
+\newtheorem{rems}[defn]{Remarques}
+
+
+%--------------
+% Mise en page mathématique
+%--------------
+\addtolength{\jot}{.2em}
