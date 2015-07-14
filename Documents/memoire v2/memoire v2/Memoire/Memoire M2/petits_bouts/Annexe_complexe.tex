@@ -311,6 +311,7 @@ Donc si $-\log(-\rho)$ est psh et si un vecteur $\xi \in T\C^n \otimes \C$ est d
 
 Pour la réciproque, on se reporte à \cite{Demailly}.
 \end{preuve}
+
 Ayant caractérisé la pseudoconvexité par la positivité d'une forme sur la frontière, il est naturel de définir une notion plus restrictive en imposant la stricte positivité de cette forme.
 \begin{defn}
 On dit qu'un ouvert $U \subset \C^n$, de frontière $C^2$, est \emph{fortement pseudoconvexe} lorsque la forme de Lévi est définie positive en tout point de la frontière de $U$.
@@ -346,7 +347,8 @@ Pour $n \geq 2$, le demi-espace $\{\Im z_n <0\}$ est pseudoconvexe mais pas fort
 \begin{preuve}
 La fonction $\rho: z \mapsto \Im(z_n)$ définit cet ouvert, sa forme de Lévi sur la frontière est positive mais pas définie positive.
 \end{preuve}
-Le dernier exemple montr equ'on ne peut attendre a priori aucune propriété géométrique naturelle partagée par tous les ouverts pseudoconvexes :
+
+Le dernier exemple montre qu'on ne peut attendre a priori aucune propriété géométrique naturelle partagée par tous les ouverts pseudoconvexes :
 \begin{exemple}
 Toute variété complexe compacte est pseudoconvexe.
 \end{exemple}
@@ -357,14 +359,14 @@ La fonction $p=0$ convient.
 On a déjà parlé de la difficulté de trouver une solution au problème suivant : étant donnée une fonction $f$ sur le bord lisse $X$ d'un ouvert $U$, vérifiant $\db f =0$ au sens des distributions, peut-on trouver $g$ holomorphe à l'intérieur de $U$, dont la trace au bord soit $f$ ? On sait qu'on dispose d'une telle "réciproque de la trace" lorsque $f$ est lisse.
 
 Dans les trois articles \cite{Kohn}, \cite{Kohn},\cite{Kohn}, Kohn et Rossi démontrent le théorème suivant :
-\begin{theorem}
+\begin{theorem}[Kohn]
 Soit $U$ un ouvert fortement pseudoconvexe et relativement compact d'une variété $M$, $h$ une forme hermitienne sur $M$ et $X=\partial U$.
 
 On note d'une part $H^2(X)$ la clôture, pour la topologie $L^2(h)$, de l'ensemble $\{f \in C^{\infty}(X),\,\db f =0\}$, et d'autre part $H^2(D)$ la clôture, pour la topologie $L^2(h)$, de l'ensemble $\{f \in C^{\infty}{\overline{U}},\,\overline{\partial}f =0\}$.
 
 Alors l'application réciproque de la trace a une unique extension continue $H^2(X)\to H^2(D)$, qui est bijective.
 \end{theorem}
-Ce théorème provient d'un résultat de régularité du problème $\overline{\partial}$-Neumann, démontré dans $\cite{Kohn}$, et qui permet également de démontrer le théorème de Newlander-Nirenberg.
+Ce théorème provient d'un résultat de régularité du problème $\overline{\partial}$-Neumann, démontré dans \cite{Kohn}, et qui permet également de démontrer le théorème de Newlander-Nirenberg.
 
 Dans ces articles n'apparaissent que les constructions de géométrie complexe que nous avons données, et des outils de théorie spectrale. La preuve est néanmoins longue et nécessite d'obtenir un résultat de régularité du problème $\overline{\partial}$-Neumann pour des formes de degré quelconque, puisqu'un argument de dualité est utilisé à la fin. L'exposé complet du raisonnement dépasse le cadre de ce rapport, d'autant que les articles en question sont facilement lisibles.
 

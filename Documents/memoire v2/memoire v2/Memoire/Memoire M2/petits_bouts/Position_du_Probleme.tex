@@ -111,20 +111,18 @@ On invoque alors le lemme de phase stationnaire : il existe des opérateurs diff
 
 \begin{align*}
 	S_N(x,x) &= N^n s_0(x,x) + \sum_{k=1}^{K}\sum_{j=0}^{K-k}N^{n-k-j}L_{k,j}s_j(x,x) + R(N,K,x)\\
-	\intertext{On a donc la forme suivante}
-		S_N(x,x) &= N^n \cfrac{1}{4\pi^n}\sqrt{\det{L_X,x}}\|d\rho\|^{\frac{n+1}{2}(x) + \sum_{k=1}^K N^{n-1}a_i(x) + R(N,K,x)
+		S_N(x,x) &= N^n \cfrac{1}{4\pi^n}\sqrt{\det{L_X,x}}\|d\rho\|^{\frac{n+1}{2}}(x) + \sum_{k=1}^K N^{n-1}a_i(x) + R(N,K,x)
 \end{align*}
 Ici, on a, pour tous $N$ et $j$,
-\begin{align*}
+\begin{equation*}
   \|R(N,K,\cdot)\|_{C^j} \leq N^{n-K-1}C_{j,K}
-\end{align*}
-
+\end{equation*}
 Ceci est l'estimation sur $S_N(x,x)$ désirée. En différentiant cette expression, on obtient $\partial_b\overline{\partial}_b \log(S_N(x,x)) = O(1)$, d'où le corollaire.
 
 \begin{rem}
 Comme $S_N$ est un projecteur, on a évidemment :
 \begin{equation}
-  \int_XS_N(x,x)dV=\dim H^2_N(X).
+  tr(S_N) = \int_XS_N(x,x)dV=\dim H^2_N(X).
 \end{equation}
 En particulier, on vient de démontrer l'existence d'un développement asymptotique :
 \begin{equation}
@@ -133,6 +131,6 @@ En particulier, on vient de démontrer l'existence d'un développement asymptoti
 Ce résultat est très similaire au théorème de Riemann-Roch : \cite{source}. Dans le cas de $\C\mathbb{P}^1$,l'espace des sections de $\mathcal{O}(1)^{\otimes N}$ est en bijection naturelle avec l'espace des fonctions méromorphes avec un pôle d'ordre au plus $N$ en $[0:1]$. Le théorème de Riemann-Roch est en réalité plus puissant car il donne une expression polynômiale de la dimension.
 \end{rem}
 
-Remarquons que l'application de Kodaira est non seulement bien définie, mais immersive : si sa différentielle en un point n'était pas injective, le pull-back de la forme de Fubini-Study serait nul à cet endroit. Montrons maintenant que cette application est une immersion pour $N$ grand.
+Remarquons que l'application de Kodaira est non seulement bien définie, mais immersive : si sa différentielle en un point n'était pas injective, le pull-back de la forme de Fubini-Study serait nul à cet endroit.
 
-Deux points $x_N$ et $y_N$ ont la même image par $S$ ssi leur 
+La démonstration de l'injectivité de l'application de Kodaira est reportée au chapitre suivant ; en effet, elle repose sur l'expression asymptotique de $S_N$ après changement d'échelle.

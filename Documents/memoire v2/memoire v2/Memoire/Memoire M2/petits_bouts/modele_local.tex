@@ -318,7 +318,7 @@ On note d'abord $\gamma$ l'opérateur de trace au bord, sur les fonctions et sur
 
 \noindent $K\gamma$ est un projecteur, mais il n'est pas orthogonal, on va construire un projecteur $H$ qui corrige ce défaut.
 
-On sait que l'opérateur $K^*K$ est elliptique de degré $-1$, et inversible (cf \cite{Trouver une source}) ; on note $A=(K^*K)^{-1/2}$. Alors $(KA)^*KA = Id_{L^2(X)}$, autrement dit, $KA$ est une isométrie de $L^2(X)$ vers l'ensemble des fonctions harmoniques dans $U$, de carré intégrable jusqu'au bord. On note encore $H=KA(KA)^*$ le projecteur orthogonal sur cet ensemble.
+On sait que l'opérateur $K^*K$ est elliptique de degré $-1$, et inversible (cf \cite{Trouverunesource}) ; on note $A=(K^*K)^{-1/2}$. Alors $(KA)^*KA = Id_{L^2(X)}$, autrement dit, $KA$ est une isométrie de $L^2(X)$ vers l'ensemble des fonctions harmoniques dans $U$, de carré intégrable jusqu'au bord. On note encore $H=KA(KA)^*$ le projecteur orthogonal sur cet ensemble.
 
 On note encore $G=(Id-H)G_1$ ; il satisfait aux mêmes conditions que $G_1$ en remplaçant $\gamma$ par $K^*$, simplement parce que $K^*(Id-H) = 0$. Alors $G$ est régulier et auto-adjoint. Enfin, on introduit une dernière notation, le projecteur de Bergmann $B$ sur l'espace des fonctions holomorphes dans $L^2(U)$. On a alors, puisqu'une fonction holomorphe est harmonique :
 
@@ -354,17 +354,15 @@ On a $Im(S_A) = Ker(\overline{\partial}_bA)$.
  \noindent En effet, si $f$ est harmonique, on a $AK^*f=A^{-1}\gamma f$. Or, puisque $U$ est strictement pseudoconvexe, on a exactement $\gamma Im(B) = Ker \overline{\partial}_b$.
  \end{proof}
  
- \subsubsection{Le projecteur de Bergmann approximatif}
+\subsubsection{Le projecteur de Bergmann approximatif}
  
- Le système d'opérateurs $\overline{\partial}_bA$ vérifie encore les hypothèses de la partie précédente, donc on peut construire un projecteur approximatif autoadjoint $S_A'$ et un OIF $L_A'$ tels que
+Le système d'opérateurs $\overline{\partial}_bA$ vérifie encore les hypothèses de la partie précédente, donc on peut construire un projecteur approximatif autoadjoint $S_A'$ et un OIF $L_A'$ tels que
  
- \begin{align*}
+\begin{align*}
   \overline{\partial}_bAS'_A\sim 0\\
   S_A' + L_A'\overline{\partial}_bA\sim Id
 \end{align*}
-
-\noindent On peut alors construire un projecteur de Bergmann approximatif. On va démontrer que $B' = KAS_A'AK^*$ vérifie, par rapport à $\overline{\partial}$, les bonnes conditions.
-
+On peut alors construire un projecteur de Bergmann approximatif. On va démontrer que $B' = KAS_A'AK^*$ vérifie, par rapport à $\overline{\partial}$, les bonnes conditions.
 \begin{lem}
 On a $\overline{\partial}B' \sim 0$. Par ailleurs, il existe un opérateur continu $F'$ tel que $Id=B'+F'\overline{\partial}$.
 \end{lem}
