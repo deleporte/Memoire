@@ -138,3 +138,6 @@ sympy-plots-for-*.tex/
 
 # Linux Edit
 *~
+
+# Images
+*.jpg

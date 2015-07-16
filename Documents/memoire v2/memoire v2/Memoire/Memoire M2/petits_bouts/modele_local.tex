@@ -33,7 +33,10 @@ Il existe un projecteur orthogonal $P$ qui est un OIF à symbole classique, et d
   \item $Id \sim L^-D^-$.
   \item $D^+P =0$.
   \item $Id \sim P + L^+D^+$.
-  \item L'idéal lagrangien positif associé à $P$ est le plus grand idéal lagrangien qui, d'une part, contient l'idéal engendré par les fonctions $s_j^+(x,y,\xi,\eta)$ et les fonctions $\overline{s_j^+}(x',y',\xi',\eta')$ et qui, d'autre part, est contenu dans l'idéal des fonctions qui s'annulent lorsque $x=x'=0, \, \xi=\xi'=0,\, y=y',\, \eta=\eta'$.
+  \item L'idéal lagrangien positif associé à $P$ est l'unique idéal lagrangien positif qui, d'une part, contient l'idéal engendré par les fonctions $s_j^+(x,y,\xi,\eta)$ et les fonctions $\overline{s_j^+}(x',y',\xi',\eta')$ et qui, d'autre part, a un ensemble de points d'annulation prescrit :
+  \begin{equation*}
+  	\{\forall f \in J_{\fii},\, f\} = \{x=x'=0, \, \xi=\xi'=0,\, y=y',\, \eta=\eta'\}.
+  \end{equation*}
 \end{enumerate}
 \end{prop}
 \begin{proof}
@@ -145,15 +148,14 @@ Nous allons démontrer ces quatre points dans l'ordre où ils ont été établis
     b_j := i \frac 12 (|x|^2 + |x'|^2)\frac{\eta_j}{|\eta|} + y_j-y'_j
   \end{align*}
   
-  Cet idéal contient bien l'idéal $I$ engendré par les $s_j(x,\xi,y,\eta)$ et $\overline{s_j}(x',\xi',y',\eta')$ ; par ailleurs, toute fonction dans cet idéal est contenue dans l'idéal $K$ des fonctions nulles lorsque $x=x'=0,\,\xi=\xi'=0,\,y=y',\,\eta=\eta'$.
+  Cet idéal contient bien l'idéal $I$ engendré par les $s_j(x,\xi,y,\eta)$ et $\overline{s_j}(x',\xi',y',\eta')$ ; par ailleurs, toute fonction dans cet idéal est contenue dans l'idéal des fonctions nulles sur  $\{x=x'=0,\,\xi=\xi'=0,\,y=y',\,\eta=\eta'\}=C_{\fii}$.
   
-Réciproquement, soit $J$ un idéal lagrangien positif tel que $I \subset J \subset K$, et soit $m \in T^*(\R^n \times \R^n)$.
+Réciproquement, soit $J$ un idéal lagrangien positif tel que $I \subset J$ avec $\{f=0 \forall f \in J\}=C_{\fii}$, et soit $m \in T^*(\R^n \times \R^n)$.
 
 \begin{itemize}
-  \item Si $m$ ne vérifie pas $x=x'=0,\,\xi=\xi'=0$, alors l'une des fonctions qui engendrent $I$ est non nulle au voisinage de $m$, donc au voisinage de ce point, $J$ est engendré par la liste précédente de générateurs. Donc au voisinage de $m$, on a $J=J_{\phi}$.
-  \item Si $m$ vérifie $x=x'=0,\, \xi=\xi'=0$ mais $(y,\eta) \neq (y', \eta')$. Dans ce cas, l'un des générateurs locaux de $J_{\phi}$ est non nul, donc on a bien $J \subset J_{\phi}$ au voisinage de $m$.
+  \item Si $m \notin C_{\fii}$, alors l'une des fonctions qui engendrent $J_{\fii}$ est non nulle au voisinage de $m$, ainsi que l'une des fonctions qui engendre $J$. Donc localement, ces deux idéaux sont les mêmes.
   
-  \item Si $m$ est tel que $x=x'=0,\,\xi=\xi'=0,\,y=y',\,\eta=\eta'$, on peut supposer qu'un système de générateurs locaux de $J$ contient les $s_j(x,\xi,y,\eta)$ et les $\overline{s_j}(x',\xi',y',\eta')$. Alors, sans perte de généralité, les autres générateurs ne dépendent pas de $(\xi,\xi')$. Parmi ces $2q$ générateurs, il est impossible que moins de $q$ d'entre eux dépendent de $(y,y')$, à cause de l'inclusion $J \subset K$ ; par ailleurs, si plus de $q$ d'entre eux dépendent de $(y,y')$, on peut enlever la dépendance en $y$ de l'un d'entre eux en formant des combinaisons linéaires, et la fonction résultante est alors nécessairement indépendante de $y'$, encore une fois d'après l'inclusion $J \subset K$.
+  \item Si $m\in C_{\fii}$, on peut supposer qu'un système de générateurs locaux de $J$ contient les $s_j(x,\xi,y,\eta)$ et les $\overline{s_j}(x',\xi',y',\eta')$. Alors, sans perte de généralité, les autres générateurs ne dépendent pas de $(\xi,\xi')$. Parmi ces $2q$ générateurs, il est impossible que moins de $q$ d'entre eux dépendent de $(y,y')$, à cause de l'inclusion $J \subset K$ ; par ailleurs, si plus de $q$ d'entre eux dépendent de $(y,y')$, on peut enlever la dépendance en $y$ de l'un d'entre eux en formant des combinaisons linéaires, et la fonction résultante est alors nécessairement indépendante de $y'$, encore une fois d'après l'inclusion $J \subset K$.
 
 On a donc $q$ fonctions, notées $\tilde{a}_j$, qui ne dépendent que de $(x,x',\eta,\eta')$, et $q$ autres fonctions, notées $\tilde{b}_j$, qui ne dépendent que de $(x,x',y,y',\eta,\eta')$. On va maintenant utiliser le fait que les générateurs locaux doivent commuter pour le crochet de Poisson.
 \begin{align*}
@@ -185,7 +187,7 @@ En réinjectant dans les lignes précédentes, on trouve :
 Ce qu'il fallait démontrer.
 \end{itemize}
 
-Nous portons à l'attention du lecteur que dans \cite{BoutetdeMonvel1975}, le résultat concerne la relation canonique complexe associée à $\phi$, et que  l'argument donné est géométrique ; en particulier, les fonctions génératrices  considérées dans cet article ne commutent pas.
+Nous portons à l'attention du lecteur que dans \cite{BoutetdeMonvel1975}, le résultat concerne la relation canonique complexe associée à $\phi$, et que  l'argument donné est géométrique ; en particulier, les fonctions génératrices considérées dans cet article ne commutent pas.
 
 \end{enumerate}
 \end{proof}
@@ -263,7 +265,7 @@ où $P=RR^*$ est le projecteur construit précédemment. Malheureusement, l'opé
   On peut alors prendre directement $S=0$ et $L=UA^{-1}D^-V$.
   \end{proof}
   
-  En reprenant le raisonnement de la partie précédente, le plus grand idéal lagrangien $J$ qui contienne l'idéal engendré par les $d_j$ en le premier jeu de variables et les $\overline{d_j}$ en le second jeu de variables, et qui soit contenu dans l'idéal des fonctions qui s'annulent sur $diag(\Sigma)$, est l'idéal associé à la phase qui définit $S$.
+  En reprenant le raisonnement de la partie précédente, l'unique idéal lagrangien $J$ qui contienne l'idéal engendré par les $d_j$ en le premier jeu de variables et les $\overline{d_j}$ en le second jeu de variables, et dont l'ensemble des points d'annulation est exactement $diag(\Sigma)$, est l'idéal associé à la phase qui définit $S$.
 \subsubsection{Application au projecteur de Szeg\H{o}}
 On va considérer le cas particulier où le système d'opérateurs est $\overline{\partial}_b$, sur le bord d'une variété pseudoconvexe.
 
@@ -422,22 +424,49 @@ $S$ n'est pas a priori un opérateur régulier, mais on peut en fait répéter l
 
 Il s'agit maintenant, pour conclure, de trouver une phase qui engendre le bon idéal $J$.
 
-On se rappelle pour cela que, $X=\partial D$ étant lisse, il existe une fonction $\rho$ qui définit $X$. Cette fonction $\rho$ permet de définir une phase $\psi \in C^{\infty}(X \times X,\C)$ qui vérifie :
+On se rappelle pour cela que, $X=\partial D$ étant lisse, il existe une fonction $\rho$ strictement pseudoconvexe qui définit $X$. Cette fonction $\rho$ permet de définir une phase $\psi \in C^{\infty}(M \times M,\C)$ qui vérifie, au voisinage de $\diag X$ :
+\begin{equation*}
+	\psi(x+h,x+k) = \frac1i \sum_{\alpha,\beta}\cfrac{1}{\alpha !\beta!}\,(\partial^{\alpha}\overline{\partial}^{\beta}\rho)(x)h^{\alpha}\overline{k}^{\beta}.
+\end{equation*}
 
+On peut également demander que $\psi$ vérifie 
 \begin{enumerate}
-	\item $\psi(x,x) = \frac1i \rho(x)$.
-	\item $\psi(x,y)=-\overline{\psi(y,x)}$.
-	\item $\overline{\partial}_1 \psi(x+h,x+k)=O(h^n,k^n) \forall n$.
+	\item $\psi(x,y)=-\overline{\psi(y,x)}$
 	\item $\Im \psi(x,y) \geq C(d(x,X)+d(y,X) + |x-y|^2)$,
 \end{enumerate}
-où $\overline{\partial}_1$ désigne la dérivée antiholomorphe par rapport à la première variable. En effet, les trois premières conditions déterminent le jet de $\psi$ le long de $\diag X$, et n'importe quelle réalisation de ce jet vérifie la dernière condition dans un voisinage de la diagonale, par forte pseudoconvexité ; on peut alors sans peine prolonger cette réalisation loin de la diagonale en conservant cette condition.
+où $\overline{\partial}_1$ désigne la dérivée antiholomorphe par rapport à la première variable. En effet, l'équation précédente détermine le jet de $\psi$ le long de $\diag X$, et ce jet respecte la condition d'antisymétrie. Pour la deuxième condition, on a besoin du :
+\begin{lem} On a 
+	\begin{equation*}
+	\frac{1}{i}\left(\psi(x,y) + \psi(y,x)-\psi(x,x)-\psi(y,y) \right)= \Hess_{\C}\rho(x-y) + O(|x-y|^3)
+	\end{equation*}
+	où comme dans l'annexe, $\Hess_{\C}\rho(\eta,\xi)=\sum \cfrac{\partial^2\rho}{\partial z_j \partial \overline{z_k}}\overline{\eta}_k\xi_j$
+\end{lem}
+\begin{preuve}
+	On réalise un développement de Taylor du membre de gauche (noté $\Phi$ par la suite) en $x=y$, à l'ordre 2 en $y$. Le terme d'ordre 0 vaut évidemment $0$, et par ailleurs, par l'expression du jet de $\psi$ sur la diagonale,
+	\begin{equation*}
+		\partial^{\alpha}_y\Phi|_{x=y} = \partial^{\alpha}_y(\frac{1}{i}\psi(y,x) + \rho(y))|_{x=y}=0.
+	\end{equation*}
+	De manière identique, $\overline{\partial}^{\alpha}_y\Phi|_{x=y}=0$. Il ne reste plus que
+	\begin{equation*}
+		\cfrac{\partial^2 }{\partial y_j\partial \overline{y}_k}\Phi|_{x=y} = \cfrac{\partial^2 \rho}{\partial y_j\partial \overline{y}_k}(x)
+	\end{equation*}
+	Ce qui permet de conclure.
+\end{preuve}
+On a alors, puisque $\rho$ est strictement pseudoconvexe,
+\begin{align*}
+	\Im \psi (x,y) &= \frac{1}{2i}(\psi(x,y)+\psi(y,x)) \\
+	&= \frac{1}{2i}(\psi(x,x)+\psi(y,y)) + \frac{1}{2}\Hess_{\C}(\rho)(x-y)+O(|x-y|^3)\\
+	&\geq C(d(x,X)+d(y,Y) + |x-y|^2) + O(|x-y|^3)
+\end{align*}
+On peut alors corriger $\psi$ par une fonction nulle à tous les ordres sur la diagonale, de manière à avoir la condition requise.
 
-Dans le cas où $X$ est un $S^1$-fibré, on pourra ajouter la condition d'invariance de $\psi$ par rapport au champ de vecteurs $d/d_{\theta}$.
-
-On observe alors, par un examen direct des générateurs locaux, que l'idéal de $C^{\infty}(T^*(X\times X), \C)$ associé à la phase$(x,y,t)\mapsto t\psi(x,y)$ est exactement $J$.
+On observe alors  que l'idéal $J_{\psi}$ de $C^{\infty}(T^*(X\times X), \C)$ associé à la phase$(x,y,t)\mapsto t\psi(x,y)$ est exactement l'idéal de l'opérateur intégral de Fourier $S'$. Pour cela on rappelle que les générateurs locaux de $\db$ sont
+\begin{equation*}
+s_j = i(\xi_j - i \eta_j) - i\left(\frac{\partial \rho}{\partial \overline{z_n}}\right)^{-1}\frac{\partial \rho}{\partial \overline{z_j}}(\xi_n - i \eta_n).
+\end{equation*}
+Et que la variété caractéristique, où le symbole s'annulle et où la matrice des crochets de Poisson $\{s_j,\overline{s_k} \}$ est positive, vaut $\Sigma=\{(x,-ir\dd \rho), r>0\}$. Par la caractérisation de l'idéal dans le théorème de Boutet et Sjostrand, il suffit de démontrer, d'une part, que chaque $s_j$ appartient à l'idéal $J_{\psi}$, et que d'autre part le lieu des zéros communs des fonctions de $J_{\psi}$ vaut exactement $\diag \Sigma$. Mais par construction, le lieu des zéros communs des fonctions de $J_{\psi}$ est exactement l'ensemble des points critiques de $\psi$, qui vaut $\diag \Sigma$. Par ailleurs, un examen direct des générateurs locaux de $J_{\psi}$ montre que $s_j \in J$ pour tout $j$, ce qui permet de conclure.
 
 \subsection{Développement asymptotique du symbole}
-
 On redonne maintenant un calcul réalisé par Boutet et Sjöstrand dans \cite{BoutetdeMonvel1975} et qui donne le développement asymptotique d'une composition de deux opérateurs associés à la phase $t\psi$.
 
 Soient $q_1$ et $q_2$ deux symboles, et $Q_1$ et $Q_2$ les opérateurs correspondants. Alors $Q_1\circ Q_2$ a pour noyau
@@ -514,5 +543,3 @@ Il n'y a en fait pas besoin des termes suivants de ce développement pour retrou
 \end{equation*}
 
 On peut alors trouver une série formelle en $r$ qui résoud cette équation à tout ordre. À cette série formelle est associée une réalisation, puisque $r$ donne naissance à un opérateur d'ordre $-1$. Par cette méthode on peut construire $S$ approximativement à tous les ordres, mais d'une part on ne peut pas réaliser $S$ à un noyau $C^{\infty}$ près, et d'autre part cette méthode \emph{ex nihilo} ne permet pas de démontrer que $\db S=0$ mais seulement $\db S \sim 0$.
-
-A faire : résoudre ces histoires de plus grand idéal blabla, et trouver à quoi ça peut bien servir.

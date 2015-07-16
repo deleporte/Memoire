@@ -269,7 +269,7 @@ On va généraliser les constructions précédentes au cas d'une phase général
 associe à un symbole un opérateur à noyau, dont on voudrait comprendre les propriétés.
 
 \begin{defn}
-  Pour $X$ et $Y$ deux variétés, une fonction $\fii \in C^{\infty}(X \times Y \times (\R^d\setminus 0),\R)$ est appelée \emph{phase réelle convenable} lorsque :
+  Pour $X$ et $Y$ deux variétés, une fonction $\fii \in C^{\infty}(X \times Y \times (\R^d\setminus 0),\R)$ est appelée \emph{phase réelle non dégénérée} lorsque :
   \begin{itemize}
     \item La fonction $\fii$ est 1-homogène en $\theta$.
     \item Pour tout $x\in X$, la fonction $(y,\theta)\mapsto \fii(x,y,\theta)$ n'a pas de point critique.
@@ -286,7 +286,7 @@ La structure de front d'onde se généralise :
 \end{defn}
 
 \begin{prop}[\cite{hormander2003analysis}, thm 8.1.9]
-  Soit $\fii$ une phase réelle convenable sur $X\times Y\times \R^d$, et $a \in S^m_{glob}(X\times Y\times \R^d)$. 
+  Soit $\fii$ une phase réelle non dégénérée sur $X\times Y\times \R^d$, et $a \in S^m_{glob}(X\times Y\times \R^d)$. 
 
   Alors l'intégrale à noyau $I_{\fii}(a)$ vérifie :
   \begin{equation*}
@@ -306,12 +306,68 @@ La régularité des opérateurs intégraux de Fourier est donc associée à leur
 La forme symplectique, restreinte à $C_{\fii}$, est nulle.
 \end{lem}
 \begin{preuve}
-A faire.
+Reportée au paragraphe suivant.
 \end{preuve}
-On peut alors définir l'idéal associé à $\fii$ :
-\begin{defn}Soit $S$ une variété symplectique. Un idéal $J \subset C^{\infty}(S)$ est dit \emph{lagrangien} lorsque :
+On appelle \emph{lagrangienne} une telle sous-variété.
+\subsection{Idéaux lagrangiens associés à une phase}
+Plutôt que de caractériser $\fii$ par sa variété caractéristique, on va lui associer un idéal de fonctions réelles, qui vérifie certaines propriétés. Les idéaux en question seront en bijection avec l'ensemble des variétés lagrangiennes (qui constituent l'ensemble de leurs points d'annulation), les deux notions sont complètement équivalentes pour des phases réelles. Cependant, les notions que nous allons définir maintenant se généralisent aux phases complexes.
+
+\begin{defn}Soit $S$ une variété symplectique de dimension $N$. Un idéal $J \subset C^{\infty}(S,\R)$ est dit \emph{lagrangien} lorsque :
 \begin{itemize}
   \item $\{J,J\}\subset J$.
-  \item $\cdots$
+  \item Localement, il existe $N$ générateurs de $J$, dont les différentielles sont linéairement indépendantes sur $J$.
+  \item Si une fonction $u$ vérifie que pour toute fonction $f \in C^{\infty}_c(S,\R)$, on a $fu \in J$, alors $u \in J$.
 \end{itemize}
 \end{defn}
+\begin{rem}
+	L'ensemble des points d'annulation d'un idéal lagrangien est une variété lagrangienne. Réciproquement, si on se donne une variété lagrangienne $C$, l'ensemble des fonctions qui s'annulent sur $C$ constitue une variété lagrangienne.
+\end{rem}
+
+\begin{defn}[idéal associé à une phase]
+	Soit $\fii$ une phase réelle non dégénérée, on définit $\hat{J}_\fii \subset C^{\infty}((T*X\setminus 0)\times (T*Y\setminus 0) \times \R^d \setminus 0)$ comme l'idéal engendré localement par les fonctions
+	\begin{align*}
+		a_k(x,y,\xi,\eta,\theta)&=\cfrac{\partial \fii}{\partial \theta_k}\\
+		b_j(x,y,\xi,\eta,\theta) &= \cfrac{\partial \fii}{\partial x_j}-\xi_j\\
+		c_j(x,y,\xi,\eta,\theta) &= \cfrac{\partial \fii}{\partial y_j}-\eta_j
+	\end{align*}
+	
+	On définit alors $J_{\fii}\subset C^{\infty}((T*X\setminus 0)\times (T*Y\setminus 0))$, idéal associé à $\fii$, comme l'idéal des fonctions dans $\hat{J}_{\fii}$ qui ne dépendent pas de $\theta$.
+\end{defn}
+\begin{prop}
+	Si $\fii$ est une phase réelle non dégénérée, alors $J_{\fii}$ est lagrangien.
+\end{prop}
+\begin{preuve}
+	Pour des raisons de simplicité on se restreint au cas où la dimension de l'ensemble des phases vaut $d=1$. Ainsi on note $\fii(x,y,\theta)=\theta \fii(x,y)$. L'idéal $\hat{J}_{\fii}$ est alors engendré par les fonctions :
+	\begin{align*}
+	a(x,y,\xi,\eta,\theta)&=\fii(x,y)\\
+	b_j(x,y,\xi,\eta,\theta) &= \theta\cfrac{\partial \fii}{\partial x_j}-\xi_j\\
+	c_j(x,y,\xi,\eta,\theta) &= \theta\cfrac{\partial \fii}{\partial y_j}-\eta_j
+	\end{align*}
+	Soit un point $(x,y)$ tel que $\fii(x,y)\neq=0$. Sur la fibre au-dessus d'un voisinage local de ce point, $\hat{J}_{\fii}$ a un générateur qui ne s'annulle pas, donc vaut l'ensemble des fonctions lisses sur ce voisinage ; donc il en va de même pour $J_{\fii}$.
+	
+	Soit maintenant un point $(x,y)$ tel que $\fii(x,y)=0$. Alors par non dégénérescence, il existe un indice $k$ tel que $\partial \fii/\partial x_k \neq 0$ au voisinage de $(x,y)$. $J_\fii$ est alors localement engendré par les $n_X+n_Y$ fonctions :
+	\begin{align*}
+		a(x,y,\xi,\eta,\theta)&=\fii(x,y)\\
+		b_j(x,y,\xi,\eta,\theta) &= (\cfrac{\partial \fii}{\partial x_k})^{-1}\cfrac{\partial \fii}{\partial x_j}\xi_k-\xi_j\qquad j \neq k\\
+		c_j(x,y,\xi,\eta,\theta) &= (\cfrac{\partial \fii}{\partial x_k})^{-1}\cfrac{\partial \fii}{\partial y_j}\xi_k-\eta_j.
+	\end{align*}
+	Examinons le crochet de Poisson de deux de ces générateurs. En premier lieu,
+	\begin{align*}
+		\{a,b_j\} &= \cfrac{\partial \fii}{\partial x_j} - (\cfrac{\partial \fii}{\partial x_k})^{-1}\cfrac{\partial \fii}{\partial x_j} \cfrac{\partial \fii}{\partial x_k} \\
+			&= 0
+	\end{align*}
+	Et de même pour $\{a,c_j\}$. Secondement,
+	\begin{align*}
+	\{b_j,b_j'\} &= \cfrac{\partial}{\partial x_j'}\left((\cfrac{\partial \fii}{\partial x_k})^{-1}\cfrac{\partial \fii}{\partial x_j}\right)\xi_k
+						- (\cfrac{\partial \fii}{\partial x_k})^{-1}\cfrac{\partial \fii}{\partial x_j'}\cfrac{\partial}{\partial x_k}\left((\cfrac{\partial \fii}{\partial x_k})^{-1}\cfrac{\partial \fii}{\partial x_j}\right)\xi_k\\
+					&-\cfrac{\partial}{\partial x_j}\left((\cfrac{\partial \fii}{\partial x_k})^{-1}\cfrac{\partial \fii}{\partial x_j'}\right)\xi_k
+					+ (\cfrac{\partial \fii}{\partial x_k})^{-1}\cfrac{\partial \fii}{\partial x_j}\cfrac{\partial}{\partial x_k}\left((\cfrac{\partial \fii}{\partial x_k})^{-1}\cfrac{\partial \fii}{\partial x_j'}\right)\xi_k\\
+					&= \cfrac{\partial}{\partial x_j'}(\cfrac{\partial \fii}{\partial x_k})^{-1}\cfrac{\partial \fii}{\partial x_j}\xi_k - \cfrac{\partial}{\partial x_j}(\cfrac{\partial \fii}{\partial x_k})^{-1}\cfrac{\partial \fii}{\partial x_j'}\xi_k\\
+					&- (\cfrac{\partial \fii}{\partial x_k})^{-2}\cfrac{\partial \fii}{\partial x_j'}\cfrac{\partial^2\fii}{\partial x_k\partial x_j}\xi_k + (\cfrac{\partial \fii}{\partial x_k})^{-2}\cfrac{\partial \fii}{\partial x_j}\cfrac{\partial^2\fii}{\partial x_k\partial x_j'}\xi_k\\
+					&=0
+	\end{align*}
+	On peut vérifier que tous les crochets sont nuls. Ainsi, on a bien $\{J_{\fii},J_{\fii}\} \subset J_{\fii}$.
+	
+	Par ailleurs on vient de montrer que $J$ était toujours localement engendré par $n_X +n_Y$ fonctions dont les différentielles sont indépendantes. Enfin, $J_{\fii}$ vérifie la condition de localisation par définition.
+\end{preuve}
+On a exactement $J_{\fii}=\{f \in C^{\infty},\, m \in C_{\fii}\Rightarrow f(m)=0\}$. La raison pour laquelle nous avons donné une définition alternative de $J_{\fii}$ est la généralisation future à des phases complexes. On observe par ailleurs qu'on vient de démontrer que $C_{\fii}$ était lagrangienne.

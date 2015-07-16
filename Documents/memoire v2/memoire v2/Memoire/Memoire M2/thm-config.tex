@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Math style configuration page - v2
-% By pavel. Last edited June 11 2015
+% Math style configuration page - v2.1
+% By pavel. Last edited July 16 2015
 % Tribute to Igor Kortchemski
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -35,22 +35,22 @@
 \newtheoremstyle{indented}{7pt}{7pt}{\addtolength{\leftskip}{2.5em}}{}{\bfseries}{.}{.5em}{}
 
 \makeatletter
-\newcounter{exo}[subsection]
+\newcounter{exo}
 \newenvironment{exo}[1][]
 {\edef\@exer{#1}
-\ifx\@exer\empty{}\elst{\setcounter{exo}{#1}\addtocounter{exo}{-1}}\fi\refstepcounter{exo}
+\ifx\@exer\empty{}\else{\setcounter{exo}{#1}\addtocounter{exo}{-1}}\fi\refstepcounter{exo}
 \noindent{\bf Exercice \theexo.}
 \hspace{0,5em}}
-{\medskip}
+{\medskip\par}
 
-\newcounter{sol}[subsection]
+\newcounter{sol}
 \newenvironment{sol}[1][]
 {\edef\@exer{#1}
 \ifx\@exer\empty{}\else{\setcounter{sol}{#1}\addtocounter{sol}{-1}}\fi
 \refstepcounter{sol}
 \noindent {\it \underline{Solution de l'exercice \thesol.}
 \hspace{0.5em}}}
-{\medskip}
+{\medskip\par}
 \makeatother
 
 \theoremstyle{indented}
@@ -65,7 +65,7 @@
     \ignorespaces}
   {\endtheoremaux}
 \newenvironment{preuve}{
-\noindent \textbf{Démonstration. }}{\hfill $\square$}
+\noindent \textbf{Démonstration. }}{\hfill $\square$\par}
 
 \newtheorem{exemple}[defn]{Exemple}
 \newtheorem{prop}[defn]{Proposition}
