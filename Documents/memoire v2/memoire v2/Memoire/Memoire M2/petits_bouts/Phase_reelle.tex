@@ -318,9 +318,10 @@ Plutôt que de caractériser $\fii$ par sa variété caractéristique, on va lui
   \item Localement, il existe $N$ générateurs de $J$, dont les différentielles sont linéairement indépendantes sur $J$.
   \item Si une fonction $u$ vérifie que pour toute fonction $f \in C^{\infty}_c(S,\R)$, on a $fu \in J$, alors $u \in J$.
 \end{itemize}
+Si les générateurs peuvent être choisis invariants par rapport à une action de $\R^+$ sur $S$, on dit que l'idéal lagrangien est conique.
 \end{defn}
 \begin{rem}
-	L'ensemble des points d'annulation d'un idéal lagrangien est une variété lagrangienne. Réciproquement, si on se donne une variété lagrangienne $C$, l'ensemble des fonctions qui s'annulent sur $C$ constitue une variété lagrangienne.
+	L'ensemble des points d'annulation d'un idéal lagrangien (conique) est une variété lagrangienne (conique). Réciproquement, si on se donne une variété lagrangienne (conique) $C$ , l'ensemble des fonctions qui s'annulent sur $C$ constitue une variété lagrangienne (conique).
 \end{rem}
 
 \begin{defn}[idéal associé à une phase]
@@ -334,7 +335,7 @@ Plutôt que de caractériser $\fii$ par sa variété caractéristique, on va lui
 	On définit alors $J_{\fii}\subset C^{\infty}((T*X\setminus 0)\times (T*Y\setminus 0))$, idéal associé à $\fii$, comme l'idéal des fonctions dans $\hat{J}_{\fii}$ qui ne dépendent pas de $\theta$.
 \end{defn}
 \begin{prop}
-	Si $\fii$ est une phase réelle non dégénérée, alors $J_{\fii}$ est lagrangien.
+	Si $\fii$ est une phase réelle non dégénérée, alors $J_{\fii}$ est lagrangien conique.
 \end{prop}
 \begin{preuve}
 	Pour des raisons de simplicité on se restreint au cas où la dimension de l'ensemble des phases vaut $d=1$. Ainsi on note $\fii(x,y,\theta)=\theta \fii(x,y)$. L'idéal $\hat{J}_{\fii}$ est alors engendré par les fonctions :
@@ -371,3 +372,38 @@ Plutôt que de caractériser $\fii$ par sa variété caractéristique, on va lui
 	Par ailleurs on vient de montrer que $J$ était toujours localement engendré par $n_X +n_Y$ fonctions dont les différentielles sont indépendantes. Enfin, $J_{\fii}$ vérifie la condition de localisation par définition.
 \end{preuve}
 On a exactement $J_{\fii}=\{f \in C^{\infty},\, m \in C_{\fii}\Rightarrow f(m)=0\}$. La raison pour laquelle nous avons donné une définition alternative de $J_{\fii}$ est la généralisation future à des phases complexes. On observe par ailleurs qu'on vient de démontrer que $C_{\fii}$ était lagrangienne.
+
+Il existe un modèle local universel pour les idéaux lagrangiens coniques de $C^{\infty}(T*Z \setminus 0)$ :
+\begin{lem}
+	Soit $Z$ une variété et $J$ un idéal lagrangien conique de $C^{\infty}(T*Z \setminus 0)$. Soit $m_0\in T^*Z$, alors il existe un voisinage conique $V$ de $m_0$ tel que :
+	\begin{enumerate}
+		\item Ou bien la restriction à $V$ des fonctions dans $J$ vaut tout l'espace : $J|_V = C^{\infty}(V)$.
+		\item Ou bien il existe des coordonnées locales $(x_j,\xi_j)$ sur $V$ et une fonction $H\in C^{\infty}(V)$, homogène de degré 0 et qui ne dépend que de $\xi$, telle que $J|_{V}$ est généré par les fonctions
+		\begin{equation*}
+			x_j-\cfrac{\partial H}{\partial \xi_j}.
+		\end{equation*}
+	\end{enumerate} 
+\end{lem}
+
+Le résultat suivant est la clef de voûte de la théorie des opérateurs intégraux de Fourier du point de vue des idéaux lagrangiens :
+
+\begin{theorem}[Hormander]
+	Soit $\fii$ une phase réelle non dégénérée sur $X \times Y \times (\R^d \setminus 0)$. Soit $J_\fii$ l'idéal lagrangien associé, et $C_{\fii}$ la variété caractéristique. Soit $\gamma_0\in C_{\fii}$. Soient $V$ un voisinage conique de $\gamma_0$ et $H$ une fonction qui paramètre $J$ sur $V$ au sens du lemme précédent ; soit $F \subset V$ un fermé conique. Soient enfin $a \in S^m(F)$ compact, et $A$ l'intégrale de Fourier associée :
+	\begin{equation*}
+		A(x,y)=\int e^{i\fii(x,y,\theta)}a(x,y,\theta)d\theta.
+	\end{equation*}
+	Alors il existe deux symboles $v,v_0 \in S^{m + (d-n_X-n_Y)/2}(\emptyset \times \R^{n_X+n_Y})$, tels que $v-v_0 \in S^{m + (d-n_X-n_Y)/2-1}$, tels que 
+	\begin{align*}
+		A(x,y)-\int e^{i\langle x,\xi\rangle+\langle y,\eta\rangle - H(\xi,\eta)}v(\xi,\eta)d\xi d\eta &\in C^{\infty}\\
+		(2\pi)^{(n_X+n_Y)/2}v_0(\xi,\eta)-(2\pi)^{d/2}\cfrac{e^{i \frac{\pi}{4}sgn\Hess \fii(\gamma_0)} }{\sqrt{\det\Hess \fii (\gamma_0)}}\:a(x,y,\theta) &\in \hat{J}_{\fii}.
+	\end{align*}
+\end{theorem}
+La preuve repose sur l'utilisation du premier terme du lemme de phase stationnaire. On peut en réalité donner une description de $v$ modulo $S^{m + (d-n_X-n_Y)/2-k}\oplus \hat{J}_{\fii}^k$, pour tout entier $k$, en examinant les termes suivants de la phase stationnaire.
+
+\begin{corr}
+	Deux phases ayant le même idéal lagrangien donnent le même ensemble d'opérateurs intégraux de Fourier.
+\end{corr}
+
+\subsection{Composition des opérateurs intégraux de Fourier à phase réelle}
+Par le théorème précédent, pour décrire comment se comporte la composition de deux opérateurs intégraux de Fourier à phase réelle, il suffit d'observer comment la composition modifie les idéaux.
+

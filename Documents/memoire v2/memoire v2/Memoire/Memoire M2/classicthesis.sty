@@ -381,13 +381,13 @@
     }
     % sections \FloatBarrier
     \titleformat{\section}
-        {\bfseries\large}{\textsc{\MakeTextLowercase{\thesection}}}{1em}{\Large\bfseries\spacedlowsmallcaps}
+        {\bfseries\large}{\MakeTextUppercase{\thesection}}{1em}{\Large\bfseries\spacedlowsmallcaps}
     % subsections
     \titleformat{\subsection}
-        {\bfseries}{\textsc{\MakeTextLowercase{\thesubsection}}}{1em}{\large\bfseries}
+        {\bfseries}{\MakeTextUppercase{\thesubsection}}{1em}{\large\bfseries}
     % subsubsections
     \titleformat{\subsubsection}
-        {\relax}{\textsc{\MakeTextLowercase{\thesubsubsection}}}{1em}{\large\itshape\bfseries}        
+        {\relax}{}{1em}{\large\itshape\bfseries}        
     % paragraphs
     \titleformat{\paragraph}[runin]
         {\normalfont\normalsize}{\theparagraph}{0pt}{\spacedlowsmallcaps}    
