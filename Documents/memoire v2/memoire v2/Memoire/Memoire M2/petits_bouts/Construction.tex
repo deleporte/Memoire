@@ -2,7 +2,7 @@
 
 Cette partie est consacré à un exposé des raisonnements et résultats de \cite{Shiffman2002}. Cependant, l'auteur a préféré, pour des raisons de clarté, exposer les raisonnements sur les Opérateurs Intégraux de Fourier en terme de leurs idéaux, et non de leurs lagrangiennes. Cette différence est motivée par la définition identique des idéaux dans le cas d'une phase complexe, et par la difficulté conceptuelle que pose d'emblée l'introduction des extensions presque analytiques comme présenté dans \cite{melin1975fourier}. On rompt donc avec la description originelle proposée par Boutet et Guillemin, de manière à proposer un exposé concis. Certains problèmes techniques ne seront donc pas exposés ici, pour le confort du lecteur.
 
-Dans cet exposé, on reprend les outils et objets de l'exposé précédent, mais on va en présenter une construction alternative, qui n'utilise pas a priori la structure exacte de $\overline{\partial}_b$, telle que la caractérisation microlocale de son noyau, ni même l'existence de solutions. Le but est de pouvoir ensuite étendre cette construction, donnée par Boutet et Guillemin dans l'annexe de \cite{BoutetdeMonvel1981}, à des cas où la structure complexe est remplacée par une structure symplectique non intégrable, dans laquelle $\overline{\partial}_b$ a les mêmes propriétés microlocales, mais ne possède pas de solution globale.
+Dans cet exposé, on reprend les outils et objets du chapitre précédent, mais on va en présenter une construction alternative, qui n'utilise pas a priori la structure exacte de $\overline{\partial}_b$, telle que la caractérisation microlocale de son noyau, ni même l'existence de solutions. Le but est de pouvoir étendre cette construction, donnée par Boutet et Guillemin dans l'annexe de \cite{BoutetdeMonvel1981}, à des cas où la structure complexe est remplacée par une structure presque complexe non intégrable, dans laquelle $\overline{\partial}_b$ a les mêmes propriétés microlocales, mais ne possède pas de solution globale.
 
 Comme dans l'exposé précédent, on se donne $M$ une variété complexe de dimension $n-1$, $(L,h)$ un fibré en droites hermitien positif sur $M$ ; on se donne également une connection $\nabla$ sur $L$ "compatible" : sa courbure de Ricci est égale à $-2i\omega_g$ où $\omega_g$ est la métrique sur $M$ définie par $h$. On notera $\alpha$ la 1-forme sur $X$ reliée à $\nabla$, qui définit une structure de contact sur $X$.
 
@@ -33,6 +33,8 @@ Les coordonnées locales $(z_1, \ldots, z_n, \theta)$ sont appelées coordonnée
 \begin{rem}L'introduction de la connexion $\nabla$ peut paraître artificielle dans ce contexte. En réalité, le cadre naturel d'application de cette théorie est l'étude de la quantification au sens de Kostant dans \cite{kostant1970quantization} et Souriau dans \cite{souriau1967quantification}, où $\nabla$ est alors donné a priori. Il est donc rassurant de constater que dans notre version des faits, le choix arbitraire de $\nabla$ n'a pas de conséquence.\end{rem}
 \begin{rem}Dans le cas symplectique, les coordonnées $z_j$ peuvent être construites à la main à partir de coordonnées symplectiques sur $M$, de manière à vérifier les propriétés ci-dessus. \end{rem}
 
+\chantier
+
 \subsection{Description microlocale du symbole}
 
 Notre but est à présent de définir un projecteur de Szeg\H{o} comme un opérateur intégral de Fourier. Celui-ci sera décrit par une phase complexe, il est donc confortable de raisonner en termes d'idéaux lagrangiens. On va encore une fois utiliser les notations, constructions et résultats de \cite{hormander1985}.
@@ -46,6 +48,8 @@ L'opérateur de Cauchy-Riemann est un opérateur pseudo-différentiel. Son symbo
 La variété caractéristique de $\overline{\partial}_b$ est donc exactement $(T'X + T''X)^{\perp}$; c'est un fibré en droites, que nous noterons $\Sigma$. 
 
 La forte pseudoconvexité de $D$ implique que $\Sigma$ est orientable. Soit en effet, au voisinage d'un point $x \in X$, une section non nulle $N$ de $\Sigma$, ainsi que la base $(Z^k_j)$ de $T''X$ définie précédemment. Alors $(\overline{Z^k_j})$ est une base locale de $T'X$. La condition de forte pseudoconvexité équivaut à ce que la matrice des dérivées secondes croisées de $\rho$ soit définie positive sur $X$ ; un rapide calcul montre alors que la matrice $iN([Z^k_i;Z^k_j])$ est soit hermitienne positive non dégénérée, soit hermitienne négative non dégénérée (cela dépend du choix de $N$). On peut alors décomposer $\Sigma$ en $\Sigma^+$, la nappe sur laquelle cette matrice est positive, $\Sigma^-$, la nappe sur laquelle cette matrice est négative, et bien sûr l'image de la section nulle.
+
+\chantier 
 
 \subsection{Définition de l'idéal}
 
@@ -130,15 +134,17 @@ Comme $D_0$ commute avec l'action de $S^1$, on peut décomposer son noyau selon 
 
 \begin{theorem}[Shiffman-Zelditch]
 	Soit $P_0 \in X$, et $\rho$ une carte locale de coordonnées de Heisenberg autour de $P_0$. On définit $S_N^{P_0}(u,\theta,v,\fii) = S_N(\rho(u,\theta), \rho(v,\fii))$. Soit $K>0$, alors on a :
-	\begin{align*}
-	(N\pi)^{-n+1}S_N^{P_0}\left(\cfrac{u}{\sqrt{N}},\cfrac{\theta}{N}, \cfrac{v}{\sqrt{N}}, \cfrac{\fii}{N}\right) &= \\e^{i(\theta-\fii) + i \Im(u\overline{v}) - \frac12 |u-v|^2}&\left(1+\sum_{r=1}^K N^{-r/2}b_r(u,v) + N^{-(K+1)/2}R_K(u,v,N)\right)
-	\end{align*}
+	\begin{multline*}
+	(N\pi)^{-n+1}S_N^{P_0}\left(\cfrac{u}{\sqrt{N}},\cfrac{\theta}{N}, \cfrac{v}{\sqrt{N}}, \cfrac{\fii}{N}\right) = \\e^{i(\theta-\fii) + i \Im(u\overline{v}) - \frac12 |u-v|^2}\left(1+\sum_{r=1}^K N^{-r/2}b_r(u,v) + N^{-(K+1)/2}R_K(u,v,N)\right)
+	\end{multline*}
 	
 	Où $\|R_K(u,v,N)\|_{C^j(\{|u| < r, |v| < r\})} \leq C_{K,j,r}$, indépendamment de $P_0$.
 \end{theorem}
 
 \begin{preuve}
 	On expose schématiquement la preuve proposée dans \cite{Shiffman2002}. Pour des raisons de lourdeur, les estimations explicites sur les restes ne seront pas reprises.
+	
+	\chantier
 	
 	Par $S^1$-équivariance, il suffit de considérer les cas où $\theta = \fii = 0$. On a alors l'expression 
 	
@@ -191,3 +197,4 @@ Comme $D_0$ commute avec l'action de $S^1$, on peut décomposer son noyau selon 
 		\item Si $dist(P_N,Q_N)\sqrt{N} \leq C$, alors l'expression asymptotique de $S_N$ autour de la diagonale, à l'échelle $1/\sqrt{N}$ donne $S_N(P_N,Q_N)\neq N^{1-n}=S_N(Q_N,Q_N)$, et a fortiori interdit que $S_N(P_N,\cdot)=S_N(Q_N,\cdot)$.
 	\end{itemize}
 
+\chantier

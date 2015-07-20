@@ -28,7 +28,12 @@ Munis de cette définition globale, nous pouvons affirmer que :
 	Si $a \in S^m_{glob}$, alors $K_a \in \mathcal{S}'(\R^n\times \R^n)$.
 \end{prop}
 \begin{preuve}
-	Il faut prouver que l'application $(u,v) \mapsto \int K_a(x,y)u(x)v(y)$ est continue pour la topologie de $\mathcal{S}$. En conjuguant par une transformée de Fourier en la seconde variable, on se ramène au même problème pour l'application
+	Il faut prouver que l'application suivante est continue :
+	\begin{align*}
+		\mathcal{S}\times \mathcal{S} &\mapsto \C\\
+		(u,v) &\mapsto \int K_a(x,y)u(x)v(y).
+	\end{align*}
+	En conjuguant par une transformée de Fourier en la seconde variable, on se ramène au même problème pour l'application
 	\begin{equation*}
 		(u,v) \mapsto \int e^{i\langle x,\xi \rangle}a(x,\xi)u(x)v(\xi)dxd\xi.
 	\end{equation*}
@@ -151,9 +156,9 @@ De cette proposition on retiendra deux corollaires.
 
 \begin{corr}
 	Modulo un opérateur régularisant, la composée $a(x,D)\circ b(x,D)$, où $a\in S^m_{glob}$, et $b \in S^{m'}_{glob}$, est l'opérateur associé à un symbole dans $S^{m+m'}$ dont le développement asymptotique est :
-	\begin{equation*}
+	\begin{equation}\label{eq:compPDO}
 		a\#b(x,\xi)\sim \sum_{\alpha}\cfrac{i^{|\alpha|}}{\alpha!}\partial^{\alpha}_{\xi}\partial^{\alpha}_y[a(x,\xi)b(y,\xi)]\biggl|_{x=y}
-	\end{equation*}
+	\end{equation}
 \end{corr}
 \begin{preuve}
 	On écrit 
@@ -212,7 +217,7 @@ On peut alors conclure :
 \end{defn}
 Cette notion est invariante par action d'un $C^{\infty}$-difféomorphisme sur $T^*(\R^d)$, et qu'à ce titre, la notion de front d'onde se généralise aux variétés en prenant des cartes locales.
 
-On a par exemple :
+On a par exemple la proposition suivante, que nous ne démontrerons pas :
 
 \begin{prop}[\cite{hormander2003analysis}, thm 8.1.9]
 	Soit $\Gamma$ un cône ouvert de $\R^n \times (\R^d \setminus \{0\})$, $\phi$ une phase sur $\Gamma$, $F\subset \Gamma$ un cône fermé et $a \in S^m_{\rho,\delta}(F)$. Alors on a :
@@ -225,7 +230,7 @@ En particulier, on peut rendre plus précise la proposition \ref{prop:regPDO} :
 \begin{corr}
 	Soit $a \in S^m_{glob}$. Le noyau $K_a$ vérifie :
 	\begin{equation*}
-		WF(K_a)\subset \{(x,x,\xi,-\xi)\in (T^*\R^d)^2,\,(x,\xi)\in \supp (a)\}
+		WF(K_a)\subset \{(x,x,\xi,-\xi)\,(x,\xi)\in \supp (a),\,\xi\neq 0\}
 	\end{equation*}
 \end{corr}
 
@@ -280,9 +285,9 @@ associe à un symbole un opérateur à noyau, dont on voudrait comprendre les pr
 La structure de front d'onde se généralise :
 
 \begin{defn}[Variété caractéristique]Soit $\fii$ une phase réelle convenable sur $X\times Y\times \R^d$. On appelle variété caractéristique l'ensemble :
-\begin{equation}
-    C_{\fii}=\{(x,\xi,y,\eta) \in T*X \times T*Y,\,\exists \theta\in \R^d\setminus 0,\,\dd_{\theta}\fii(x,y,\theta)=0,\,\dd_x\fii(x,y,\theta)=\xi, \dd_y\fii(x,y,\theta)=\eta\}
-\end{equation}  
+\begin{multline*}
+    C_{\fii}=\{(x,\xi,y,\eta) \in T^*X \times T^*Y,\,\exists \theta\in \R^d\setminus 0,\,\\\dd_{\theta}\fii(x,y,\theta)=0,\,\dd_x\fii(x,y,\theta)=\xi, \dd_y\fii(x,y,\theta)=\eta\}
+\end{multline*}  
 \end{defn}
 
 \begin{prop}[\cite{hormander2003analysis}, thm 8.1.9]
@@ -325,14 +330,14 @@ Si les générateurs peuvent être choisis invariants par rapport à une action 
 \end{rem}
 
 \begin{defn}[idéal associé à une phase]
-	Soit $\fii$ une phase réelle non dégénérée, on définit $\hat{J}_\fii \subset C^{\infty}((T*X\setminus 0)\times (T*Y\setminus 0) \times \R^d \setminus 0)$ comme l'idéal engendré localement par les fonctions
+	Soit $\fii$ une phase réelle non dégénérée, on définit $\hat{J}_\fii $ comme l'idéal de l'espace $ C^{\infty}\left((T^*X\setminus 0)\times (T^*Y\setminus 0) \times (\R^d \setminus 0)\right)$, engendré localement par les fonctions
 	\begin{align*}
 		a_k(x,y,\xi,\eta,\theta)&=\cfrac{\partial \fii}{\partial \theta_k}\\
 		b_j(x,y,\xi,\eta,\theta) &= \cfrac{\partial \fii}{\partial x_j}-\xi_j\\
 		c_j(x,y,\xi,\eta,\theta) &= \cfrac{\partial \fii}{\partial y_j}-\eta_j
 	\end{align*}
 	
-	On définit alors $J_{\fii}\subset C^{\infty}((T*X\setminus 0)\times (T*Y\setminus 0))$, idéal associé à $\fii$, comme l'idéal des fonctions dans $\hat{J}_{\fii}$ qui ne dépendent pas de $\theta$.
+	On définit alors $J_{\fii}\subset C^{\infty}((T^*X\setminus 0)\times (T^*Y\setminus 0))$, idéal associé à $\fii$, comme l'idéal des fonctions dans $\hat{J}_{\fii}$ qui ne dépendent pas de $\theta$.
 \end{defn}
 \begin{prop}
 	Si $\fii$ est une phase réelle non dégénérée, alors $J_{\fii}$ est lagrangien conique.
@@ -407,3 +412,4 @@ La preuve repose sur l'utilisation du premier terme du lemme de phase stationnai
 \subsection{Composition des opérateurs intégraux de Fourier à phase réelle}
 Par le théorème précédent, pour décrire comment se comporte la composition de deux opérateurs intégraux de Fourier à phase réelle, il suffit d'observer comment la composition modifie les idéaux.
 
+\chantier

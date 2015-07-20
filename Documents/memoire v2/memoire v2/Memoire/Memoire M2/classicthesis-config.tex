@@ -42,7 +42,7 @@
 %------------------------
 \newbool{print}
 %uncomment the line below to make a printed version of the document
-%\booltrue{print}
+\booltrue{print}
 
 \ifbool{print}
 	{\PassOptionsToPackage{draft}{hyperref}
@@ -265,3 +265,7 @@ pdfproducer={LaTeX with hyperref and classicthesis}
 \makeatletter
 \@ifpackageloaded{amsmath}{\include{thm-config}}{}
 \makeatother
+
+\newcommand{\chantier}{\begin{center}
+		\includegraphics[width=3cm]{gfx/travaux}
+	\end{center}}

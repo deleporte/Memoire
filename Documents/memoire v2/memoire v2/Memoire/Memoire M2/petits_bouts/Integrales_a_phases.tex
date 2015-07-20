@@ -69,19 +69,19 @@ u_{\nu} &= \cfrac{u\,\partial_{\nu}\overline{\fii}}{N},
 \fii)e^{it\fii} = \partial_{\nu} e^{it\fii}$.
 
 On a donc, en remplaçant $u$ et en effectuant une intégration par parties,
-\begin{align*}
-  \int u\,(\Im\fii)^je^{it\fii} &= \int u_0\,(\Im\fii)^{j+1}e^{it\fii} \\+&
+\begin{multline*}
+  \int u\,(\Im\fii)^je^{it\fii} = \int u_0\,(\Im\fii)^{j+1}e^{it\fii} \\+
   \cfrac{i}{t} \sum_{\nu=1}^{n}\left[\int (\partial_{\nu}u_{\nu})(\Im
     \fii)^je^{it\fii} + j\int u_{\nu}\,(\partial_{\nu}\Im \fii)(\Im \fii)^{j-1}e^{it\fii}\right].
-\end{align*}
+\end{multline*}
 
 Commençons par traiter le cas $j=0$. On a alors, par l'hypothèse de récurrence,
-\begin{align*}
-  t^{j+k}\left|\int u\,(\Im \fii)^je^{it\fii} \right| &\leq
-  C\left[\sum_{|\alpha| \leq k-1}\sup |D^{\alpha}u_0|N^{|\alpha|/2-k+1}\right. \\&+
+\begin{multline*}
+  t^{j+k}\left|\int u\,(\Im \fii)^je^{it\fii} \right| \leq
+  C\left[\sum_{|\alpha| \leq k-1}\sup |D^{\alpha}u_0|N^{|\alpha|/2-k+1}\right. \\+
     \left.\sum_{1 \leq |\alpha| \leq k}\sup
     |D^{\alpha}u_{\nu}|N^{|\alpha|/2-k+1}\right] 
-\end{align*}
+\end{multline*}
 
 \noindent Où $C$ est bornée lorsque $f$ varie dans un domaine borné.
 
@@ -130,7 +130,7 @@ Ceci conclut la preuve du lemme \ref{lem:phasenonstat}.
 
 \subsection{Le théorème de phase stationnaire}
 
-Nous nous penchons ici sur le comportement des intégrales oscillantes, mais cette fois-ci, au voisinage des points $x_0$ qui vérifient $\Im \fii(x_0) = 0$ et $d\fii(x_0)=0$. On appelle \emph{point critique} un tel point $x_0$. On suppose toujours ici que $\fii$ est \emph{positive}, c'est-à-dire vérifie $\Im \fii \geq 0$, et que tous les points critiques de $\fii$ sont \emph{non-dégénérés}, et on entend par là que $\Hess \fii$ est inversible.
+Nous nous penchons ici sur le comportement des intégrales oscillantes, mais cette fois-ci, au voisinage des points $x_0$ qui vérifient $N=0$, donc $\Im \fii(x_0) = 0$ et $d\fii(x_0)=0$. On appelle \emph{point critique} un tel point $x_0$. On suppose toujours ici que $\fii$ est \emph{positive}, c'est-à-dire vérifie $\Im \fii \geq 0$, et que tous les points critiques de $\fii$ sont \emph{non-dégénérés}, et on entend par là que $\Hess \fii$ est inversible.
 L'ensemble des points critiques est alors discret (et son intersection avec $K$ est finie), ce qui permet de raisonner par partition de l'unité.
 
 Remarquons que les deux conditions de positivité et de non dégénérescence impliquent que  $Sp(i\Hess\fii(x_0)) \subset \{z \in \C, \Re z \leq 0\}$. Sur ce demi-plan, il existe une racine carrée. On choisit celle qui est à valeurs dans $\Im \lambda \geq 0$, ce qui assure un sens univoque à l'écriture $\sqrt{\det i\Hess \fii (0)}$.

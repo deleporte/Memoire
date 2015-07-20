@@ -6,26 +6,58 @@ On va appliquer l'analyse microlocale du projecteur de Szeg\H{o} à la quantific
 
 Soit $M$ une variété complexe compacte, et $(L,h)$ un fibré en droites sur $M$ associé à une structure hermitienne. Pour tout $n \in \Z$, $h$ induit une métrique $h_N$ sur $L^{\otimes N}$. Notre but ici est d'étudier les espaces $H^0(M,L^{\otimes N})$, dont on se donne une base orthonormée $(s^N_1, \ldots, s^N_{d_N})$ (on sait que $H^0(M,L^{\otimes N})$ est de dimension finie car $M$ est compacte).
 
-On suppose que $L$ est \emph{strictement positif}, c'est-à-dire que $D=\{(m,v) \in L^{-1}, h_{-1}(v,v) < 1\}$ est fortement pseudoconvexe. 
+On suppose que $L$ est \emph{strictement positif}, c'est-à-dire que $D=\{(m,v) \in L^{-1}, h_{-1}(v,v) < 1\}$ est fortement pseudoconvexe. Le produit hermitien $h$ définit alors une métrique sur $M$, que l'on va définir maintenant. Soit $V$ un petit ouvert de $M$, $U$ un petit ouvert de $\C^n$, $L_V$ la fibre au-dessus de $V$, et soit une carte locale de la forme
+\begin{align*}
+	\Psi : U \times \C &\mapsto L_V\\
+	(x,z) &\mapsto (\psi(x),za(x))
+\end{align*}
+où on demande que $\psi$ et $a$ soient holomorphes. De cela on peut déduire une carte locale sur $L^*_V$ :
+\begin{align*}
+	\Psi^* : U \times \C &\mapsto L^*_V\\
+	(x,z) &\mapsto (\psi(x),za^{-1}(x))
+\end{align*}
+L'équation qui définit $(\Psi^*)^{-1}D$ est alors $|z|^2\leq\|a(x)\|_h$. Comme $X$ est fortement pseudoconvexe, on a nécessairement, sur un voisinage de $(\Psi^*)^{-1}X$ : 
+\begin{equation*}
+	\Hess_{\C} \left((x,z) \mapsto \log(|z|^2\|a(x)\|_h^{-2}) \right) >>0.
+\end{equation*} En effet, il existe une fonction qui définit $(\Psi^*)^{-1}X$ et telle que sa hessienne complexe sur le bord est définie positive. Or, par la proposition \ref{prop:Levi-invariant}, la positivité ne dépend pas de la fonction qui définit le bord.
 
-On va démontrer l'existence d'un développement asymptotique :
+On en déduit simplement que $-\Hess_{\C} \log \|a(x)\|_h >> 0$. Cette condition est en fait équivalente à la forte pseudoconvexité de $D$, et est parfois considérée comme la définition d'un fibré positif, mais nous avons préféré nous concentrer sur le problème qui nous intéresse.
+
+La forme sesquilinéaire $-\Hess_{\C}\log \|a(x)\|_h$ permet alors de définir une structure riemannienne sur $U$, en prescrivant :
+\begin{align*}
+	\xi \in T^{1,0}U&\Rightarrow |\xi|=-\Hess_{\C}\log \|a(x)\|_h(\xi,\xi)\\
+	\eta \in T^{0,1}U&\Rightarrow |\eta|=-\Hess_{\C}\log \|a(x)\|_h(\overline{\eta},\overline{\eta})\\
+	T^{1,0}  U & \perp T^{0,1}U
+\end{align*}
+En poussant par $\Psi$, on obtient une structure riemannienne sur $V$.
+
+Peut-on recoller les morceaux ? Clairement, si deux cartes $\Psi_1$ et $\Psi_2$, de la forme précédente, sont définies sur le même ouvert, alors sans perte de généralité $\psi_1=\psi_2$. En effet, on peut faire des changements de variable en $x$ seul, et la modification de $\Hess_{\C}\log \|a\|_h$  est alors compatible avec le changement de carte des espaces tangents.
+
+Dans ce cas les fonctions $a_1$ et $a_2$ ne diffèrent que d'un facteur holomorphe $f$, avec sans perte de généralité $f \in \C \setminus \R^-$. Il ne reste plus qu'à voir que :
+\begin{align*}
+	\Hess_{\C}\log \|fa_1\|_h &= \frac 12 \Hess_{\C} \log f + \frac 12 \Hess_{\C} \log \overline{f} + \Hess_{\C} \log \|a_1\|_h\\
+		&= \Hess_{\C} \log \|a_1\|_h
+\end{align*}
+On peut donc construire une structure riemannienne sur $M$, de manière univoque. 
+
+De manière peut-être encore plus naturelle, la $(1,1)$-forme $-\partial \overline{\partial}\log \|a\|_h$ sur $U$ peut être poussée en une $(1,1)$ forme univoque sur $M$, fermée (car localement exacte), et non dégénérée, autrement dit, une forme symplectique $\omega_g$. Cette forme symplectique est reliée à la structure riemanienne, par $|\xi|=\omega_g(\xi,J\xi)$. La forme symplectique, la structure riemannienne, et la structure complexe sont compatibles, on dit que c'est une structure \emph{kählérienne}.
+
+Le cadre géométrique étant donné, on peut formuler les résultats de l'article \cite{Zelditch2000}. On y démontre l'existence d'un développement asymptotique :
 
 \begin{theorem}[Zelditch] Il existe une famille de fonctions lisses $a_j : M \to \R$ telle que, lorsque $N \to +\infty$, pour tout $R>0$,  
-
-\begin{equation*}
+	\begin{equation*}
 	\sum_{i=1}^{d_N}\|s^N_i(z)\|^2_{h_N} = N^n + \sum_{0 < j < R} a_j(z)N^{n-j} + O_{C^{\infty}}(N^{n-R})
-\end{equation*}
+	\end{equation*}
 \end{theorem}
 
 Ce théorème est riche de ses corollaires. Il implique premièrement que pour $N$ assez grand, les sections $s^N_i$ ne s'annulent pas toutes en même temps, on peut alors définir une application projective définie par $\fii_N : M \mapsto \C\mathbb{P}^{d_N-1}$ par $m \mapsto [s^N_1(m) : \ldots : s^N_{d_N}(m)]$, qu'on appelle application de Kodaira. On peut alors démontrer :
-
 \begin{theorem}[Kodaira] (\cite{fritzsche}) Pour $N$ assez grand, $\fii_N$ est un plongement. \end{theorem}
 
-Secondement, le produit hermitien $h$ définit une métrique $\omega_g$ sur $M$, que l'on peut comparer avec le pull-back par $\fii_N$ de la métrique de Fubini-Study sur $\C\mathbb{P}^{d_N-1}$. On a alors, pour tout $k$, :
+On peut alors comparer la métrique $\omega_g$ avec le pull-back par $\fii_N$ de la métrique de Fubini-Study sur $\C\mathbb{P}^{d_N-1}$. On a en fait :
 
-\begin{corr}\begin{equation*}
+\begin{theorem}[Tian] \cite{tian1990set}Soit $k \in \N$, alors on a \begin{equation*}
 \left\|\cfrac1N \fii_N^*(\omega_{FS}) - \omega_g \right\|_{C^{k}} = O(N^{-1})
-\end{equation*}\end{corr}
+\end{equation*}\end{theorem}
 
 Le plongement de Kodaira est donc quasiment isométrique.
 
@@ -49,7 +81,7 @@ est un isomorphisme unitaire.
 
 Etudier $H^0(M,L^{\otimes N})$ revient donc à étudier les espaces de Hardy $N$-équivariants. On note $S_N$ le projecteur orthogonal de $L^2(X)$ sur $H^2_N(X)$, et encore $S_N(x,y)$ le noyau de ce projecteur, qui n'est rien d'autre que la $N$-ième composante de Fourier de $S(x,y)$ par rapport à sa première variable.
 
-En notant $(s^N_1, \ldots, s^N_{d_N})$ une base orthonormée de $H^0(M,L^{\otimes N})$, et $(\hat{s}^N_1, \ldots, \hat{s}^N_{d_N})$ la base correspondante de $H^2_N(X)$, on a naturellement :
+En notant $(s^N_1, \ldots, s^N_{d_N})$ une base orthonormée de $H^0(M,L^{\otimes N})$, et en notant $(\hat{s}^N_1, \ldots, \hat{s}^N_{d_N})$ la base correspondante de $H^2_N(X)$, on a naturellement :
 \begin{equation*}
 	S_N(x,y)=\sum_{i=1}^{d_N}\hat{s}^N_i(x) \overline{\hat{s}^N_i(y)\strut}
 \end{equation*}
