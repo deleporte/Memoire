@@ -511,7 +511,7 @@ où $A$ est la matrice de $L_X$ dans la base en question.
 Le déterminant de cette matrice est donc exactement $\|\dd\rho\|^{n+1}(x)\det L_X/16$. De cela on peut déduire le développement asymptotique complet de l'intégrale lorsque $t$ est grand, par le théorème de phase stationnaire. On ne peut pas l'appliquer directement, car les symboles dépendent de $t$, mais si les symboles sont classiques, avec $q_1 = \sum q_{1,j}$ et $q_2 = \sum q_{2,j}$, alors on peut tronquer à tout ordre. On se retrouve avec des opérateurs différentiels $(A_k)_{k >0}$ tels que, sur la diagonale :
 
 \begin{multline*}
-  \iint e^{it(\psi(x,w)+\sigma \psi(w,x))}q_1(x,w,t)q_2(w,x,t\sigma)tdwd\sigma \\= t^{1-n}\cfrac{4\pi^n}{\|\dd\rho\|^{\frac{n+1}{2}}(x)\sqrt{\det L_X}}\left[\sum_{j=0}^{N}\sum_{j'=0}^{N} q_{1,j}(x,x)t^{m-j}q_{2,j'}(x,x)t^{m'-j'}\right. \\+ \left.\sum_{k=1}^{N}t^{-k}A_k\left(\sum_{j=0}^{N-k}\sum_{j'=0}^{N-k} q_{1,j}(x,\cdot)t^{m-j}q_{2,j'}(\cdot,x)(\cdot t^{m'-j'})\right)(x,1)\right] + O(t^{m+m'+1-n-N})
+  \iint e^{it(\psi(x,w)+\sigma \psi(w,x))}q_1(x,w,t)q_2(w,x,t\sigma)tdwd\sigma \\= t^{1-n}\cfrac{4\pi^n}{\|\dd\rho\|^{\frac{n+1}{2}}(x)\sqrt{\vphantom{\hat{A}}\det L_X}}\left[\sum_{j=0}^{N}\sum_{j'=0}^{N} q_{1,j}(x,x)t^{m-j}q_{2,j'}(x,x)t^{m'-j'}\right. \\+ \left.\sum_{k=1}^{N}t^{-k}A_k\left(\sum_{j=0}^{N-k}\sum_{j'=0}^{N-k} q_{1,j}(x,\cdot)t^{m-j}q_{2,j'}(\cdot,x)(\cdot t^{m'-j'})\right)(x,1)\right] + O(t^{m+m'+1-n-N})
 \end{multline*}
 En effet, le fait de dériver $2j$ fois un symbole par rapport à $\sigma t$ fait gagner $2j$ facteurs $t$ mais améliore le comportement du symbole en l'infini du même ordre.
 
@@ -519,20 +519,20 @@ En effet, le fait de dériver $2j$ fois un symbole par rapport à $\sigma t$ fai
 Cette formule présente une certaine similarité avec la formule (\ref{eq:compPDO}) de composition des opérateurs pseudodifférentiels. On pourrait en réalité montrer une formule très générale de composition des symboles pour des OIF quelconques, mais nous avons voulu éviter la lourdeur du formalisme associé et se contenter de ce cas précis où la composition de deux opérateurs paramétrés par $\psi$ donne un nouvel opérateur paramétré par $\psi$.
 \end{rem}
 
-En particulier, au premier ordre, le symbole de la composition est
+En particulier, au premier ordre, le symbole de la composition sur la diagonale est
 \begin{equation*}
-  q_1\#q_2(x,x,t) = \cfrac{4\pi^n}{\|\dd\rho\|^{\frac{n+1}{2}}(x)\sqrt{\det L_X}}q_{1,0}(x,x)q_{2,0}(x,x)t^{1-n+m+m'} + O(t^{m+m'-n}).
+  q_1\#q_2(x,x,t) = \cfrac{4\pi^n}{\|\dd\rho\|^{\frac{n+1}{2}}(x)\sqrt{\vphantom{\hat{A}}\det L_X}}q_{1,0}(x,x)q_{2,0}(x,x)t^{1-n+m+m'} + O(t^{m+m'-n}).
 \end{equation*}
 On peut calculer les termes suivants à loisir.
 
 Essayons alors de réaliser un projecteur parmi $I(X\times X,\C)$, d'ordre $m$ dont le symbole $s$ soit classique. L'équation sur $s_0$ est alors :
 \begin{equation*}
-  s_0(x,x)t^m = \cfrac{4\pi^n}{\|\dd\rho\|^{\frac{n+1}{2}}(x)\sqrt{\det L_X}}s_0(x,x)^2t^{1-n+2m}.
+  s_0(x,x)t^m = \cfrac{4\pi^n}{\|\dd\rho\|^{\frac{n+1}{2}}(x)\sqrt{\vphantom{\hat{A}}\det L_X}}s_0(x,x)^2t^{1-n+2m}.
 \end{equation*}
 Ceci implique, d'une part, $m=n-1$, et d'autre part, sur la diagonale,
 
 \begin{equation*}
-  s_0(x,x) = \cfrac{\|\dd\rho\|^{\frac{n+1}{2}}(x)\sqrt{\det L_X}}{4\pi^n} \text{ ou } 0.
+  s_0(x,x) = \cfrac{\|\dd\rho\|^{\frac{n+1}{2}}(x)\sqrt{\vphantom{\hat{A}}\det L_X}}{4\pi^n} \text{ ou } 0.
 \end{equation*}
 Cependant on sait que $s_0$ peut aussi être retrouvée, de manière beaucoup plus compliquée, par les constructions de cette partie, en partant du symbole de $RR^*$ qui, lui, est non nul sur la diagonale. Ceci implique que $s_0$ est lui-même non-nul sur la diagonale.
 

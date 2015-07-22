@@ -399,7 +399,7 @@ Le résultat suivant est la clef de voûte de la théorie des opérateurs intég
 	\end{equation*}
 	Alors il existe deux symboles $v,v_0 \in S^{m + (d-n_X-n_Y)/2}(\emptyset \times \R^{n_X+n_Y})$, tels que $v-v_0 \in S^{m + (d-n_X-n_Y)/2-1}$, tels que 
 	\begin{align*}
-		A(x,y)-\int e^{i\langle x,\xi\rangle+\langle y,\eta\rangle - H(\xi,\eta)}v(\xi,\eta)d\xi d\eta &\in C^{\infty}\\
+		A(x,y)-\int e^{i(\langle x,\xi\rangle-\langle y,\eta\rangle - H(\xi,\eta))}v(\xi,\eta)d\xi d\eta &\in C^{\infty}\\
 		(2\pi)^{(n_X+n_Y)/2}v_0(\xi,\eta)-(2\pi)^{d/2}\cfrac{e^{i \frac{\pi}{4}sgn\Hess \fii(\gamma_0)} }{\sqrt{\det\Hess \fii (\gamma_0)}}\:a(x,y,\theta) &\in \hat{J}_{\fii}.
 	\end{align*}
 \end{theorem}
@@ -412,4 +412,44 @@ La preuve repose sur l'utilisation du premier terme du lemme de phase stationnai
 \subsection{Composition des opérateurs intégraux de Fourier à phase réelle}
 Par le théorème précédent, pour décrire comment se comporte la composition de deux opérateurs intégraux de Fourier à phase réelle, il suffit d'observer comment la composition modifie les idéaux.
 
-\chantier
+On considère trois variétés $X,Y,Z$ et deux OIF réels, $A$ qui envoie une fonction sur $Y$ en une fonction sur $X$, et $B$ qui envoie une fonction sur $Z$ en une fonction sur $Y$. On applique le théorème précédent, et on décompose $X$, $Y$ et $Z$ en petits ouverts sur lesquels :
+
+\begin{align*}
+	A(x,y)&=\int e^{i(\langle x,\xi\rangle - \langle y,\eta\rangle-H_A(\xi,\eta))}a(\xi,\eta)d\xi d\eta\\
+	B(y,z)&=\int e^{i(\langle y,\eta\rangle - \langle z,\zeta\rangle -H_B(\xi,\eta))}b(\eta,\zeta)d\eta d\zeta
+\end{align*}
+
+L'opérateur $A\circ B$ est donc un opérateur à noyau, et son noyau est la convolution des noyaux précédents. On observe que $A\circ B$ s'exprime formellement comme un OIF, associé à :
+\begin{equation}
+	\Psi(x,y,z,\xi,\eta,\zeta)=\langle x,\xi\rangle - \langle z,\zeta\rangle - H_A(\xi,\eta)-H_B(\eta,\zeta)
+\end{equation}
+
+Cette fonction est-elle une phase ? Il faut vérifier qu'à $x$ fixé, ou $z$ fixé, il n'y a pas de point critique, mais c'est le cas (parce que $d_z\Psi$ n'est jamais nul.) Quelle est l'idéal $\hat{J}_{\psi}$? C'est un idéal de $C^{\infty}((T^*X \setminus 0)\times (T^*Y \setminus 0)\times (T*^Z \setminus 0) )$, localement engendré par les fonctions :
+\begin{align*}
+	x_i-d_{\xi_i}H_A\\
+	z_i-d_{\zeta_i}H_B\\
+	d_{\eta_i}H_A+d_{\eta_i}H_B
+\end{align*}
+
+On peut en fait retrouver $\hat{J}_{\psi}$ à partir de $\hat{J}_A$ et $\hat{J}_B$, de manière purement géométrique. Considérons l'idéal $\hat{J}_A \otimes C^{\infty}((T^*Y\setminus 0)\times (T^*Z\setminus 0)) \oplus C^{\infty}((T^*X\setminus 0)\times (T^*Y\setminus 0)) \oplus \hat{J}_B$. C'est l'idéal engendré par les fonctions :
+\begin{align*}
+	x_i-d_{\xi_i}H_A\\
+	z_i-d_{\zeta_i}H_B\\
+	y_i-d_{\eta_i}H_A\\
+	y'_i - d_{\eta'_i}H_B
+\end{align*}
+Considérons maintenant l'idéal des restrictions à $(T^*X\setminus 0)\times \diag (T^*Y\setminus 0) \times (T^*Z\setminus 0)$ des fonctions dans l'idéal précédent. Cet idéal est lui-même engendré par les fonctions :
+\begin{align*}
+x_i-d_{\xi_i}H_A\\
+z_i-d_{\zeta_i}H_B\\
+y_i-d_{\eta_i}H_A\\
+d_{\eta_i}H_A+ d_{\eta_i}H_B.
+\end{align*}
+Le sous-idéal des fonctions qui ne dépendent pas de $y$ est donc exactement $\hat{J}_{\psi}$.
+
+On peut donc construire l'idéal associé à la composition de deux OIF, à partir de la donnée des idéaux des OIF en question. Cette opération complexe sera abrégée $J_A\circ J_B$ dans toute la suite ce ce mémoire.
+
+\begin{rem}
+	Lorsque les symboles $a$ et $b$ sont classiques, le lemme de phase stationnaire permet d'obtenir un développement asymptotique du symbole de la composition, pour la phase qu'on vient d'utiliser. On peut ensuite changer de phase en utilisant le théorème.
+\end{rem}
+

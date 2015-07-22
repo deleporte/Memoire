@@ -1,69 +1,100 @@
 \chapter{Structure de Toeplitz}
 
-Cette partie est consacré à un exposé des raisonnements et résultats de \cite{Shiffman2002}. Cependant, l'auteur a préféré, pour des raisons de clarté, exposer les raisonnements sur les Opérateurs Intégraux de Fourier en terme de leurs idéaux, et non de leurs lagrangiennes. Cette différence est motivée par la définition identique des idéaux dans le cas d'une phase complexe, et par la difficulté conceptuelle que pose d'emblée l'introduction des extensions presque analytiques comme présenté dans \cite{melin1975fourier}. On rompt donc avec la description originelle proposée par Boutet et Guillemin, de manière à proposer un exposé concis. Certains problèmes techniques ne seront donc pas exposés ici, pour le confort du lecteur.
+Cette partie est consacré à un exposé des raisonnements et résultats de \cite{Shiffman2002}. Cependant, l'auteur a préféré, pour des raisons de clarté, exposer les raisonnements sur les Opérateurs Intégraux de Fourier en terme de leurs idéaux, et non de leurs lagrangiennes. Cette différence est motivée par la définition identique des idéaux dans le cas d'une phase complexe, et par la difficulté conceptuelle que pose d'emblée l'introduction des extensions presque analytiques comme présenté dans \cite{melin1975fourier}. On rompt donc avec la description originelle proposée par Boutet et Guillemin.
 
-Dans cet exposé, on reprend les outils et objets du chapitre précédent, mais on va en présenter une construction alternative, qui n'utilise pas a priori la structure exacte de $\overline{\partial}_b$, telle que la caractérisation microlocale de son noyau, ni même l'existence de solutions. Le but est de pouvoir étendre cette construction, donnée par Boutet et Guillemin dans l'annexe de \cite{BoutetdeMonvel1981}, à des cas où la structure complexe est remplacée par une structure presque complexe non intégrable, dans laquelle $\overline{\partial}_b$ a les mêmes propriétés microlocales, mais ne possède pas de solution globale.
+Dans ce chapitre, on reprend les outils et objets du chapitre précédent, mais on va en présenter une construction alternative, qui n'utilise pas a priori la structure exacte de $\overline{\partial}_b$, telle que la caractérisation microlocale de son noyau, ni même l'existence de solutions. Le but est de pouvoir étendre cette construction, donnée par Boutet et Guillemin dans l'annexe de \cite{BoutetdeMonvel1981}, à des cas où la structure complexe est remplacée par une structure presque complexe non intégrable, dans laquelle $\overline{\partial}_b$ a les mêmes propriétés microlocales, mais ne possède pas de solution globale.
 
-Comme dans l'exposé précédent, on se donne $M$ une variété complexe de dimension $n-1$, $(L,h)$ un fibré en droites hermitien positif sur $M$ ; on se donne également une connection $\nabla$ sur $L$ "compatible" : sa courbure de Ricci est égale à $-2i\omega_g$ où $\omega_g$ est la métrique sur $M$ définie par $h$. On notera $\alpha$ la 1-forme sur $X$ reliée à $\nabla$, qui définit une structure de contact sur $X$.
+De manière similaire, on se donne $(M,\omega, J)$ une variété symplectique presque complexe de dimension $2n$, et on se donne $(L,h)$ un fibré en droites hermitien sur $M$. Il s'agit maintenant de retrouver dans le cas symplectique la notion de "bonne courbure" pour $L$. Une des manières, décrite dans \cite{woddhouse1997geometric}, est de munir $L$ d'une connexion $\nabla$ telle que les dérivées covariantes de la métrique $h$ s'annule, et dont la courbure vaut $-i\omega$. 
+
+Dans le cas complexe, on peut construire explicitement une telle connexion : si $a$ est une section locale holomorphe non nulle fixée, on considère la connexion qui vérifie $\nabla a = \partial \log \|a\|_h \otimes a$, les dérivées covariantes de la métrique s'annulent ; la courbure de la connexionvaut exactement $-i\omega_g$ selon les constructions du chapitre précédent.
+
+\begin{rem}L'introduction de la connexion $\nabla$ peut paraître artificielle dans ce contexte. En réalité, le cadre naturel d'application de cette théorie est l'étude de la quantification au sens de Kostant dans \cite{kostant1970quantization} et Souriau dans \cite{souriau1967quantification}, où $\nabla$ est alors donné a priori.\end{rem}
+
+A partir de ces données géométriques, on va reprendre le travail du chapitre précédent, mais en fonctionnant à l'envers : après avoir explicité des coordonnées locales, on construit en premier lieu un idéal lagrangien idempotent, puis un projecteur associé, et on définit les espaces de Hardy comme les fonctions équivariantes dans le noyau de ce projecteur.
+
+On notera $g(v,w)=\omega(v,Jw)$ la métrique riemannienne compatible avec $\omega$ et $J$.
 
 \section{Construction du projecteur approximatif}
 
 \subsection{Des bonnes coordonnées locales}
 
-On se donne un point $P_0 \in M$. Au voisinage de ce point, on va considérer des coordonnées locales holomorphes $(z_1,\ldots, z_{n-1})$ vérifiant que le pull-back de la métrique $\omega_g$ par la carte locale soit la métrique euclidienne en 0 (on ne demande pas que ce soit la métrique euclidienne dans un voisinage de 0, mais uniquement en 0, et c'est toujours possible).
+On se donne un point $P_0 \in M$. Au voisinage de ce point, on va considérer des coordonnées locales $(x_1,\ldots, x_n,y_1,\ldots, y_n)$. On écrit $z_j=x_j+iy_j$. Qu'exige-t-on de ces coordonnées ? D'un côté, on aimerait avoir $\partial/\partial z_j \in T^{1,0}M$ pour tout $j$, autrement dit, $\partial/\partial y_j = -J\partial/\partial x_i$ ; de l'autre, on voudrait que ce système de coordonnées envoie $\omega$ sur la forme symplectique canonique $\omega_0 = \sum \dd x_i \wedge \dd y_i$. Malheureusement, ces conditions sont incompatibles sauf si $J$ est intégrable. Néanmoins on peut exiger d'avoir ces conditions en un point.
 
-On se donne alors une section locale de L, notée $e_L$, qui vérifie $\|e_L\|_{P_0}=1$, $\nabla e_L(P_0)=0$, ainsi que $\nabla^2e_L(P_0)=-\omega_g(P_0)$.
+\begin{defn}
+	On dit que ce système de coordonnées est \emph{privilégié} lorsque les deux conditions suivantes sont satisfaites :
+	\begin{itemize}
+		\item Pour tout $j$, on a $\cfrac{\partial}{\partial z_j}|_{P_0} \in T^{1,0}M$.
+		\item $\omega(P_0)=\sum \dd x_i \wedge \dd y_i$.
+	\end{itemize}
+\end{defn}
 
-Dans les coordonnées locales, ceci revient à exiger :
+\begin{rem}
+	Sous ces conditions, on a aussi $g(P_0) = \sum \dd x_i \otimes \dd x_i + \dd y_i \otimes \dd y_i$.
+\end{rem}
 
+On peut alors corriger les vecteurs pour former une base locale $\overline{Z}_j$ de $T^{0,1}M$, avec :
+
+\begin{equation*}
+	\overline{Z}_j = \cfrac{\partial}{\partial \overline{z_j}} + \sum_{k=1}^mB_{j,k}(z)\cfrac{\partial}{\partial z_k},
+\end{equation*}
+avec $B_{j,k}(P_0)=0$.
+Il s'agit maintenant de compléter ce système de coordonnées en un système de coordonnées sur $L$, par une section $e_L$. Quitte à la multiplier par une fonction, on peut supposer que  $\|e_L\|_{P_0}=1$, $\nabla e_L(P_0)=0$, ainsi que $\nabla^2e_L(P_0)=-(g+i\omega)\otimes e_L|_{P_0}$.
+
+Dans les coordonnées locales privilégiées, ceci revient à exiger :
 \begin{equation*}
 \|e_L\|(z)=1-\cfrac{|z|^2}{2} + O(|z|^3)
 \end{equation*}
-
 On notera $a(z)=\|e_L(z)\|^{-2}$, et cette notation sera à nouveau utilisée plus loin.
 
-On peut alors définir une carte locale de $X$ par :
-
+On peut alors définir une carte locale de $X = \{(m,v)\in L^*, \|v\|_h=1 \}$ par :
 \begin{equation*}
 (z_1, \ldots, z_n, \theta) \mapsto e^{i\theta}a(z)^{-1/2}e_L^*(z)
 \end{equation*}
 
-Les coordonnées locales $(z_1, \ldots, z_n, \theta)$ sont appelées coordonnées de Heisenberg.
+Les coordonnées locales $(z_1, \ldots, z_n, \theta)$ sur $X$ sont appelées coordonnées de Heisenberg.
+ 
+\subsection{Construction de générateurs}
 
-\begin{rem}L'introduction de la connexion $\nabla$ peut paraître artificielle dans ce contexte. En réalité, le cadre naturel d'application de cette théorie est l'étude de la quantification au sens de Kostant dans \cite{kostant1970quantization} et Souriau dans \cite{souriau1967quantification}, où $\nabla$ est alors donné a priori. Il est donc rassurant de constater que dans notre version des faits, le choix arbitraire de $\nabla$ n'a pas de conséquence.\end{rem}
-\begin{rem}Dans le cas symplectique, les coordonnées $z_j$ peuvent être construites à la main à partir de coordonnées symplectiques sur $M$, de manière à vérifier les propriétés ci-dessus. \end{rem}
+Notre but est à présent de définir un projecteur de Szeg\H{o} comme un opérateur intégral de Fourier. Celui-ci sera décrit par une phase complexe, il est donc confortable de raisonner en termes d'idéaux lagrangiens. 
 
-\chantier
-
-\subsection{Description microlocale du symbole}
-
-Notre but est à présent de définir un projecteur de Szeg\H{o} comme un opérateur intégral de Fourier. Celui-ci sera décrit par une phase complexe, il est donc confortable de raisonner en termes d'idéaux lagrangiens. On va encore une fois utiliser les notations, constructions et résultats de \cite{hormander1985}.
-
-L'opérateur de Cauchy-Riemann est un opérateur pseudo-différentiel. Son symbole peut être décrit localement : si $(Z^k_j)$ est la base locale de $T''X$ définie précédemment, et $(\zeta_j)$ est la base duale correspondante, le symbole est :
-
+L'opérateur de Cauchy-Riemann sur $X$ est un opérateur pseudo-différentiel. Son symbole peut être décrit localement : si $(\overline{Z}_j)$ est la base locale de $T^{0,1}M$ définie précédemment, et $(\zeta_j)$ est la base duale correspondante, le symbole est :
 \begin{equation*}
-	d_0 := \sigma_{\overline{\partial}_b}(x,\xi) = \sum_{j \neq k} \langle \xi, Z^k_j \rangle \zeta_j
+	d_0 := \sigma_{\overline{\partial}_b}(x,\xi) = \sum_{j} \langle \xi, \overline{Z}_j \rangle \zeta_j
 \end{equation*}
 
-La variété caractéristique de $\overline{\partial}_b$ est donc exactement $(T'X + T''X)^{\perp}$; c'est un fibré en droites, que nous noterons $\Sigma$. 
-
-La forte pseudoconvexité de $D$ implique que $\Sigma$ est orientable. Soit en effet, au voisinage d'un point $x \in X$, une section non nulle $N$ de $\Sigma$, ainsi que la base $(Z^k_j)$ de $T''X$ définie précédemment. Alors $(\overline{Z^k_j})$ est une base locale de $T'X$. La condition de forte pseudoconvexité équivaut à ce que la matrice des dérivées secondes croisées de $\rho$ soit définie positive sur $X$ ; un rapide calcul montre alors que la matrice $iN([Z^k_i;Z^k_j])$ est soit hermitienne positive non dégénérée, soit hermitienne négative non dégénérée (cela dépend du choix de $N$). On peut alors décomposer $\Sigma$ en $\Sigma^+$, la nappe sur laquelle cette matrice est positive, $\Sigma^-$, la nappe sur laquelle cette matrice est négative, et bien sûr l'image de la section nulle.
-
-\chantier 
-
-\subsection{Définition de l'idéal}
-
-Notons $p_j(x,\xi)= \langle \xi, Z^k_j \rangle$. Ces fonctions vérifient $\{p_i,p_j\}=0$, et $\Sigma$ est le lieu des zéros communs de $p_j$. Par ailleurs, la matrice des $\frac1i \{p_i,\overline{p_j}\}$ est définie positive sur $\Sigma^+$. Définissons un idéal de fonctions complexes sur le cotangent :
-
+Notons $p_j(x,\xi)= \langle \xi, \overline{Z_j} \rangle$, et posons $\Sigma = \{(x,\xi) \in T^*X\setminus 0,\,p_j(x,\xi)=0 \forall j\}$ ; c'est un fibré en droites sur $X$. On aimerait définir l'idéal lagrangien en partant de ces fonctions. On rappelle que dans le cas complexe, les fonctions $p_j$ engendrent un idéal $\mathcal{I}$ qui permet de définir l'idéal dont $\db$ est un OIF associé. Pour réaliser cette construction, on a utilisé le fait que l'idéal engendré par ces fonctions était fermé pour le crochet de Poisson, ce qui n'est plus le cas ; en effet :
 \begin{equation*}
-	\mathcal{I} := \{f \in C^{\infty}(T^*X, \C), \forall (x,\xi) \in \Sigma, \exists (g_1, \ldots, g_k) \in C^{\infty}(T^*X, \C), f=\sum_{j \neq k}g_jp_j\}
+	\{p_j,p_k\}(\xi) = \langle \xi, [\overline{Z}_j,\overline{Z}_k].
 \end{equation*}
 
-Par définition, $\mathcal{I}$ est l'idéal engendré par les $p_i$. Alors $\mathcal{I}$ est stable par crochet, on peut vérifier en fait que $\mathcal{I}$ est un idéal lagrangien. Cet idéal est même \emph{positif}, au sens où la matrice des crochets des générateurs locaux est définie positive sur le lieu commun des zéros, $\Sigma^+$. C'est aussi un sous-idéal de $\mathcal{K}=\mathcal{I} + \overline{\mathcal{I}}$, l'idéal des fonctions complexes s'annulant sur $\Sigma$. 
+Qu'en est-il des conditions de positivité ? Posons $p_{\theta}(\xi) = \langle \xi, \partial/\partial \theta \rangle$, où $\partial/\partial \theta$ dénote la dérivée selon l'action de $S^1$ sur $X$. Alors sur $\Sigma$, la fonction $p_{\theta}$ ne s'annule pas (car si $p_{|theta}=0$ et $p_j=0$, alors $\overline{p_j}=0$, donc $\xi$ est orthogonal à une base de $TX$, donc est nul, absurde.) Par ailleurs, on a choisi nos vecteurs $Z_j$ pour être orthonormés, ainsi, $\frac 1i \{p_j,\overline{p}_k\}=\delta^j_kp_{\theta}$. Cette matrice est définie positive ou bien définie négative selon le signe de $p_\theta$, partitionnant $\Sigma$ en deux fibrés en demi-droite, comme dans le cas complexe. Si on arrive à maintenir cette condition sur nos générateurs modifiés, on pourra continuer notre construction.
 
-Il semble naturel que $\mathcal{I}$ soit associé au projecteur de Szeg\H{o}. Pour que la notion de projecteur orthogonal ait un sens, il faut que l'idéal associé $\mathcal{J} \subset C^{\infty}(T^*(X\times X), \C)$ vérifie que $\mathcal{J} \circ \mathcal{J} = \mathcal{J}^*=\mathcal{J}$, on va donc construire un tel idéal, qui devra être lagrangien.
+Le tenseur de Nijenhuis va nous permettre de construire des générateurs convenables. En effet, on constate que $\{p_j,p_k\}$ est nul sur $\Sigma$. On a donc :
+\begin{equation*}
+	\{p_j,p_k\} = \sum_{l=1}^nf^l_{jk}p_l + \sum_{l=1}^{n}N^l_{jk}\overline{p_l}
+\end{equation*}
+On veut corriger les $p_j$ au voisinage de $\Sigma$ pour éliminer le facteur $N^l_{jk}$ au premier ordre. Pour cela, on utilise qu'au voisinage d'un point de $\Sigma$, la fonction $p_{\theta}$ n'est pas nulle. On peut donc poser :
+\begin{equation*}
+	p_j^{(2)} = p_j + \cfrac{i}{3p_{\theta}}\sum_{k,l}N^l_{jk}\overline{p}_k\overline{p}_l
+\end{equation*}
+Et alors, comme $\{p_j,\overline{p_k}\}=i\delta^j_k p_{\theta}$, on a que le crochet $\{p_j^{(2)},p_k^{(2)} \}$ est dans l'idéal engendré par les $p_l^{(2)}$ à l'ordre 2 au voisinage de $\Sigma$. On peut réitérer et construire par récurrence le jet sur $\Sigma$ d'une famille de fonctions $p^{\infty}_j$ qui va convenir.
 
-On considère donc $\mathcal{J} = \mathcal{I} \otimes 1 + 1 \otimes \overline{\mathcal{I}}$. $\mathcal{J}$ vérifie trivialement que $\mathcal{J}=\mathcal{J}^*$. Par ailleurs, puisque $\mathcal{I} + \overline{\mathcal{I}}=\mathcal{K}$, on a $\mathcal{J} \otimes 1 + 1 \otimes \mathcal{J} = \mathcal{I} \otimes 1 \otimes 1 + 1 \otimes 1 \otimes \overline{\mathcal{I}} + 1 \otimes \mathcal{K} \otimes 1$. Or, $\mathcal{J} \circ \mathcal{J}$ est le sous-idéal de $\mathcal{J} \otimes 1 + 1 \otimes \mathcal{J}$ des fonctions qui ne dépendent pas des variables du milieu. La contribution du troisième terme est nécessairement nulle (si une fonction s'annule sur $\Sigma$ et est constante alors elle s'annule partout), donc $\mathcal{J} \circ \mathcal{J} = \mathcal{J}$.
+Résumons : on a construit des fonctions $p^{\infty}_j$ qui vérifient que :
+\begin{prop}
+	L'idéal $\mathcal{I}$ engendré par les fonctions $p^{\infty}_j$ est fermé pour le crochet de Poisson. L'ensemble des zéros communs des fonctions dans $\mathcal{I}$, noté $\Sigma$, se décompose en $\Sigma^+$, sur lequel la matrice $\frac 1i \{p^{\infty}_j,p^{\infty}_k\}$ est définie positive, et $\Sigma^-$, sur lequel cette matrice est définie négative.
+\end{prop}
+
+Ces conditions géométriques sont exactement celles qui permettent d'appliquer le raisonnement sur les idéaux lagrangiens évoqué plus haut :
+
+\begin{prop}
+	Il existe un unique idéal, noté $\mathcal{J} \in C^{\infty}((T^*X\setminus 0)^2,\C)$, vérifiant toutes les conditions suivantes :
+	\begin{itemize}
+		\item $\mathcal{I}\otimes 1 + 1 \otimes \overline{\mathcal{I}}\subset\mathcal{J}$;
+		\item L'ensemble des points d'annulation de toutes les fonctions dans $\mathcal{J}$ vaut $\diag(\Sigma^+)$;
+		\item $\mathcal{J}^*=\mathcal{J}$;
+		\item $\mathcal{J}\circ\mathcal{J}=\mathcal{J}$;
+	\end{itemize}
+\end{prop}
 
 \subsection{Paramétrisation de l'idéal}
 Pour montrer que $\mathcal{J}$ est un idéal lagrangien, on va montrer que c'est l'idéal relié à une phase complexe $\psi$, qu'on va construire maintenant.
@@ -71,23 +102,16 @@ Pour montrer que $\mathcal{J}$ est un idéal lagrangien, on va montrer que c'est
 L'invariance par rapport à $S^1$ et l'antisymétrie de $\mathcal{J}$ nous invitent à considérer une phase sur $X \times X \times \R$ de la forme
 
 \begin{equation*}
-	(z, \lambda ,w, \mu ,t) \mapsto -it(1-\lambda \overline{\mu}a(z,w))
+	(z, \theta ,w, \phi ,t) \mapsto -it\left(1-e^{i(\theta-\fii)}\cfrac{a(z,w)}{\sqrt{a(z)a(w)}}\right)
 \end{equation*}
 
-Où $a(z,w)$ est symétrique.
+Où $a(z,w)=\overline{a(w,z)}$.
 
-La raison de la notation $a(z,w)$ vient du fait que $\mathcal{J}$ est contenu dans l'idéal des fonctions qui s'annulent sur $diag(\Sigma)$, ce qui signifie en particulier que $\psi$ s'annule uniquement sur la diagonale, et donc $a(z,z)=a(z)$. La même inclusion donne $d_za$ sur la diagonale, puisqu'à cet endroit on doit avoir $a^{-1}d_za + \lambda^{-1}d_z \lambda = \alpha$.
+La raison de la notation $a(z,w)$ vient du fait que $\mathcal{J}$ est contenu dans l'idéal des fonctions qui s'annulent sur $\diag(\Sigma^+)$, ce qui signifie en particulier que $\psi$ s'annule uniquement sur la diagonale, et donc $a(z,z)=a(z)$. La même inclusion donne $d_za$ sur la $\diag(\Sigma^+)$, puisqu'à cet endroit on doit avoir $p^{\infty}_j(z,\theta,d_1\psi)=0$ pour tout $j$. Ces conditions déterminent, de manière unique, le germe de $\psi$ sur la diagonale. 
 
-Sous ces deux conditions, on a un unique germe de $a(z,w)$ le long de $diag(X)$. Dans les coordonnées de Heisenberg, la phase s'écrit :
-
+Peut-on associer à ce germe une phase positive ? On peut vérifier à la main (cf \cite{Shiffman2002}, Lemme 2.4) que :
 \begin{equation*}
-	\psi(x,y,t) = -it\left(1-e^{i(\theta-\phi)}\cfrac{a(z,w)}{\sqrt{a(z)}\sqrt{a(w)}}\right)
-\end{equation*}.
-
-Cette phase est bien de type positif puisqu'on peut vérifier à la main que :
-
-\begin{equation*}
-	a(z,w) = 1 + z\overline{w} + O(|z|^3 + |w|^3)
+	a(z,w) = 1 + z\overline{w} + O(|z|^3 + |w|^3).
 \end{equation*}
 
 \subsection{Construction d'un projecteur de Szeg\H{o}}
@@ -102,7 +126,7 @@ Ici $h(x,y)$ est une fonction liée à la hessienne de $\psi$, et non nulle sur 
 
 Si on veut que $s_0$ ne s'annule pas, on a un unique candidat naturel modulo $\psi$, à savoir $s_0(x,y)= h(x,y)$.
 
-On dispose d'un projecteur approximatif, lié à un symbole $s_0$, qui vérifie que $s_0 * s_0 = s_0 +r$, avec $r \in S^{-1}$. Si on veut $s=s_0 + e$ avec $s * s = s$, on obtient $e = 1/2 - \sqrt{r + 1/4}$. Cette série formelle possède une réalisation, et l'on peut construire S, qui est unique à un noyau $C^{\infty}$ près.
+On peut maintenant appliquer le même raisonnement qu'au chapitre précédent : on dispose d'un projecteur approximatif, lié à un symbole $s_0$, qui vérifie que $s_0 * s_0 = s_0 +r$, avec $r \in S^{-1}$. Si on veut $s=s_0 + e$ avec $s * s = s$, on obtient $e = 1/2 - \sqrt{r + 1/4}$. Cette série formelle possède une réalisation, et l'on peut construire S, qui est unique à un noyau $C^{\infty}$ près.
 
 Quitte à remplacer $S$ par $(S+S^*)/2 \sim S$, on peut supposer que $S$ est autoadjoint. Puisque $S^2=S+K$, et que $K$ est un opérateur compact, on a $spec_{ess}(S)=\{0,1\}$. $S$ possède éventuellement des valeurs propres, qui s'accumulent en $0$ ou en $1$. On peut donc, à un projecteur de dimension finie près, corriger $S$ en un projecteur.
 
@@ -197,4 +221,4 @@ Comme $D_0$ commute avec l'action de $S^1$, on peut décomposer son noyau selon 
 		\item Si $dist(P_N,Q_N)\sqrt{N} \leq C$, alors l'expression asymptotique de $S_N$ autour de la diagonale, à l'échelle $1/\sqrt{N}$ donne $S_N(P_N,Q_N)\neq N^{1-n}=S_N(Q_N,Q_N)$, et a fortiori interdit que $S_N(P_N,\cdot)=S_N(Q_N,\cdot)$.
 	\end{itemize}
 
-\chantier
+Ce qui conclut la preuve de l'injectivité.
