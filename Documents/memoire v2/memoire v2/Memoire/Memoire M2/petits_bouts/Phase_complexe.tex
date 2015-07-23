@@ -1,0 +1,56 @@
+\section{Opérateurs Intégraux de Fourier à phase complexe}
+Dans cette section, on va développer la théorie des OIF à phase complexe, de manière très similaire aux OIF à phase réelle. Ceci est permis par la construction qu'on a réalisée en passant par les idéaux lagrangiens. De nombreuses constructions données ici ne seront que des reprises des constructions de la section précédente.
+
+On commence par définir une phase positive non dégénérée :
+\begin{defn}
+	Soient $X$ et $Y$ deux variétés. Une fonction $\fii \in C^{\infty}(X\times Y \times (\R^d\setminus 0))$ est appelée \emph{phase positive non dégénérée} lorsque les conditions suivantes sont satisfaites :
+	\begin{itemize}
+		\item $\Im \fii \geq 0$;
+		\item à $x$ fixé, la fonction $(y,\theta) \mapsto \fii(x,y,\theta)$ n'a pas de point critique ;
+		\item à $y$ fixé, la fonction $(x,\theta) \mapsto \fii(x,y,\theta)$ n'a pas de point critique; 
+		\item En un point $\gamma$ en $d_{\theta}\fii$ s'annule, les formes $d(\partial \fii/\partial \theta_i)$ sont indépendantes (sur $\C$).
+	\end{itemize}
+\end{defn}
+
+Une telle phase permet de construire des OIF à phase complexe en tant qu'opérateurs à noyau, comme précédemment.
+
+On constate d'emblée que les considérations de la section précédente sur la variété caractéristique deviennent caduques. En effet, l'ensemble :
+\begin{multline*}
+C_{\fii}=\{(x,\xi,y,\eta) \in T^*X \times T^*Y,\,\exists \theta\in \R^d\setminus 0,\,\\\dd_{\theta}\fii(x,y,\theta)=0,\,\dd_x\fii(x,y,\theta)=\xi, \dd_y\fii(x,y,\theta)=\eta\}
+\end{multline*}
+n'est plus une variété lagrangienne parce qu'il y a "trop d'équations". Pour remédier à cela, on peut complexifier localement les variétés, et décrire $C_{\fii}$ comme l'ensemble des points réels d'une variété complexe, comme dans \cite{Melin1975fourier}, ou bien on peut continuer à raisonner avec les idéaux lagrangiens. C'est ce que nous allons faire, en suivant à nouveau \cite{hormander1985}.
+
+\subsection{Idéaux lagrangiens positifs}
+On peut répéter les arguments précédents en faisant attention à la positivité. On définit premièrement un idéal lagrangien complexe de la manière suivante :
+
+\begin{defn}Soit $S$ une variété symplectique de dimension $N$. Un idéal $J \subset C^{\infty}(S,\C)$ est dit \emph{lagrangien} lorsque :
+	\begin{itemize}
+		\item $\{J,J\}\subset J$.
+		\item Localement, il existe $N$ générateurs de $J$, dont les différentielles sont $\C$-linéairement indépendantes sur $J$.
+		\item Si une fonction $u$ vérifie que pour toute fonction $f \in C^{\infty}_c(S,\C)$, on a $fu \in J$, alors $u \in J$.
+	\end{itemize}
+	Si les générateurs peuvent être choisis invariants par rapport à une action de $\R^+$ sur $S$, on dit que l'idéal lagrangien est conique.
+\end{defn}
+
+Une phase positive non dégénérée $\fii$ engendre un idéal lagrangien $J_{\fii}$ par les constructions identiques au cas réel.
+
+Réciproquement, tous les idéaux lagrangiens coniques complexes sont-ils engendrés par une phase positive ? Pas nécessairement, car on n'a pas encodé la positivité. Clairement, si un idéal $J$ est engendré par une phase positive $\fii$, alors l'idéal $\overline{J}$ des conjuguées des fonctions dans $J$, est par exemple engendré par la phase $\overline{\fii}$, qui n'est pas positive en général.
+\begin{defn}
+	On dit qu'un idéal lagrangien est \emph{positif} lorsqu'il est engendré par une phase positive.
+\end{defn}
+
+On dispose comme dans le cas réel d'un modèle local universel pour ces idéaux :
+\begin{lem}
+	Soit $Z$ une variété et $J$ un idéal lagrangien conique de $C^{\infty}(T^*Z \setminus 0,\C)$. Soit $m_0\in T^*Z$, alors il existe un voisinage conique $V$ de $m_0$ tel que :
+	\begin{enumerate}
+		\item Ou bien la restriction à $V$ des fonctions dans $J$ vaut tout l'espace : $J|_V = C^{\infty}(V)$.
+		\item Ou bien il existe des coordonnées locales $(x_j,\xi_j)$ sur $V$ et une fonction $H\in C^{\infty}(V)$, homogène de degré 0, qui ne dépend que de $\xi$, et telle que ${\Im H \leq 0}$, telle que $J|_{V}$ est généré par les fonctions
+		\begin{equation*}
+		x_j-\cfrac{\partial H}{\partial \xi_j}.
+		\end{equation*}
+	\end{enumerate} 
+\end{lem}
+
+On peut alors généraliser les énoncés du théorème de changement de phase et du théorème de composition.
+
+En particulier, remarquons que l'adjoint d'un opérateur associé à la phase $\fii$ (d'idéal $J$) est un opérateur associé à la phase $-\overline{\fii}$. En échangeant les places de $x$ et $y$ dans la définition, $-\overline{\fii}$ engendre un idéal qu'on notera $J^*$. La notion de projecteur orthogonal pour un OIF n'a donc de sens que si $J=J^*=J\circ J$.

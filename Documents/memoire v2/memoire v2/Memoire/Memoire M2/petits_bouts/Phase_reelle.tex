@@ -279,6 +279,7 @@ associe à un symbole un opérateur à noyau, dont on voudrait comprendre les pr
     \item La fonction $\fii$ est 1-homogène en $\theta$.
     \item Pour tout $x\in X$, la fonction $(y,\theta)\mapsto \fii(x,y,\theta)$ n'a pas de point critique.
     \item Pour tout $y\in Y$, la fonction $(x,\theta)\mapsto \fii(x,y,\theta)$ n'a pas de point critique.
+    \item En un point $\gamma$ en $d_{\theta}\fii$ s'annule, les formes $d(\partial \fii/\partial \theta_i)$ sont indépendantes.
   \end{itemize}
 \end{defn}
 
@@ -289,6 +290,9 @@ La structure de front d'onde se généralise :
     C_{\fii}=\{(x,\xi,y,\eta) \in T^*X \times T^*Y,\,\exists \theta\in \R^d\setminus 0,\,\\\dd_{\theta}\fii(x,y,\theta)=0,\,\dd_x\fii(x,y,\theta)=\xi, \dd_y\fii(x,y,\theta)=\eta\}
 \end{multline*}  
 \end{defn}
+\begin{rem}
+	L'ensemble $C_{\fii}$ est bien une variété, à cause de la dernière condition de la définition.
+\end{rem}
 
 \begin{prop}[\cite{hormander2003analysis}, thm 8.1.9]
   Soit $\fii$ une phase réelle non dégénérée sur $X\times Y\times \R^d$, et $a \in S^m_{glob}(X\times Y\times \R^d)$. 
@@ -378,9 +382,9 @@ Si les générateurs peuvent être choisis invariants par rapport à une action 
 \end{preuve}
 On a exactement $J_{\fii}=\{f \in C^{\infty},\, m \in C_{\fii}\Rightarrow f(m)=0\}$. La raison pour laquelle nous avons donné une définition alternative de $J_{\fii}$ est la généralisation future à des phases complexes. On observe par ailleurs qu'on vient de démontrer que $C_{\fii}$ était lagrangienne.
 
-Il existe un modèle local universel pour les idéaux lagrangiens coniques de $C^{\infty}(T*Z \setminus 0)$ :
+Il existe un modèle local universel pour les idéaux lagrangiens coniques de $C^{\infty}(T^*Z \setminus 0)$ :
 \begin{lem}
-	Soit $Z$ une variété et $J$ un idéal lagrangien conique de $C^{\infty}(T*Z \setminus 0)$. Soit $m_0\in T^*Z$, alors il existe un voisinage conique $V$ de $m_0$ tel que :
+	Soit $Z$ une variété et $J$ un idéal lagrangien conique de $C^{\infty}(T^*Z \setminus 0)$. Soit $m_0\in T^*Z$, alors il existe un voisinage conique $V$ de $m_0$ tel que :
 	\begin{enumerate}
 		\item Ou bien la restriction à $V$ des fonctions dans $J$ vaut tout l'espace : $J|_V = C^{\infty}(V)$.
 		\item Ou bien il existe des coordonnées locales $(x_j,\xi_j)$ sur $V$ et une fonction $H\in C^{\infty}(V)$, homogène de degré 0 et qui ne dépend que de $\xi$, telle que $J|_{V}$ est généré par les fonctions
@@ -424,7 +428,15 @@ L'opérateur $A\circ B$ est donc un opérateur à noyau, et son noyau est la con
 	\Psi(x,y,z,\xi,\eta,\zeta)=\langle x,\xi\rangle - \langle z,\zeta\rangle - H_A(\xi,\eta)-H_B(\eta,\zeta)
 \end{equation}
 
-Cette fonction est-elle une phase ? Il faut vérifier qu'à $x$ fixé, ou $z$ fixé, il n'y a pas de point critique, mais c'est le cas (parce que $d_z\Psi$ n'est jamais nul.) Quelle est l'idéal $\hat{J}_{\psi}$? C'est un idéal de $C^{\infty}((T^*X \setminus 0)\times (T^*Y \setminus 0)\times (T*^Z \setminus 0) )$, localement engendré par les fonctions :
+Cette fonction est-elle une phase ? Il faut vérifier d'une part qu'à $x$ fixé, ou $z$ fixé, il n'y a pas de point critique, mais c'est le cas (parce que $\dd_z\Psi$ n'est jamais nul.) D'autre part, soit$\gamma$ un point en lequel $\dd_{\xi}\fii=0$, $\dd_{\zeta}\fii=0$, $\dd_{\eta}\fii=0$. Il faut vérifier que les formes suivantes sont indépendantes en $\gamma$ :
+\begin{align*}
+	\dd(x_i - \partial H_1/\partial \xi_i) &= \dd x_i - \dd (\partial H_1/\partial \xi_i)\\
+	\dd(z_i - \partial H_2/\partial \zeta_i) &= \dd z_i - \dd (\partial H_2/\partial \zeta_i)\\
+	\dd(\partial H_1/\partial \eta_i + \partial H_2/\partial \eta_i)
+\end{align*}
+Il faut et suffit que les dernières formes soient indépendantes entre elles. Cette condition, qui est générique, sera supposée à partir de maintenant pour pouvoir continuer nos constructions.
+
+Quelle est l'idéal $\hat{J}_{\psi}$? C'est un idéal de $C^{\infty}((T^*X \setminus 0)\times (T^*Y \setminus 0)\times (T^*Z \setminus 0) )$, localement engendré par les fonctions :
 \begin{align*}
 	x_i-d_{\xi_i}H_A\\
 	z_i-d_{\zeta_i}H_B\\
@@ -450,6 +462,5 @@ Le sous-idéal des fonctions qui ne dépendent pas de $y$ est donc exactement $\
 On peut donc construire l'idéal associé à la composition de deux OIF, à partir de la donnée des idéaux des OIF en question. Cette opération complexe sera abrégée $J_A\circ J_B$ dans toute la suite ce ce mémoire.
 
 \begin{rem}
-	Lorsque les symboles $a$ et $b$ sont classiques, le lemme de phase stationnaire permet d'obtenir un développement asymptotique du symbole de la composition, pour la phase qu'on vient d'utiliser. On peut ensuite changer de phase en utilisant le théorème.
+	Lorsque les symboles $a$ et $b$ sont classiques, et puisque $\eta \mapsto H_A(\xi,\eta)+H_B(\eta,\zeta)$ n'a que des points critiques non dégénérés, le lemme de phase stationnaire permet d'obtenir un développement asymptotique du symbole de la composition, pour la phase qu'on vient d'utiliser. On peut ensuite changer de phase en utilisant le théorème.
 \end{rem}
-

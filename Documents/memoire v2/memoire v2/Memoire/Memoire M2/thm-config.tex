@@ -32,9 +32,17 @@
 
 % theorems configuration
 
-\newtheoremstyle{indented}{7pt}{7pt}{\addtolength{\leftskip}{2.5em}}{}{\bfseries}{.}{.5em}{}
-
 \makeatletter
+\newtheoremstyle{indented}
+{7pt} %vertical space before
+{7pt} % vertical space after
+{\addtolength{\@totalleftmargin}{2.5em}\addtolength{\linewidth}{-2.5em}\parshape 1 3.5em \linewidth} %body font
+{} %indent
+{\bfseries} %header font
+{.} %punctuation
+{.5em} %horizontal space after header
+{} %header specification
+
 \newcounter{exo}
 \newenvironment{exo}[1][]
 {\edef\@exer{#1}
