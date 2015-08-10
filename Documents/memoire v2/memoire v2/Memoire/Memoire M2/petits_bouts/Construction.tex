@@ -4,7 +4,7 @@ Cette partie est consacré à un exposé des raisonnements et résultats de \cit
 
 Dans ce chapitre, on reprend les outils et objets du chapitre précédent, mais on va en présenter une construction alternative, qui n'utilise pas a priori la structure exacte de $\overline{\partial}_b$, telle que la caractérisation microlocale de son noyau, ni même l'existence de solutions. Le but est de pouvoir étendre cette construction, donnée par Boutet et Guillemin dans l'annexe de \cite{BoutetdeMonvel1981}, à des cas où la structure complexe est remplacée par une structure presque complexe non intégrable, dans laquelle $\overline{\partial}_b$ a les mêmes propriétés microlocales, mais ne possède pas de solution globale.
 
-De manière similaire, on se donne $(M,\omega, J)$ une variété symplectique presque complexe de dimension $2n$, et on se donne $(L,h)$ un fibré en droites hermitien sur $M$. Il s'agit maintenant de retrouver dans le cas symplectique la notion de "bonne courbure" pour $L$. Une des manières, décrite dans \cite{woddhouse1997geometric}, est de munir $L$ d'une connexion $\nabla$ telle que les dérivées covariantes de la métrique $h$ s'annule, et dont la courbure vaut $-i\omega$. 
+De manière similaire, on se donne $(M,\omega, J)$ une variété symplectique presque complexe de dimension $2n$, et on se donne $(L,h)$ un fibré en droites hermitien sur $M$. Il s'agit maintenant de retrouver dans le cas symplectique la notion de "bonne courbure" pour $L$. Une des manières, décrite dans \cite{woodhouse1997geometric}, est de munir $L$ d'une connexion $\nabla$ telle que les dérivées covariantes de la métrique $h$ s'annule, et dont la courbure vaut $-i\omega$. 
 
 Dans le cas complexe, on peut construire explicitement une telle connexion : si $a$ est une section locale holomorphe non nulle fixée, on considère la connexion qui vérifie $\nabla a = \partial \log \|a\|_h \otimes a$, les dérivées covariantes de la métrique s'annulent ; la courbure de la connexionvaut exactement $-i\omega_g$ selon les constructions du chapitre précédent.
 
@@ -23,7 +23,7 @@ On se donne un point $P_0 \in M$. Au voisinage de ce point, on va considérer de
 \begin{defn}
 	On dit que ce système de coordonnées est \emph{privilégié} lorsque les deux conditions suivantes sont satisfaites :
 	\begin{itemize}
-		\item Pour tout $j$, on a $\cfrac{\partial}{\partial z_j}|_{P_0} \in T^{1,0}M$.
+		\item Pour tout $j$, on a $\left.\cfrac{\partial}{\partial z_j}\right|_{P_0} \in T^{1,0}M$.
 		\item $\omega(P_0)=\sum \dd x_i \wedge \dd y_i$.
 	\end{itemize}
 \end{defn}
@@ -57,7 +57,7 @@ Les coordonnées locales $(z_1, \ldots, z_n, \theta)$ sur $X$ sont appelées coo
 
 Notre but est à présent de définir un projecteur de Szeg\H{o} comme un opérateur intégral de Fourier. Celui-ci sera décrit par une phase complexe, il est donc confortable de raisonner en termes d'idéaux lagrangiens. 
 
-L'opérateur de Cauchy-Riemann sur $X$ est un opérateur pseudo-différentiel. Son symbole peut être décrit localement : si $(\overline{Z}_j)$ est la base locale de $T^{0,1}M$ définie précédemment, et $(\zeta_j)$ est la base duale correspondante, le symbole est :
+L'opérateur de Cauchy-Riemann sur $X$ est un opérateur pseudodifférentiel. Son symbole peut être décrit localement : si $(\overline{Z}_j)$ est la base locale de $T^{0,1}M$ définie précédemment, et $(\zeta_j)$ est la base duale correspondante, le symbole est :
 \begin{equation*}
 	d_0 := \sigma_{\overline{\partial}_b}(x,\xi) = \sum_{j} \langle \xi, \overline{Z}_j \rangle \zeta_j
 \end{equation*}
@@ -113,8 +113,7 @@ Peut-on associer à ce germe une phase positive ? On peut vérifier à la main (
 \begin{equation*}
 	a(z,w) = 1 + z\overline{w} + O(|z|^3 + |w|^3).
 \end{equation*}
-
-\subsection{Construction d'un projecteur de Szeg\H{o}}
+\subsection{Construction d'un projecteur de Szego}
 
 On va construire $S \in I^0(X,X,\mathcal{J})$ vérifiant $S =S^2 = S^*$. On commence naturellement par déterminer le premier terme du symbole : avec $S = \int_{\R^+}e^{it\psi}s_0(x,y)t^{n-1}dt \text{ mod. } I^{-1}(X,X,\mathcal{J})$, on a, grâce au lemme de phase stationnaire :
 
@@ -155,11 +154,15 @@ On peut en fait construire un complexe d'opérateurs qui simulent le complexe $\
 Comme $D_0$ commute avec l'action de $S^1$, on peut décomposer son noyau selon les espaces propres de $\partial_{\theta}$ : pour $N \in \N$, on définit l'espace $H^2_N(X)$ des fonctions dans $L^2(X)$ annulant $D_0$ et $N$-équivariantes. On note par ailleurs  $S_N$ la projection orthogonale sur $H^2_N(X)$, et encore $S_N$ le noyau de ce projecteur, qui est la $N$-ième composante de Fourier de $S(x,y)$ par rapport à sa première variable.
 
 \subsection{Comportement du noyau près de la diagonale}
-
+On dispose du théorème suivant, qui donne le comportement asymptotique du noyau $S_N$ dans un voisinage de la diagonale à l'échelle $\frac{1}{\sqrt{N}}$. A cette échelle, le terme dominant du noyau de Szeg\H{o} est universel, et est donné, dans une bonne carte, par :
+\begin{equation*}
+	\Pi_H(u,\theta,v,\fii) := \pi^{-n+1}\exp\left(i(\theta-\fii)+i\Im(u\overline{v}) - \frac12 |u-v|^2\right)
+\end{equation*}
+Plus précisément, on a :
 \begin{theorem}[Shiffman-Zelditch]
 	Soit $P_0 \in X$, et $\rho$ une carte locale de coordonnées de Heisenberg autour de $P_0$. On définit $S_N^{P_0}(u,\theta,v,\fii) = S_N(\rho(u,\theta), \rho(v,\fii))$. Soit $K>0$, alors on a :
 	\begin{multline*}
-	(N\pi)^{-n+1}S_N^{P_0}\left(\cfrac{u}{\sqrt{N}},\cfrac{\theta}{N}, \cfrac{v}{\sqrt{N}}, \cfrac{\fii}{N}\right) = \\e^{i(\theta-\fii) + i \Im(u\overline{v}) - \frac12 |u-v|^2}\left(1+\sum_{r=1}^K N^{-r/2}b_r(u,v) + N^{-(K+1)/2}R_K(u,v,N)\right)
+	N^{-n+1}S_N^{P_0}\left(\cfrac{u}{\sqrt{N}},\cfrac{\theta}{N}, \cfrac{v}{\sqrt{N}}, \cfrac{\fii}{N}\right) = \\\Pi_H(u,\theta,v,\fii)\left(1+\sum_{r=1}^K N^{-r/2}b_r(u,v) + N^{-(K+1)/2}R_K(u,v,N)\right)
 	\end{multline*}
 	
 	Où $\|R_K(u,v,N)\|_{C^j(\{|u| < r, |v| < r\})} \leq C_{K,j,r}$, indépendamment de $P_0$.
@@ -168,57 +171,59 @@ Comme $D_0$ commute avec l'action de $S^1$, on peut décomposer son noyau selon 
 \begin{preuve}
 	On expose schématiquement la preuve proposée dans \cite{Shiffman2002}. Pour des raisons de lourdeur, les estimations explicites sur les restes ne seront pas reprises.
 	
-	\chantier
-	
-	Par $S^1$-équivariance, il suffit de considérer les cas où $\theta = \fii = 0$. On a alors l'expression 
+	Par $S^1$-équivariance, il suffit de considérer les cas où $\theta = \fii = 0$. La notation $\theta$ sera à présent utilisée pour une variable muette d'intégration sur la fibre. Le théorème de Boutet et Sj\"ostrand nous donne, pour un certain symbole $s^{P_0}$, et après changement de variable :
 	
 	\begin{equation*}
-	S_N^{P_0}\left(\cfrac{u}{\sqrt{N}},0,\cfrac{v}{\sqrt{N}},0\right) = N \int_{\R^+}\int_0^{2\pi}e^{iN(-\theta + t\psi(u/\sqrt{N},\theta,v/\sqrt{N},0))}s(u/\sqrt{N},\theta, v/\sqrt{N},0)d\theta dt
+	S_N^{P_0}\left(\cfrac{u}{\sqrt{N}},0,\cfrac{v}{\sqrt{N}},0\right) = N \iint e^{iN(-\theta + t\psi\left(\frac{u}{\sqrt{N}},\theta,\frac{v}{\sqrt{N}},0\right))}s^{P_0}\left(\cfrac{u}{\sqrt{N}},\theta, \cfrac{v}{\sqrt{N}},0,Nt\right)d\theta dt
 	\end{equation*}
-	
-	Et on va appliquer le lemme de phase stationnaire à cette intégrale. On rappelle que 
-	
+	Le symbole $s^{P_0}$ est classique et admet un développement asymptotique jusqu'à tout ordre $K$ fixé :
+	\begin{align*}
+		s^{P_0}(\cfrac{u}{\sqrt{N}},\theta,\cfrac{v}{\sqrt{n}},0,Nt)&=N^{n-1}\cfrac{\|d\rho\|^{\frac{n+1}{2}}(P_0)\sqrt{\det{L_X}}}{4\pi^n}\\
+		&+ N^{n-1}\sum_{k=0}^{K}N^{-k}s^{P_0}_k(u,\theta,v,\fii)\\
+		&+O(N^{n-K'-2})
+	\end{align*}
+	Et on va appliquer le lemme de phase stationnaire à chaque terme. Commençons par le premier terme, d'ordre $N^{n-1}$. On rappelle que 
 	\begin{equation*}
 	\psi(u,\theta,v,0) = i\left(1-\cfrac{a(u,v)}{\sqrt{a(u)}\sqrt{a(v)}}\,e^{i\theta}\right),
 	\end{equation*}
-	
 	et qu'à ce titre, en vertu du développement asymptotique de $a$ au voisinage de la diagonale, la phase dans l'intégrale vaut :
-	
-	\begin{equation*}
-	\tilde{\Psi} := t\psi\left(\cfrac{u}{\sqrt{N}},\theta,\cfrac{v}{\sqrt{N}},0\right) -\theta= it(1-e^{i\theta}) - \theta - \cfrac{it}{N}e^{i\theta}\left(u\cdot\overline{v} - \cfrac {|u|^2+|v|^2}{2}\right) + t e^{i\theta}O(N^{-3/2})
-	\end{equation*}
+	\begin{align*}
+	\widetilde{\Psi} &:= t\psi\left(\cfrac{u}{\sqrt{N}},\theta,\cfrac{v}{\sqrt{N}},0\right) -\theta\\&= it(1-e^{i\theta}) - \theta - \cfrac{it}{N}e^{i\theta}\left(u\cdot\overline{v} - \cfrac {|u|^2+|v|^2}{2}\right) + t e^{i\theta}O(N^{-3/2})
+	\end{align*}
 	
 	On note $\Psi(t,\theta) = it(1-e^{i\theta})-\theta$. La phase dans l'intégrale définissant $S_N^{P_0}$ se décompose donc en une phase oscillante $e^{iN\Psi}$, à laquelle on va appliquer le lemme de phase stationnaire, et une phase non oscillante qu'on va incorporer dans le symbole. Pour se débarasser des ennuis quand $t \to +\infty$, on va également décomposer l'intégrale en une intégrale sur $[0,3]$ et une intégrale sur $[2,+\infty[$, avec une partition de l'unité $\rho_1,\rho_2$ adaptée. Posons :
-	
 	\begin{equation*}
-		A(t,\theta, u,v,N) = \rho_1(t)e^{iN(\tilde{\Psi}-\Psi)}s(u/\sqrt{N}, \theta, v/\sqrt{N},0, Nt),
+		A(t,\theta, u,v,N) = \rho_1(t)e^{iN(\tilde{\Psi}-\Psi)},
 	\end{equation*} 
-	
 	Et appliquons le lemme de phase stationnaire à l'intégrale :
-	
 	\begin{equation*}
 		N\int_0^3\int_0^{2\pi}e^{iN\Psi(t,\theta)}A(t,\theta, u,v,N)d\theta  dt
 	\end{equation*}
+	(qui est l'intégrale du terme dominant, à une constante $\frac{1}{\pi^{n-1}}$ près).
 	
 	Le seul point critique de $\Psi$ est en $t=1, \theta=0$, et la hessienne en ce point est $\begin{pmatrix}
 	0&1\\1&i
 	\end{pmatrix}$, de déterminant $-1$. Le lemme de phase stationnaire donne :
-	
 	\begin{equation*}
 	I_1(u,v,N) =\sqrt{-2i\pi}\sum_{r=0}^K N^{-r}L_r(A)(1,0,u,v,N) + R_K(u,v,N)
 	\end{equation*}
-	
 	Ici $L_r$ est un opérateur d'ordre $2r$ qui n'agit que sur les variables $t$ et $\theta$, et $L_0=Id$. 
 	
-	Ceci nous donne bien le développement asymptotique souhaité, il ne reste plus qu'à vérifier que l'autre morceau, $S_N^{P_0}$, est d'ordre $N^{-\infty}$. Mais sur $[2,+\infty[$, la différentielle de $\Psi$ est uniformément loin de $0$ quand $N$ est grand, d'où le résultat.
+	Ceci nous donne bien le développement asymptotique souhaité, il ne reste plus qu'à vérifier que l'autre morceau, $S_N^{P_0}$, est d'ordre $N^{-\infty}$. Mais sur $[2,+\infty[$, la différentielle de $\Psi$ est uniformément loin de $0$ quand $N$ est grand, ce qui permet de conclure par le lemme de phase non stationnaire.
+	
+	Le premier terme est donc $\sqrt{2i\pi}A(1,0,u,v,\infty) = 1$.
+	
+	On peut appliquer le même raisonnement aux autres termes du développement de $s^{P_0}$, qui ne vont créer que des termes d'ordre plus petit.
 	\end{preuve}
 	
-\subsection{Application à Kodaira et à Tian}
-	Le théorème précédent nous redonne directement l'asymptotique de $S_N$ sur la diagonale qui permet de démontrer que l'application de Kodaira existe, et qu'elle est quasi-isométrique (c'est donc a fortiori un plongement). Pour démontrer que cette application est injective, Shiffman et Zelditch citent une idée de Bouche, que nous réexposons ici. On sait qu'en particulier, pour tout point $P \in X$, la fonction $x \mapsto S_N(P,x)$ est dans $H^2_N(X)$ et de norme 1. Par ailleurs, si $P_N$ et $Q_N$ ont la même image par le plongement de Kodaira, alors en particulier $S_N(P_N,x)=S_N(Q_N,x)$ pour tout $x$. Supposons qu'un tel couple $(P_N,Q_N)$ existe pour une infinité de valeurs de $N$, quitte à extraire on peut raisonner par disjonction de cas :
+\subsection{Applications à Kodaira et Tian}
+	Le théorème précédent nous redonne directement l'asymptotique de $S_N$ sur la diagonale qui permet de démontrer que l'application de Kodaira existe, et qu'elle est quasi-isométrique (c'est donc a fortiori un plongement). Pour démontrer que cette application est injective, Shiffman et Zelditch citent une idée de Bouche, que nous réexposons ici. On sait qu'en particulier, pour tout point $P \in X$, la fonction $x \mapsto S_N(P,x)$ est dans $H^2_N(X)$ et de norme 1. Par ailleurs, si $P_N$ et $Q_N$ ont la même image par le plongement de Kodaira, alors en particulier $S_N(P_N,x)=S_N(Q_N,x)$ pour tout $x$. Supposons qu'un tel couple $(P_N,Q_N)$ existe pour une infinité de valeurs de $N$, quitte à extraire on peut raisonner par disjonction de cas : notons $d$ la distance riemanienne ou k\"ahlerienne sur $X$ :
 	
 	\begin{itemize}
-		\item Si $dist(P_N,Q_N)\sqrt{N} \to +\infty$, alors par le théorème de la section précédente, on sait que $N^{1-n}\int_{B(P_N,dist(P_N,Q_N)/2)}|S_N^{P_N}|^2 > 1-o(1)$, de même pour $Q_N$. Dans ce cas, la norme $L^2$ de $S_N(x,\cdot)$ est au moins $2N^{(1-n)/2}$, ce qui contredit l'asymptotique du théorème de Zelditch.
-		\item Si $dist(P_N,Q_N)\sqrt{N} \leq C$, alors l'expression asymptotique de $S_N$ autour de la diagonale, à l'échelle $1/\sqrt{N}$ donne $S_N(P_N,Q_N)\neq N^{1-n}=S_N(Q_N,Q_N)$, et a fortiori interdit que $S_N(P_N,\cdot)=S_N(Q_N,\cdot)$.
+		\item Si $\sqrt{N}d(P_N,Q_N) \to +\infty$, alors par le théorème de la section précédente, on sait que $N^{1-n}\int_{B(P_N,dist(P_N,Q_N)/2)}|S_N^{P_N}|^2 > 1-o(1)$, de même pour $Q_N$. Dans ce cas, la norme $L^2$ de $S_N(x,\cdot)$ est au moins $2N^{(1-n)/2}$, ce qui contredit l'asymptotique du théorème de Zelditch.
+		\item Si $\sqrt{N}d(P_N,Q_N) \leq C$, alors l'expression asymptotique de $S_N$ autour de la diagonale, à l'échelle $1/\sqrt{N}$ donne $S_N(P_N,Q_N)\neq N^{1-n}=S_N(Q_N,Q_N)$, et a fortiori, il est interdit que les fonctions $S_N(P_N,\cdot)$ et $S_N(Q_N,\cdot)$ soient identiques
 	\end{itemize}
 
-Ce qui conclut la preuve de l'injectivité.
+Ce qui conclut la preuve de l'injectivité, on vient donc de démontrer le théorème de Kodaira.
+
+On dispose donc d'un plongement symplectique de variétés à classe de cohomologie entière, dans une variété bien connue. Nous aimerions citer une remarque de S. Kharmalov, par analogie avec les pinceaux de Lefschetz : en pullbackant l'intersection de l'image de la variété avec un sous-espace projectif de dimension paire, on obtient, sous condition de transversalité, des familles de sous-variétés symplectiques de dimension quelconque. L'intérêt est qu'il est en général très difficile de construire des sous-variétés symplectiques d'une variété donnée. 

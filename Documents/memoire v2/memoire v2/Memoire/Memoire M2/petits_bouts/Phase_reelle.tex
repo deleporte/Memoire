@@ -171,14 +171,14 @@ De cette proposition on retiendra deux corollaires.
 	\begin{equation*}
 		a(x,D)\circ b(x,D) \fii(x) \sim \iint e^{i\langle \xi,x-y\rangle}a(x,\xi)\overline{b^{\dagger}(y,\xi)}\fii(y)dyd\xi,
 	\end{equation*}
-	Ce qui permet de conclure, une fois vérifié que $r(x,\xi,y)=a(x,\xi)\overline{b^{\dagger}(y,\xi)}$ est dans $S^m(\R^{2n}\times \R^n)$.
+	Ce qui permet de conclure, puisque le symbole total  $a(x,\xi)\overline{b^{\dagger}(y,\xi)}$ est dans $S^m(\R^{2n}\times \R^n)$.
 \end{preuve}
 
 \subsection{Front d'onde}
 
 Une fonction de $\mathcal{E}'(\R^n)$ est dans $C^{\infty}_0$ ssi sa transformée de Fourier décroît en l'infini plus vite que $\xi \mapsto (1+|\xi|)^{-n}$. Cela nous amène à poser, lorsque $ u \in \mathcal{E}'$, le cône $\Sigma(u)$ des fréquences non nulles dont aucun voisinage conique ne voit $\hat{u}$ décroître en l'infini plus vite que $\xi \mapsto (1+|\xi|)^{-n}$. 
 
-Le cône $\Sigma(u)$ donne des informations complémentaires de $\text{sing supp }u$. L'un décrit uniquement les directions dans lesquelles on a des irrégularités, et l'autre uniquement les points où on a des irrégularités. Pour combiner ces informations on a besoin d'un lemme de localisation.
+Le cône $\Sigma(u)$ donne des informations qui complètent celles du support singulier de $u$. L'un décrit uniquement les directions dans lesquelles on a des irrégularités, et l'autre uniquement les points où on a des irrégularités. Pour combiner ces informations on a besoin d'un lemme de localisation.
 
 \begin{lem}
 	Si $v \in \mathcal{E}'$ et $\phi \in C^{\infty}_0$, alors on a 
@@ -464,3 +464,18 @@ On peut donc construire l'idéal associé à la composition de deux OIF, à part
 \begin{rem}
 	Lorsque les symboles $a$ et $b$ sont classiques, et puisque $\eta \mapsto H_A(\xi,\eta)+H_B(\eta,\zeta)$ n'a que des points critiques non dégénérés, le lemme de phase stationnaire permet d'obtenir un développement asymptotique du symbole de la composition, pour la phase qu'on vient d'utiliser. On peut ensuite changer de phase en utilisant le théorème.
 \end{rem}
+
+\subsection{Opérateurs régularisants et équivalence}
+Lorsqu'on manipule des Opérateurs Intégraux de Fourier, il est commode de raisonner modulo une certaine classe d'opérateurs. On peut par exemple raisonner modulo l'ensemble des opérateurs qu'on peut définir par un symbole d'ordre donné. Mais lorsqu'on effectue des développements asymptotiques, on a envie de comparer des opérateurs "à l'ordre infini". Il existe a priori trois manières différentes de le faire, de la plus vague à la plus précise. Soit $A$ un OIF d'ordre $m$, envisageons les cas de figures suivants :
+\begin{enumerate}
+	\item Il existe une suite d'opérateurs $(A_k),\,k\in \N$ tels que pour tout k, $A-A_k$ est d'ordre $m-k$.
+	\item Il existe un opérateur $B$ tel que $A-B$ se prolonge en un opérateur qui est continu de $C^0$ dans $\mathcal{D}$. 
+	\item Il existe un opérateur $B$ tel que $A-B$ est d'ordre $-\infty$ (c'est-à-dire, est un OIF associé à un symbole dans $S^{-\infty}$).
+	\item Il existe un opérateur $B$ tel que $A-B$ se prolonge en un opérateur régularisant, c'est-à-dire continu de $\mathcal{D'}$ dans $\mathcal{D}$.
+\end{enumerate}
+
+En fait, les conditions 1 et 2 sont équivalentes. Supposons la condition 1, et soit $b_0$ le symbole de $A_0$ ; il n'est pas forcément d'ordre $m$. Cependant, si pour $k=0$, on note $b_k$ le symbole de $A_k-A_{k-1}$, on a que $a_k$ est d'ordre $m-k$. On peut appliquer le lemme de Borel, et il existe un symbole $b$ tel que pour tout entier $K$, on ait $b-\sum_{j=0}^Kb_k\in S^{m-K-1}$. si $B$ est l'opérateur associé à $b$, alors $A-B=A-A_k+A_k-B$ est un OIF d'ordre $m-k$ pour tout $k$, donc envoie $C^0$ dans $C^{\infty}$ de manière continue.
+
+De même, les conditions $3$ et $4$ sont équivalentes si les variétés de départ $X$ et $Y$ sont compactes (ce qui sera le cas dans toutes les applications) . En effet, un symbole dans $S^{-\infty}$ donne naissance à un opérateur dont le noyau est lisse, et qui envoie donc $\mathcal{D}'$ dans $\mathcal{D}$.
+
+Il existe donc deux sens possibles à l'écriture $A\sim B$, le premier étant que ces opérateurs sont égaux à tous les ordres, le second étant que ces opérateurs sont égaux à un opérateur régularisant près. Ici, on précisera toujours de quelle relation on parle.

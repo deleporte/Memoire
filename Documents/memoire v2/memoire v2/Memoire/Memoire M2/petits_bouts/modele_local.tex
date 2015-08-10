@@ -1,4 +1,4 @@
-\section{Structure du projecteur de Szeg\H{o}}
+\section{Structure du projecteur de Szego}
 
 Dans le cas d'un ouvert fortement pseudoconvexe relativement compact, les résultats de régularité de \cite{kohn1963harmonic}, \cite{kohn1964harmonic} ont une conséquence importante : le projecteur de Szeg\H{o} a une structure microlocale bien précise. En suivant la méthode originelle de Boutet et Sjöstrand, on se propose de démontrer le théorème suivant :
 
@@ -10,7 +10,7 @@ Dans le cas d'un ouvert fortement pseudoconvexe relativement compact, les résul
   \noindent où $\phi$ est une phase convenable, et où $\chi$ est une fonction lisse, nulle au voisinage de $0$, et valant $1$ au voisinage de l'infini.
 \end{theorem}
 
-On remarque immédiatement que le choix de $\chi$ n'a aucune influence sur la classe d'équivalence de $S'$ modulo opérateurs à noyau $C^{\infty}_c$ ; sa présence n'est due qu'à la volonté de faire converger l'intégrale correspondante ; on omettra de l'écrire dans toute la suite de ce rapport.
+On remarque immédiatement que le choix de $\chi$ n'a aucune influence sur la classe d'équivalence de $S'$ modulo opérateurs à noyau lisse ; sa présence n'est due qu'à la volonté de faire converger l'intégrale correspondante ; on omettra de l'écrire dans toute la suite de ce rapport.
 \subsection{Construction d'un projecteur approximatif}
 
 \subsubsection{Étude d'un modèle local}
@@ -33,7 +33,7 @@ Il existe un projecteur orthogonal $P$ qui est un OIF à symbole classique, et d
   \item $Id \sim L^-D^-$.
   \item $D^+P =0$.
   \item $Id \sim P + L^+D^+$.
-  \item L'idéal lagrangien positif associé à $P$ est l'unique idéal lagrangien positif qui, d'une part, contient l'idéal engendré par les fonctions $s_j^+(x,y,\xi,\eta)$ et les fonctions $\overline{s_j^+}(x',y',\xi',\eta')$ et qui, d'autre part, a un ensemble de points d'annulation prescrit :
+  \item L'idéal lagrangien positif associé à $P$ est l'unique idéal lagrangien positif qui, d'une part, contient l'idéal engendré par les $2p$ fonctions $s_j^+(x,y,\xi,\eta)$ et  $\overline{s_j^+}(x',y',\xi',\eta')$ et qui, d'autre part, a un ensemble de points d'annulation prescrit :
   \begin{equation*}
   	\{\forall f \in J_{\fii},\, f\} = \{x=x'=0, \, \xi=\xi'=0,\, y=y',\, \eta=\eta'\}.
   \end{equation*}
@@ -172,7 +172,7 @@ On va appliquer le même procédé aux fonctions $\tilde{b_j}$. On a :
   \{\tilde{b}_j,a_k\}=0 \Leftrightarrow \cfrac{\partial \tilde{b}_j}{\partial y_k} - \cfrac{\partial \tilde{b}_j}{\partial y'_k} = 0
 \end{align*}
 
-La dernière ligne nous fournit que $\tilde{b_j}$ ne dépend que de $(x,x',\eta,y-y')$. Alors puisque les différentielles sont indépendantes et que $J \subset K$, en prenant des combinaisons linéaires on peut imposer :
+La dernière ligne nous fournit que $\tilde{b_j}$ ne dépend que des variables $x,x',\eta,y-y'$. Alors puisque les différentielles sont indépendantes et que $J \subset K$, en prenant des combinaisons linéaires on peut imposer :
 \begin{equation*}
   \tilde{b_j} = y_j-y'_j + c_j(x,\eta,x')
 \end{equation*}
@@ -488,7 +488,6 @@ Quelle est la hessienne de cette phase ?
 Souvenons-nous que $D$ est fortement pseudoconvexe, et qu'à ce titre, la forme de Lévy, restreinte à $T'X$, est définie positive. On notera $L_X$ cette restriction, et on appellera $\det L_X$ le discriminant de la forme quadratique réelle $L_X$. 
 
 Un développement à l'ordre $2$ donne alors, au voisinage des points critiques :
-
 \begin{align*}
   -i\Phi(x,x,w,\sigma)&=(1-\sigma) \partial\rho(w) + \sum_{j,k=1}^n\cfrac{\partial^2\rho}{\partial z_j\partial \overline{z_k}}\,(w_j-x_j)\overline{(w_k-x_k)} + O(|w-x|^3)\\
   &= -i(\sigma-1) (-i\partial\rho)(w) + \|\dd\rho\|L_{X}(w-x) + O(|w-x|^3)
@@ -498,17 +497,17 @@ Un développement à l'ordre $2$ donne alors, au voisinage des points critiques 
 Ici, nos notations sont cohérentes avec celles utilisées dans l'annexe, où $L_X$ est normalisé afin d'être intrinsèque. La formulation de nos résultats est donc différente de celle de \cite{BoutetdeMonvel1975}.
 \end{rem}
 
-Or $-i\partial \rho|X$ est réelle et vaut $0$ sur $T'X+T''X$, et est de norme $1/2 \|\dd\rho\|(x)$. Donc dans une base orthonormée de $\R\times T_xX$ dont le premier vecteur est $\sigma$ et le second vecteur est orthogonal à $T'X+T''X$, la matrice de la hessienne de $\Phi$ est :
+Or $-i\partial \rho|X$ est réelle et vaut $0$ sur $T'X+T''X$, et est de norme $\frac 12 \|\dd\rho\|(x)$. Donc dans une base orthonormée de $\R\times T_xX$ dont le premier vecteur est $\sigma$ et le second vecteur est orthogonal à $T'X+T''X$, la matrice de la hessienne de $\Phi$ est :
 \begin{equation*}
 \begin{pmatrix}
   0 & \frac{\|\dd\rho\|}{4i} &\begin{matrix}0&\ldots & 0\end{matrix}\\
   \frac{\|\dd\rho\|}{4i} & * & \begin{matrix}*&\ldots & *\end{matrix}\\
-  \begin{matrix}0\\\vdots\\0\end{matrix}& \begin{matrix}*\\\vdots\\*\end{matrix}&\begin{pmatrix}\phantom{A}&\phantom{A}&\phantom{A}\\\phantom{A}&A&\phantom{A}\\\phantom{A}&\phantom{A}&\phantom{A}\end{pmatrix}
+  \begin{matrix}0\\\vdots\\0\end{matrix}& \begin{matrix}*\\\vdots\\** \end{matrix}&\begin{pmatrix}\phantom{A}&\phantom{A}&\phantom{A}\\\phantom{A}&A&\phantom{A}\\\phantom{A}&\phantom{A}&\phantom{A}\end{pmatrix}
 \end{pmatrix},
 \end{equation*}
 où $A$ est la matrice de $L_X$ dans la base en question. 
 
-Le déterminant de cette matrice est donc exactement $\|\dd\rho\|^{n+1}(x)\det L_X/16$. De cela on peut déduire le développement asymptotique complet de l'intégrale lorsque $t$ est grand, par le théorème de phase stationnaire. On ne peut pas l'appliquer directement, car les symboles dépendent de $t$, mais si les symboles sont classiques, avec $q_1 = \sum q_{1,j}$ et $q_2 = \sum q_{2,j}$, alors on peut tronquer à tout ordre. On se retrouve avec des opérateurs différentiels $(A_k)_{k >0}$ tels que, sur la diagonale :
+Le déterminant de cette matrice est donc exactement $\|\dd\rho\|^{n+1}\frac{\det L_X}{16}$. De cela on peut déduire le développement asymptotique complet de l'intégrale lorsque $t$ est grand, par le théorème de phase stationnaire. On ne peut pas l'appliquer directement, car les symboles dépendent de $t$, mais si les symboles sont classiques, avec $q_1 = \sum q_{1,j}$ et $q_2 = \sum q_{2,j}$, alors on peut tronquer à tout ordre. On se retrouve avec des opérateurs différentiels $(A_k)_{k >0}$ tels que, sur la diagonale :
 
 \begin{multline*}
   \iint e^{it(\psi(x,w)+\sigma \psi(w,x))}q_1(x,w,t)q_2(w,x,t\sigma)tdwd\sigma \\= t^{1-n}\cfrac{4\pi^n}{\|\dd\rho\|^{\frac{n+1}{2}}(x)\sqrt{\vphantom{\hat{A}}\det L_X}}\left[\sum_{j=0}^{N}\sum_{j'=0}^{N} q_{1,j}(x,x)t^{m-j}q_{2,j'}(x,x)t^{m'-j'}\right. \\+ \left.\sum_{k=1}^{N}t^{-k}A_k\left(\sum_{j=0}^{N-k}\sum_{j'=0}^{N-k} q_{1,j}(x,\cdot)t^{m-j}q_{2,j'}(\cdot,x)(\cdot t^{m'-j'})\right)(x,1)\right] + O(t^{m+m'+1-n-N})

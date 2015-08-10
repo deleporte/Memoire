@@ -41,23 +41,23 @@ Il est alors naturel d'étudier $TX \otimes \C$ selon la décomposition de $TM \
 \subsubsection{Opérateur de Cauchy-Riemann}
 De même que, sur $M$, l'opérateur $\dd$ permet de définir $\overline{\partial}$ par restriction, on peut créer un opérateur $\overline{\partial}_b$. 
 
-On commence par noter $\Omega^{p,q}(X)$, l'ensemble des $(p,q)$-formes tangentes à $X$, comme l'espace des sections lisses du fibré dual de $(T'X)^{\wedge p} \wedge (T''X)^{\wedge q}$. On a envie de définir une application de restriction $\Omega^{p,q}(\Vois (U)) \mapsto \Omega^{p,q}(X)$. Pour cela restreindre la section à $X$ n'est pas suffisant, il faut encore restreindre la forme linéaire en $x$ à $(T'X_x)^{\wedge p} \wedge (T''X_x)^{\wedge q}$. On appelle $\Lambda$ cette restriction totale. 
+On commence par noter $\Omega^{p,q}(X)$, l'ensemble des $(p,q)$-formes tangentes à $X$, comme l'espace des sections lisses du fibré dual de $(T'X)^{\wedge p} \wedge (T''X)^{\wedge q}$. On veut définir une application de restriction, de $\Omega^{p,q}(\Vois (U))$ vers $\Omega^{p,q}(X)$. Pour cela restreindre la section à $X$ n'est pas suffisant, il faut encore restreindre la forme linéaire en $x$ à $(T'X_x)^{\wedge p} \wedge (T''X_x)^{\wedge q}$. On appelle $\mu$ cette restriction totale. 
 
-Bien sûr, dans le cas d'une fonction, on a $f|_X = \Lambda f$, mais ce n'est pas vrai pour les formes de degré quelconque, on a par exemple $\Lambda \overline{\partial}\rho =0$. Précisons qu'on a $\Lambda(\alpha \wedge \beta) = \Lambda \alpha \wedge \Lambda \beta$. On peut alors démontrer :
+Bien sûr, dans le cas d'une fonction, on a $f|_X = \mu f$, mais ce n'est pas vrai pour les formes de degré quelconque, on a par exemple $\mu \overline{\partial}\rho =0$. Précisons qu'on a $\mu(\alpha \wedge \beta) = \mu \alpha \wedge \mu \beta$. On peut alors démontrer :
 
 \begin{lem}
-	Si $\fii,\psi \in \Omega^{p,q}(\Vois (U))$ avec $\fii|_X=\psi|_X$, alors $\Lambda \overline{\partial}\fii = \Lambda \overline{\partial}\psi$.
+	Si $\fii,\psi \in \Omega^{p,q}(\Vois (U))$ avec $\fii|_X=\psi|_X$, alors $\mu \overline{\partial}\fii = \mu \overline{\partial}\psi$.
 \end{lem}
 \begin{preuve}
 	Si $\fii$ et $\psi$ sont égales sur $X$, alors il existe une forme $\theta$ vérifiant $\fii-\psi = \rho\theta$. On a alors :
 	\begin{equation*}
-		\Lambda \overline{\partial}(\fii-\psi) = \Lambda(\rho \overline{\partial}\theta + \overline{\partial}\rho \wedge \theta) = 0.
+		\mu \overline{\partial}(\fii-\psi) = \mu(\rho \overline{\partial}\theta + \overline{\partial}\rho \wedge \theta) = 0.
 	\end{equation*}
 \end{preuve}
 
 On peut alors écrire de manière univoque :
 \begin{defn}
-	On définit l'application $\db : \Omega^{p,q}(X)\mapsto \Omega^{p,q+1}$ de la manière suivante : à une forme $\fii$ on associe la forme $\Lambda \overline{\partial}\tilde{\fii}$ où $\tilde{\fii} \in \Omega^{p,q}(\Vois(U))$ vérifie $\tilde{\fii}|_X=\fii$.
+	On définit l'application $\db : \Omega^{p,q}(X)\mapsto \Omega^{p,q+1}$ de la manière suivante : à une forme $\fii$ on associe la forme $\mu \overline{\partial}\tilde{\fii}$ où $\tilde{\fii} \in \Omega^{p,q}(\Vois(U))$ vérifie $\tilde{\fii}|_X=\fii$.
 \end{defn}
 \begin{rem}
 	Dans le cas qui nous intéresse le plus, celui de $C^{\infty}(X)$, on a $\db f = 0 \iff (\forall \xi \in T''X,\:\dd f(\xi)=0)$.
@@ -144,7 +144,7 @@ On dispose du
 	\end{equation*}
 	où $\rho$ est une fonction qui définit $X$, dont le choix n'a pas d'importance.
 	
-	La structure presque Cauchy-Riemann n'a pas d'intérêt a priori, puisque le défaut d'intégrabilité entraîne en général qu'il n'y a pas de solution non constante à l'équation $\db f =0$.
+	La structure presque Cauchy-Riemann n'a pas d'intérêt a priori, puis\-que le défaut d'intégrabilité entraîne en général qu'il n'y a pas de solution non constante à l'équation $\db f =0$.
 	
 \section{Pseudoconvexité}
 
@@ -359,7 +359,7 @@ La fonction $p=0$ convient.
 On a déjà parlé de la difficulté de trouver une solution au problème suivant : étant donnée une fonction $f$ sur le bord lisse $X$ d'un ouvert $U$, vérifiant $\db f =0$ au sens des distributions, peut-on trouver $g$ holomorphe à l'intérieur de $U$, dont la trace au bord soit $f$ ? On sait qu'on dispose d'une telle "réciproque de la trace" lorsque $f$ est lisse.
 
 Dans les trois articles \cite{Kohn}, \cite{Kohn},\cite{Kohn}, Kohn et Rossi démontrent le théorème suivant :
-\begin{theorem}[Kohn]
+\begin{theorem}[Kohn]\label{thm:annexe}
 Soit $U$ un ouvert fortement pseudoconvexe et relativement compact d'une variété $M$, $h$ une forme hermitienne sur $M$ et $X=\partial U$.
 
 On note d'une part $H^2(X)$ la clôture, pour la topologie $L^2(h)$, de l'ensemble $\{f \in C^{\infty}(X),\,\db f =0\}$, et d'autre part $H^2(D)$ la clôture, pour la topologie $L^2(h)$, de l'ensemble $\{f \in C^{\infty}{\overline{U}},\,\overline{\partial}f =0\}$.
@@ -374,7 +374,7 @@ Nous citons encore deux résultats de ces deux articles :
 \begin{prop}
 Soit $B$ le projecteur orthogonal sur $H^2(D)$. Alors il existe un opérateur continu $F$ tel que $Id = B + F\overline{\partial}$.
 \end{prop}
-On rappelle que $\Lambda$ est un opérateur de restriction de formes sur $\Vois(X)$ à des formes sur $X$. On a alors :
+On rappelle que $\mu$ est un opérateur de restriction de formes sur $\Vois(X)$ à des formes sur $X$. On a alors :
 \begin{prop}
-Il existe une constante $C$ qui ne dépend que de $U$, telle que si $\alpha$ est une forme sur $M$ vérifiant $\overline{\partial}\alpha=0$ dans $U$ et $\overline{\partial}^{*}\alpha=0$ dans $U$, alors $\|\alpha\|_{L^2(U)} \leq C\|\Lambda\alpha\|_{L^2(X)}$.
+Il existe une constante $C$ qui ne dépend que de $U$, telle que si $\alpha$ est une forme sur $M$ vérifiant $\overline{\partial}\alpha=0$ dans $U$ et $\overline{\partial}^{*}\alpha=0$ dans $U$, alors $\|\alpha\|_{L^2(U)} \leq C\|\mu\alpha\|_{L^2(X)}$.
 \end{prop}

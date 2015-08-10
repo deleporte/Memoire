@@ -3,7 +3,7 @@
 \section{Intégrales à phases}
 
 \subsection{Le lemme de phase non stationnaire}
-Dans cette section, on établit un lemme d'importance fondamentale dans la
+Dans cette section, on établit un lemme d'une importance capitale dans la
 construction et l'étude des intégrales dont l'un des termes oscille très
 rapidement. On veut étudier le comportement asymptotique, quand $t \to
 +\infty$, des intégrales du type
@@ -68,14 +68,14 @@ u_{\nu} &= \cfrac{u\,\partial_{\nu}\overline{\fii}}{N},
 \noindent Cette écriture est motivée par le fait que $it(\partial_{\nu}
 \fii)e^{it\fii} = \partial_{\nu} e^{it\fii}$.
 
-On a donc, en remplaçant $u$ et en effectuant une intégration par parties,
+On a donc, en remplaçant $u$ et en effectuant une intégration par parties :
 \begin{multline*}
   \int u\,(\Im\fii)^je^{it\fii} = \int u_0\,(\Im\fii)^{j+1}e^{it\fii} \\+
   \cfrac{i}{t} \sum_{\nu=1}^{n}\left[\int (\partial_{\nu}u_{\nu})(\Im
     \fii)^je^{it\fii} + j\int u_{\nu}\,(\partial_{\nu}\Im \fii)(\Im \fii)^{j-1}e^{it\fii}\right].
 \end{multline*}
 
-Commençons par traiter le cas $j=0$. On a alors, par l'hypothèse de récurrence,
+Commençons par traiter le cas $j=0$. On a alors, par l'hypothèse de récurrence :
 \begin{multline*}
   t^{j+k}\left|\int u\,(\Im \fii)^je^{it\fii} \right| \leq
   C\left[\sum_{|\alpha| \leq k-1}\sup |D^{\alpha}u_0|N^{|\alpha|/2-k+1}\right. \\+
@@ -90,7 +90,7 @@ En remplaçant $u_0$ et $u_{\nu}$ par leur valeur, il ne reste plus qu'à montre
   \sqrt{N}|u_{\nu}|_l + \sqrt{N}|u_0|_l \stackrel{?}{\leq} C \sum_{|\alpha| \leq l}|D^{\alpha}u|N^{(\alpha|-l)/2}.
 \end{equation*}
 
-Or, pour $l=0$, on a  $\sqrt{N} |u/N \partial_{\nu}\fii| + N |u/N| \leq (\sqrt{N}+1)|u|$. Puis par récurrence, pour $l$ non nul, si $|\alpha|=l$, alors en appliquant $\partial^{\alpha}$ à l'équation $Nu_{\nu}=u \partial_{\nu}\overline{\fii}$, et en contrôlant toutes les dérivées d'ordre plus grand que $2$ de $N$ et de $\fii$ par des constantes,
+Raisonnons par récurrence sur $l$. Pour $l=0$, d'abord, on a  $\sqrt{N} |u/N \partial_{\nu}\fii| + N |u/N| \leq (\sqrt{N}+1)|u|$. Pour $l$ non nul, si $|\alpha|=l$, alors en appliquant $\partial^{\alpha}$ à l'équation $Nu_{\nu}=u \partial_{\nu}\overline{\fii}$, et en contrôlant toutes les dérivées d'ordre plus grand que $2$ de $N$ et de $\fii$ par des constantes (qui ne dépendent que de $\|fii\|_{W^{l,\infty}(X)}$), on a :
 \begin{equation*}
   N|u_{\nu}|_l \leq C\left(|N|_1|u_{\nu}|_{l-1} + \sum_{l'=0}^{l-2}|u_{\nu}|_{l'} + |u|_l|\fii|_1 + \sum_{l'=0}^{l-1}|u|_{l'}\right)
 \end{equation*}
@@ -103,14 +103,14 @@ Pour évaluer $|N|_1$ et $|\fii|_1$, on se sert du :
     |g'(0)|^2 \leq g(0)\left(g(0) + 2 \sup |g''|\right)
   \end{equation*}
 \end{lem}
-\begin{proof} (du lemme) En notant $M= \sup |g''|$ on a, pour tout $|x| \leq 1$, que $g(0)+xg'(0)+Mx^2/2 \geq g(x) \geq 0$, et l'études des racines de ce polynôme du second degré nous fournit le résultat demandé.\end{proof}
+\begin{proof} (du lemme) En notant $M= \sup |g''|$ on a, pour tout $|x| \leq 1$, que $g(0)+xg'(0)+Mx^2/2 \geq g(x) \geq 0$, et l'étude des racines de ce polynôme du second degré nous fournit le résultat demandé.\end{proof}
 
 En majorant à nouveau $|N|_2$ et $|\fii|_2$ par des constantes qui restent bornées lorsque $\fii$ varie dans un domaine borné de $C^{l+1}$, on trouve que $|N|_1 \leq C N^{1/2}$, et la même propriété pour $\fii$. Alors le développement précédent devient :
 \begin{equation*}
   N|u_{\nu}|_l \leq C\left(N^{1/2}|u_{\nu}|_{l-1} + \sum_{r=0}^{l-2}|u_{\nu}|_{r} + |u|_l|\fii|^{1/2} + \sum_{r=0}^{l-1}|u|_{r}\right)
 \end{equation*}
 
-\noindent On peut alors appliquer l'hypothèse de récurrence, car :
+\noindent Appliquons l'hypothèse de récurrence aux deux premiers termes :
 \begin{align*}
 N^{1/2}|u_{\nu}|_{l-1} &\leq C \sum_{r=0}^{l-1} |u|_r N^{(r-l+1)/2}\\
 |u_{\nu}|_r & \leq C\sum_{s=0}^{r}|u|_sN^{(s-r-1)/2}\\
@@ -119,7 +119,7 @@ N^{1/2}|u_{\nu}|_{l-1} &\leq C \sum_{r=0}^{l-1} |u|_r N^{(r-l+1)/2}\\
 
 \noindent En injectant ces résultats et en divisant par $N^{1/2}$, on obtient le résultat désiré. Pour $u_0$, la méthode est la même, mais il n'y a pas de termes en $\fii$.
 
-Ceci conclut le cas $j=0$. On peut alors raisonner par récurrence sur $j$. Si on suppose que le résultat est vrai pour $(k,j-1)$, alors on peut traiter le dernier terme de la décomposition, qui est contrôlé par :
+Ceci conclut le cas $j=0$. Pour les autres valeurs de $j$, on raisonne par récurrence. Si on suppose que le résultat est vrai pour $(k,j-1)$, alors on peut traiter le dernier terme de la décomposition, qui est contrôlé par :
 \begin{equation*}
   C \sum_{\nu=1}^{n} \sum_{|\alpha| \leq
     k}\sup|D^{\alpha}(u_{\nu}\partial_{\nu}\Im \fii)| N^{|\alpha|/2-k}
@@ -136,7 +136,7 @@ L'ensemble des points critiques est alors discret (et son intersection avec $K$ 
 Remarquons que les deux conditions de positivité et de non dégénérescence impliquent que  $Sp(i\Hess\fii(x_0)) \subset \{z \in \C, \Re z \leq 0\}$. Sur ce demi-plan, il existe une racine carrée. On choisit celle qui est à valeurs dans $\Im \lambda \geq 0$, ce qui assure un sens univoque à l'écriture $\sqrt{\det i\Hess \fii (0)}$.
 
  On peut alors énoncer le 
-\begin{theorem}[De phase stationnaire]\label{th:phasestat}Soit $\fii \in C^{2j+1}(\Vois(K))$ telle que a $0$ pour seul point critique dans le compact $K \subset \R^n$.
+\begin{theorem}[de phase stationnaire]\label{th:phasestat}Soit $\fii \in C^{2j+1}(\Vois(K))$ telle que a $0$ pour seul point critique dans le compact $K \subset \R^n$.
 Il existe alors une famille $(C_l)_{0 \leq l \leq j}$, d'opérateurs différentiels de degré au plus $2l$, tels que, pour toute fonction $u\in C_c^{2j+1}(K)$, uniformément en $t$, on ait :
 \begin{equation*}
   \int_Ke^{it\fii}u = t^{-n/2}\sum_{l=0}^{j}t^{-l}C_lu(0) + O\left(t^{-(n+1)/2-j}\|u\|_{W^{2j+n,\infty}}\right).
@@ -170,7 +170,7 @@ Par intégrations par parties successives, on sait que
 \begin{equation*}
   \int_{\R} e^{-\lambda \frac{x^2}{2}}x^{2l}dx = \sqrt{\cfrac{\pi}{\lambda^{2l+1}}}\cfrac{(2l)!}{2^l l!}.
 \end{equation*}
-\noindent Par ailleurs, on peux expliciter les fonctions $U_l$ par la formule de Taylor :
+\noindent Par ailleurs, on peut expliciter les fonctions $U_l$ par la formule de Taylor :
 \begin{equation*}
   U_{2l}(x_1,\ldots,x_n) = \sum_{|\alpha|=2l}\partial^{\alpha}u(0)\prod_{\nu=1}^{n}\cfrac{x_{\nu}^{\alpha_{\nu}}}{\alpha_{\nu}!}
 \end{equation*}
@@ -181,10 +181,10 @@ Seuls les $\alpha$ dont tous les coefficients sont pairs vont contribuer à l'in
   \end{equation*}
   
 On va synthétiser ce développement à l'aide de deux notations. On note $P_l$ le projecteur qui à une fonction de classe $C^{\infty}$ associe les termes d'ordre $l$ de son développement de Taylor, on a donc $U_{2l}=P_{2l}u$. Par ailleurs, si $Q= \sum Q_{\alpha}X^{\alpha}$ est un polynôme, on note $Q(D)$ l'opérateur différentiel $\sum Q_{\alpha}(i\partial)^\alpha$, et alors on a :
-\begin{equation*}
+\begin{equation}
 \label{eq:phasequad}
   \int e^{-q(y,y)}U_{2l}(y)dy =\cfrac{\pi^{n/2}}{\sqrt{\det \Hess u(0)}}\,P_j\left(e^{-\frac{1}{2}q^{-1}(D,D)}\right)u(0)
-  \end{equation*}
+  \end{equation}
 
 \noindent Nous avons donc une expression explicite de $C_l$. On constate qu'ici, les $C_l$ ne font intervenir que des dérivées d'ordre exactement $l$.
 
@@ -196,7 +196,7 @@ Les expressions à gauche et à droite dans l'équation (\ref{eq:phasequad}) son
 Tout ceci a pour conséquence que lesdites extentions holomorphes sont égales. On vient donc de démontrer le lemme de phase quadratique pour des phases complexes dont la partie imaginaire pure est non dégénérée.
 \end{rem}
 
-Il reste à examiner le cas où la $\Im \fii$ est seulement positive (et pas définie positive comme précédemment). Seule l'intégrale sur $ker \Im \fii$ nous intéresse, puisqu'on peut calculer l'intégrale sur le complémentaire orthogonal par la méthode précédente, et qu'on dispose alors de bonnes conditions de domination pour assurer un comportement régulier de cette intégrale par rapport au paramètre dans $ker \Im \fii$. Autrement dit, l'examen des phases quadratiques réelles suffit.
+Il reste à examiner le cas où la $\Im \fii$ est seulement positive (et pas définie positive comme précédemment). Seule l'intégrale sur $ker \Im \fii$ nous intéresse, puisque l'on peut calculer l'intégrale sur le complémentaire orthogonal par la méthode précédente, et que l'on dispose alors de bonnes conditions de domination pour assurer un comportement régulier de cette intégrale par rapport au paramètre dans $ker \Im \fii$. Autrement dit, l'examen des phases quadratiques réelles suffit.
 
 Notre contrôle est ici moindre que dans le cas précédent. En effet, la suite des fonctions définies par
 \begin{equation*}
@@ -217,15 +217,15 @@ On considère donc $\fii(x)=q(x,x)$ une phase réelle, avec $\det \fii \neq 0$. 
 \end{equation*}
 La seconde étape est d'appliquer ce calcul à notre problème. Pour $u \in C^{\infty}_c(\R^n)$, la fonction $f_t=e^{it\fii}u$ est en particulier dans la classe de Schwartz, donc on peut écrire
 \begin{equation*}
-  \int_{\R^d}e^{it\fii}u = \hat{f_t}(0)
+  \int_{\R^d}e^{it\fii}u = \widehat{f_t}(0)
 \end{equation*}
 
 Soit un entier $j \in \N$. Pour tout $t$ fixé, on peut développer l'exponentielle en série entière, et écrire de manière licite :
 \begin{multline*}
-  \hat{f_t}(0)=t^{-n/2}\cfrac{\pi^{n/2}}{\sqrt{\det{iq}}}\left[\sum_{k=0}^{j}\cfrac{t^{-k}}{k!}\left(\cfrac{(-1)^n}{4}q^{-1}(D,D)\right)^ku(0)\right. \\+ \left.t^{-j-1}\sum_{k=0}^{+\infty}\cfrac{t^k}{(k+j+1)!}\int (iq(x,x)/4)^k(iq(x,x)/4)^{j+1}u(x)dx\right]
+  \widehat{f_t}(0)=t^{-n/2}\cfrac{\pi^{n/2}}{\sqrt{\det{iq}}}\left[\sum_{k=0}^{j}\cfrac{t^{-k}}{k!}\left(\cfrac{(-1)^n}{4}q^{-1}(D,D)\right)^ku(0)\right. \\+ \left.t^{-j-1}\sum_{k=0}^{+\infty}\cfrac{t^k}{(k+j+1)!}\int (iq(x,x)/4)^k(iq(x,x)/4)^{j+1}u(x)dx\right]
 \end{multline*}
 
-On voit apparaître les opérateurs différentiels qu'on recherche :
+On voit apparaître les opérateurs différentiels que l'on recherche :
 \begin{equation}
 \label{eq:coeffquad}
 \cfrac{(-1)^{nk}\pi^{n/2}}{4^kk!\sqrt{\det{iq}}}\left(q^{-1}(D,D)\right)^k
@@ -243,9 +243,9 @@ Ce qui conclut la preuve.
 \subsubsection{Preuve affaiblie dans le cas général}
 À partir du lemme de phase quadratique, il existe deux manières de démontrer le cas général. La première est d'utiliser le lemme de Morse pour se ramener, après un changement de variable, à une phase quadratique. Cette méthode présente néanmoins de nombreuses difficultés supplémentaires dans le cas d'une phase complexe puisqu'au lieu d'intégrer le long de l'axe réel, on intègre maintenant sur une courbe tangente à l'axe réel en l'origine. Une preuve détaillée est explicitée dans \cite{melin1975fourier}.
 
-La seconde est d'isoler, parmi la phase, le terme quadratique du reste, et c'est cette méthode que nous allons détailler. 
+La seconde méthode est d'isoler, parmi la phase, le terme quadratique du reste, et c'est cette méthode que nous allons détailler. 
 
-Nous allons démontrer un résultat plus faible que le théorème originel, où on contrôle par un nombre beaucoup plus important de dérivées.
+Nous allons démontrer un résultat plus faible que le théorème originel, où l'on contrôle par un nombre beaucoup plus important de dérivées.
 
 \begin{prop}[Phase stationnaire faible]\label{prop:phasestat}On suppose que $\fii \in C^{2j+1}(\Vois(K))$ a $0$ pour seul point critique dans le compact $K \subset \R^n$.
 Il existe alors une famille $(C_l)_{0 \leq l \leq j}$, d'opérateurs différentiels de degré au plus $2l$, tels que, pour toute fonction $u\in C_c^{2j+1}(K)$, lorsque $t\to +\infty$, on ait :
@@ -256,7 +256,7 @@ Il existe alors une famille $(C_l)_{0 \leq l \leq j}$, d'opérateurs différenti
 En particulier on a $C_0 = \cfrac{\pi^{n/2}}{\sqrt{\det i\Hess{\fii}(0)}}$.
 \end{prop}
 \begin{preuve}
-Soit $\fii \in \C^{j+1}(\Vois(K))$ une phase vérifiant $\Im \fii \geq 0$, et dont zéro est le seul point critique non dégénéré. On décompose :
+Soit $\fii \in \C^{j+1}(\Vois(K))$ une phase vérifiant $\Im \fii \geq 0$, et dont $0$ est le seul point critique non dégénéré. On décompose :
 \begin{equation*}
 \fii(x) = iq(x)+r(x),
 \end{equation*}
@@ -264,12 +264,12 @@ Soit $\fii \in \C^{j+1}(\Vois(K))$ une phase vérifiant $\Im \fii \geq 0$, et do
 \begin{enumerate} \item Ou bien $\Re q >>0$ ;
  \item Ou bien $\Re q \geq 0$ et $\Im q$ est non dégénérée. 
 \end{enumerate}
-Dans tous les cas $r$ vérifie :
+Dans tous les cas, $r$ vérifie :
 \begin{equation*}
 \forall |\alpha| \leq 2,\, \partial^{\alpha}r(0)=0.
 \end{equation*}
 
-L'utilisation directe du lemme de phase quadratique ne permet pas de conclure car on a besoin de savoir que $\Im \fii$ ne s'annulle pas ailleurs qu'en 0. On va donc découper l'intégrale à estimer en une intégrale sur $\Vois(K) \cap B(0,t^{-1/3})$ et une intégrale sur $\Vois(K) \setminus B(0,t^{-1/3})$.
+L'utilisation directe du lemme de phase quadratique ne permet pas de conclure car on a besoin de savoir que $\Im \fii$ ne s'annule pas ailleurs qu'en 0. On va donc découper l'intégrale à estimer en une intégrale sur $\Vois(K) \cap B(0,t^{-1/3})$ et une intégrale sur $\Vois(K) \setminus B(0,t^{-1/3})$.
 
 Le second morceau est le plus simple à estimer. On sait qu'il existe $\epsilon$ tel que sur $B(0,\epsilon)$, on ait $|\fii-iq|\leq \frac 14 q$. En particulier, il existe une constante $C$ telle que, pour $t$ grand, sur $B(0,\epsilon)\setminus B(0,t^{-1/3})$, on ait :
 \begin{equation*}
@@ -284,7 +284,7 @@ Soit alors $j\in \N$, on peut estimer :
 \end{align*}
 Ici, on constate déjà une perte de dérivées.
 
-Sur $\Vois(K)\setminus B(0,\epsilon)$, on a $\Im \fii + |\fii|^2 > C$, donc le lemme de phase non stationnaire s'applique directement et on a 
+Sur $\Vois(K)\setminus B(0,\epsilon)$, on a $\Im \fii + |\fii|^2 > C$, donc le lemme de phase non stationnaire s'applique directement et on a :
 \begin{equation*}
   \int_{\Vois(K)\setminus B(0,\epsilon)}e^{it\fii}u \leq Ct^{-j-(n+1)/2}\|u\|_{W^{j+(n+1)/2,\infty}}.
 \end{equation*}
@@ -317,9 +317,9 @@ D'une part, on a, pour tous $k,l$, pour la même raison que précédemment :
 \int_{B(0,t^{-1/3})}e^{-tq(x)}u(x)dx \\= t^{-n/2}\sum_{k=0}^{+\infty}\cfrac {t^k}{k!}\left(\sum_{l=3k}^{2j} t^{-l/2}\int_{\R^n}e^{-q(y)}U_{l,k}(y)dy\right. \\+ \left.\int_{B(0,t^{1/6})}e^{-q(y)}R(y/\sqrt{t})dy\right) \\+ O\left(t^{-j-(n+1)/2}\|u\|_{W^{2j+1,\infty}}\right)
 \end{multline*}
 \noindent Après élimination des termes avec $l$ impairs, on peut regrouper ces intégrales, dont on connaît un développement exact en fonction des dérivées de $u$ en $0$. On constate que seules des puissances entières de $t$ apparaissent, et par ailleurs, dans le terme en $t^m$, on dérive $u$ au plus $2m$ fois. On peut donc écrire :
-\begin{multline*}
-\int_{B(0,t^{-1/3})}e^{-tq(x)}u(x)dx \\= t^{-n/2}\sum_{m=0}^{2j}A_mu(0) \\+ t^{-n/2}\sum_{k=0}^{+\infty}\cfrac{t^k}{k!}\int_{B(0,t^{1/6})}e^{-q(y)}R(y/\sqrt{t})dy \\+ O\left(t^{-j-(n+1)/2}\|u\|_{W^{2j+1,\infty}}\right)
-\end{multline*}
+\begin{align*}
+\int_{B(0,t^{-1/3})}e^{-tq(x)}u(x)dx& \\= t^{-n/2}\sum_{m=0}^{2j} & A_mu(0) \\+ t^{-n/2}\sum_{k=0}^{+\infty}&\cfrac{t^k}{k!}\int_{B(0,t^{1/6})}e^{-q(y)}  R(y/\sqrt{t})dy \\&+ O\left(t^{-j-(n+1)/2}\|u\|_{W^{2j+1,\infty}}\right)
+\end{align*}
 
 D'autre part, souvenons-nous maintenant que :
 \begin{equation*}
@@ -346,7 +346,7 @@ De même, si $2j+1 < 3k$, alors on a $|r^ku|(x)_{2j+1} \leq Cx^{3k-2j-1}$, donc 
   \left|\cfrac{t^k}{k!}\int_{B(0,t^{1/6})}e^{-q(y)}R(y/\sqrt{t})dy\right| \leq \cfrac{C(j)}{k!}\|u\|_{W^{2j+1,\infty}}t^{-j/3-1/6}
 \end{equation*}
 
-Ce terme d'erreur est plus grand que certains des termes du développement ; en éliminant ces termes et en remplaçant $j$ par $3j$, on conclut la démonstration de la proposition \ref{prop:phasestat}.
+Ce terme d'erreur est plus grand que certains des termes du développement. En éliminant ces termes et en remplaçant $j$ par $3j$, on conclut la démonstration de la proposition \ref{prop:phasestat}.
 \end{preuve}
 
 \begin{rem}
