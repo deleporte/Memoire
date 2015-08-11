@@ -304,23 +304,19 @@ On note d'abord $\gamma$ l'opérateur de trace au bord, sur les fonctions et sur
 \end{equation*}
 
 \noindent On dispose par ailleurs, comme l'ouvert dont $X$ est le bord est relativement compact, d'un opérateur $K$ qui résoud le problème de Dirichlet à l'intérieur :
-
 \begin{align*}
   \Delta K &= 0\\
   \gamma K &= Id
 \end{align*}
-
-\noindent On sait par ailleurs qu'il existe un noyau de Green régulier $G_1$, qui vérifie :
-
+On sait par ailleurs qu'il existe un noyau de Green régulier $G_1$, qui vérifie :
 \begin{align*}
   \Delta G_1 &= Id\\
   \gamma G_1 &= 0\\
   G_1\Delta  + K\gamma &= Id
 \end{align*}
+$K\gamma$ est un projecteur, mais il n'est pas orthogonal, on va construire un projecteur $H$ qui corrige ce défaut.
 
-\noindent $K\gamma$ est un projecteur, mais il n'est pas orthogonal, on va construire un projecteur $H$ qui corrige ce défaut.
-
-On sait que l'opérateur $K^*K$ est elliptique de degré $-1$, et inversible (cf \cite{Trouverunesource}) ; on note $A=(K^*K)^{-1/2}$. Alors $(KA)^*KA = Id_{L^2(X)}$, autrement dit, $KA$ est une isométrie de $L^2(X)$ vers l'ensemble des fonctions harmoniques dans $U$, de carré intégrable jusqu'au bord. On note encore $H=KA(KA)^*$ le projecteur orthogonal sur cet ensemble.
+On sait que l'opérateur $K^*K$ est elliptique de degré $-1$, et inversible (cf \cite{krantz1992partial}) ; on note $A=(K^*K)^{-1/2}$. Alors $(KA)^*KA = Id_{L^2(X)}$, autrement dit, $KA$ est une isométrie de $L^2(X)$ vers l'ensemble des fonctions harmoniques dans $U$, de carré intégrable jusqu'au bord. On note encore $H=KA(KA)^*$ le projecteur orthogonal sur cet ensemble.
 
 On note encore $G=(Id-H)G_1$ ; il satisfait aux mêmes conditions que $G_1$ en remplaçant $\gamma$ par $K^*$, simplement parce que $K^*(Id-H) = 0$. Alors $G$ est régulier et auto-adjoint. Enfin, on introduit une dernière notation, le projecteur de Bergmann $B$ sur l'espace des fonctions holomorphes dans $L^2(U)$. On a alors, puisqu'une fonction holomorphe est harmonique :
 

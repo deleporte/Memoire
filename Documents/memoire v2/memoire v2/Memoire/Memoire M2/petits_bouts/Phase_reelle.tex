@@ -334,26 +334,26 @@ Si les générateurs peuvent être choisis invariants par rapport à une action 
 \end{rem}
 
 \begin{defn}[idéal associé à une phase]
-	Soit $\fii$ une phase réelle non dégénérée, on définit $\hat{J}_\fii $ comme l'idéal de l'espace $ C^{\infty}\left((T^*X\setminus 0)\times (T^*Y\setminus 0) \times (\R^d \setminus 0)\right)$, engendré localement par les fonctions
+	Soit $\fii$ une phase réelle non dégénérée, on définit $\widehat{J}_\fii $ comme l'idéal de l'espace $ C^{\infty}\left((T^*X\setminus 0)\times (T^*Y\setminus 0) \times (\R^d \setminus 0)\right)$, engendré localement par les fonctions
 	\begin{align*}
 		a_k(x,y,\xi,\eta,\theta)&=\cfrac{\partial \fii}{\partial \theta_k}\\
 		b_j(x,y,\xi,\eta,\theta) &= \cfrac{\partial \fii}{\partial x_j}-\xi_j\\
 		c_j(x,y,\xi,\eta,\theta) &= \cfrac{\partial \fii}{\partial y_j}-\eta_j
 	\end{align*}
 	
-	On définit alors $J_{\fii}\subset C^{\infty}((T^*X\setminus 0)\times (T^*Y\setminus 0))$, idéal associé à $\fii$, comme l'idéal des fonctions dans $\hat{J}_{\fii}$ qui ne dépendent pas de $\theta$.
+	On définit alors $J_{\fii}\subset C^{\infty}((T^*X\setminus 0)\times (T^*Y\setminus 0))$, idéal associé à $\fii$, comme l'idéal des fonctions dans $\widehat{J}_{\fii}$ qui ne dépendent pas de $\theta$.
 \end{defn}
 \begin{prop}
 	Si $\fii$ est une phase réelle non dégénérée, alors $J_{\fii}$ est lagrangien conique.
 \end{prop}
 \begin{preuve}
-	Pour des raisons de simplicité on se restreint au cas où la dimension de l'ensemble des phases vaut $d=1$. Ainsi on note $\fii(x,y,\theta)=\theta \fii(x,y)$. L'idéal $\hat{J}_{\fii}$ est alors engendré par les fonctions :
+	Pour des raisons de simplicité on se restreint au cas où la dimension de l'ensemble des phases vaut $d=1$. Ainsi on note $\fii(x,y,\theta)=\theta \fii(x,y)$. L'idéal $\widehat{J}_{\fii}$ est alors engendré par les fonctions :
 	\begin{align*}
 	a(x,y,\xi,\eta,\theta)&=\fii(x,y)\\
 	b_j(x,y,\xi,\eta,\theta) &= \theta\cfrac{\partial \fii}{\partial x_j}-\xi_j\\
 	c_j(x,y,\xi,\eta,\theta) &= \theta\cfrac{\partial \fii}{\partial y_j}-\eta_j
 	\end{align*}
-	Soit un point $(x,y)$ tel que $\fii(x,y)\neq=0$. Sur la fibre au-dessus d'un voisinage local de ce point, $\hat{J}_{\fii}$ a un générateur qui ne s'annulle pas, donc vaut l'ensemble des fonctions lisses sur ce voisinage ; donc il en va de même pour $J_{\fii}$.
+	Soit un point $(x,y)$ tel que $\fii(x,y)\neq=0$. Sur la fibre au-dessus d'un voisinage local de ce point, $\widehat{J}_{\fii}$ a un générateur qui ne s'annulle pas, donc vaut l'ensemble des fonctions lisses sur ce voisinage ; donc il en va de même pour $J_{\fii}$.
 	
 	Soit maintenant un point $(x,y)$ tel que $\fii(x,y)=0$. Alors par non dégénérescence, il existe un indice $k$ tel que $\partial \fii/\partial x_k \neq 0$ au voisinage de $(x,y)$. $J_\fii$ est alors localement engendré par les $n_X+n_Y$ fonctions :
 	\begin{align*}
@@ -404,10 +404,10 @@ Le résultat suivant est la clef de voûte de la théorie des opérateurs intég
 	Alors il existe deux symboles $v,v_0 \in S^{m + (d-n_X-n_Y)/2}(\emptyset \times \R^{n_X+n_Y})$, tels que $v-v_0 \in S^{m + (d-n_X-n_Y)/2-1}$, tels que 
 	\begin{align*}
 		A(x,y)-\int e^{i(\langle x,\xi\rangle-\langle y,\eta\rangle - H(\xi,\eta))}v(\xi,\eta)d\xi d\eta &\in C^{\infty}\\
-		(2\pi)^{(n_X+n_Y)/2}v_0(\xi,\eta)-(2\pi)^{d/2}\cfrac{e^{i \frac{\pi}{4}sgn\Hess \fii(\gamma_0)} }{\sqrt{\det\Hess \fii (\gamma_0)}}\:a(x,y,\theta) &\in \hat{J}_{\fii}.
+		(2\pi)^{(n_X+n_Y)/2}v_0(\xi,\eta)-(2\pi)^{d/2}\cfrac{e^{i \frac{\pi}{4}sgn\Hess \fii(\gamma_0)} }{\sqrt{\det\Hess \fii (\gamma_0)}}\:a(x,y,\theta) &\in \widehat{J}_{\fii}.
 	\end{align*}
 \end{theorem}
-La preuve repose sur l'utilisation du premier terme du lemme de phase stationnaire. On peut en réalité donner une description de $v$ modulo $S^{m + (d-n_X-n_Y)/2-k}\oplus \hat{J}_{\fii}^k$, pour tout entier $k$, en examinant les termes suivants de la phase stationnaire.
+La preuve repose sur l'utilisation du premier terme du lemme de phase stationnaire. On peut en réalité donner une description de $v$ modulo $S^{m + (d-n_X-n_Y)/2-k}\oplus \widehat{J}_{\fii}^k$, pour tout entier $k$, en examinant les termes suivants de la phase stationnaire.
 
 \begin{corr}
 	Deux phases ayant le même idéal lagrangien donnent le même ensemble d'opérateurs intégraux de Fourier.
@@ -436,14 +436,14 @@ Cette fonction est-elle une phase ? Il faut vérifier d'une part qu'à $x$ fixé
 \end{align*}
 Il faut et suffit que les dernières formes soient indépendantes entre elles. Cette condition, qui est générique, sera supposée à partir de maintenant pour pouvoir continuer nos constructions.
 
-Quelle est l'idéal $\hat{J}_{\psi}$? C'est un idéal de $C^{\infty}((T^*X \setminus 0)\times (T^*Y \setminus 0)\times (T^*Z \setminus 0) )$, localement engendré par les fonctions :
+Quelle est l'idéal $\widehat{J}_{\psi}$? C'est un idéal de $C^{\infty}((T^*X \setminus 0)\times (T^*Y \setminus 0)\times (T^*Z \setminus 0) )$, localement engendré par les fonctions :
 \begin{align*}
 	x_i-d_{\xi_i}H_A\\
 	z_i-d_{\zeta_i}H_B\\
 	d_{\eta_i}H_A+d_{\eta_i}H_B
 \end{align*}
 
-On peut en fait retrouver $\hat{J}_{\psi}$ à partir de $\hat{J}_A$ et $\hat{J}_B$, de manière purement géométrique. Considérons l'idéal $\hat{J}_A \otimes C^{\infty}((T^*Y\setminus 0)\times (T^*Z\setminus 0)) \oplus C^{\infty}((T^*X\setminus 0)\times (T^*Y\setminus 0)) \oplus \hat{J}_B$. C'est l'idéal engendré par les fonctions :
+On peut en fait retrouver $\widehat{J}_{\psi}$ à partir de $\widehat{J}_A$ et $\widehat{J}_B$, de manière purement géométrique. Considérons l'idéal $\widehat{J}_A \otimes C^{\infty}((T^*Y\setminus 0)\times (T^*Z\setminus 0)) \oplus C^{\infty}((T^*X\setminus 0)\times (T^*Y\setminus 0)) \oplus \widehat{J}_B$. C'est l'idéal engendré par les fonctions :
 \begin{align*}
 	x_i-d_{\xi_i}H_A\\
 	z_i-d_{\zeta_i}H_B\\
@@ -457,7 +457,7 @@ z_i-d_{\zeta_i}H_B\\
 y_i-d_{\eta_i}H_A\\
 d_{\eta_i}H_A+ d_{\eta_i}H_B.
 \end{align*}
-Le sous-idéal des fonctions qui ne dépendent pas de $y$ est donc exactement $\hat{J}_{\psi}$.
+Le sous-idéal des fonctions qui ne dépendent pas de $y$ est donc exactement $\widehat{J}_{\psi}$.
 
 On peut donc construire l'idéal associé à la composition de deux OIF, à partir de la donnée des idéaux des OIF en question. Cette opération complexe sera abrégée $J_A\circ J_B$ dans toute la suite ce ce mémoire.
 
