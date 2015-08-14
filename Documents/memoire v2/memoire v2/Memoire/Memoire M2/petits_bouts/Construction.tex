@@ -8,7 +8,7 @@ De manière similaire, on se donne $(M,\omega, J)$ une variété symplectique pr
 
 Dans le cas complexe, on peut construire explicitement une telle connexion : si $a$ est une section locale holomorphe non nulle fixée, on considère la connexion qui vérifie $\nabla a = \partial \log \|a\|_h \otimes a$, les dérivées covariantes de la métrique s'annulent ; la courbure de la connexion vaut exactement $-i\omega_g$ selon les constructions du chapitre précédent.
 
-\begin{rem}L'introduction de la connexion $\nabla$ peut paraître artificielle dans ce contexte. En réalité, le cadre naturel d'application de cette théorie est l'étude de la quantification au sens de Kostant dans \cite{kostant1970quantization} et Souriau dans \cite{souriau1967quantification}, où $\nabla$ est alors donné a priori.\end{rem}
+\begin{rem}L'introduction de la connexion $\nabla$ peut paraître artificielle dans ce contexte. En réalité, le cadre naturel d'application de cette théorie est l'étude de la quantification au sens de Kostant \cite{kostant1970quantization} et Souriau \cite{souriau1967quantification}, où $\nabla$ est alors donné a priori.\end{rem}
 
 A partir de ces données géométriques, on va reprendre le travail du chapitre précédent, mais en fonctionnant à l'envers : après avoir explicité des coordonnées locales, on construit en premier lieu un idéal lagrangien idempotent, puis un projecteur associé, et on définit les espaces de Hardy comme les fonctions équivariantes dans le noyau de ce projecteur.
 
@@ -154,15 +154,17 @@ On peut en fait construire un complexe d'opérateurs qui simulent le complexe $\
 Comme $D_0$ commute avec l'action de $S^1$, on peut décomposer son noyau selon les espaces propres de $\partial_{\theta}$ : pour $N \in \N$, on définit l'espace $H^2_N(X)$ des fonctions dans $L^2(X)$ annulant $D_0$ et $N$-équivariantes. On note par ailleurs  $S_N$ la projection orthogonale sur $H^2_N(X)$, et encore $S_N$ le noyau de ce projecteur, qui est la $N$-ième composante de Fourier de $S(x,y)$ par rapport à sa première variable.
 
 \subsection{Comportement du noyau près de la diagonale}
-On dispose du théorème suivant, qui donne le comportement asymptotique du noyau $S_N$ dans un voisinage de la diagonale à l'échelle $\frac{1}{\sqrt{N}}$. A cette échelle, le terme dominant du noyau de Szeg\H{o} est universel, et est donné, dans une bonne carte, par :
+On dispose du théorème suivant, qui donne le comportement asymptotique du noyau $S_N$ dans un voisinage de la diagonale à l'échelle $\frac{1}{\sqrt{N}}$. A cette échelle, le terme dominant du noyau de Szeg\H{o} est universel au niveau des formes volumes, et est donné, dans une bonne carte, par :
 \begin{equation*}
-	\Pi_H(u,\theta,v,\fii) := \pi^{-n+1}\exp\left(i(\theta-\fii)+i\Im(u\overline{v}) - \frac12 |u-v|^2\right)
+	\Pi_H(u,\theta,v,\fii) := \pi^{-n+1}\exp\left(i(\theta-\fii)+i\Im(u\overline{v}) - \frac12 |u-v|^2\right) dV
 \end{equation*}
+où $dV$ est la forme volume sur $\C^n$.
+
 Plus précisément, on a :
 \begin{theorem}[Shiffman-Zelditch]\label{thm:SZ}
-	Soit $P_0 \in X$, et $\rho$ une carte locale de coordonnées de Heisenberg autour de $P_0$. On définit $S_N^{P_0}(u,\theta,v,\fii) = S_N(\rho(u,\theta), \rho(v,\fii))$. Soit $K>0$, alors on a :
+	Soit $P_0 \in X$, et $\rho$ une carte locale de coordonnées de Heisenberg autour de $P_0$. On définit $S_N^{P_0}(u,\theta,v,\fii) = S_N(\rho(u,\theta), \rho(v,\fii)) (\rho^*\omega)^{\wedge n}$. Soit $K>0$, alors on a :
 	\begin{multline*}
-	N^{-n+1}S_N^{P_0}\left(\cfrac{u}{\sqrt{N}},\cfrac{\theta}{N}, \cfrac{v}{\sqrt{N}}, \cfrac{\fii}{N}\right) = \\\Pi_H(u,\theta,v,\fii)\left(1+\sum_{r=1}^K N^{-r/2}b_r(u,v) + N^{-(K+1)/2}R_K(u,v,N)\right)
+	N^{-n+1}S_N^{P_0}\left(\cfrac{u}{\sqrt{N}},\cfrac{\theta}{N}, \cfrac{v}{\sqrt{N}}, \cfrac{\fii}{N}\right)= \\\Pi_H(u,\theta,v,\fii)\left(1+\sum_{r=1}^K N^{-r/2}b_r(u,v) + N^{-(K+1)/2}R_K(u,v,N)\right)
 	\end{multline*}
 	
 	Où $\|R_K(u,v,N)\|_{C^j(\{|u| < r, |v| < r\})} \leq C_{K,j,r}$, indépendamment de $P_0$.
@@ -178,7 +180,7 @@ Plus précisément, on a :
 	\end{equation*}
 	Le symbole $s^{P_0}$ est classique et admet un développement asymptotique jusqu'à tout ordre $K$ fixé :
 	\begin{align*}
-		s^{P_0}(\cfrac{u}{\sqrt{N}},\theta,\cfrac{v}{\sqrt{n}},0,Nt)&=N^{n-1}\cfrac{\|d\rho\|^{\frac{n+1}{2}}(P_0)\sqrt{\det{L_X}}}{4\pi^n}\\
+		s^{P_0}(\cfrac{u}{\sqrt{N}},\theta,\cfrac{v}{\sqrt{N}},0,Nt)&=N^{n-1}\cfrac{\sqrt{\det{\vphantom{\hat{A}}L_X}}}{4\pi^n}\,\cfrac{4\pi}{\sqrt{\vphantom{A}\det L_X}}\\
 		&+ N^{n-1}\sum_{k=0}^{K}N^{-k}s^{P_0}_k(u,\theta,v,\fii)\\
 		&+O(N^{n-K'-2})
 	\end{align*}

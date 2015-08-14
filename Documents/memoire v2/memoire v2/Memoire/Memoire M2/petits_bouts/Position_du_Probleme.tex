@@ -1,4 +1,4 @@
-\section{Fibrés positifs sur une variété kählerienne compacte}
+\section{Fibrés positifs sur une variété de kähler compacte}
 
 \subsection{Sections holomorphes de fibrés positifs}
 
@@ -40,7 +40,7 @@ Dans ce cas les fonctions $a_1$ et $a_2$ ne diffèrent que d'un facteur holomorp
 \end{align*}
 On peut donc construire une structure riemannienne sur $M$, de manière univoque. 
 
-De manière peut-être encore plus naturelle, la $(1,1)$-forme $-\partial \overline{\partial}\log \|a\|_h$ sur $U$ peut être poussée en une $(1,1)$ forme univoque sur $M$, fermée (car localement exacte), et non dégénérée, autrement dit, une forme symplectique $\omega_g$. Cette forme symplectique est reliée à la structure riemanienne, par $|\xi|=\omega_g(\xi,J\xi)$. La forme symplectique, la structure riemannienne, et la structure complexe sont compatibles, on dit que c'est une structure \emph{kählérienne}.
+De manière peut-être encore plus naturelle, $-\partial \overline{\partial}\log \|a\|_h$ est une $(1,1)$ forme sur $U$, qui peut être prolongée en une $(1,1)$ forme univoque sur $M$, fermée (car localement exacte), et non dégénérée, autrement dit, une forme symplectique $\omega_g$. Cette forme symplectique est reliée à la structure riemanienne, par $|\xi|=\omega_g(\xi,J\xi)$. La forme symplectique, la structure riemannienne, et la structure complexe sont compatibles, on dit que c'est une structure \emph{kählérienne}.
 
 Le cadre géométrique étant donné, on peut formuler les résultats de l'article \cite{Zelditch2000}. On y démontre l'existence d'un développement asymptotique :
 
@@ -51,11 +51,11 @@ Le cadre géométrique étant donné, on peut formuler les résultats de l'artic
 \end{theorem}
 
 Ce théorème est riche de ses corollaires. Il implique premièrement que pour $N$ assez grand, les sections $s^N_i$ ne s'annulent pas toutes en même temps, on peut alors définir une application projective définie par $\fii_N : M \mapsto \C\mathbb{P}^{d_N-1}$ par $m \mapsto [s^N_1(m) : \ldots : s^N_{d_N}(m)]$, qu'on appelle application de Kodaira. On peut alors démontrer :
-\begin{theorem}[Kodaira] (\cite{fritzsche}) Pour $N$ assez grand, $\fii_N$ est un plongement. \end{theorem}
+\begin{theorem}[Kodaira] \cite{fritzsche} Pour $N$ assez grand, $\fii_N$ est un plongement. \end{theorem}
 
 On peut alors comparer la métrique $\omega_g$ avec le pull-back par $\fii_N$ de la métrique de Fubini-Study sur $\C\mathbb{P}^{d_N-1}$. On a en fait :
 
-\begin{theorem}[Tian] \cite{tian1990set}Soit $k \in \N$, alors on a \begin{equation*}
+\begin{theorem}[Tian] \cite{tian1990set} Soit $k \in \N$, alors on a \begin{equation*}
 \left\|\cfrac1N \fii_N^*(\omega_{FS}) - \omega_g \right\|_{C^{k}} = O(N^{-1})
 \end{equation*}\end{theorem}
 
@@ -68,7 +68,7 @@ On notera $X$ la frontière de $D$ ; c'est un $S^1$-fibré sur $M$, et la foncti
 	H^2_N(X)=\{f \in H^2(X), f(r_{\theta}x) = e^{iN\theta}f(x)\}
 \end{equation*}
 
-L'espace $H^2_N(X)$ sera appelé \emph{espace de Hardy $N$-équivariant}. On va maintenant relier les fonctions dans cet espace aux sections holomorphes de $L^{\otimes N}$ :
+L'espace $H^2_N(X)$ sera appelé \emph{espace de Hardy $N$-équivariant}. On va maintenant relier les fonctions dans cet espace aux sections holomor\-phes de $L^{\otimes N}$ :
 
 \begin{prop} Soit $N \in \Z$. Alors l'application :
 
@@ -113,7 +113,7 @@ Il ne reste plus qu'à estimer $S_N$ et $\partial_b \overline{\partial}_bS_N$ le
 \subsection{La preuve}
 On part de :
 \begin{equation*}
-	S_N(x,x)=N\int_{R^+_*}\int_{S^1}e^{iN(-\theta + t\psi(r_{\theta}x,x))}\sum_{k=0}^{+\infty}s_k(r_{\theta}x,x)(Nt)^{n-1-k}dtd\theta + O(N^{-\infty})
+	S_N(x,x)=N\iint e^{iN(-\theta + t\psi(r_{\theta}x,x))}\sum_{k=0}^{+\infty}s_k(r_{\theta}x,x)(Nt)^{n-1-k}dtd\theta + O(N^{-\infty})
 \end{equation*}
 où on a fait le changement de variable $t \mapsto Nt$ dans le but d'appliquer le lemme de phase stationnaire.
 
@@ -143,8 +143,10 @@ On invoque alors le lemme de phase stationnaire : il existe des opérateurs diff
 
 \begin{align*}
 	S_N(x,x) &= N^n s_0(x,x) + \sum_{k=1}^{K}\sum_{j=0}^{K-k}N^{n-k-j}L_{k,j}s_j(x,x) + R(N,K,x)\\
-		S_N(x,x) &= N^n \cfrac{1}{4\pi^n}\sqrt{\det{L_X,x}}\|d\rho\|^{\frac{n+1}{2}}(x) + \sum_{k=1}^K N^{n-1}a_i(x) + R(N,K,x)
+		S_N(x,x) &= N^n \cfrac{1}{4\pi^n}\sqrt{\det{L_X}} + \sum_{k=1}^K N^{n-1}a_i(x) + R(N,K,x)
 \end{align*}
+En effet, on a $\|d\rho\|=1$ sur $X$ dans ce cas particulier.
+
 Ici, on a, pour tous $N$ et $j$,
 \begin{equation*}
   \|R(N,K,\cdot)\|_{C^j} \leq N^{n-K-1}C_{j,K}
@@ -152,16 +154,17 @@ Ici, on a, pour tous $N$ et $j$,
 Ceci est l'estimation sur $S_N(x,x)$ désirée. En différentiant cette expression, on obtient $\partial_b\overline{\partial}_b \log(S_N(x,x)) = O(1)$, d'où le corollaire.
 
 \begin{rem}
+	Le premier terme de $S_N$ sur la diagonale est universel au niveau des formes volumes, il vaut $C_N=\cfrac{1}{\pi^{n-1}}$.
+\end{rem}
 Comme $S_N$ est un projecteur, on a évidemment :
 \begin{equation}
-  tr(S_N) = \int_XS_N(x,x)dV=\dim H^2_N(X).
+  tr(S_N) = \int_XS_N(x,x)dV=2\pi C_nVol(M)=\dim H^2_N(X).
 \end{equation}
 En particulier, on vient de démontrer l'existence d'un développement asymptotique :
 \begin{equation}
-  \dim H^2_N(X) = CN^n+\sum_{k=1}^{K}C_jN^{n-j} + O(N^{n-K}).
+  \dim H^2_N(X) = 2\pi C_n Vol(M)N^n+\sum_{k=1}^{K}C_jN^{n-j} + O(N^{n-K}).
 \end{equation}
 Ce résultat est très similaire au théorème de Riemann-Roch. Dans le cas de $\C\mathbb{P}^1$,l'espace des sections de $\mathcal{O}(1)^{\otimes N}$ est en bijection naturelle avec l'espace des fonctions méromorphes avec un pôle d'ordre au plus $N$ en $[0:1]$. Le théorème de Riemann-Roch est en réalité plus puissant car il donne une expression polynômiale de la dimension.
-\end{rem}
 
 Remarquons que l'application de Kodaira est non seulement bien définie, mais immersive : si sa différentielle en un point n'était pas injective, le pull-back de la forme de Fubini-Study serait nul à cet endroit.
 
