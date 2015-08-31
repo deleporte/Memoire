@@ -1,3 +1,7 @@
+%%% Local Variables:
+%%% TeX-master: ../provisoire
+%%% End:
+
 \chapter{Appendice : notions de géométrie complexe}
 \section{Structures de Cauchy-Riemann}
 \subsection{Complexification de l'espace tangent et définitions}
@@ -41,7 +45,11 @@ Il est alors naturel d'étudier $TX \otimes \C$ selon la décomposition de $TM \
 \subsubsection{Opérateur de Cauchy-Riemann}
 De même que, sur $M$, l'opérateur $\dd$ permet de définir $\overline{\partial}$ par restriction, on peut créer un opérateur $\overline{\partial}_b$. 
 
-On commence par noter $\Omega^{p,q}(X)$, l'ensemble des $(p,q)$-formes tangentes à $X$, comme l'espace des sections lisses du fibré dual de $(T'X)^{\wedge p} \wedge (T''X)^{\wedge q}$. On veut définir une application de restriction, de $\Omega^{p,q}(\Vois (U))$ vers $\Omega^{p,q}(X)$. Pour cela restreindre la section à $X$ n'est pas suffisant, il faut encore restreindre la forme linéaire en $x$ à $(T'X_x)^{\wedge p} \wedge (T''X_x)^{\wedge q}$. On appelle $\mu$ cette restriction totale. 
+On commence par noter $\Omega^{p,q}(X)$ l'ensemble des $(p,q)$-formes
+tangentes à $X$, donc l'espace des sections lisses du fibré dual de
+$(T'X)^{\wedge p} \wedge (T''X)^{\wedge q}$. On veut définir une
+application de restriction, des formes de $\Omega^{p,q}(\Vois (U))$
+vers les formes de $\Omega^{p,q}(X)$. Pour cela restreindre la section à $X$ n'est pas suffisant, il faut encore restreindre la forme linéaire en $x$ à $(T'X_x)^{\wedge p} \wedge (T''X_x)^{\wedge q}$. On appelle $\mu$ cette restriction totale. 
 
 Bien sûr, dans le cas d'une fonction, on a $f|_X = \mu f$, mais ce n'est pas vrai pour les formes de degré quelconque, on a par exemple $\mu \overline{\partial}\rho =0$. Précisons qu'on a $\mu(\alpha \wedge \beta) = \mu \alpha \wedge \mu \beta$. On peut alors démontrer :
 
@@ -83,7 +91,9 @@ La réciproque de cette affirmation est vraie pour des ouverts de $\C^n$, avec $
 \begin{preuve}
 	La preuve utilise la notion de \emph{courant}, qui est l'équivalent des distributions pour les formes.
 	
-	On commence par considérer n'importe quelle extension $g_0$ de $f$ dans $\overline{U}$, de classe $C^1$. On étend $\overline{\partial}g_0$ à $\C^n$ par $0$ en-dehors de $U$. Ce courant est alors $\overline{\partial}$-fermé, en effet, pour toute $(n,n-2)$-forme $\alpha$ à support compact sur $\C^n$, on a, par intégrations par parties :
+	On commence par considérer n'importe quelle extension $g_0$ de
+        $f$ dans $\overline{U}$, de classe $C^1$. On étend
+        $\overline{\partial}g_0$ à $\C^n$ par $0$ en dehors de $U$. Ce courant est alors $\overline{\partial}$-fermé, en effet, pour toute $(n,n-2)$-forme $\alpha$ à support compact sur $\C^n$, on a, par intégrations par parties :
 	\begin{equation*}
 		\int_U\overline{\partial}g_0 \wedge \overline{\partial}\alpha = \int_X\db f \wedge \alpha - \int_U\overline{\partial}\,\overline{\partial}g_0 \wedge \alpha = 0.
 	\end{equation*}
@@ -117,7 +127,7 @@ On souhaite généraliser les constructions précédentes dans le cas où la var
 
 On supposera toujours (on peut toujours construire une telle structure) que $TM$ est muni d'un opérateur $J$ linéaire sur chaque fibre, continu transversalement, vérifiant $J^2=-Id$, et tel que $\omega(\cdot, J\cdot)$ soit définie positive. On appelle alors $(M,\omega, J)$ une \emph{variété symplectique presque complexe}.
 
-On peut également complexifier $TM$ de manière inoffensive. On observe alors que $P=1/2(Id+iJ)$ est un projecteur, dont le noyau et l'image ont la même dimension car ils sont l'image l'un de l'autre par la conjugaison complexe. On note $T^{1,0}M=Im(P)$ et $T^{0,1}M=Ker(P)$. Les éléments de $T^{1,0}M$ sont appelés \emph{vecteurs presques holomorphes}. On peut alors construire des $(p,q)$-formes, et des opérateurs $\partial$ et $\overline{\partial}$ comme précédemment.
+On peut également complexifier $TM$ de manière inoffensive. On observe alors que $P=1/2(Id+iJ)$ est un projecteur, dont le noyau et l'image ont la même dimension car ils sont l'image l'un de l'autre par la conjugaison complexe. On note $T^{1,0}M=Im(P)$ et $T^{0,1}M=Ker(P)$. Les éléments de $T^{1,0}M$ sont appelés \emph{vecteurs presque holomorphes}. On peut alors construire des $(p,q)$-formes, et des opérateurs $\partial$ et $\overline{\partial}$ comme précédemment.
 
 La différence majeure avec le cas complexe réside dans le fait qu'en général, on n'a pas $[T^{1,0}M, T^{1,0}M]\subset T^{1,0}M$. Pour mesurer cette différence, on introduit le tenseur de Nijenhuis :
 
@@ -129,14 +139,23 @@ La différence majeure avec le cas complexe réside dans le fait qu'en général
 \end{defn}
 Si $J$ est défini par une structure complexe, un calcul en coordonnées locales montre que $N(X,Y)$ est toujours nul.
 
-Ce tenseur mesure bien le défaut d'intégrabilité du sous-fibré $T^{1,0}X$. En effet, si $X$ et $Y$ sont presques holomorphes, alors $N(X,Y)$ est presque antiholomorphe. Il existe des exemples naturesl de variétés presque complexes, dont le tenseur de Nijenhuis est non-nul. La sphère $S^6$ s'identifie à l'ensemble des octonions imaginaires purs de norme $1$. La multiplication par $i$ donne naissance à une structure presque complexe, et le lecteur vérifiera que le tenseur de Nijenhuis est non nul dans ce cas. 
+Ce tenseur mesure bien le défaut d'intégrabilité du sous-fibré
+$T^{1,0}X$. En effet, si $X$ et $Y$ sont presque holomorphes, alors
+$N(X,Y)$ est presque antiholomorphe. Il existe des exemples naturels
+de variétés presque complexes, dont le tenseur de Nijenhuis est
+non-nul. La sphère $S^6$ s'identifie à l'ensemble des octonions
+imaginaires purs de norme $1$. La multiplication par $i$ donne
+naissance à une structure presque complexe, et on peut vérifier que le tenseur de Nijenhuis est non nul dans ce cas. 
 
 On dispose du
 
 \begin{theorem}[Newlander-Nirenberg]
 	$M$ est une variété complexe, et $J$ la structure compatible, ssi $T^{1,0}M$ est fermé pour le crochet de Lie, ssi $N \equiv 0$.
 \end{theorem}
-	Les implications de la gauche vers la droite sont immédiates, de même l'implication $N \equiv 0 \Rightarrow [T^{1,0}M,T^{1,0}M]\subset T^{1,0}M$ ne nécessite qu'un calcul direct. La dernière implication est une conséquence des résultats sur l'opérateur $\overline{\partial}$ démontrés dans \cite{kohn1963harmonic}.
+	Les implications de la gauche vers la droite sont immédiates,
+        de même l'implication $N \equiv 0 \Rightarrow
+        [T^{1,0}M,T^{1,0}M]\subset T^{1,0}M$ ne nécessite qu'un calcul
+        direct. La dernière implication ne sera pas démontrée. Elle est une conséquence des résultats sur l'opérateur $\overline{\partial}$ démontrés dans \cite{kohn1963harmonic}.
 	
 	Enfin, si $U$ est un ouvert de $M$ à bord lisse $X$, on peut munir comme précédemment $X$ d'une structure presque Cauchy-Riemann, en définissant :
 	\begin{equation*}
@@ -153,7 +172,7 @@ On se propose ici de redonner les définitions de base de la pseudoconvexité, e
 La recherche d'analogues, en structure complexe, à la convexité des fonctions et des ensembles, a mené à plusieurs notions, qui se recoupent les unes les autres ; les difficulté de traductions (de \emph{positive} à \emph{strictement positif}) compliquent encore la nomenclature. Le but de cette section est double : le lecteur peu familier avec ces notions pourra trouver ici les définitions de base des notions que nous utilisons dans ce mémoire, et nous le redirigeons volontiers vers les ouvrages de référence (\cite{krantz1992partial}, \cite{voisin2002theorie}, \cite{demailly1997complex}) pour un exposé plus en détail ; et nous donnons au lecteur averti une définition précise du vocabulaire utilisé.
 
 \subsection{Fonctions pluri-sous-harmoniques}
-On abrègera systématiquement en \emph{psh} cet adjectif ; par ailleurs, $\Delta$ désignera systématiquement le disque unité ouvert de $\C$.
+On abrégera systématiquement en \emph{psh} cet adjectif ; par ailleurs, $\Delta$ désignera systématiquement le disque unité ouvert de $\C$.
 
 La définition qui va suivre s'approche beaucoup de celle des fonctions convexes :
 \begin{defn}
@@ -166,8 +185,8 @@ La définition qui va suivre s'approche beaucoup de celle des fonctions convexes
 \begin{rem}
 	On peut remplacer (\ref{eq:psh}) par une moyenne sur l'image de $\Delta$. Par ailleurs, si $p$ est psh, la fonction suivante est croissante :
 	\begin{align*}
-		M_{\fii} : [0,\sup\{\lambda,\fii(\lambda\Delta)\subset \Omega\}[ \mapsto \R\\
-		 \mapsto \cfrac{1}{2\pi}\int_{S^1}p(\fii(r\eitheta))d\theta.
+		M_{\fii} : [0,\sup\{\lambda,\fii(\lambda\Delta)\subset \Omega\}[ &\mapsto \R\\
+		r &\mapsto \cfrac{1}{2\pi}\int_{S^1}p(\fii(r\eitheta))d\theta.
 	\end{align*}
 \end{rem}
 
@@ -195,7 +214,12 @@ Une fonction régulière ssi sa hessienne complexe est positive en tout point. E
 	Soit $p$ une distribution sur $U$, alors $p$ est psh sur $U$, non identiquement $-\infty$, ssi $H_p$ est une mesure positive.
 \end{prop}
 
-La hessienne complexe se comporte correctement par des biholomorphismes. En effet, un calcul direct montre que $H_{p\circ \psi}(\xi)=H_p(\dd\psi(\xi))$. Ceci permet de définir $H_p$ sur une variété $M$, en tant que forme hermitienne sur $T^{1,0}M$. En particulier, le caractère pseudoconvexe est invariant par biholomorphisme.
+La hessienne complexe se comporte correctement par des
+biholomorphismes. En effet, un calcul direct montre que 
+\begin{equation*}
+  H_{p\circ \psi}(\xi)=H_p(\dd\psi(\xi)).
+\end{equation*}
+Ceci permet de définir $H_p$ sur une variété $M$, en tant que forme hermitienne sur $T^{1,0}M$. En particulier, le caractère pseudoconvexe est invariant par biholomorphisme.
 
 \begin{defn}
 	Soit $U$ un ouvert d'une variété complexe, et $p$ une fonction sur $U$ à valeurs dans $\R\cup \{-\infty \}$. On dit que $p$ est psh lorsqu'elle est psh dans les cartes locales.
@@ -207,7 +231,7 @@ Le lemme technique suivant sera utile :
 	\label{lem:techpsh} 
 	Soit $p : U \to \R\cup \{-\infty \}$ une fonction semi-continue supérieurement. Alors $p$ est psh ssi, pour tout disque $K=\{z_0+z\eta, z\in \overline{\Delta}\}$, et pour tout polynôme $P \in \C[X]$, on a :
 	\begin{equation*}
-		\forall z \in S^1\;p(z_0+z\eta)\leq \Re(P(z)) \Rightarrow \forall z\in\Delta\;p(z_0+z\eta) \leq \Re P(z).
+		\forall z \in S^1,\,p(z_0+z\eta)\leq \Re(P(z)) \Rightarrow \forall z\in\Delta,\,p(z_0+z\eta) \leq \Re P(z).
 	\end{equation*}
 \end{lem}
 \begin{preuve}
@@ -243,14 +267,14 @@ Pour cela on va utiliser le lemme \ref{lem:techpsh}. Si $K=(x,\xi)+(\zeta, \eta)
 \begin{equation*}
 	\forall t \in S^1,\,f(z+t\zeta,\xi+t\eta) \leq P(t),
 \end{equation*}
-Alors on va vérifier que cette équation est vraie pour tou $t \in Delta$. Pour cela on considère la fonction holomorphe auxiliaire suivante :
+Alors on va vérifier que cette équation est vraie pour tout $t \in \Delta$. Pour cela on considère la fonction holomorphe auxiliaire suivante :
 \begin{align*}
 	h:\C^2 &\mapsto \C^n\\
-	(t,w)\mapsto z+t\zeta + we^{-P(t)}(\xi+t\eta).
+	(t,w)&\mapsto z+t\zeta + we^{-P(t)}(\xi+t\eta).
 \end{align*}
 Par construction, d'une part, $h(\Delta \times \{0\}) = \{z+t\zeta,|t| <1 \} \subset U$, et d'autre part, par définition de $f$, on sait que $h(S^1 \times \Delta) \subset U$.
 
-Soit alors $R$ le sup des $r \geq 0$ tels que $h(\Delta \times r\Delta) \subset U$. Si par l'absurde $R<1$, on pose $K=h(S^1 \times R\Delta) \subset \subset U$; or $U$ est pseudoconvexe, donc en appelant $p$ une fonction exhaustive de $U$, alors $c=sup_K(p)<+\infty$. Par ailleurs $p\circ h$ est psh, donc sous-harmonique par rapport à sa première variable, donc cette fonction ne peut pas être plus grande sur $\Delta \times R\Delta$ que sur $S^1 \times R\Delta$. En particulier, $h(\Delta \times R\Delta) \subset \subset U$ par connexité, donc on peut trouver un $\epsilon>0$ tel que $h(\Delta \times (R+\epsilon)\Delta) \subset U$, ce qui est absurde.
+Soit alors $R$ le sup des $r \geq 0$ tels que $h(\Delta \times r\Delta) \subset U$. Si par l'absurde $R<1$, on pose $K=h(S^1 \times R\Delta) \subset \subset U$; or $U$ est pseudoconvexe, donc en appelant $p$ une fonction exhaustive de $U$, alors $c=\sup_K(p)<+\infty$. Par ailleurs $p\circ h$ est psh, donc sous-harmonique par rapport à sa première variable, donc cette fonction ne peut pas être plus grande sur $\Delta \times R\Delta$ que sur $S^1 \times R\Delta$. En particulier, $h(\Delta \times R\Delta) \subset \subset U$ par connexité, donc on peut trouver un $\epsilon>0$ tel que $h(\Delta \times (R+\epsilon)\Delta) \subset U$, ce qui est absurde.
 
 La fonction $q:z \mapsto -\log(d(z,^cU))$ est continue, et vérifie par définition $q(z)=\sup_{|\xi|<1}f(x,\xi)$, donc est pseudoconvexe.
 \end{preuve}
@@ -262,13 +286,16 @@ Le dernier résultat de la section précédente nous indique que la pseudoconvex
 	Un ouvert $U \subset \C^n$ est pseudoconvexe ssi, pour tout point $x\in \partial U$, il existe un voisinage de $x$ dans $\C^n$ tel que $V \cap U$ soit pseudoconvexe.
 \end{prop}
 \begin{preuve}
-	L'implication directe est immédiate (on prend $V=\C^n$). Démontrons l'implication réciproque. Dans un petit voisinage $W$ de $x$, on a $d(\cdot,^cU)=d(\cdot,^c(U\cap V))$ ; en particulier, la fonction $-\log(d(\cdot,^cU))$ est psh dans un voisinage du bord noté $U \setminus U'$, où $U' \subset U$. Mais cette fonction n'est pas nécessairement psh dans $U'$.
+	L'implication directe est immédiate (on prend
+        $V=\C^n$). Démontrons l'implication réciproque. Dans un petit
+        voisinage $W$ de $x$, on a $d(\cdot,^cU)=d(\cdot,^c(U\cap
+        V))$. En particulier, la fonction $z\mapsto -\log(d(z,^cU))$ est psh dans un voisinage du bord noté $U \setminus U'$, où $U' \subset U$. Mais cette fonction n'est pas nécessairement psh dans $U'$.
 	
 	Supposons sans perte de généralité que $0 \in U'$, et soit $\chi$ une fonction continue convexe sur $\R^+$, telle que :
 	\begin{equation*}
-		\forall r \in \R,\,\chi(r)\leq sup(-\log(d(z,^cU)), z\in B(0,r \cap (U \setminus U')).
+		\forall r \in \R,\,\chi(r)\leq \sup(-\log(d(z,^cU)), z\in B(0,r \cap (U \setminus U')).
 	\end{equation*}
-	Alors la fonction $p:z \mapsto \max(\chi(|z|),-\log(d(z,^cU))$ est continue, pseudonconvexe, car elle coincide avec $\chi(|\cdot|)$ sur un voisinage de $U\setminus U'$, et exhaustive, car elle coincide avec $-\log(d(\cdot, ^cU))$ près du bord, donc convient.
+	Alors la fonction $p:z \mapsto \max(\chi(|z|),-\log(d(z,^cU))$ est continue, pseudoconvexe, car elle coïncide avec $\chi(|\cdot|)$ sur un voisinage de $U\setminus U'$, et exhaustive, car elle coïncide avec $-\log(d(\cdot, ^cU))$ près du bord, donc convient.
 \end{preuve}
 
 On aimerait donc trouver une caractérisation géométrique du bord de $U$, équivalente à la pseudoconvexité lorsque le bord est lisse.
@@ -279,7 +306,7 @@ On peut alors définir la \emph{forme de Lévi} :
 \begin{defn}
 	Soit $x\in X$. La forme de Lévi en $x$ est la forme sesquilinéaire sur $T'_xX$ définie par :
 	\begin{equation*}
-		L_{X.x}{\xi,\eta}=\cfrac{1}{\|\dd \rho(x)\|}\,\sum_{j,k}\cfrac{\partial^2\rho}{\partial z_j\partial \overline{z_k}}\,\overline{\xi}_k\eta_j.
+		L_{X.x}(\xi,\eta)=\cfrac{1}{\|\dd \rho(x)\|}\,\sum_{j,k}\cfrac{\partial^2\rho}{\partial z_j\partial \overline{z_k}}\,\overline{\xi}_k\eta_j.
 	\end{equation*}
 \end{defn}
 
@@ -288,7 +315,7 @@ $L_x$ n'est rien d'autre que la hessienne complexe de $\rho$, restreinte à $T'X
 On note d'abord $\nu = \dd \rho/\|\dd \rho\|$ le champ des vecteurs normaux sortants sur $X$, qui ne dépend pas de $\rho$. On a alors :
 
 \begin{prop}\label{prop:Levi-invariant}
-	Soient $\xi$ et $\eta$ des champs de vecteurs sur $X$ au voisinage de $x$, à valeurs dans $T'X$. On a alors :
+	Soient $\xi$ et $\eta$ des champs de vecteurs sur $X$ au voisinage de $x$, à valeurs dans $T'X$. Alors :
 	\begin{equation*}
 		\langle J\nu,[\xi,\eta]\rangle =4\Im(L_X(\xi,\eta))
 	\end{equation*}
@@ -296,7 +323,7 @@ On note d'abord $\nu = \dd \rho/\|\dd \rho\|$ le champ des vecteurs normaux sort
 \begin{preuve}
 	Le calcul en coordonnées locales est direct.
 \end{preuve}
-On a alors la caractérisation suivante :
+On dispose alors de la caractérisation suivante :
 \begin{prop}
 	Un ouvert de $\C^n$ de frontière $C^2$ est pseudoconvexe ssi sa forme de Lévi est positive en tout point de la frontière.
 \end{prop}
@@ -322,9 +349,10 @@ On conclut cette section par quelques exemples de variétés pseudoconvexes, év
   Tout ouvert connexe de $\C$ est pseudoconvexe.
 \end{exemple}
 \begin{preuve}
-Si $U=\C$, lafonction $p: z \mapsto |z|^2$ convient.
+Si $U=\C$, la fonction $p: z \mapsto |z|^2$ convient.
 
-Sinon, on commence par constater que la fonction $z \mapsto -\log(d(z,0))= -2\log(|z|)$ est psh sur $\C^*$. La fonction $p_1 : z \mapsto -\log(d(z,^cU))$, qui est continue, est donc psh car c'est un sup de fonctions psh.
+Sinon, on commence par constater que la fonction $z \mapsto
+-\log(d(z,0))$ $= -2\log(|z|)$ est psh sur $\C^*$. La fonction $p_1 : z \mapsto -\log(d(z,^cU))$, qui est continue, est donc psh car c'est un sup de fonctions psh.
 
 Malheureusement, $p_1$ ne convient pas toujours, par défaut de compacité des $\{p_1 \leq c\}$. On pose donc $p: z \mapsto p_1(z)+|z|^2$, qui convient.
 \end{preuve}
@@ -362,7 +390,7 @@ Dans les trois articles \cite{kohn1963harmonic}, \cite{kohn1964harmonic}, \cite{
 \begin{theorem}[Kohn]\label{thm:annexe}
 Soit $U$ un ouvert fortement pseudoconvexe et relativement compact d'une variété $M$, $h$ une forme hermitienne sur $M$ et $X=\partial U$.
 
-On note d'une part $H^2(X)$ la clôture, pour la topologie $L^2(h)$, de l'ensemble $\{f \in C^{\infty}(X),\,\db f =0\}$, et d'autre part $H^2(D)$ la clôture, pour la topologie $L^2(h)$, de l'ensemble $\{f \in C^{\infty}{\overline{U}},\,\overline{\partial}f =0\}$.
+On note d'une part $H^2(X)$ la clôture, pour la topologie $L^2$, de l'ensemble $\{f \in C^{\infty}(X),\,\db f =0\}$, et d'autre part $H^2(D)$ la clôture, pour la topologie $L^2$, de l'ensemble $\{f \in C^{\infty}(\overline{U}),\,\overline{\partial}f =0\}$.
 
 Alors l'application réciproque de la trace a une unique extension continue $H^2(X)\to H^2(D)$, qui est bijective.
 \end{theorem}
@@ -370,7 +398,7 @@ Ce théorème provient d'un résultat de régularité du problème $\overline{\p
 
 Dans ces articles n'apparaissent que les constructions de géométrie complexe que nous avons données, et des outils de théorie spectrale. La preuve est néanmoins longue et nécessite d'obtenir un résultat de régularité du problème $\overline{\partial}$-Neumann pour des formes de degré quelconque, puisqu'un argument de dualité est utilisé à la fin. L'exposé complet du raisonnement dépasse le cadre de ce rapport, d'autant que les articles en question sont facilement lisibles.
 
-Nous citons encore deux résultats de ces deux articles :
+Nous citons pour finir deux résultats de ces articles :
 \begin{prop}
 Soit $B$ le projecteur orthogonal sur $H^2(D)$. Alors il existe un opérateur continu $F$ tel que $Id = B + F\overline{\partial}$.
 \end{prop}

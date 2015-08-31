@@ -1,3 +1,6 @@
+%%% Local Variables:
+%%% TeX-master: ../provisoire
+%%% End:
 \section{Opérateurs intégraux de Fourier à phase réelle}
 
 \subsection{Opérateurs pseudo-différentiels}
@@ -8,7 +11,7 @@ Pour $n \in \N$, la fonction
 	\R^{2n}\times \R^n &\mapsto \R\\
 	(x,y,\xi) &\mapsto \langle x-y,\xi \rangle
 \end{align*}
-est une phase réelle. En particulier, si $a \in S^m(\R^n\times \R^n)$, on peut définir la distribution
+est une phase réelle, au sens de la définition \ref{def:phase}. En particulier, si $a \in S^m(\R^n\times \R^n)$, on peut définir la distribution
 \begin{equation*}
 	K_a(x,y)=\int_{\R^n}e^{i\langle \xi, x-y\rangle}a(x,\xi)d\xi
 \end{equation*}
@@ -35,12 +38,15 @@ Munis de cette définition globale, nous pouvons affirmer que :
 	\end{align*}
 	En conjuguant par une transformée de Fourier en la seconde variable, on se ramène au même problème pour l'application
 	\begin{equation*}
-		(u,v) \mapsto \int e^{i\langle x,\xi \rangle}a(x,\xi)u(x)v(\xi)dxd\xi.
+		(u,v) \mapsto \int e^{i\langle x,\xi
+                  \rangle}a(x,\xi)u(x)v(\xi)\dd x\dd\xi.
 	\end{equation*}
 	
 	Or on a immédiatement :
 	\begin{align*}
-		\left|\int e^{i\langle x,\xi \rangle}a(x,\xi)u(x)v(\xi)dxd\xi\right| &\leq C\int(1+|\xi|)^m|u(x)||v(\xi)|dxd\xi\\
+		\left|\int e^{i\langle x,\xi
+          \rangle}a(x,\xi)u(x)v(\xi)\dd x\dd\xi\right| &\leq
+                                                    C\int(1+|\xi|)^m|u(x)||v(\xi)|\dd x\dd\xi\\
 		&\leq C\|x^{-n-1}u\|_{\infty}\|\xi^{-n-1-m}v\|_{\infty},
 	\end{align*}
 	ce qui permet de conclure.
@@ -77,14 +83,16 @@ On donne, pour terminer, quelques résultats concernant la régularité de l'op�
 	Lorsque $a \in C^{\infty}_c$, hors de la diagonale $x=y$, on peut réaliser des intégrations par parties dans l'intégrale qui définit $K_a$. Donc dans ce cas $K_a$ est lisse, et quitte à faire suffisamment d'intégrations par parties, les semi-normes de $K_a$ ne dépendent que des semi-normes de $a$ dans $S^m_{glob}$, donc on peut raisonner par continuité, et le résultat reste valide pour a quelconque.
 \end{preuve}
 
-\subsection{Opérations sur les opérateurs pseudodifférentiels}
+\subsection{Opérations sur les opérateurs pseudo-différentiels}
 Nous cherchons ici à obtenir des règles de calcul sur les opérateurs pseudo-différentiels. Qu'arrive-t-il lorsqu'on essaie de composer deux opérateurs ? Ou de prendre l'adjoint d'un opérateur ?
 
-On aurait très bien pu prendre une définition plus générale d'un opérateur pseudo-différentiel en laissant le symbole dépendre de la dernière variable. Le noyau
+On aurait très bien pu prendre une définition plus générale d'un
+opérateur pseudo-différentiel en laissant le symbole dépendre de la
+variable $y$. En fait, le noyau
 \begin{equation*}
 	K_r(x,y)= \int_{\R^n}e^{i\langle \xi, x-y \rangle} r(x,\xi,y)d\xi
 \end{equation*}
-est défini en tant qu'intégrale à phases, au sens de la section précédente, dès lors que $r \in S^m(\R^{2n}\times \R^n)$. Mais on dipose du lemme suivant :
+est défini en tant qu'intégrale à phases, au sens de la section précédente, dès lors que $r \in S^m(\R^{2n}\times \R^n)$. Mais on dispose du lemme suivant :
 
 \begin{lem}
 	Soit $r \in S^m(\R^{2n}\times \R^n)$, à support compact en $x$ et $y$. Alors il existe $p \in S^m(\R^n \times \R^n)$ tel que $K_r = K_a$. Le symbole $p$ admet par ailleurs le développement asymptotique suivant, au sens du lemme \ref{lem:Borel} :
@@ -95,16 +103,18 @@ est défini en tant qu'intégrale à phases, au sens de la section précédente,
 \begin{preuve}
 	Procédons par dualité ; soit $\fii$ une fonction test. On commence par voir que, à $x$ et $\xi$ fixés :
 	\begin{align*}
-		\int e^{-i\langle \xi, y}r(x,\xi,y)\fii(y)dy &= \mathcal{F}(r(x,\xi,\cdot) \fii(\cdot))(\xi)\\
+		\int e^{-i\langle \xi, y}r(x,\xi,y)\fii(y)\dd y &= \mathcal{F}(r(x,\xi,\cdot) \fii(\cdot))(\xi)\\
 			&= (\mathcal{F}(r(x,\xi,\cdot)) * \hat{\fii}(\cdot))(\xi)
 	\end{align*}
 	
 	En intégrant par rapport à $\fii$ on trouve :
 	\begin{align*}
-		\int K_r(x,y)\fii(y)dy &= \iint e^{i\langle \xi,x-y\rangle}r(x,\xi,y)\fii(y)d\xi dy\\
-		&=\int e^{i\langle \xi,x \rangle} \left[\mathcal{F}(r(x,\xi,\cdot))*\hat{\fii}(\cdot)\right](\xi)d\xi\\
-		&= \iint \mathcal{F}_3(r)x,\xi,\xi-\eta)e^{i\langle \xi-\eta,x\rangle}d\xi \hat{\fii}(\eta)e^{i\langle \eta,x\rangle} d\eta\\
-		&=\iint e^{i\langle \eta,x-y \rangle}  p(x,\eta) \fii(y)dy
+		\int K_r(x,y)\fii(y)\dd y &= \iint e^{i\langle
+                                            \xi,x-y\rangle}r(x,\xi,y)\fii(y)\dd\xi \dd y\\
+		&=\int e^{i\langle \xi,x \rangle} \left[\mathcal{F}(r(x,\xi,\cdot))*\hat{\fii}(\cdot)\right](\xi)\dd\xi\\
+		&= \iint \mathcal{F}_3(r)x,\xi,\xi-\eta)e^{i\langle \xi-\eta,x\rangle}d\xi \hat{\fii}(\eta)e^{i\langle \eta,x\rangle} \dd\eta\\
+		&=\iint e^{i\langle \eta,x-y \rangle}  p(x,\eta)
+                  \fii(y)\dd y
 	\end{align*}
 	Ici $\mathcal{F}_3$ désigne la transformée de Fourier en la troisième variable, et 
 	\begin{equation*}
@@ -119,7 +129,7 @@ est défini en tant qu'intégrale à phases, au sens de la section précédente,
 \end{preuve}
 
 \begin{lem}
-	Soit $r\in S^m_{glob}(\R^{2n}\times \R^n)$ et supposons qu'il existe un voisinage de $diag(\R^n)$ sur lequel, pour tout $\xi$, on ait $ r(x,y,\xi)=0$. Alors $K_r(x,y)$ est lisse.
+	Soit $r\in S^m_{glob}(\R^{2n}\times \R^n)$ et supposons qu'il existe un voisinage de $\diag(\R^n)$ sur lequel, pour tout $\xi$, on ait $ r(x,y,\xi)=0$. Alors $K_r(x,y)$ est lisse.
 \end{lem}
 \begin{preuve}
 	On sait déjà que le noyau $K_r$ est lisse hors de la diagonale, et il est nul au voisinage de la diagonale.
@@ -136,19 +146,24 @@ est défini en tant qu'intégrale à phases, au sens de la section précédente,
 	\begin{equation*}
 		r(x,\xi,y)=\sum_{j,k}\chi_j(x)\chi_k(y)r(x,\xi,y).
 	\end{equation*}
-	On sait qu'on peut retrancher de cette somme les termes dont les supports sont loin de la diagonale, car leur contribution au noyau est lisse. On écrit $j \sim k$ lorsque $\supp \chi_j \cap\supp \chi_k \neq \emptyset$, on sait alors qu'à $j$ fixé un nombre fini de $k$ vérifient $j \sim k$, et on écrit :
+	On sait qu'on peut retrancher de cette somme les termes dont
+        les supports sont loin de la diagonale, car leur contribution
+        au noyau est lisse. On écrit $j \sim k$ lorsque $\supp \chi_j
+        \cap\supp \chi_k \neq \emptyset$, on sait alors qu'à $j$ fixé
+        il n'existe qu'un nombre fini de $k$ qui vérifient $j \sim k$,
+        et on écrit alors :
 	\begin{equation*}
 		r(x,\xi,y) = \sum_j \sum_{j \sim k}\chi_j(x)\chi_k(y)r(x,y,\xi).
 	\end{equation*}
 	
 	A chacun des termes on applique le lemme, qui nous fournit des symboles $p_{j,k}$. On peut sans problème sommer sur le nombre fini d'indices $k$, en conservant le développement asymptotique, produisant des symboles $p_j$. Enfin, quitte à remplacer $p_j$ par $\tilde{\chi}_j(x)p_j$ où $\tilde{\chi}_j$ vaut $1$ sur $\supp \chi_j$, ce qui ne change pas le développement asymptotique, on peut supposer que chaque $p_j$ est à support compact, tel qu'en tout point seul un nombre fini de $p_j$ soit non nul.
-	On peut alors sommer les $p_j$.
+	On peut alors sommer les $p_j$, ce qui conclut la preuve.
 \end{preuve}
 
 De cette proposition on retiendra deux corollaires.
 
 \begin{corr}
-	Modulo un opérateur régularisant, l'adjoint de $a(x,D)$, où $a \in S^m$, est l'opérateur associé à un symbole dans $S^m$ dont le développement asymptotique est :
+	Modulo un opérateur à noyau $C^{\infty}$, l'adjoint de $a(x,D)$, où $a \in S^m$, est l'opérateur associé à un symbole dans $S^m$ dont le développement asymptotique est :
 	\begin{equation*}
 		a^{\dagger}(x,\xi)\sim \sum_{\alpha}\cfrac{i^{|\alpha|}}{\alpha!}\partial^{\alpha}_{\xi}\partial^{\alpha}_y\overline{a}(y,\xi)\biggl|_{x=y}
 	\end{equation*}
@@ -164,12 +179,16 @@ De cette proposition on retiendra deux corollaires.
 	On écrit 
 	\begin{align*}
 		b(x,D)\fii(x) &\sim (b^{\dagger}(x,D))^*\fii(x)\\
-		&= \mathcal{F}^{-1}\left(\int e^{-i\langle \xi,y\rangle}\fii(y)\overline{b^{\dagger}(y,\xi)}dy\right)(x).
+		&= \mathcal{F}^{-1}\left(\int e^{-i\langle
+                  \xi,y\rangle}\fii(y)\overline{b^{\dagger}(y,\xi)}\dd
+                  y\right)(x).
 	\end{align*}
 	
 	On en déduit donc
 	\begin{equation*}
-		a(x,D)\circ b(x,D) \fii(x) \sim \iint e^{i\langle \xi,x-y\rangle}a(x,\xi)\overline{b^{\dagger}(y,\xi)}\fii(y)dyd\xi,
+		a(x,D)\circ b(x,D) \fii(x) \sim \iint e^{i\langle
+                  \xi,x-y\rangle}a(x,\xi)\overline{b^{\dagger}(y,\xi)}\fii(y)\dd
+                y\dd\xi,
 	\end{equation*}
 	Ce qui permet de conclure, puisque le symbole total  $a(x,\xi)\overline{b^{\dagger}(y,\xi)}$ est dans $S^m(\R^{2n}\times \R^n)$.
 \end{preuve}
@@ -193,7 +212,7 @@ Le cône $\Sigma(u)$ donne des informations qui complètent celles du support si
 	\end{equation*}
 	On sait déjà que pour un certain $m\in \R$ on a $|v(\xi)|\leq C(1+|\xi|)^m$. Par ailleurs, soit $c\in ]0,1[$, on va découper cette intégrale en une intégrale là où $|\eta| \leq c|\xi|$ et une intégrale sur le complémentaire. On peut donc majorer l'expression précédente par
 	\begin{equation*}
-		\underset{|\xi-\eta| \leq c|\xi|}{\sup}v(\eta) \|\hat{\phi}\|_{L^1} + C(c)\int_{|\eta|\leq c|\xi|}|\hat{\phi}(\eta)|(1+|\eta|)^md\eta
+		\underset{|\xi-\eta| \leq c|\xi|}{\sup}v(\eta) \|\hat{\phi}\|_{L^1} + C(c)\int_{|\eta|\leq c|\xi|}|\hat{\phi}(\eta)|(1+|\eta|)^m\dd\eta
 	\end{equation*}
 	Le second morceau ne pose donc pas de problème puisque $\hat{\phi}\in \mathcal{S}$. Si on a un contrôle de la décroissance de $\hat{v}$ dans un ouvert $\Gamma$, on peut considérer un cône fermé $\Gamma_0$ inclus dans $\Gamma$, et alors on dispose d'une constante $c$ telle que $\xi \in \Gamma_0,|\xi-\eta|\leq c |\xi| \Rightarrow \eta \in \Gamma$, d'où le résultat.
 \end{preuve}
@@ -256,7 +275,7 @@ Par la proposition précédente, si un symbole $a$ vérifie $\supp(a)\cap WF(u)=
 
 Réciproquement, si $(x_0,\xi_0)\in WF(u)$, soit $\phi$ une fonction test non nulle en $x_0$. Supposons l'existence d'un voisinage conique $\Gamma$ de $\xi_0$ sur lequel $\hat{\phi}*\hat{u}$ décroisse en l'infini plus vite que $(1+|\xi|)^{-n}$. Soit $\chi$ une fonction 0-homogène qui approche l'indicatrice de $\Gamma$, alors la fonction suivante est lisse :
 \begin{equation*}
-  x \mapsto \int e^{i\langle \xi,x-y\rangle}\chi(\xi)\phi(y)u(y)dy.
+  x \mapsto \int e^{i\langle \xi,x-y\rangle}\chi(\xi)\phi(y)u(y)\dd y.
 \end{equation*}
 
 Posons $a(x,\xi)=\phi(x)\chi(\xi)$. Alors on vient de montrer que $a^{\dagger}(x,D)u$ est lisse. Cependant, on sait que :
@@ -279,13 +298,13 @@ associe à un symbole un opérateur à noyau, dont on voudrait comprendre les pr
     \item La fonction $\fii$ est 1-homogène en $\theta$.
     \item Pour tout $x\in X$, la fonction $(y,\theta)\mapsto \fii(x,y,\theta)$ n'a pas de point critique.
     \item Pour tout $y\in Y$, la fonction $(x,\theta)\mapsto \fii(x,y,\theta)$ n'a pas de point critique.
-    \item En un point $\gamma$ en $d_{\theta}\fii$ s'annule, les formes $d(\partial \fii/\partial \theta_i)$ sont indépendantes.
+    \item En un point $\gamma$ en lequel $d_{\theta}\fii$ s'annule, les formes $d(\partial \fii/\partial \theta_i)$ sont indépendantes.
   \end{itemize}
 \end{defn}
 
 La structure de front d'onde se généralise :
 
-\begin{defn}[Variété caractéristique]Soit $\fii$ une phase réelle convenable sur $X\times Y\times \R^d$. On appelle variété caractéristique l'ensemble :
+\begin{defn}[Variété caractéristique]\label{def:carac}Soit $\fii$ une phase réelle non dégénérée sur $X\times Y\times \R^d$. On appelle variété caractéristique l'ensemble :
 \begin{multline*}
     C_{\fii}=\{(x,\xi,y,\eta) \in T^*X \times T^*Y,\,\exists \theta\in \R^d\setminus 0,\,\\\dd_{\theta}\fii(x,y,\theta)=0,\,\dd_x\fii(x,y,\theta)=\xi, \dd_y\fii(x,y,\theta)=\eta\}
 \end{multline*}  
@@ -294,6 +313,8 @@ La structure de front d'onde se généralise :
 	L'ensemble $C_{\fii}$ est bien une variété, à cause de la dernière condition de la définition.
 \end{rem}
 
+La variété caractéristique est reliée au front d'onde du noyau. Nous
+admettrons la proposition suivante :
 \begin{prop}[\cite{hormander2003analysis}, thm 8.1.9]
   Soit $\fii$ une phase réelle non dégénérée sur $X\times Y\times \R^d$, et $a \in S^m_{glob}(X\times Y\times \R^d)$. 
 
@@ -302,15 +323,15 @@ La structure de front d'onde se généralise :
     WF(I_{\fii}(a)) \subset C_{\fii}.
   \end{equation*}
 \end{prop}
-Appelons $a_{\fii}(x,D)$ l'opérateur dont le noyau est $I_{\fii}(a)$. Alors on a 
+En particulier, appelons $a_{\fii}(x,D)$ l'opérateur dont le noyau est $I_{\fii}(a)$. Alors on a 
   \begin{equation*}
     WF(a_{\fii}(x,D)u) \subset C_{\fii}WF(u).
   \end{equation*}
-Ici, si $E \subset Y$, on note
+Ici, pour $E \subset Y$, on note :
 \begin{equation*}
-  C_{\fii}E=\{x \in X,\,\exists y \in E,\,(x,y)\in E\}
+  C_{\fii}E=\{x \in X,\,\exists y \in E,\,(x,y)\in E\}.
 \end{equation*}
-La régularité des opérateurs intégraux de Fourier est donc associée à leur variété caractéristique $C_{\fii}$. Observons que $C_{\fii}$ est une sous-variété de dimension $n_X+n_Y$, de la variété symplectique $T*X\times T*Y$, de dimension $2(n_X+n_Y)$. 
+La régularité des opérateurs intégraux de Fourier est donc associée à leur variété caractéristique $C_{\fii}$. Observons que $C_{\fii}$ est une sous-variété de dimension $n_X+n_Y$, de la variété symplectique $T^*X\times T^*Y$, de dimension $2(n_X+n_Y)$. 
 \begin{lem}
 La forme symplectique, restreinte à $C_{\fii}$, est nulle.
 \end{lem}
@@ -319,12 +340,24 @@ Reportée au paragraphe suivant.
 \end{preuve}
 On appelle \emph{lagrangienne} une telle sous-variété.
 \subsection{Idéaux lagrangiens associés à une phase}
-Plutôt que de caractériser $\fii$ par sa variété caractéristique, on va lui associer un idéal de fonctions réelles, qui vérifie certaines propriétés. Les idéaux en question seront en bijection avec l'ensemble des variétés lagrangiennes (qui constituent l'ensemble de leurs points d'annulation), les deux notions sont complètement équivalentes pour des phases réelles. Cependant, les notions que nous allons définir maintenant se généralisent aux phases complexes.
+Plutôt que de caractériser $\fii$ par sa variété caractéristique, on
+va lui associer un idéal de fonctions réelles, qui vérifie certaines
+propriétés. Les idéaux en question seront en bijection avec l'ensemble
+des variétés lagrangiennes (qui constituent l'ensemble de leurs points
+d'annulation), les deux notions sont complètement équivalentes pour
+des phases réelles. Cependant, les notions que nous allons définir
+maintenant se généralisent aux phases complexes, contrairement aux
+variétés caractéristiques.
 
-\begin{defn}Soit $S$ une variété symplectique de dimension $N$. Un idéal $J \subset C^{\infty}(S,\R)$ est dit \emph{lagrangien} lorsque :
+\begin{defn}Soit $S$ une variété symplectique de dimension $2n$. Un idéal $J \subset C^{\infty}(S,\R)$ est dit \emph{lagrangien} lorsque :
 \begin{itemize}
   \item $\{J,J\}\subset J$.
-  \item Localement, il existe $N$ générateurs de $J$, dont les différentielles sont linéairement indépendantes sur $J$.
+  \item Localement, il existe une famille de $n$ fonctions
+    $(u_i)_{1\leq i \leq n}$, dont les différentielles sont
+    linéairement indépendantes, vérifiant que pour toute fonction $u\in
+    J$, il existe des fonctions lisses $f_j$ telles que, localement
+    $u=\sum f_ju_j$ (on dit alors que les $u_i$ sont des générateurs
+    locaux de $J$).
   \item Si une fonction $u$ vérifie que pour toute fonction $f \in C^{\infty}_c(S,\R)$, on a $fu \in J$, alors $u \in J$.
 \end{itemize}
 Si les générateurs peuvent être choisis invariants par rapport à une action de $\R^+$ sur $S$, on dit que l'idéal lagrangien est conique.
@@ -347,13 +380,16 @@ Si les générateurs peuvent être choisis invariants par rapport à une action 
 	Si $\fii$ est une phase réelle non dégénérée, alors $J_{\fii}$ est lagrangien conique.
 \end{prop}
 \begin{preuve}
-	Pour des raisons de simplicité on se restreint au cas où la dimension de l'ensemble des phases vaut $d=1$. Ainsi on note $\fii(x,y,\theta)=\theta \fii(x,y)$. L'idéal $\widehat{J}_{\fii}$ est alors engendré par les fonctions :
+	Pour des raisons de simplicité on se restreint au cas où la
+        variable $\theta$ évolue dans un espace de dimension
+        $d=1$. Par ailleurs, on appelle $n_X$ la dimension de $X$ et
+        $n_Y$ la dimension de $Y$. Ainsi on note $\fii(x,y,\theta)=\theta \fii(x,y)$. L'idéal $\widehat{J}_{\fii}$ est alors engendré par les fonctions :
 	\begin{align*}
 	a(x,y,\xi,\eta,\theta)&=\fii(x,y)\\
 	b_j(x,y,\xi,\eta,\theta) &= \theta\cfrac{\partial \fii}{\partial x_j}-\xi_j\\
 	c_j(x,y,\xi,\eta,\theta) &= \theta\cfrac{\partial \fii}{\partial y_j}-\eta_j
 	\end{align*}
-	Soit un point $(x,y)$ tel que $\fii(x,y)\neq=0$. Sur la fibre au-dessus d'un voisinage local de ce point, $\widehat{J}_{\fii}$ a un générateur qui ne s'annulle pas, donc vaut l'ensemble des fonctions lisses sur ce voisinage ; donc il en va de même pour $J_{\fii}$.
+	Soit un point $(x,y)$ tel que $\fii(x,y)\neq 0$. Sur la fibre au-dessus d'un voisinage local de ce point, $\widehat{J}_{\fii}$ a un générateur qui ne s'annule pas, donc vaut l'ensemble des fonctions lisses sur ce voisinage ; donc il en va de même pour $J_{\fii}$.
 	
 	Soit maintenant un point $(x,y)$ tel que $\fii(x,y)=0$. Alors par non dégénérescence, il existe un indice $k$ tel que $\partial \fii/\partial x_k \neq 0$ au voisinage de $(x,y)$. $J_\fii$ est alors localement engendré par les $n_X+n_Y$ fonctions :
 	\begin{align*}
@@ -380,7 +416,9 @@ Si les générateurs peuvent être choisis invariants par rapport à une action 
 	
 	Par ailleurs on vient de montrer que $J$ était toujours localement engendré par $n_X +n_Y$ fonctions dont les différentielles sont indépendantes. Enfin, $J_{\fii}$ vérifie la condition de localisation par définition.
 \end{preuve}
-On a exactement $J_{\fii}=\{f \in C^{\infty},\, m \in C_{\fii}\Rightarrow f(m)=0\}$. La raison pour laquelle nous avons donné une définition alternative de $J_{\fii}$ est la généralisation future à des phases complexes. On observe par ailleurs qu'on vient de démontrer que $C_{\fii}$ était lagrangienne.
+On a exactement $J_{\fii}=\{f \in C^{\infty},\, m \in
+C_{\fii}\Rightarrow f(m)=0\}$, où $C_{\fii}$ est la variété
+caractéristique de $\fii$ au sens de la définition \ref{def:carac}. La raison pour laquelle nous avons donné une définition alternative de $J_{\fii}$ est la généralisation future à des phases complexes. On observe par ailleurs qu'on vient de démontrer que $C_{\fii}$ était lagrangienne.
 
 Il existe un modèle local universel pour les idéaux lagrangiens coniques de $C^{\infty}(T^*Z \setminus 0)$ :
 \begin{lem}
@@ -428,13 +466,16 @@ L'opérateur $A\circ B$ est donc un opérateur à noyau, et son noyau est la con
 	\Psi(x,y,z,\xi,\eta,\zeta)=\langle x,\xi\rangle - \langle z,\zeta\rangle - H_A(\xi,\eta)-H_B(\eta,\zeta)
 \end{equation}
 
-Cette fonction est-elle une phase ? Il faut vérifier d'une part qu'à $x$ fixé, ou $z$ fixé, il n'y a pas de point critique, mais c'est le cas (parce que $\dd_z\Psi$ n'est jamais nul.) D'autre part, soit$\gamma$ un point en lequel $\dd_{\xi}\fii=0$, $\dd_{\zeta}\fii=0$, $\dd_{\eta}\fii=0$. Il faut vérifier que les formes suivantes sont indépendantes en $\gamma$ :
+Cette fonction est-elle une phase ? Il faut vérifier d'une part qu'à
+$x$ fixé, ou $z$ fixé, il n'y a pas de point critique, mais c'est le
+cas (parce que $\dd_z\Psi$ n'est jamais nul.) D'autre part, soit $\gamma$ un point en lequel $\dd_{\xi}\fii=0$, $\dd_{\zeta}\fii=0$, $\dd_{\eta}\fii=0$. Il faut vérifier que les formes suivantes sont indépendantes en $\gamma$ :
 \begin{align*}
 	\dd(x_i - \partial H_1/\partial \xi_i) &= \dd x_i - \dd (\partial H_1/\partial \xi_i)\\
 	\dd(z_i - \partial H_2/\partial \zeta_i) &= \dd z_i - \dd (\partial H_2/\partial \zeta_i)\\
 	\dd(\partial H_1/\partial \eta_i + \partial H_2/\partial \eta_i)
 \end{align*}
-Il faut et suffit que les dernières formes soient indépendantes entre elles. Cette condition, qui est générique, sera supposée à partir de maintenant pour pouvoir continuer nos constructions.
+Il faut et suffit que les formes $\dd(\partial H_1/\partial \eta_i
++ \partial H_2/\partial \eta_i)$ soient indépendantes entre elles. Cette condition, qui est générique, sera supposée à partir de maintenant pour pouvoir continuer nos constructions.
 
 Quelle est l'idéal $\widehat{J}_{\psi}$? C'est un idéal de $C^{\infty}((T^*X \setminus 0)\times (T^*Y \setminus 0)\times (T^*Z \setminus 0) )$, localement engendré par les fonctions :
 \begin{align*}
@@ -466,16 +507,33 @@ On peut donc construire l'idéal associé à la composition de deux OIF, à part
 \end{rem}
 
 \subsection{Opérateurs régularisants et équivalence}
-Lorsqu'on manipule des Opérateurs Intégraux de Fourier, il est commode de raisonner modulo une certaine classe d'opérateurs. On peut par exemple raisonner modulo l'ensemble des opérateurs qu'on peut définir par un symbole d'ordre donné. Mais lorsqu'on effectue des développements asymptotiques, on a envie de comparer des opérateurs "à l'ordre infini". Il existe a priori trois manières différentes de le faire, de la plus vague à la plus précise. Soit $A$ un OIF d'ordre $m$, envisageons les cas de figures suivants :
+Lorsqu'on manipule des Opérateurs Intégraux de Fourier, il est commode de raisonner modulo une certaine classe d'opérateurs. On peut par exemple raisonner modulo l'ensemble des opérateurs qu'on peut définir par un symbole d'ordre donné. Mais lorsqu'on effectue des développements asymptotiques, on a envie de comparer des opérateurs "à l'ordre infini". Il existe a priori quatre manières différentes de le faire, de la plus vague à la plus précise. Soit $A$ un OIF d'ordre $m$, envisageons les cas de figure suivants :
 \begin{enumerate}
-	\item Il existe une suite d'opérateurs $(A_k),\,k\in \N$ tels que pour tout k, $A-A_k$ est d'ordre $m-k$.
-	\item Il existe un opérateur $B$ tel que $A-B$ se prolonge en un opérateur qui est continu de $C^0$ dans $\mathcal{D}$. 
-	\item Il existe un opérateur $B$ tel que $A-B$ est d'ordre $-\infty$ (c'est-à-dire, est un OIF associé à un symbole dans $S^{-\infty}$).
+	\item Il existe un opérateur $B$ tel que $A-B$ est d'ordre
+          $-\infty$ (c'est-à-dire, est un OIF associé à un symbole
+          dans $S^{-\infty}$).
+        \item Il existe un opérateur $B$ tel que pour tout entier $k$,
+          $A-B$ est d'ordre $m-k$.
+	\item Il existe une suite d'opérateurs $(A_k)_{k\in \N}$ tels que pour tout k, $A-A_k$ est d'ordre $m-k$.
 	\item Il existe un opérateur $B$ tel que $A-B$ se prolonge en un opérateur régularisant, c'est-à-dire continu de $\mathcal{D'}$ dans $\mathcal{D}$.
-\end{enumerate}
+	\item Il existe un opérateur $B$ tel que $A-B$ se prolonge en
+          un opérateur qui est continu de $C^0$ dans $\mathcal{D}$.
+ \end{enumerate}
 
-En fait, les conditions 1 et 2 sont équivalentes. Supposons la condition 1, et soit $b_0$ le symbole de $A_0$ ; il n'est pas forcément d'ordre $m$. Cependant, si pour $k=0$, on note $b_k$ le symbole de $A_k-A_{k-1}$, on a que $a_k$ est d'ordre $m-k$. On peut appliquer le lemme de Borel, et il existe un symbole $b$ tel que pour tout entier $K$, on ait $b-\sum_{j=0}^Kb_k\in S^{m-K-1}$. si $B$ est l'opérateur associé à $b$, alors $A-B=A-A_k+A_k-B$ est un OIF d'ordre $m-k$ pour tout $k$, donc envoie $C^0$ dans $C^{\infty}$ de manière continue.
+On a alors naturellement que 1 implique 2 implique 3 et 4 implique 5. Supposons
+dorénavant que les variétés de départ et d'arrivée soient compactes (ce qui sera
+vrai dans toutes les applications). Alors les conditions 4 et 5 sont
+équivalentes car toute distribution a un ordre.
 
-De même, les conditions $3$ et $4$ sont équivalentes si les variétés de départ $X$ et $Y$ sont compactes (ce qui sera le cas dans toutes les applications) . En effet, un symbole dans $S^{-\infty}$ donne naissance à un opérateur dont le noyau est lisse, et qui envoie donc $\mathcal{D}'$ dans $\mathcal{D}$.
+En outre,  si $d$ est la dimension de
+l'espace des $\theta$, un OIF d'ordre $-d-k$ est
+continu de $C^0$ dans $C^k$ ; on en déduit que 3 implique 5.
 
-Il existe donc deux sens possibles à l'écriture $A\sim B$, le premier étant que ces opérateurs sont égaux à tous les ordres, le second étant que ces opérateurs sont égaux à un opérateur régularisant près. Ici, on précisera toujours de quelle relation on parle.
+Par ailleurs, 3 implique 2. Supposons en effet la condition 3, et soit $b_0$ le symbole de $A_0$ ; il n'est pas forcément d'ordre $m$. Cependant, si pour $k=0$, on note $b_k$ le symbole de $A_k-A_{k-1}$, on a que $a_k$ est d'ordre $m-k$. On peut appliquer le lemme de Borel, et il existe un symbole $b$ tel que pour tout entier $K$, on ait $b-\sum_{j=0}^Kb_k\in S^{m-K-1}$. si $B$ est l'opérateur associé à $b$, alors $A-B=A-A_k+A_k-B$ est un OIF d'ordre $m-k$ pour tout $k$.
+
+Il existe donc deux sens possibles à l'écriture $A\sim B$, le premier
+étant que ces opérateurs sont égaux à tous les ordres, le second étant
+que la différence entre ces opérateurs est un opérateur dont le
+symbole est dans $S^{-\infty}$. Ces deux sens impliquent tous deux que
+la différence des opérateurs est un opérateur régularisant. Par la
+suite, on précisera toujours de quelle relation d'équivalence on parle.

@@ -1,16 +1,84 @@
 \chapter*{Introduction}
-Durant les dernières décennies, un nouveau parallèle a émergé entre la géométrie différentielle et l'analyse spectrale. Cette association a été motivée par l'intuition physique d'une correspondance entre des phénomènes relevant de la mécanique classique (géodésiques, ou plus généralement flots hamiltoniens) et l'asymptotique de phénomènes quantiques (lorsque $h \to 0$ ou lorsque l'énergie du système devient très grande). Nos recherches ont pour origine un article de B. Douçot et P. Simon \cite{douccot1998semiclassical}, sur le fond du spectre dans la limite semiclassique de réseaux de spins ferromagnétiques ou antiferromagnétiques. Le cadre originel dans lequel les outils semiclassiques ont été développés \cite{helffer1988semi},  \cite{zworski2012semiclassical} est celui de la quantification de Weyl sur $\R^{2n}$, et dans une moindre mesure des opérateurs de type $-h^2\Delta + V$ sur des variétés riemanniennes. Cependant, le cadre théorique de la quantification des spins \cite{ma2012berezin}, \cite{borthwick2000introduction} est différent. Il existe à ce jour trop peu de résultats similaires au cas de la quantification de Weyl (on peut citer \cite{borthwick1998semiclassical}), s'agissant en particulier de l'étude des états fondamentaux. Douçot et Simon conjecturent cependant une généralisation des résultats de \cite{helffer1988semi}. 
+Durant les dernières décennies, un nouveau parallèle a émergé entre la
+géométrie différentielle et l'analyse spectrale. Cette association a
+été motivée par l'intuition physique d'une correspondance entre des
+phénomènes relevant de la mécanique classique (géodésiques, ou plus
+généralement flots hamiltoniens) et l'asymptotique de phénomènes
+quantiques (lorsque $h \to 0$ ou lorsque l'énergie du système devient
+très grande). Nos recherches ont pour origine un article de B. Douçot
+et P. Simon \cite{douccot1998semiclassical}, sur le fond du spectre
+de réseaux de spins ferromagnétiques ou
+antiferromagnétiques, dans la limite semiclassique. Le cadre originel dans lequel les outils
+semiclassiques ont été développés \cite{helffer1988semi,
+zworski2012semiclassical} est celui de la quantification de Weyl
+sur $\R^{2n}$, et dans une moindre mesure des opérateurs de type
+$-h^2\Delta + V$ sur des variétés riemanniennes. Cependant, le cadre
+théorique de la quantification des spins \cite{ma2012berezin,
+  borthwick2000introduction} est différent. Il existe à ce jour trop
+peu de résultats similaires au cas de la quantification de Weyl (on
+peut citer \cite{borthwick1998semiclassical}), s'agissant en
+particulier de l'étude des états fondamentaux. Douçot et Simon
+conjecturent cependant que les résultats de
+\cite{helffer1988semi} sont applicables à la quantification des spins. 
 
-Dans ce mémoire, nous avons cherché à étudier l'asymptotique du noyau de Szeg\H{o}, dont nous pensons qu'il sera utile pour démontrer des résultats en ce sens. Un tel développement asymptotique a été proposé par \cite{Shiffman2002}, où il sert d'autres fins. Ce mémoire a été pensé comme une introduction bibliographique au futur travail doctoral. En ce sens, plutôt que d'utiliser cette formule pour transposer les résultats de \cite{helffer1988semi}, nous nous sommes donné pour but de comprendre les tenants et aboutissants de ce développement asymptotique et de ses conséquences directes. Il ne sera donc pas directement question ici de quantification.
+Dans ce mémoire, nous avons cherché à étudier l'asymptotique du noyau
+de Szeg\H{o}, dont nous pensons qu'il sera utile pour démontrer des
+résultats en ce sens. Un tel développement asymptotique a été proposé
+par B. Shiffman et S. Zelditch \cite{Zelditch2000, Shiffman2002}, où il sert d'autres fins. Ce mémoire a été pensé comme une introduction bibliographique au futur travail doctoral. En ce sens, plutôt que d'utiliser cette formule pour transposer les résultats de \cite{helffer1988semi}, nous nous sommes donné pour but de comprendre les tenants et aboutissants de ce développement asymptotique et de ses conséquences directes. Il ne sera donc pas directement question ici de quantification.
 
-Dane les années 1970, L. Boutet de Monvel et J. Sj\"ostrand \cite{BoutetdeMonvel1975} ont établi un théorème donnant la structure analytique du projecteur sur le noyau d'un certain opérateur différentiel $\db$ apparaissant en géométrie complexe, appelé projecteur de Szeg\H{o}. Ces travaux ont fait suite à un important travail d'étude de la géométrie complexe par le biais des opérateurs différentiels associés, et notamment les résultats de J.J. Kohn \cite{kohn1965extension}. Le contexte théorique de \cite{BoutetdeMonvel1975} est celui des Opérateurs Intégraux de Fourier, généralisations des opérateurs pseudodifférentiels. Il nous a semblé judicieux de consacrer un chapitre entier à l'introduction de ces outils, en suivant le formalisme de H\"ormander \cite{hormander2007}, \cite{hormander1985},\cite{hormander2003analysis} puisque c'est celui dont se servent Boutet de Monvel et Sj\"ostrand. Il s'agit d'abord de définir des intégrales à phase oscillante comme des distributions : pour $\fii$ et $a$ convenables, on donne un sens distributionnel à l'intégrale 
+Dans les années 1970, L. Boutet de Monvel et J. Sj\"ostrand
+\cite{BoutetdeMonvel1975} ont établi un théorème donnant la structure
+analytique du projecteur sur le noyau d'un certain opérateur
+différentiel $\db$ apparaissant en géométrie complexe, appelé
+projecteur de Szeg\H{o}. Ces travaux ont fait suite à un important
+travail d'étude de la géométrie complexe par le biais des opérateurs
+différentiels associés, et notamment les résultats de J.J. Kohn
+\cite{kohn1965extension}. Le contexte théorique de
+\cite{BoutetdeMonvel1975} est celui des Opérateurs Intégraux de
+Fourier (OIF), généralisations des opérateurs pseudo-différentiels. Il nous a
+semblé judicieux de consacrer un chapitre entier à l'introduction de
+ces outils, en suivant le formalisme de H\"ormander
+\cite{hormander2007, hormander1985,hormander2003analysis} puisque c'est celui dont se servent Boutet de Monvel et Sj\"ostrand. Il s'agit d'abord de définir des intégrales à phase oscillante comme des distributions : pour $\fii$ et $a$ convenables, on donne un sens distributionnel à l'intégrale
 \begin{equation*}
-	u \mapsto \int e^{i\fii{x,\theta}}a(x,\theta)u(x)\dd x \dd \theta.
+	u \mapsto \int e^{i\fii(x,y,\theta)}a(x,y,\theta)u(x,y)\dd
+        x\dd y\dd \theta.
 \end{equation*}
-Ensuite, nous étudions le comportement des opérateurs dont le noyau-distribution est une telle intégrale. Nous raisonnons par degrés de généralisation successifs, en étudiant d'abord les opérateurs pseudodifférentiels (avec $\fii(x,y,\theta)=\langle \theta, x-y \rangle $), puis les OIF à phase réelle, et enfin les OIF à phase complexe.
+Ensuite, nous étudions le comportement des opérateurs dont le noyau-distribution est une telle intégrale. Nous raisonnons par degrés de généralisation successifs, en étudiant d'abord les opérateurs pseudo-différentiels (avec $\fii(x,y,\theta)=\langle \theta, x-y \rangle $), puis les OIF à phase réelle, et enfin les OIF à phase complexe.
 
-Les prérequis de géométrie complexe ont, eux, été placés en annexe. Nous nous intéressons principalement aux espaces de fonctions définies sur le bord d'un ouvert d'une variété complexe, en se demandant sous quelle condition ces fonctions sont trace au bord (en un certain sens) d'une fonction holomorphe à l'intérieur. Sous l'hypothèse de \emph{forte pseudoconvexité} de l'ouvert, l'ensemble de ces fonctions est exactement le noyau de l'opérateur différentiel $\db$.
+Les pré-requis de géométrie complexe ont, eux, été placés en
+annexe. Nous nous intéressons principalement aux espaces de fonctions
+définies sur le bord d'un ouvert d'une variété complexe, en se
+demandant sous quelle condition ces fonctions sont trace au bord d'une
+fonction holomorphe à l'intérieur. On peut construire un opérateur
+différentiel $\db$ sur le bord, par restriction de l'opérateur
+$\overline{\partial}$. Être dans le noyau de $\db$ est naturellement
+une condition nécessaire au fait d'être la trace au bord d'une
+fonction holomorphe, c'est-à-dire dans le noyau de
+$\overline{\partial}$. Un théorème de Kohn \cite{kohn1965extension}
+énonce que sous l'hypothèse de \emph{forte pseudoconvexité} de l'ouvert, l'ensemble de ces fonctions est exactement le noyau $L^2$ de l'opérateur différentiel $\db$ ; ce noyau est appelé espace de Hardy.
 
-Dans le chapitre 2, on démontre le théorème de Boutet et Sj\"ostrand, avant d'en donner une application, qui a fait l'objet d'un article de S. Zelditch \cite{Zelditch2000}. En effet, d'un développement du projecteur de Szeg\H{o} en somme d'opérateurs de degré décroissant, on obtient un développement asymptotique par rapport à un petit paramètre en codiagonalisant avec un autre opérateur, dont le spectre est $\Z$. On a en particulier un développement asymptotique de la trace, donc de la dimension de l'espace propre commun ; l'interprétation géométrique de cet espace propre conduit à une forme faible du théorème de Riemann-Roch. L'estimation de la diagonale du projecteur fournit par ailleurs une preuve purement analytique de l'existence d'une application immersive, et presque isométrique, d'une variété k\"ahlerienne ayant de bonnes propriétés (à savoir, sur lesquelles il existe un fibré en droites complexes, muni d'une structure hermitienne dont la courbure soit la forme de K\"ahler) dans l'espace projectif $\C\mathbb{P}^N$ pour $N$ assez grand.
+Dans le chapitre 2, on utilise le formalisme des Opérateurs Intégraux de Fourier pour analyser le projecteur orthogonal sur le noyau de $\db$. On commence par étudier des propriétés élémentaires, et notamment l'isométrie entre l'espace de Hardy et un espace de Hilbert de fonctions holomorphes à l'intérieur, qui n'est \emph{pas} l'espace des fonctions holomorphes de carré intégrable. On constate en effet une perte de dérivées : sur un exemple aussi élémentaire que le disque unité de $\C$, les fonctions dans $L^2(S^1)$ qui sont trace au bord de fonctions holomorphes à l'intérieur sont les séries de Fourier dont seuls les coefficients positifs sont non nuls. Une base hilbertienne de cet espace est l'ensemble des $\theta \mapsto e^{in\theta}$ pour $n\geq 0$. Ces fonctions sont les traces au bord des fonctions $z\mapsto z^n$, qui ne sont pourtant pas normalisées dans $L^2(B(0,1))$. 
 
-Dans le chapitre 3, on expose deux extensions de cette idée, comprises dans un article de B. Shiffman et S. Zelditch \cite{Shiffman2002}. La première est un développement plus précis du noyau de Szeg\H{o}, qui permet notamment de montrer l'injectivité de l'application construite plus haut. C'est ce développement qui nous intéresse dans le cadre de la quantification. La seconde extension concerne une construction "à l'envers" : on peut recopier la structure du projecteur de Szeg\H{o} pour créer de toutes pièces un projecteur sur des variétés qui ne sont plus complexes, mais seulement symplectiques. Une motivation supplémentaire est donnée par le fait que la seule condition géométrique nécessaire à la construction de ce projecteur "artificiel" est la condition nécessaire à la quantification géométrique au sens de Kostant et Souriau \cite{Woodhouse1997geometric}, à savoir le fait que la classe de cohomologie de Chern de la forme symplectique est entière.
+Ces considérations sont cruciales dans la preuve du résultat de Boutet
+et Sj\"ostrand concernant l'interprétation du projecteur orthogonal
+sur l'espace de Hardy (projecteur de Szeg\H{o}) en tant qu'OIF, pour
+des ouverts fortement pseudoconvexes. Après avoir construit un projecteur approximatif à partir de la structure symbolique de $\db$, on démontre que les deux projecteurs sont égaux à un opérateur régularisant près en utilisant l'identification précédente, qui permet de se ramener à un autre résultat de Kohn traitant des fonctions holomorphes dans un ouvert.
+
+Une application de ce résultat a été proposée par S. Zelditch dans \cite{Zelditch2000}. Ici, les ouverts qui nous intéressent sont des fibrés en disques sur une variété $M$. Ainsi, le bord de ces ouverts admet une action de $S^1$ par rotation, et l'opérateur $\db$ commute avec l'opérateur $\dd_{\theta}$ qui engendre cette rotation. Le spectre de $\dd_{\theta}$ est $\Z$, et les espaces propres communs sont appelés \emph{espaces de Hardy équivariants}. La codiagonalisation permet de traduire la structure microlocale du projecteur de Szeg\H{o} en des résultats asymptotiques, puisque les grandes valeurs du spectre de $\dd_{\theta}$ correspondent à des fréquences élevées. On peut donc démontrer, par le lemme de phase stationnaire, une estimation de la diagonale du noyau du projecteur de Szeg\H{o} équivariant. 
+
+Cette estimation possède une interprétation géométrique. En effet, les
+espaces de Hardy équivariants s'interprètent comme des espaces de
+sections holomorphes dans des puissances tensorielles de plus en plus
+grandes du même fibré en droites sur $M$, de la manière suivante. On
+considère $(L^*,h^*)$ le fibré en droites sur $M$ et sa structure
+hermitienne, tels que $\{v \in
+L^*, h^*(v)< 1\}$ est le fibré en disques qui nous intéresse. Soit
+$(L,h)$ le fibré dual. Alors à $s$, une section holomorphe $L^2$ de $L^{\otimes
+  N}$, on peut associer une fonction $\hat{s}$ dans l'espace de Hardy
+N-équivariant, par $\hat{s}(m,v)=\langle s(m),v\otimes \ldots \otimes
+v \rangle$. Cette association est en fait une isométrie.
+
+Les espaces de sections holomorphes de
+$L^{\otimes N}$ sont impliqués par exemple dans les constructions classiques qui permettent de démontrer le théorème de plongement de Kodaira. En fait, l'expression asymptotique de la diagonale du projecteur permet en soi d'immerger dans un espace projectif toute variété complexe possédant un fibré en droites de courbure positive (cette condition équivaut à la pseudoconvexité du fibré en disques associé). Si on définit sur la variété de départ une métrique correspondant à la courbure du fibré, on trouve que ce plongement est presque isométrique, un résultat connu sous le nom de théorème de Tian. 
+
+Dans le chapitre 3, on expose deux extensions de cette idée, comprises dans un article de B. Shiffman et S. Zelditch \cite{Shiffman2002}. La première est un développement du noyau de Szeg\H{o} sur un voisinage de la diagonale, qui permet notamment de montrer l'injectivité de l'application de Kodaira. La seconde extension concerne une construction \og à l'envers \fg : on peut recopier la structure du projecteur de Szeg\H{o} pour créer de toutes pièces un projecteur sur des variétés qui ne sont plus complexes, mais seulement symplectiques. Une motivation supplémentaire est donnée par le fait que la seule condition géométrique nécessaire à la construction de ce projecteur artificiel est la condition nécessaire à la quantification géométrique au sens de Kostant et Souriau \cite{woodhouse1997geometric}, à savoir le fait que la classe de cohomologie de Chern de la forme symplectique est entière. 

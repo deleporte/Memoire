@@ -1,9 +1,14 @@
+%%% Local Variables:
+%%% TeX-master: ../provisoire
+%%% End:
 \section{Structure du projecteur de Szego}
 
 Dans le cas d'un ouvert fortement pseudoconvexe relativement compact, les résultats de régularité de \cite{kohn1963harmonic}, \cite{kohn1964harmonic} ont une conséquence importante : le projecteur de Szeg\H{o} a une structure microlocale bien précise. En suivant la méthode originelle de Boutet et Sjöstrand, on se propose de démontrer le théorème suivant :
 
-\begin{theorem}[Boutet-Sjostrand]
-  Soit $X$ le bord d'un ouvert fortement pseudoconvexe et relativement compact d'une variété de dimension $n$. Alors le projecteur de Szeg\H{o} $S$ sur $X$ vérifie $S\sim S'$, où $S' = (S')^* \sim (S')^2$ vérifie :
+\begin{theorem}[Boutet-Sj\"ostrand]
+  Soit $X$ le bord d'un ouvert fortement pseudoconvexe et relativement
+  compact d'une variété de dimension $n$. Alors le projecteur de
+  Szeg\H{o} $S$ sur $X$ vérifie $S\sim S'$ (au sens le plus fort), où $S' = (S')^* \sim (S')^2$ vérifie :
   \begin{equation*}
     S'(x,y) = \int_{\R^+} e^{it\phi(x,y)}\sum_{k \geq 0}t^{n-1-k}\chi(t)a_k(x,y)dt,
   \end{equation*}
@@ -35,12 +40,15 @@ Il existe un projecteur orthogonal $P$ qui est un OIF à symbole classique, et d
   \item $Id \sim P + L^+D^+$.
   \item L'idéal lagrangien positif associé à $P$ est l'unique idéal lagrangien positif qui, d'une part, contient l'idéal engendré par les $2p$ fonctions $s_j^+(x,y,\xi,\eta)$ et  $\overline{s_j^+}(x',y',\xi',\eta')$ et qui, d'autre part, a un ensemble de points d'annulation prescrit :
   \begin{equation*}
-  	\{\forall f \in J_{\fii},\, f\} = \{x=x'=0, \, \xi=\xi'=0,\, y=y',\, \eta=\eta'\}.
+  	\{\forall f \in J_{\fii},\, f=0\} = \{x=x'=0, \, \xi=\xi'=0,\, y=y',\, \eta=\eta'\}.
   \end{equation*}
 \end{enumerate}
 \end{prop}
 \begin{proof}
-Nous allons démontrer ces quatre points dans l'ordre où ils ont été établis. On remarque tout de suite qu'on peut conjuguer les opérateurs $D^{\pm}$ par la transformée de Fourier selon la seconde variable, et c'est dans les variables $(x,\tau)$ que nous allons travailler dorénavent.
+Nous allons démontrer ces quatre points dans l'ordre où ils ont été
+énoncés. On remarque tout de suite qu'on peut conjuguer les opérateurs
+$D^{\pm}$ par la transformée de Fourier selon la seconde variable, et
+c'est dorénavant dans les variables $(x,\tau)$ que nous allons travailler.
 
 \begin{enumerate}
   \item L'opérateur $D^-$ s'écrit :
@@ -51,7 +59,8 @@ Nous allons démontrer ces quatre points dans l'ordre où ils ont été établis
   On peut résoudre explicitement le problème de Cauchy associé : pour $x=(x^*,x_n)$ avec par exemple $x_n > 0$, si $D^-_nf = g_n$, on a directement par la formule de Duhamel :
   \begin{equation*}
   \begin{split}
-    f(x^*,x_n,\tau)  = &\;f(x^*,0,\tau)e^{\frac12 x_n^2 |\tau|} \\ & -i \int_0^{x_n}e^{\frac 12 (x_n^2 - s^2)|\tau|}g_n(x^*,s,\tau)ds
+    f(x^*,x_n,\tau)  = &\;f(x^*,0,\tau)e^{\frac12 x_n^2 |\tau|} \\ &
+    -i \int_0^{x_n}e^{\frac 12 (x_n^2 - s^2)|\tau|}g_n(x^*,s,\tau)\dd s
     \end{split}
   \end{equation*}
   
@@ -61,12 +70,14 @@ Nous allons démontrer ces quatre points dans l'ordre où ils ont été établis
   \end{equation*}
   \noindent et par ailleurs, $s \mapsto e^{-\frac 12 s^2 |\tau|}g_n(x^*,s,\tau)$ est intégrable en $+\infty$. Par conséquent, en factorisant l'expression précédente par $e^{-\frac 12 x_n^2 |\tau|}$ et en prenant la limite en l'infini le long d'une sous-suite, on a :
   \begin{equation*}
-    f(x^*,0,\tau) = i \int_0^{+\infty}e^{-\frac 12 s^2|\tau|}g_n(x^*,s,\tau)ds
+    f(x^*,0,\tau) = i \int_0^{+\infty}e^{-\frac 12
+      s^2|\tau|}g_n(x^*,s,\tau)\dd s
   \end{equation*}
   
   Ainsi, en remplaçant dans l'expression précédente, on a :
   \begin{equation*}
-    f(x^*,x_n,\tau)=  -i \int_{x_n}^{+\infty}e^{\frac 12 (x_n^2 - s^2)|\tau|}g_n(x^*,s,\tau)ds
+    f(x^*,x_n,\tau)=  -i \int_{x_n}^{+\infty}e^{\frac 12 (x_n^2 -
+      s^2)|\tau|}g_n(x^*,s,\tau)\dd s
   \end{equation*}
   
   On vient de construire explicitement $L^-$.
@@ -78,12 +89,13 @@ Nous allons démontrer ces quatre points dans l'ordre où ils ont été établis
   
   Il est clair que $D^+R=0$. Par ailleurs, l'adjoint formel de cet opérateur est $R^* : \mathcal{S}(\R^n) \mapsto \mathcal{S}(\R^q)$, défini par :
   \begin{equation*}
-    R^*h(\tau) = \int e^{-\frac 12 |x|^2 |\tau|}\left(\frac{|\tau|}{\pi}\right)^{p/4}h(x,\tau)dx
+    R^*h(\tau) = \int e^{-\frac 12 |x|^2
+      |\tau|}\left(\frac{|\tau|}{\pi}\right)^{p/4}h(x,\tau)\dd x
   \end{equation*}
   
   On a alors immédiatement que $R^*R=Id$, grâce à la formule
   \begin{equation*}
-    \int e^{-|x|^2|\tau|}dx = \left(\frac{\pi}{|\tau|}\right)^{p/2}.
+    \int e^{-|x|^2|\tau|}\dd x = \left(\frac{\pi}{|\tau|}\right)^{p/2}.
   \end{equation*}
   
    Ainsi, $P=RR^*$ est un projecteur orthogonal dans $L^2(\R^n)$, dont l'image est incluse dans le noyau de $D^+$.
@@ -91,7 +103,9 @@ Nous allons démontrer ces quatre points dans l'ordre où ils ont été établis
   \item On a, pour $f \in \mathcal{S}(\R^n)$, l'identité :
   \begin{equation*}
   \begin{split}
-    f-&Pf(x,\tau) = \\ &\left(\frac{\pi}{|\tau|}\right)^{p/2}\int e^{-\frac 12 |y|^2 |\tau|}\left(f(x,\tau)e^{-\frac 12 |y|^2|\tau|} - f(y,\tau)e^{-\frac 12 |x|^2|\tau|}\right)dy
+    f-&Pf(x,\tau) = \\ &\left(\frac{\pi}{|\tau|}\right)^{p/2}\int
+    e^{-\frac 12 |y|^2 |\tau|}\left(f(x,\tau)e^{-\frac 12 |y|^2|\tau|}
+      - f(y,\tau)e^{-\frac 12 |x|^2|\tau|}\right)\dd y
     \end{split}
   \end{equation*}
   
@@ -104,20 +118,24 @@ Nous allons démontrer ces quatre points dans l'ordre où ils ont été établis
   
   On constate alors que le premier terme de cette décomposition annule l'autre terme de l'équation précédente, ainsi :
   \begin{equation*}
-    f-Pf(x,\tau) = \left(\frac{\pi}{|\tau|}\right)^{p/2}\int e^{-|y|^2|\tau|}\mathfrak{L}^- g(x,y,\tau) dy
+    f-Pf(x,\tau) = \left(\frac{\pi}{|\tau|}\right)^{p/2}\int
+    e^{-|y|^2|\tau|}\mathfrak{L}^- g(x,y,\tau) \dd y
   \end{equation*}
   
   Ceci est bien un opérateur pseudodifférentiel de degré $-1$ appliqué à $D^+f$.
   
   \item On a :
   \begin{equation*}
-    RR^*f(x,\tau) = \int e^{-\frac 12 (|x|^2 + |x'|^2)|\tau|} \left(\frac{\pi}{|\tau|}\right)^{p/2} f(x',\tau)dx'
+    RR^*f(x,\tau) = \int e^{-\frac 12 (|x|^2 + |x'|^2)|\tau|}
+    \left(\frac{\pi}{|\tau|}\right)^{p/2} f(x',\tau)\dd x'
   \end{equation*}
   
   Cette écriture n'est pas exactement celle d'un OIF, on conjugue donc par la transformée de Fourier par rapport à la seconde variable :
   \begin{equation*}
   \begin{split}
-    &FRR^*F^*f(x,y) = \\ &(2\pi)^{-q} \int e^{-\frac 12 (|x|^2 + |x'|^2)|\tau| + i\langle y-y', \tau \rangle} \left(\frac{\pi}{|\tau|}\right)^{p/2} f(x',y')dy'dx'd\tau
+    &FRR^*F^*f(x,y) = \\ &(2\pi)^{-q} \int e^{-\frac 12 (|x|^2 +
+      |x'|^2)|\tau| + i\langle y-y', \tau \rangle}
+    \left(\frac{\pi}{|\tau|}\right)^{p/2} f(x',y')\dd y'\dd x'\dd\tau
     \end{split}
   \end{equation*}
   
@@ -150,7 +168,12 @@ Nous allons démontrer ces quatre points dans l'ordre où ils ont été établis
   
   Cet idéal contient bien l'idéal $I$ engendré par les $s_j(x,\xi,y,\eta)$ et $\overline{s_j}(x',\xi',y',\eta')$ ; par ailleurs, toute fonction dans cet idéal est con\-tenue dans l'idéal des fonctions nulles sur  $\{x=x'=0,\,\xi=\xi'=0,\,y=y',\,\eta=\eta'\}=C_{\fii}$.
   
-Réciproquement, soit $J$ un idéal lagrangien positif tel que $I \subset J$ avec $\{f=0 \forall f \in J\}=C_{\fii}$, et soit $m \in T^*(\R^n \times \R^n)$.
+Réciproquement, soit $J$ un idéal lagrangien positif tel que $I
+\subset J$ avec $\{\forall f \in J,\,f=0\}=C_{\fii}$, et soit $m \in
+T^*(\R^n \times \R^n)$. On note $K$ l'idéal des fonctions qui
+s'annulent sur $C_{\fii}$. On utilisera, de manière cruciale, le fait
+qu'un idéal lagrangien est toujours localement engendré par des
+fonctions dont les différentielles sont indépendantes.
 
 \begin{itemize}
   \item Si $m \notin C_{\fii}$, alors l'une des fonctions qui engendrent $J_{\fii}$ est non nulle au voisinage de $m$, ainsi que l'une des fonctions qui engendre $J$. Donc localement, ces deux idéaux sont les mêmes.
@@ -196,9 +219,10 @@ Nous portons à l'attention du lecteur que dans \cite{BoutetdeMonvel1975}, le r�
 Les calculs explicites que nous avons menés peuvent se généraliser :
 
 \begin{prop}
-  Soit $(D_j),\,1\leq j\leq p$ un système d'opérateurs pseudodifférentiels classiques de symboles $d_j$, sur une variété $X$ de dimension $n$. On suppose que pour tous $j$ et $k$, on a $\{d_j,d_k\}=0$, et que par ailleurs, en chaque point d'annulation commun des $d_j$, la matrice $\{d_j, \overline{d_k}\}$ est, ou bien définie positive, ou bien définie négative.
+  Soit $D=(D_j)_{1\leq j\leq p}$ un système d'opérateurs pseudodifférentiels classiques de symboles $d_j$, sur une variété $X$ de dimension $n$. On suppose que pour tous $j$ et $k$, on a $\{d_j,d_k\}=0$, et que par ailleurs, en chaque point d'annulation commun des $d_j$, la matrice $\{d_j, \overline{d_k}\}$ est, ou bien définie positive, ou bien définie négative.
   
-  \noindent Alors il existe deux OIF $L$ et $S$, vérifiant les conditions suivantes :
+  \noindent Alors il existe deux OIF $L$ et $S$, vérifiant les
+  conditions suivantes, où $\sim$ dénote l'équivalence la plus forte :
   
   \begin{enumerate}
     \item $Id \sim S + LD$.
@@ -208,7 +232,7 @@ Les calculs explicites que nous avons menés peuvent se généraliser :
   
   \noindent En particulier $S$ est un opérateur continu $L^2(X) \mapsto L^2(X)$.
 \end{prop}
-\begin{proof}
+\begin{preuve}
   On suit la preuve présentée par Boutet et Sjöstrand. On note $\Sigma$ l'ensemble des zéros communs des $d_j$ ; pour simplifier, on supposera que les $d_j$ sont analytiques.
   
   Cette proposition est de nature purement locale. D'une part, si on a un recouvrement paracompact de $T^*X$ par des ouverts $(W_j)$ tels que, sur chaque $W_j$, il existe des opérateurs $L_j$ et $(S_j)$ vérifiant les relations précédentes, où on remplace "$\sim$" par "le front d'onde de la différence n'intersecte pas $W_j$", alors en considérant $(\chi_j)$ une partition de l'unité adaptée à $(W_j)$, les opérateurs suivants conviennent :
@@ -235,7 +259,9 @@ Les calculs explicites que nous avons menés peuvent se généraliser :
   \end{equation*}
   Cette dernière affirmation mérite une justification. À cause de l'égalité des symboles, on sait qu'on a $D=UD^+V$ au premier ordre. Par récurrence, s'il existe une matrice elliptique $A_n$ telle que $D=UA_nD^+V$ à l'ordre $n$, alors il existe une matrice $B_n$ d'opérateurs de degré $-1$ telle que $D=U(Id+B_n)A_nD^+V$ à l'ordre $n+1$ (en regardant les symboles). Comme tous les symboles considérés sont classiques, la suite $(A_n)$ converge au moins sur un petit ouvert autour de $u$. On a alors $D=UAD^+V$ à tous les ordres ; comme les symboles considérés sont analytiques, on en déduit le résultat recherché.
   
-  Lorsque les $d_j$ ne sont pas analytiques, on ne peut pas conclure, à moins de se contenter d'une classe d'équivalence plus large entre deux OIF, à savoir "être égal à tous les ordres". Les constructions des chapitres suivants n'utilisent pas explicitement que les opérateurs sont égaux à un noyau $C^{\infty}$ près, mais seulement la forme faible de l'équivalence de deux OIF, donc cette construction suffit. Notons que dans \cite{BoutetdeMonvel1974-1975}, une preuve est présentée dans le cas non analytique.
+  Lorsque les $d_j$ ne sont pas analytiques, on ne peut pas conclure,
+  à moins de se contenter d'une classe d'équivalence plus large entre
+  deux OIF, à savoir "être égal à tout ordre". Les constructions des chapitres suivants utilisent seulement la forme faible de l'équivalence de deux OIF, donc cette construction suffit. Notons que dans \cite{BoutetdeMonvel1974-1975}, une preuve est présentée dans le cas non analytique.
   
   En utilisant cette écriture de $D$, on a envie de poser :
   
@@ -247,12 +273,10 @@ où $P=RR^*$ est le projecteur construit précédemment. Malheureusement, l'opé
   \begin{equation*}
     S_2=URBR^*U^*
   \end{equation*}
-  
   Alors $S_2 \sim S_2^*$, et par ailleurs, $S_1S_2 \sim S_2$, ce dont on déduit que $DS_2 \sim 0$, et par ailleurs $S_2S_1 \sim S_1$, donc $S_2^2 \sim S_2$ et $(Id-S_2)(Id-S_1) \sim Id-S_2$. On peut alors poser :
   \begin{equation*}
     L=(Id-S_2)L_1
   \end{equation*}
-  
   Alors, comme par construction $1-S_1 \sim L_1D$, on a bien $S_2 + LD \sim Id$.
   
   On peut alors poser $S=(S_2+S_2^*)/2$, alors $S=S^*$, et $S=L^2$, finalement le couple $(S,L)$ convient.
@@ -263,20 +287,20 @@ où $P=RR^*$ est le projecteur construit précédemment. Malheureusement, l'opé
   \end{equation*}
   
   On peut alors prendre directement $S=0$ et $L=UA^{-1}D^-V$.
-  \end{proof}
+  \end{preuve}
   
-  En reprenant le raisonnement de la partie précédente, l'unique idéal lagrangien $J$ qui contienne l'idéal engendré par les $d_j$ en le premier jeu de variables et les $\overline{d_j}$ en le second jeu de variables, et dont l'ensemble des points d'annulation est exactement $diag(\Sigma)$, est l'idéal associé à la phase qui définit $S$.
+  En reprenant le raisonnement de la partie précédente, l'unique idéal lagrangien $J$ qui contienne l'idéal engendré par les $d_j$ en le premier jeu de variables et les $\overline{d_j}$ en le second jeu de variables, et dont l'ensemble des points d'annulation est exactement $\diag(\Sigma)$, est l'idéal associé à la phase qui définit $S$.
 \subsubsection{Application au projecteur de Szeg\H{o}}
 On va considérer le cas particulier où le système d'opérateurs est $\overline{\partial}_b$, sur le bord d'une variété pseudoconvexe.
 
-Par une carte locale, on suppose qu'une variété $X$, au voisinage d'un point $x$, est l'intersection d'une sous-variété de $\C^n$ avec un voisinage de $0$ noté $U$, et vérifie $X \cap U=\{\rho=0\}$ où $d\rho(0)=dz_n + d\overline{z_n} = 2dx_n$, et $Hess_{\C}\rho >>0$. Une base de $T^{0,1}(X\cap U)$ est alors donnée par les $n-1$ vecteurs :
+Par une carte locale, on suppose qu'une variété $X$, au voisinage d'un point $x$, est l'intersection d'une sous-variété de $\C^n$ avec un voisinage de $0$ noté $U$, et vérifie $X \cap U=\{\rho=0\}$ où $d\rho(0)=dz_n + d\overline{z_n} = 2dx_n$, et $\Hess_{\C}\rho >>0$. Une base de $T^{0,1}(X\cap U)$ est alors donnée par les $n-1$ vecteurs :
 \begin{equation*}
-  Z_j = \cfrac{\partial}{\partial \overline{z_j}} - \left(\cfrac{\partial \rho}{\partial \overline{z_n}}\right)^{-1} \cfrac{\partial \rho}{\partial \overline{z_j}} \cfrac{\partial}{\partial \overline{z_k}}.
+  Z_j = \cfrac{\partial}{\partial \overline{z_j}} - \left(\cfrac{\partial \rho}{\partial \overline{z_n}}\right)^{-1} \cfrac{\partial \rho}{\partial \overline{z_j}} \cfrac{\partial}{\partial \overline{z_n}}.
 \end{equation*}
 
 \noindent On définit alors le système d'opérateurs $(D_j)$ par 
 \begin{equation*}
-  D_jf := Z_j\cdot f = df(Z_j).
+  D_jf := Z_j\cdot f = \dd f(Z_j).
 \end{equation*}
 
 Alors on a, d'une part, $Df = 0 \Leftrightarrow \overline{\partial}_bf = 0$, et d'autre part, $D_j$ est un opérateur différentiel créé par le symbole 
@@ -284,7 +308,7 @@ Alors on a, d'une part, $Df = 0 \Leftrightarrow \overline{\partial}_bf = 0$, et 
   s_j = i(\xi_j - i \eta_j) - i\left(\frac{\partial \rho}{\partial \overline{z_n}}\right)^{-1}\frac{\partial \rho}{\partial \overline{z_j}}(\xi_n - i \eta_n).
 \end{equation*}
 
-\noindent Ainsi, on a $\{s_j, s_k\}=0$. Par ailleurs, la variété caractéristique de $D$ est l'ensemble $\Sigma$ des points $(x,\xi)$ tels que $\xi = \alpha d\rho(x)$ avec $\alpha \in \R^*$. Lorsque $(x,\xi)\in \Sigma$, la matrice $\{s_j, \overline{s_k}\} = \frac{\alpha}{|d\rho|}Hess_{\C}\rho$ est définie positive lorsque $\alpha > 0$ et définie négative sinon.
+\noindent Ainsi, on a $\{s_j, s_k\}=0$. Par ailleurs, la variété caractéristique de $D$ est l'ensemble $\Sigma$ des points $(x,\xi)$ tels que $\xi = \alpha d\rho(x)$ avec $\alpha \in \R^*$. Lorsque $(x,\xi)\in \Sigma$, la matrice $\{s_j, \overline{s_k}\} = \frac{\alpha}{|d\rho|}\Hess_{\C}\rho$ est définie positive lorsque $\alpha > 0$ et définie négative sinon.
 
 On peut alors appliquer le théorème précédent ; on appelle $S'$ le projecteur approximatif ainsi créé, et on a $\overline{\partial}_bS'\sim0$.
 
@@ -295,7 +319,7 @@ Dans cette partie, $S$ dénote le projecteur de Szeg\H{o}, et $S'$ le projecteur
   $S \sim S'$.
 \end{prop}
 
-\subsubsection{Le projecteur de Bergmann exact}
+\subsubsection{Le projecteur de Bergman exact}
 Pour démontrer la proposition précédente, on va se servir de propriétés de régularité du problème de prolongement holomorphe d'une fonction sur le bord vérifiant $\overline{\partial}_b =0$.
 
 On note d'abord $\gamma$ l'opérateur de trace au bord, sur les fonctions et sur les formes, de manière à avoir :
@@ -303,7 +327,7 @@ On note d'abord $\gamma$ l'opérateur de trace au bord, sur les fonctions et sur
   \gamma \overline{\partial} = \overline{\partial}_b\gamma
 \end{equation*}
 
-\noindent On dispose par ailleurs, comme l'ouvert dont $X$ est le bord est relativement compact, d'un opérateur $K$ qui résoud le problème de Dirichlet à l'intérieur :
+\noindent On dispose par ailleurs, comme l'ouvert dont $X$ est le bord est relativement compact, d'un opérateur $K$ qui résout le problème de Dirichlet à l'intérieur :
 \begin{align*}
   \Delta K &= 0\\
   \gamma K &= Id
@@ -318,18 +342,18 @@ $K\gamma$ est un projecteur, mais il n'est pas orthogonal, on va construire un p
 
 On sait que l'opérateur $K^*K$ est elliptique de degré $-1$, et inversible (cf \cite{krantz1992partial}) ; on note $A=(K^*K)^{-1/2}$. Alors $(KA)^*KA = Id_{L^2(X)}$, autrement dit, $KA$ est une isométrie de $L^2(X)$ vers l'ensemble des fonctions harmoniques dans $U$, de carré intégrable jusqu'au bord. On note encore $H=KA(KA)^*$ le projecteur orthogonal sur cet ensemble.
 
-On note encore $G=(Id-H)G_1$ ; il satisfait aux mêmes conditions que $G_1$ en remplaçant $\gamma$ par $K^*$, simplement parce que $K^*(Id-H) = 0$. Alors $G$ est régulier et auto-adjoint. Enfin, on introduit une dernière notation, le projecteur de Bergmann $B$ sur l'espace des fonctions holomorphes dans $L^2(U)$. On a alors, puisqu'une fonction holomorphe est harmonique :
+On note encore $G=(Id-H)G_1$ ; il satisfait aux mêmes conditions que $G_1$ en remplaçant $\gamma$ par $K^*$, simplement parce que $K^*(Id-H) = 0$. Alors $G$ est régulier et auto-adjoint. Enfin, on introduit une dernière notation, le projecteur de Bergman $B$ sur l'espace des fonctions holomorphes dans $L^2(U)$. On a alors, puisqu'une fonction holomorphe est harmonique :
 
 \begin{align*}
   \gamma B K &= S\\
   K S \gamma &= K\gamma B = B-G_1\Delta B = B
 \end{align*}
 
-Nous utilisons à présent les résultats de Kohn, présentés dans l'annexe, et qui sont la raison pour laquelle, pour démontrer un résultat sur le projecteur de Szeg\H{o}, on commence par montrer un résultat pour le projecteur de Bergmann avant de procéder par conjugaison. En effet, on a des résultats de régularité sur $B$, qu'on rappelle ici :
+Nous utilisons à présent les résultats de Kohn, présentés dans l'annexe, et qui sont la raison pour laquelle, pour démontrer un résultat sur le projecteur de Szeg\H{o}, on commence par montrer un résultat pour le projecteur de Bergman avant de procéder par conjugaison. En effet, on a des résultats de régularité sur $B$ :
 \begin{prop}
 Soit $B$ le projecteur orthogonal sur $H^2(D)$. Alors il existe un opérateur continu $F$ tel que $Id = B + F\overline{\partial}$.
 \end{prop}
-On rappelle que $\Lambda$ est un opérateur de restriction de formes sur $\Vois(X)$ à des formes sur $X$. On a alors :
+On rappelle que $\mu$ est un opérateur de restriction de formes sur $\Vois(X)$ à des formes sur $X$. On a alors :
 \begin{prop}
 Il existe une constante $C$ qui ne dépend que de $U$, telle que si $\alpha$ est une forme sur $M$ vérifiant $\overline{\partial}\alpha=0$ dans $U$ et $\overline{\partial}^{*}\alpha=0$ dans $U$, alors $\|\alpha\|_{L^2(U)} \leq C\|\gamma\alpha\|_{L^2(X)}$.
 \end{prop}
@@ -352,27 +376,25 @@ On a $Im(S_A) = Ker(\overline{\partial}_bA)$.
  \noindent En effet, si $f$ est harmonique, on a $AK^*f=A^{-1}\gamma f$. Or, puisque $U$ est strictement pseudoconvexe, on a exactement $\gamma Im(B) = Ker \overline{\partial}_b$.
  \end{proof}
  
-\subsubsection{Le projecteur de Bergmann approximatif}
+\subsubsection{Le projecteur de Bergman approximatif}
  
-Le système d'opérateurs $\overline{\partial}_bA$ vérifie encore les hypothèses de la partie précédente, donc on peut construire un projecteur approximatif autoadjoint $S_A'$ et un OIF $L_A'$ tels que
+Le système d'opérateurs $\overline{\partial}_bA$ vérifie encore les hypothèses de la partie précédente, donc on peut construire un projecteur approximatif auto-adjoint $S_A'$ et un OIF $L_A'$ tels que
  
 \begin{align*}
   \overline{\partial}_bAS'_A\sim 0\\
   S_A' + L_A'\overline{\partial}_bA\sim Id
 \end{align*}
-On peut alors construire un projecteur de Bergmann approximatif. On va démontrer que $B' = KAS_A'AK^*$ vérifie, par rapport à $\overline{\partial}$, les bonnes conditions.
+On peut alors construire un projecteur de Bergman approximatif. On va démontrer que $B' = KAS_A'AK^*$ vérifie, par rapport à $\overline{\partial}$, les bonnes conditions.
 \begin{lem}
 On a $\overline{\partial}B' \sim 0$. Par ailleurs, il existe un opérateur continu $F'$ tel que $Id=B'+F'\overline{\partial}$.
 \end{lem}
-\begin{proof}
+\begin{preuve}
 On utilise ici les résultats de régularité démontrés dans \cite{kohn1963harmonic}, \cite{kohn1964harmonic}. En effet, on a évidemment $\overline{\partial}\,\overline{\partial}B'=0$, et par ailleurs 
-
 \begin{align*}
   \overline{\partial}^*\overline{\partial}B' = \frac{1}{2} \Delta KAS_A'AK^* = 0\\
   \intertext{ainsi que}
   \gamma \overline{\partial} B' = \overline{\partial}_b\gamma KAS_A'AK^* = \overline{\partial}_bAS_A'AK^* \sim 0
 \end{align*}
-
 \noindent On sait par ailleurs que si $\overline{\partial}\alpha=0$ et $\overline{\partial}^*\alpha =0$, alors $\|\alpha\|_2 \leq C\|\gamma \alpha\|_2$. On en déduit que $\overline{\partial}B' \sim 0$.
 
 On va évidemment construire $F'$ à l'aide de $L_A'$. En multipliant l'identité $Id = S_A' + L_A'\overline{\partial}_bA$ par $KA$ à gauche et par $AK^*$ à droite, on obtient :
@@ -395,7 +417,7 @@ On va évidemment construire $F'$ à l'aide de $L_A'$. En multipliant l'identit�
   F' = 2G\overline{\partial}^* + KAL_A'\gamma(Id-2\overline{\partial}G\overline{\partial}^*)
 \end{equation*}
 \noindent convient.
-\end{proof}
+\end{preuve}
 
 On est près du but. $F'$ et $B'$ sont des opérateurs réguliers : l'image d'une fonction lisse est lisse (parce qu'ils ont été construits comme tels). Cependant, $F$ n'envoie pas forcément $C^{\infty}$ dans $C^{\infty}$, mais envoie au moins $L^2$ dans $L^2$ ; de même, on n'a a priori aucun résultat de régularité sur $B$.
 
@@ -405,7 +427,7 @@ On peut raisonner de la même façon pour l'autre opérateur : comme $Id-B = F\o
 
 Ainsi, $B-B'$ est la soustraction des deux opérateurs $B'-BB'$ et $B-BB'$, donc envoie $C^{-\infty}$ dans $L^2$ ; étant aussi la soustraction de $B'-B'B$ et $B-B'B$, il envoie $L^2$ dans $C^{\infty}$. Ainsi, $(B-B')^2 \sim 0$. Or, en développant $(B-B')^2$ et en réutilisant que $B-B'B \sim B-BB' \sim 0$, on trouve que $(B-B')^2 \sim B-B'$.
 
-\subsubsection{Fin de la preuve}
+\subsubsection{Fin de la preuve et examen de la phase}
 
 On note $S$ le projecteur de Szeg\H{o} exact, et $S'$ le projecteur approximatif défini précédemment. On rappelle également que $S_A'$ est le projecteur conjugué à $B'$. On définit alors naturellement 
 \begin{equation*}
@@ -416,9 +438,10 @@ Alors $S_1$ est un projecteur sur le noyau de $\overline{\partial}_b$ (mais pas 
 
 Par ailleurs on a $S'S_1 \sim S_1$ et $S_1S'=S'$ en vertu de l'existence de $L'$ et de $L_A'$.
 
-$S$ n'est pas a priori un opérateur régulier, mais on peut en fait répéter le raisonnement précédent, ce qui permet de conclure.
+$S$ n'est pas a priori un opérateur régulier, mais on peut en fait
+répéter le raisonnement précédent, ce qui permet de conclure la preuve.
 
-Il s'agit maintenant, pour conclure, de trouver une phase qui engendre le bon idéal $J$.
+Il s'agit maintenant, pour conclure l'étude du projecteur de Szeg\H{o}, de trouver une phase qui engendre le bon idéal $J$.
 
 On se rappelle pour cela que, $X=\partial D$ étant lisse, il existe une fonction $\rho$ strictement pseudoconvexe qui définit $X$. Cette fonction $\rho$ permet de définir une phase $\psi \in C^{\infty}(M \times M,\C)$ qui vérifie, au voisinage de $\diag X$ :
 \begin{equation*}
@@ -433,13 +456,13 @@ On peut également demander que $\psi$ vérifie
 où $\overline{\partial}_1$ désigne la dérivée antiholomorphe par rapport à la première variable. En effet, l'équation précédente détermine le jet de $\psi$ le long de $\diag X$, et ce jet respecte la condition d'antisymétrie. Pour la deuxième condition, on a besoin du :
 \begin{lem} Posons :
 	\begin{equation*}
-		R(x,y)=\psi(x,y) + \psi(y,x)-\psi(x,x)-\psi(y,y)
+		R(x,y)=\psi(x,y) + \psi(y,x)-\psi(x,x)-\psi(y,y).
 	\end{equation*}
 	On a alors, au voisinage de la diagonale :
 	\begin{equation*}
 	\frac{1}{i}R(x,y)= \Hess_{\C}\rho(x-y) + O(|x-y|^3),
 	\end{equation*}
-	où comme dans l'annexe, $\Hess_{\C}\rho(\eta,\xi)=\sum \cfrac{\partial^2\rho}{\partial z_j \partial \overline{z_k}}\overline{\eta}_k\xi_j$
+	où comme dans l'annexe, $\Hess_{\C}\rho(\eta,\xi)=\sum \cfrac{\partial^2\rho}{\partial z_j \partial \overline{z_k}}\overline{\eta}_k\xi_j$.
 \end{lem}
 \begin{preuve}
 	On réalise un développement de Taylor du membre de gauche (noté $\Phi$ par la suite) en $x=y$, à l'ordre 2 en $y$. Le terme d'ordre 0 vaut évidemment $0$, et par ailleurs, par l'expression du jet de $\psi$ sur la diagonale,
@@ -448,7 +471,7 @@ où $\overline{\partial}_1$ désigne la dérivée antiholomorphe par rapport à 
 	\end{equation*}
 	De manière identique, $\overline{\partial}^{\alpha}_y\Phi|_{x=y}=0$. Il ne reste plus que
 	\begin{equation*}
-		\cfrac{\partial^2 }{\partial y_j\partial \overline{y}_k}\Phi|_{x=y} = \cfrac{\partial^2 \rho}{\partial y_j\partial \overline{y}_k}(x)
+		\cfrac{\partial^2 }{\partial y_j\partial \overline{y}_k}\Phi|_{x=y} = \cfrac{\partial^2 \rho}{\partial y_j\partial \overline{y}_k}(x).
 	\end{equation*}
 	Ce qui permet de conclure.
 \end{preuve}
@@ -456,26 +479,32 @@ On a alors, puisque $\rho$ est strictement pseudoconvexe,
 \begin{align*}
 	\Im \psi (x,y) &= \frac{1}{2i}(\psi(x,y)+\psi(y,x)) \\
 	&= \frac{1}{2i}(\psi(x,x)+\psi(y,y)) + \frac{1}{2}\Hess_{\C}(\rho)(x-y)+O(|x-y|^3)\\
-	&\geq C(d(x,X)+d(y,Y) + |x-y|^2) + O(|x-y|^3)
+	&\geq C(d(x,X)+d(y,Y) + |x-y|^2) + O(|x-y|^3).
 \end{align*}
-On peut alors corriger $\psi$ par une fonction nulle à tous les ordres sur la diagonale, de manière à avoir la condition requise.
+On observe alors que la condition 2 est vérifiée par $\psi$ dans un
+petit voisinage de la diagonale ; on peut donc corriger $\psi$ par une fonction nulle à tous les ordres sur la diagonale, de manière à avoir la condition requise.
 
-On observe alors  que l'idéal $J_{\psi}$ de $C^{\infty}(T^*(X\times X), \C)$ associé à la phase$(x,y,t)\mapsto t\psi(x,y)$ est exactement l'idéal de l'opérateur intégral de Fourier $S'$. Pour cela on rappelle que les générateurs locaux de $\db$ sont
+Démontrons maintenant que l'idéal $J_{\psi}$ de $C^{\infty}(T^*(X\times X), \C)$ associé à la phase$(x,y,t)\mapsto t\psi(x,y)$ est exactement l'idéal de l'opérateur intégral de Fourier $S'$. Pour cela on rappelle que les générateurs locaux de $\db$ sont
 \begin{equation*}
 s_j = i(\xi_j - i \eta_j) - i\left(\frac{\partial \rho}{\partial \overline{z_n}}\right)^{-1}\frac{\partial \rho}{\partial \overline{z_j}}(\xi_n - i \eta_n).
 \end{equation*}
-Et que la variété caractéristique, où le symbole s'annulle et où la matrice des crochets de Poisson $\{s_j,\overline{s_k} \}$ est positive, vaut $\Sigma=\{(x,-ir\dd \rho), r>0\}$. Par la caractérisation de l'idéal dans le théorème de Boutet et Sjostrand, il suffit de démontrer, d'une part, que chaque $s_j$ appartient à l'idéal $J_{\psi}$, et que d'autre part le lieu des zéros communs des fonctions de $J_{\psi}$ vaut exactement $\diag \Sigma$. Mais par construction, le lieu des zéros communs des fonctions de $J_{\psi}$ est exactement l'ensemble des points critiques de $\psi$, qui vaut $\diag \Sigma$. Par ailleurs, un examen direct des générateurs locaux de $J_{\psi}$ montre que $s_j \in J$ pour tout $j$, ce qui permet de conclure.
+Et que la variété caractéristique, où les symboles $s_j$ s'annulent tous et où la matrice des crochets de Poisson $\{s_j,\overline{s_k} \}$ est positive, vaut $\Sigma=\{(x,-ir\dd \rho), r>0\}$. Par la caractérisation de l'idéal dans le théorème de Boutet et Sjöstrand, il suffit de démontrer, d'une part, que chaque $s_j$ appartient à l'idéal $J_{\psi}$, et que d'autre part le lieu des zéros communs des fonctions de $J_{\psi}$ vaut exactement $\diag \Sigma$. Mais par construction, le lieu des zéros communs des fonctions de $J_{\psi}$ est exactement l'ensemble des points critiques de $\psi$, qui vaut $\diag \Sigma$. Par ailleurs, un examen direct des générateurs locaux de $J_{\psi}$ montre que $s_j \in J_{\psi}$ pour tout $j$, ce qui permet de conclure.
 
 \subsection{Développement asymptotique du symbole}
-On redonne maintenant un calcul réalisé par Boutet et Sjöstrand dans \cite{BoutetdeMonvel1975} et qui donne le développement asymptotique d'une composition de deux opérateurs associés à la phase $t\psi$.
+On redonne maintenant un calcul réalisé par Boutet et Sjöstrand dans
+\cite{BoutetdeMonvel1975} et qui donne le développement asymptotique
+d'une composition de deux opérateurs associés à la phase $t\psi$. De
+cette formule, ils déduisent le premier terme du symbole du projecteur
+de Szeg\H{o}.
 
 Soient $q_1$ et $q_2$ deux symboles, et $Q_1$ et $Q_2$ les opérateurs correspondants. Alors $Q_1\circ Q_2$ a pour noyau
 \begin{equation*}
-  \iiint e^{it\psi(x,w)+is\psi(w,y)}q_1(x,w,t)q_2(w,y,s)dtdwds
+  \iiint e^{it\psi(x,w)+is\psi(w,y)}q_1(x,w,t)q_2(w,y,s)\dd t\dd w\dd s
 \end{equation*}
 On va intégrer par rapport à $t$ en dernier. Par le changement de variable $s=t\sigma$ on se ramène à l'étude de l'intégrale :
 \begin{equation*}
-  \iint e^{it(\psi(x,w)+\sigma \psi(w,y))}q_1(x,w,t)q_2(w,y,t\sigma)tdwd\sigma
+  \iint e^{it(\psi(x,w)+\sigma
+    \psi(w,y))}q_1(x,w,t)q_2(w,y,t\sigma)t\dd w\dd\sigma
 \end{equation*}
 On pose à cet effet :
 \begin{equation*}
@@ -510,7 +539,8 @@ où $A$ est la matrice de $L_X$ dans la base en question.
 Le déterminant de cette matrice est donc exactement $\|\dd\rho\|^{n+1}\frac{\det L_X}{16}$. De cela on peut déduire le développement asymptotique complet de l'intégrale lorsque $t$ est grand, par le théorème de phase stationnaire. On ne peut pas l'appliquer directement, car les symboles dépendent de $t$, mais si les symboles sont classiques, avec $q_1 \sim \sum q_{1,j}$ et $q_2 \sim  \sum q_{2,j}$, alors on peut tronquer à tout ordre. En extrayant le terme de degré $0$, on obtient l'équation suivante, avec des opérateurs différentiels $(A_k)_{k >0}$ d'ordre au plus $2k$ tels que, sur la diagonale :
 
 \begin{multline*}
-  \iint e^{it(\psi(x,w)+\sigma \psi(w,x))}q_1(x,w,t)q_2(w,x,t\sigma)tdwd\sigma \\= t^{1-n}\cfrac{4\pi^n}{\|\dd\rho\|^{\frac{n+1}{2}}(x)\sqrt{\vphantom{\hat{A}}\det L_X}}\left[\sum_{j=0}^{N}\sum_{j'=0}^{N} q_{1,j}(x,x)t^{m-j}q_{2,j'}(x,x)t^{m'-j'}\right. \\+ \left.\sum_{k=1}^{N}t^{-k}A_k\left(\sum_{j=0}^{N-k}\sum_{j'=0}^{N-k} q_{1,j}(x,\cdot)t^{m-j}q_{2,j'}(\cdot,x)(\cdot t^{m'-j'})\right)(x,1)\right] + O(t^{m+m'+1-n-N})
+  \iint e^{it(\psi(x,w)+\sigma
+    \psi(w,x))}q_1(x,w,t)q_2(w,x,t\sigma)t\dd w\dd\sigma \\= t^{1-n}\cfrac{4\pi^n}{\|\dd\rho\|^{\frac{n+1}{2}}(x)\sqrt{\vphantom{\hat{A}}\det L_X}}\left[\sum_{j=0}^{N}\sum_{j'=0}^{N} q_{1,j}(x,x)t^{m-j}q_{2,j'}(x,x)t^{m'-j'}\right. \\+ \left.\sum_{k=1}^{N}t^{-k}A_k\left(\sum_{j=0}^{N-k}\sum_{j'=0}^{N-k} q_{1,j}(x,\cdot)t^{m-j}q_{2,j'}(\cdot,x)(\cdot t^{m'-j'})\right)(x,1)\right] + O(t^{m+m'+1-n-N})
 \end{multline*}
 En effet, le fait de dériver $2j$ fois un symbole par rapport à $\sigma t$ fait gagner $2j$ facteurs $t$ mais améliore le comportement du symbole en l'infini du même ordre.
 
@@ -533,16 +563,17 @@ Essayons alors de réaliser un projecteur parmi $I(X\times X,\C)$, d'ordre $m$ d
   s_0(x,x)t^m = \Xi(x)s_0(x,x)^2t^{1-n+2m}.
 \end{equation*}
 Ceci implique, d'une part, $m=n-1$, et d'autre part, sur la diagonale,
-
 \begin{equation*}
   s_0(x,x) = \cfrac{\|\dd\rho\|^{\frac{n+1}{2}}(x)\sqrt{\vphantom{\hat{A}}\det L_X}}{4\pi^n} \text{ ou } 0.
 \end{equation*}
-Cependant on sait que $s_0$ peut aussi être retrouvée, de manière beaucoup plus compliquée, par les constructions de cette partie, en partant du symbole de $RR^*$ qui, lui, est non nul sur la diagonale. Ceci implique que $s_0$ est lui-même non-nul sur la diagonale.
+Cependant on sait que $s_0$ peut aussi être retrouvée, de manière
+beaucoup plus compliquée, par les constructions précédentes, en
+partant du symbole de $RR^*$ qui, lui, est non nul sur la
+diagonale. Ceci implique que $s_0$ est lui-même non nul sur la diagonale.
 
-Il n'y a en fait pas besoin des termes suivants de ce développement pour retrouver le projecteur de Szego. Notre symbole $s_0$, qui vérifie $s_0 = s_0^*$ et à qui on impose sans restriction $\db s_0=0$, est le premier terme du développement de $s$, le symbole du projecteur de Szego. Or $s_0^{\#2}=s_0+r$, où $r$ est un symbole qui donne naissance à un opérateur d'ordre $-1$. On a alors $r=r^*$ et $\db r=0$. Essayons de trouver $s=s_0+(1-2s_0)E(r)$ tel que $s\#s=s$. On a alors (puisque $r$ commute avec $s_0$) :
-
+Il n'y a en fait pas besoin des termes suivants de ce développement pour retrouver le projecteur de Szeg\H{o}. Notre symbole $s_0$, qui vérifie $s_0 = s_0^*$, est le premier terme du développement de $s$, le symbole du projecteur de Szego. Or $s_0^{\#2}=s_0+r$, où $r$ est un symbole qui donne naissance à un opérateur d'ordre $-1$. On a alors $r=r^*$ et $\db r=0$. Essayons de trouver $s=s_0+(1-2s_0)E(r)$ tel que $s\#s=s$. On a alors (puisque $r$ commute avec $s_0$) :
 \begin{equation*}
   r-E(r)(4r+1)+(1 + 4r)E(r)^{\#2}= 0
 \end{equation*}
 
-On peut alors trouver une série formelle en $r$ qui résoud cette équation à tout ordre. À cette série formelle est associée une réalisation, puisque $r$ donne naissance à un opérateur d'ordre $-1$. Par cette méthode on peut construire $S$ approximativement à tous les ordres, mais d'une part on ne peut pas réaliser $S$ à un noyau $C^{\infty}$ près, et d'autre part cette méthode \emph{ex nihilo} ne permet pas de démontrer que $\db S=0$ mais seulement $\db S \sim 0$.
+On peut alors trouver une série formelle en $r$ qui résout cette équation à tout ordre. À cette série formelle est associée une réalisation, puisque $r$ donne naissance à un opérateur d'ordre $-1$. Par cette méthode on peut construire $S$ approximativement à tous les ordres, mais d'une part on ne peut pas réaliser $S$ à un noyau $C^{\infty}$ près, et d'autre part cette méthode \emph{ex nihilo} ne permet pas de démontrer que $\db S=0$ mais seulement $\db S \sim 0$.

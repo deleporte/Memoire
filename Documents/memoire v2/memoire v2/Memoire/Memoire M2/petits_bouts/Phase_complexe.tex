@@ -1,4 +1,8 @@
+%%% Local Variables:
+%%% TeX-master: ../provisoire
+%%% End:
 \section{Opérateurs Intégraux de Fourier à phase complexe}
+\subsection{Définitions}
 Dans cette section, on va développer la théorie des OIF à phase complexe, de manière très similaire aux OIF à phase réelle. Ceci est permis par la construction qu'on a réalisée en passant par les idéaux lagrangiens. De nombreuses constructions données ici ne seront que des reprises des constructions de la section précédente.
 
 On commence par définir une phase positive non dégénérée :
@@ -23,10 +27,10 @@ n'est plus une variété lagrangienne parce qu'il y a "trop d'équations". Pour 
 \subsection{Idéaux lagrangiens positifs}
 On peut répéter les arguments précédents en faisant attention à la positivité. On définit premièrement un idéal lagrangien complexe de la manière suivante :
 
-\begin{defn}Soit $S$ une variété symplectique de dimension $N$. Un idéal $J \subset C^{\infty}(S,\C)$ est dit \emph{lagrangien} lorsque :
+\begin{defn}Soit $S$ une variété symplectique de dimension $2n$. Un idéal $J \subset C^{\infty}(S,\C)$ est dit \emph{lagrangien} lorsque :
 	\begin{itemize}
 		\item $\{J,J\}\subset J$.
-		\item Localement, il existe $N$ générateurs de $J$, dont les différentielles sont $\C$-linéairement indépendantes sur $J$.
+		\item Localement, il existe $n$ générateurs de $J$, dont les différentielles sont $\C$-linéairement indépendantes sur $J$.
 		\item Si une fonction $u$ vérifie que pour toute fonction $f \in C^{\infty}_c(S,\C)$, on a $fu \in J$, alors $u \in J$.
 	\end{itemize}
 	Si les générateurs peuvent être choisis invariants par rapport à une action de $\R^+$ sur $S$, on dit que l'idéal lagrangien est conique.
@@ -53,4 +57,8 @@ On dispose comme dans le cas réel d'un modèle local universel pour ces idéaux
 
 On peut alors généraliser les énoncés du théorème de changement de phase et du théorème de composition.
 
-En particulier, remarquons que l'adjoint d'un opérateur associé à la phase $\fii$ (d'idéal $J$) est un opérateur associé à la phase $-\overline{\fii}$. En échangeant les places de $x$ et $y$ dans la définition, $-\overline{\fii}$ engendre un idéal qu'on notera $J^*$. La notion de projecteur orthogonal pour un OIF n'a donc de sens que si $J=J^*=J\circ J$.
+En particulier, remarquons que l'adjoint d'un opérateur associé à la
+phase $\fii$ (d'idéal $J$) est un opérateur associé à la phase
+$-\overline{\fii}$. En échangeant les places de $x$ et $y$ dans la
+définition, $-\overline{\fii}$ engendre un idéal qu'on notera
+$J^*$. En particulier, se demander si un OIF est un projecteur orthogonal n'a donc de sens que si $J=J^*=J\circ J$.

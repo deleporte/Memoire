@@ -1,3 +1,6 @@
+%%% Local Variables:
+%%% TeX-master: ../provisoire
+%%% End:
 \chapter{Opérateurs Intégraux de Fourier}
 
 \section{Intégrales à phases}
@@ -22,7 +25,7 @@ $k$ des entiers naturels. Soit $\fii \in C^{k+1}(X)$
 telle que $\Im \fii \geq 0$. Alors il existe une constante $C$, telle que
 pour tout $t>0$ et $u \in C^k_0(K)$ :
 \begin{multline*}
-  t^{j+k}\left|\int e^{it\fii(x)}u(x)(\Im \fii(x))^j dx\right| \\\leq C
+  t^{j+k}\left|\int e^{it\fii(x)}u(x)(\Im \fii(x))^j \dd x\right| \\\leq C
     \sum_{|\alpha| \leq k} \underset{K}{\sup}\left[|D^{\alpha}u|\,\left(|\fii'|^2 + \Im \fii\right)^{|\alpha|/2-k}\right]
 \end{multline*}
 
@@ -40,7 +43,7 @@ On suit ici la preuve de Hörmander, exposée dans \cite{hormander2003analysis}.
   
   Lorsque $k=0$, l'inégalité à démontrer devient :
 \begin{equation*}
-  \left|\int_K u(x)t^{j}(\Im \fii(x))^j e^{it\fii(x)}dx\right| \stackrel{?}{\leq} 
+  \left|\int_K u(x)t^{j}(\Im \fii(x))^j e^{it\fii(x)}\dd x\right| \stackrel{?}{\leq} 
     C(\fii) \sup |u|.
 \end{equation*}
 \noindent Or la fonction $t \mapsto t^je^{-t}$ est bornée sur $\R^+$, donc en fait $C$ ne dépend même pas de $\fii$.
@@ -87,10 +90,10 @@ Commençons par traiter le cas $j=0$. On a alors, par l'hypothèse de récurrenc
 
 En remplaçant $u_0$ et $u_{\nu}$ par leur valeur, il ne reste plus qu'à montrer que les puissances se compensent, c'est-à-dire, pour tout $l$ :
 \begin{equation*}
-  \sqrt{N}|u_{\nu}|_l + \sqrt{N}|u_0|_l \stackrel{?}{\leq} C \sum_{|\alpha| \leq l}|D^{\alpha}u|N^{(\alpha|-l)/2}.
+  \sqrt{N}|u_{\nu}|_l + \sqrt{N}|u_0|_l \stackrel{?}{\leq} C \sum_{|\alpha| \leq l}|D^{\alpha}u|N^{(|\alpha|-l)/2}.
 \end{equation*}
 
-Raisonnons par récurrence sur $l$. Pour $l=0$, d'abord, on a  $\sqrt{N} |u/N \partial_{\nu}\fii| + N |u/N| \leq (\sqrt{N}+1)|u|$. Pour $l$ non nul, si $|\alpha|=l$, alors en appliquant $\partial^{\alpha}$ à l'équation $Nu_{\nu}=u \partial_{\nu}\overline{\fii}$, et en contrôlant toutes les dérivées d'ordre plus grand que $2$ de $N$ et de $\fii$ par des constantes (qui ne dépendent que de $\|fii\|_{W^{l,\infty}(X)}$), on a :
+Raisonnons par récurrence sur $l$. Pour $l=0$, d'abord, on a  $\sqrt{N} |u/N \partial_{\nu}\fii| + N |u/N| \leq (\sqrt{N}+1)|u|$. Pour $l$ non nul, si $|\alpha|=l$, alors en appliquant $\partial^{\alpha}$ à l'équation $Nu_{\nu}=u \partial_{\nu}\overline{\fii}$, et en contrôlant toutes les dérivées d'ordre plus grand que $2$ de $N$ et de $\fii$ par des constantes (qui ne dépendent que de $\|\fii\|_{W^{l,\infty}(X)}$), on a :
 \begin{equation*}
   N|u_{\nu}|_l \leq C\left(|N|_1|u_{\nu}|_{l-1} + \sum_{l'=0}^{l-2}|u_{\nu}|_{l'} + |u|_l|\fii|_1 + \sum_{l'=0}^{l-1}|u|_{l'}\right)
 \end{equation*}
@@ -130,14 +133,22 @@ Ceci conclut la preuve du lemme \ref{lem:phasenonstat}.
 
 \subsection{Le théorème de phase stationnaire}
 
-Nous nous penchons ici sur le comportement des intégrales oscillantes, mais cette fois-ci, au voisinage des points $x_0$ qui vérifient $N=0$, donc $\Im \fii(x_0) = 0$ et $d\fii(x_0)=0$. On appelle \emph{point critique} un tel point $x_0$. On suppose toujours ici que $\fii$ est \emph{positive}, c'est-à-dire vérifie $\Im \fii \geq 0$, et que tous les points critiques de $\fii$ sont \emph{non-dégénérés}, et on entend par là que $\Hess \fii$ est inversible.
+Nous nous penchons ici sur le comportement des intégrales oscillantes,
+mais cette fois-ci, au voisinage des points $x_0$ qui vérifient $N=0$,
+donc $\Im \fii(x_0) = 0$ et $\dd\fii(x_0)=0$. On appelle \emph{point
+  critique} un tel point $x_0$. On suppose toujours ici que $\fii$ est
+\emph{positive}, c'est-à-dire vérifie $\Im \fii \geq 0$, et que tous
+les points critiques de $\fii$ sont \emph{non-dégénérés}, et on entend
+par là que $\Hess \fii$ est inversible en ces points.
 L'ensemble des points critiques est alors discret (et son intersection avec $K$ est finie), ce qui permet de raisonner par partition de l'unité.
 
 Remarquons que les deux conditions de positivité et de non dégénérescence impliquent que  $Sp(i\Hess\fii(x_0)) \subset \{z \in \C, \Re z \leq 0\}$. Sur ce demi-plan, il existe une racine carrée. On choisit celle qui est à valeurs dans $\Im \lambda \geq 0$, ce qui assure un sens univoque à l'écriture $\sqrt{\det i\Hess \fii (0)}$.
 
  On peut alors énoncer le 
-\begin{theorem}[de phase stationnaire]\label{th:phasestat}Soit $\fii \in C^{2j+1}(\Vois(K))$ telle que a $0$ pour seul point critique dans le compact $K \subset \R^n$.
-Il existe alors une famille $(C_l)_{0 \leq l \leq j}$, d'opérateurs différentiels de degré au plus $2l$, tels que, pour toute fonction $u\in C_c^{2j+1}(K)$, uniformément en $t$, on ait :
+\begin{theorem}[de phase stationnaire]\label{th:phasestat}Soit $\fii
+  \in C^{2j+1}(\Vois(K))$ telle que $\fii$ a $0$ pour seul point critique dans le compact $K \subset \R^n$.
+Il existe alors une famille $(C_l)_{0 \leq l \leq j}$, d'opérateurs
+différentiels, chacun de degré au plus $2l$, tels que, pour toute fonction $u\in C_c^{2j+1}(K)$, uniformément en $t$, on ait :
 \begin{equation*}
   \int_Ke^{it\fii}u = t^{-n/2}\sum_{l=0}^{j}t^{-l}C_lu(0) + O\left(t^{-(n+1)/2-j}\|u\|_{W^{2j+n,\infty}}\right).
 \end{equation*}
@@ -161,7 +172,8 @@ Soit maintenant $u\in C_c^{2j+1}(K)$. On dispose, sur tout $\R^n$, de l'inégali
 
 \noindent où chaque $U_k$ est $k$-multilinéaire. On peut alors faire le changement de variable $y = x/\sqrt{t}$, et remplacer $u$ par le développement précédent. Par parité, les $U_k$ pour $k$ impairs ne vont pas contribuer à l'intégrale. Ainsi,
 \begin{multline*}
-  \int_{\R^n}e^{it\fii}u = t^{-n/2}\sum_{l=0}^{j}t^{-l}\int e^{-q(y,y)}U_{2l}(y)dy \\+ O\left(t^{-(n+1)/2-j}\sup |u|_{2j+1}\right).
+  \int_{\R^n}e^{it\fii}u = t^{-n/2}\sum_{l=0}^{j}t^{-l}\int
+  e^{-q(y,y)}U_{2l}(y)\dd y \\+ O\left(t^{-(n+1)/2-j}\sup |u|_{2j+1}\right).
 \end{multline*}
 
 Les $U_{2l}$ ne dépendent que des dérivées d'ordre $2l$ de $u$ en $0$, donc on a bien la forme demandée. Toutefois, on va établir explicitement quels sont les opérateurs différentiels qui entrent en jeu.
@@ -183,7 +195,7 @@ Seuls les $\alpha$ dont tous les coefficients sont pairs vont contribuer à l'in
 On va synthétiser ce développement à l'aide de deux notations. On note $P_l$ le projecteur qui à une fonction de classe $C^{\infty}$ associe les termes d'ordre $l$ de son développement de Taylor, on a donc $U_{2l}=P_{2l}u$. Par ailleurs, si $Q= \sum Q_{\alpha}X^{\alpha}$ est un polynôme, on note $Q(D)$ l'opérateur différentiel $\sum Q_{\alpha}(i\partial)^\alpha$, et alors on a :
 \begin{equation}
 \label{eq:phasequad}
-  \int e^{-q(y,y)}U_{2l}(y)dy =\cfrac{\pi^{n/2}}{\sqrt{\det \Hess u(0)}}\,P_j\left(e^{-\frac{1}{2}q^{-1}(D,D)}\right)u(0)
+  \int e^{-q(y,y)}U_{2l}(y)dy =\cfrac{\pi^{n/2}}{\sqrt{\det \Hess q(0)}}\,P_j\left(e^{-\frac{1}{2}q^{-1}(D,D)}\right)u(0)
   \end{equation}
 
 \noindent Nous avons donc une expression explicite de $C_l$. On constate qu'ici, les $C_l$ ne font intervenir que des dérivées d'ordre exactement $l$.
@@ -209,7 +221,8 @@ est un contre-exemple à la proposition :
 
 On considère donc $\fii(x)=q(x,x)$ une phase réelle, avec $\det \fii \neq 0$. La première étape consiste à calculer la transformée de Fourier de la fonction $x\mapsto e^{itq(x,x)}$. Pour cela on se ramène, par un changement de variables orthogonal, au cas où $q$ est diagonale ; on peut alors séparer les variables. Il n'y a plus qu'à reporter le résultat bien connu :
 \begin{equation*}
-  \mathcal{F}\left(x\mapsto e^{i\frac{x^2}{2}}\right) : \cfrac{\sqrt{\pi}}{\sqrt{i}}\xi \mapsto e^{i\frac{\xi^2}{2}}
+  \mathcal{F}\left(x\mapsto e^{i\frac{x^2}{2}}\right) : \xi \mapsto
+  \cfrac{\sqrt{\pi}}{\sqrt{i}} e^{i\frac{\xi^2}{2}}
 \end{equation*}
 \noindent Et on obtient alors :
 \begin{equation*}
@@ -400,9 +413,9 @@ Finalement on peut conclure :
 	C_2 &= \sqrt{\cfrac{\pi}{2i}}\left(\cfrac{1}{32}\partial^4 - \cfrac{1}{64}\partial^3 - \cfrac{1}{256}\partial^2 + \cfrac{21}{64}\partial - \cfrac{2415}{512}\right)
 \end{align*}
 \subsection{Classes d'intégrales à phases}
-Soit $X$ un ouvert de $\R^n$ et $\Gamma$ un cône ouvert de $X \times (\R^d \setminus \{0\})$, on veut étudier des \emph{intégrales à phase} sur $\Gamma$. Pour cela on introduit les définitions suivante :
+Soit $X$ un ouvert de $\R^n$ et $\Gamma$ un cône ouvert de $X \times (\R^d \setminus \{0\})$, on veut étudier des \emph{intégrales à phase} sur $\Gamma$. Pour cela on introduit les définitions suivantes :
 
-\begin{defn}Une fonction $\fii \in C^{\infty}(\Gamma)$ est appelée \emph{phase} lorsqu'elle vérifie les conditions suivantes :
+\begin{defn}\label{def:phase}Une fonction $\fii \in C^{\infty}(\Gamma)$ est appelée \emph{phase} lorsqu'elle vérifie les conditions suivantes :
 \begin{enumerate}
   \item $\fii$ est 1-homogène par rapport à la seconde variable;
   \item Sur $\Gamma$, on a $\Im \fii \geq 0$;
@@ -419,8 +432,8 @@ Ce sous-ensemble forme bien un espace vectoriel, et les constantes optimales dan
 
 On notera $S^m(\Gamma)=S^m_{1,0}(\Gamma)$, et encore
 \begin{align*}
-  S_{\rho,\delta}^{+\infty}=\bigcup_{m \in \Z}S^m{\rho,\delta}\\
-  S_{\rho,\delta}^{-\infty}=\bigcap_{m \in \Z}S^m{\rho,\delta}.
+  S_{\rho,\delta}^{+\infty}=\bigcup_{m \in \Z}S^m_{\rho,\delta}\\
+  S_{\rho,\delta}^{-\infty}=\bigcap_{m \in \Z}S^m_{\rho,\delta}.
 \end{align*}
 \end{defn}
 Les symboles sont donc des fonctions dont le comportement en l'infini en fonction de $\theta$ ressemble à celui des fractions rationnelles. Les espaces $S^m_{\rho,\delta}$ sont croissants avec $m$ et $\delta$ et décroissants avec $\rho$.
